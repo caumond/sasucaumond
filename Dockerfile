@@ -7,5 +7,5 @@ COPY . /usr/src/app
 WORKDIR /usr/src/app
 
 RUN lein with-profile prod uberjar
-CMD java -DPORT=8080 -jar /usr/src/app/target/ref-tst.jar
+CMD java -DPORT=8080 -jar /usr/src/app/target/kotws-0.1.0-SNAPSHOT-standalone.jar
 # CMD lein dev
