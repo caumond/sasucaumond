@@ -1,36 +1,43 @@
-# kotws
+# caumond-resume
+A [re-frame](https://github.com/day8/re-frame) application designed to store my resume.
 
-A [re-frame](https://github.com/day8/re-frame) application designed to ... well, that part is up to
-you.
+## Goal
+
+This website shows some of my abilities in development, to demonstrate a minimum level I have. Since I'm not the best at frontend, it may be improved. It shows how much eager I am to learn re-frame just to publish my resume !
 
 ## Getting Started
+### Local installation
+After having copied a local copy of the repository on your computer, go to the directory and launch:
+```
+lein dev
+```
+This is building the application and launch it on the port number set in the `shadow-cljs/builds/devtools/http-port` variable, usually 8280.
 
-### Project Overview
+Then, any modification in the cljs, or html code will be automagically sent to local web server.
 
-* Architecture:
-[Single Page Application (SPA)](https://en.wikipedia.org/wiki/Single-page_application)
-* Languages
-  - Front end ([re-frame](https://github.com/day8/re-frame)): [ClojureScript](https://clojurescript.org/) (CLJS)
-* Dependencies
-  - UI framework: [re-frame](https://github.com/day8/re-frame)
-  ([docs](https://github.com/day8/re-frame/blob/master/docs/README.md),
-  [FAQs](https://github.com/day8/re-frame/blob/master/docs/FAQs/README.md)) ->
-  [Reagent](https://github.com/reagent-project/reagent) ->
-  [React](https://github.com/facebook/react)
-* Build tools
-  - Project task & dependency management: [Leiningen](https://github.com/technomancy/leiningen)
-  - CLJS compilation, REPL, & hot reload: [`shadow-cljs`](https://github.com/thheller/shadow-cljs)
-* Development tools
-  - Debugging: [CLJS DevTools](https://github.com/binaryage/cljs-devtools)
+```
+lein less auto
+```
+is allowing you to modify less files in the src/less directory, which will be automatically compiled to css, then sent to the server.
+
+### Distant installation
+First, you need to commit modifications as explained in the "modification" directory.
+
+Then,
+```
+git push clever
+```
 
 #### Directory structure
 
-* [`/`](/../../): project config files
+* [`/`](.): project config files
 * [`dev/`](dev/): source files compiled only with the [dev](#running-the-app) profile
   - [`cljs/user.cljs`](dev/cljs/user.cljs): symbols for use during development in the
 [ClojureScript REPL](#connecting-to-the-browser-repl-from-a-terminal)
 * [`resources/public/`](resources/public/): SPA root directory;
 [dev](#running-the-app) / [prod](#production) profile depends on the most recent build
+  - [`vendor/`](resources/public/vendor/): UI component CSS, fonts, and images
+  ([re-com](https://github.com/day8/re-com))
   - [`index.html`](resources/public/index.html): SPA home page
     - Dynamic SPA content rendered in the following `div`:
         ```html
@@ -42,9 +49,14 @@ you.
     - Deleted on `lein clean` (run by all `lein` aliases before building)
     - `js/compiled/`: compiled CLJS (`shadow-cljs`)
       - Not tracked in source control; see [`.gitignore`](.gitignore)
+* [`src/clj/kotws/`](src/clj/kotws/): Backend and middleware source files (Clojure,
+[Compojure](https://github.com/weavejester/compojure))
 * [`src/cljs/kotws/`](src/cljs/kotws/): SPA source files (ClojureScript,
 [re-frame](https://github.com/Day8/re-frame))
   - [`core.cljs`](src/cljs/kotws/core.cljs): contains the SPA entry point, `init`
+* [`test/cljs/kotws/`](test/cljs/kotws/): test files (ClojureScript,
+[cljs.test](https://clojurescript.org/tools/testing))
+  - Only namespaces ending in `-test` (files `*_test.cljs`) are compiled and sent to the test runner
 
 ### Editor/IDE
 
@@ -58,6 +70,18 @@ Use your preferred editor or IDE that supports Clojure/ClojureScript development
 dependency management)
 3. Install [Node.js](https://nodejs.org/) (JavaScript runtime environment) which should include
    [NPM](https://docs.npmjs.com/cli/npm) or if your Node.js installation does not include NPM also install it.
+4. Install [karma-cli](https://www.npmjs.com/package/karma-cli) (test runner):
+    ```sh
+    npm install -g karma-cli
+    ```
+5. Install [Chrome](https://www.google.com/chrome/) or
+[Chromium](https://www.chromium.org/getting-involved/download-chromium) version 59 or later
+(headless test environment)
+    * For Chromium, set the `CHROME_BIN` environment variable in your shell to the command that
+    launches Chromium. For example, in Ubuntu, add the following line to your `.bashrc`:
+        ```bash
+        export CHROME_BIN=chromium-browser
+       ```
 7. Clone this repo and open a terminal in the `kotws` project root directory
 8. (Optional) Download project dependencies:
     ```sh
@@ -119,7 +143,19 @@ Opening the app in your browser starts a
 [ClojureScript browser REPL](https://clojurescript.org/reference/repl#using-the-browser-as-an-evaluation-environment),
 to which you may now connect.
 
-#### Connecting to the browser REPL from your editor
+#### Connecting to the browser REPL from Emacs with CIDER
+
+Connect to the browser REPL:
+```
+M-x cider-jack-in-cljs
+```
+
+See
+[Shadow CLJS User's Guide: Emacs/CIDER](https://shadow-cljs.github.io/docs/UsersGuide.html#cider)
+for more information. Note that the mentioned [`.dir-locals.el`](.dir-locals.el) file has already
+been created for you.
+
+#### Connecting to the browser REPL from other editors
 
 See
 [Shadow CLJS User's Guide: Editor Integration](https://shadow-cljs.github.io/docs/UsersGuide.html#_editor_integration).
@@ -151,6 +187,17 @@ For example, in Vim / Neovim with `fireplace.vim`
     The REPL prompt changes to `cljs.user=>`, indicating that this is now a ClojureScript REPL.
 3. See [`user.cljs`](dev/cljs/user.cljs) for symbols that are immediately accessible in the REPL
 without needing to `require`.
+
+### Running Tests
+
+Build the app with the `prod` profile, start a temporary local web server, launch headless
+Chrome/Chromium, run tests, and stop the web server:
+
+```sh
+lein karma
+```
+
+Please be patient; it may take over 15 seconds to see any output, and over 25 seconds to complete.
 
 ### Running `shadow-cljs` Actions
 
@@ -187,18 +234,35 @@ Use `debug?` for logging or other tasks that should run only on `dev` builds:
 Build the app with the `prod` profile:
 
 ```sh
-lein prod
+lein with-profile prod uberjar
 ```
 
-Please be patient; it may take over 15 seconds to see any output, and over 30 seconds to complete.
+Please be patient; it may take a few seconds to see any output, and over 50 seconds to complete.
 
 The `resources/public/js/compiled` directory is created, containing the compiled `app.js` and
-`manifest.edn` files.
+`manifest.edn` files. The `target/` directory is then created, containing the
+standalone `kotws.jar`.
 
-The [`resources/public`](resources/public/) directory contains the complete, production web front
-end of your app.
+### Running the Server
 
-Always inspect the `resources/public/js/compiled` directory prior to deploying the app. Running any
-`lein` alias in this project after `lein dev` will, at the very least, run `lein clean`, which
-deletes this generated directory. Further, running `lein dev` will generate many, much larger
-development versions of the files in this directory.
+[Run the jar](https://github.com/ring-clojure/ring/wiki/Setup-for-production#run-the-server),
+setting the port the Ring server will use by setting the environment variable, `port`.
+
+```sh
+port=2000 java -jar target/kotws.jar
+```
+
+If `port` is not set, the server will run on port 3000 by default.
+
+### Deploying to Heroku
+
+1. [Create a Heroku app](https://devcenter.heroku.com/articles/creating-apps):
+    ```sh
+    heroku create
+    ```
+
+2. [Deploy the app code](https://devcenter.heroku.com/articles/git#deploying-code):
+
+    ```sh
+    git push heroku master
+    ```

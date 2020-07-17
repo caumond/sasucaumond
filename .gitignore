@@ -3,6 +3,7 @@
 /target/
 /*-init.clj
 /*.log
+.DS_Store
 
 # Leiningen
 /.lein-*
@@ -14,3 +15,8 @@
 # shadow-cljs cache, port files
 /shadow-cljs.edn
 /.shadow-cljs/
+
+.clj-kondo/.cache/
+
+.calva
+/resources/~$Resume.docx

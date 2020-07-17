@@ -1,24 +1,34 @@
 (ns kotws.core
   (:require
    [reagent.dom :as rdom]
-   [re-frame.core :as re-frame]
+   [re-frame.core :as rf]
    [kotws.events :as events]
+   [kotws.routes :as routes]
    [kotws.views :as views]
    [kotws.config :as config]
+   [breaking-point.core :as bp]
    ))
-
 
 (defn dev-setup []
   (when config/debug?
     (println "dev mode")))
 
 (defn ^:dev/after-load mount-root []
-  (re-frame/clear-subscription-cache!)
-  (let [root-el (.getElementById js/document "app")]
-    (rdom/unmount-component-at-node root-el)
-    (rdom/render [views/main-panel] root-el)))
+  (rf/clear-subscription-cache!)
+  (let [app-el (.getElementById js/document "app")]
+    (rdom/unmount-component-at-node app-el)
+    (rdom/render [views/panel] app-el)
+    ))
 
 (defn init []
-  (re-frame/dispatch-sync [::events/initialize-db])
+  (routes/app-routes)
+  (rf/dispatch-sync [::events/initialize-db])
+  (rf/dispatch-sync [::bp/set-breakpoints
+                     { :breakpoints [ :small-screen
+                                     700
+                                     :large-screen]
+                      :debounce-ms 166
+                      }])
   (dev-setup)
-  (mount-root))
+  (mount-root)
+  )
