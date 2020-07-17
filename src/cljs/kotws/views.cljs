@@ -11,12 +11,12 @@
 (defn home-title []
   (let [name (re-frame/subscribe [::subs/name])]
     [re-com/title
-     :label (str "Hello from " @name ". This is the Home Page.")
+     :label (str "Hello from " @name ". This is the Home Page!!.")
      :level :level1]))
 
 (defn link-to-about-page []
   [re-com/hyperlink-href
-   :label "go to About Page"
+   :label "go to About Page--"
    :href "#/about"])
 
 (defn home-panel []
