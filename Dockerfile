@@ -1,4 +1,4 @@
-FROM caumond:alpine-reframe:latest
+FROM caumond/alpine-reframe:latest
 COPY . /usr/src/app
 WORKDIR /usr/src/app
 
