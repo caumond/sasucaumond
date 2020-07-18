@@ -44,8 +44,7 @@
     (re-frame/dispatch [::events/set-active-panel :about-panel]))
 
   (defroute "/blog-cc-clojure-panel" []
-    (re-frame/dispatch [::events/set-active-panel :about-panel]))
-
+    (re-frame/dispatch [::events/set-active-panel :blog-cc-clojure-panel]))
 
   ;; --------------------
   (hook-browser-navigation!))
