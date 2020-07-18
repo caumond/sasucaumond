@@ -24,23 +24,10 @@
      :label (str "Hello from " @name ". This is the Home Page!!")
      :level :level1]))
 
-(defn link-to-about-page []
-  [re-com/v-box
-   :gap "1em"
-   :children [
-              [re-com/hyperlink-href
-               :label "go to About Page"
-               :href "#/about"]
-              [re-com/hyperlink-href
-               :label "go to blog"
-               :href "#/blog-cc-clojure-panel"]]
-   ])
-
 (defn home-panel []
   [re-com/v-box
    :gap "1em"
    :children [[home-title]
-              [link-to-about-page]
               [display-re-pressed-example]
               ]])
 
