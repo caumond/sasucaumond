@@ -10,9 +10,11 @@
 
 (defn home-title []
   (let [name (re-frame/subscribe [::subs/name])]
-    [re-com/title
-     :label (str "Hello from " @name ". This is a marvelous Home Page!!.")
-     :level :level1]))
+    [:div 
+     [re-com/title
+      :label (str "Hello from " @name )
+      :level :level1]
+     [:p ".This is a marvelous Home Page!!."]]))
 
 (defn link-to-about-page []
   [re-com/hyperlink-href
