@@ -1,8 +1,4 @@
-FROM clojure:lein-alpine
-
-RUN apk --no-cache add --update git
-RUN apk --no-cache add --update nodejs npm
-
+FROM caumond:alpine-reframe
 COPY . /usr/src/app
 WORKDIR /usr/src/app
 
