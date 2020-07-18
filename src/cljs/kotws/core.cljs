@@ -7,8 +7,9 @@
    [kotws.routes :as routes]
    [kotws.views :as views]
    [kotws.config :as config]
+   [kotws.pages.footer :as footer]
+   [kotws.pages.header :as header]
    ))
-
 
 (defn dev-setup []
   (when config/debug?
@@ -16,9 +17,18 @@
 
 (defn ^:dev/after-load mount-root []
   (re-frame/clear-subscription-cache!)
-  (let [root-el (.getElementById js/document "app")]
+  (let [root-el (.getElementById js/document "app")
+        header-el (.getElementById js/document "header")
+        footer-el (.getElementById js/document "footer")]
     (rdom/unmount-component-at-node root-el)
-    (rdom/render [views/main-panel] root-el)))
+    (rdom/render [views/main-panel] root-el)
+
+    (rdom/unmount-component-at-node header-el)
+    (rdom/render [header/header] header-el)
+
+    (rdom/unmount-component-at-node footer-el)
+    (rdom/render [footer/footer] footer-el)
+    ))
 
 (defn init []
   (routes/app-routes)
