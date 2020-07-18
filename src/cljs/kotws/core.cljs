@@ -2,6 +2,7 @@
   (:require
    [reagent.dom :as rdom]
    [re-frame.core :as re-frame]
+   [re-pressed.core :as rp]
    [kotws.events :as events]
    [kotws.routes :as routes]
    [kotws.views :as views]
@@ -22,5 +23,6 @@
 (defn init []
   (routes/app-routes)
   (re-frame/dispatch-sync [::events/initialize-db])
+  (re-frame/dispatch-sync [::rp/add-keyboard-event-listener "keydown"])
   (dev-setup)
   (mount-root))

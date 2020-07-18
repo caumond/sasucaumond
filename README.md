@@ -12,7 +12,6 @@ you.
 * Languages
   - Front end ([re-frame](https://github.com/day8/re-frame)): [ClojureScript](https://clojurescript.org/) (CLJS)
   - Back end/middleware ([Compojure](https://github.com/weavejester/compojure)): [Clojure](https://clojure.org/)
-  - CSS compilation ([`lein-less`](https://github.com/montoux/lein-less)): [Less](http://lesscss.org/features/)
 * Dependencies
   - UI framework: [re-frame](https://github.com/day8/re-frame)
   ([docs](https://github.com/day8/re-frame/blob/master/docs/README.md),
@@ -25,15 +24,14 @@ you.
   ([Wiki](https://github.com/ring-clojure/ring/wiki), [API docs](http://ring-clojure.github.com/ring))
   - Client-side routing: [Secretary](https://github.com/gf3/secretary)
   - UI components: [re-com](https://github.com/day8/re-com)
+  - Keyboard event handler: [re-pressed](https://github.com/gadfly361/re-pressed)
 * Build tools
   - Project task & dependency management: [Leiningen](https://github.com/technomancy/leiningen)
   - CLJS compilation, REPL, & hot reload: [`shadow-cljs`](https://github.com/thheller/shadow-cljs)
-  - CSS compilation: [`lein-less`](https://github.com/montoux/lein-less)
   - Test framework: [cljs.test](https://clojurescript.org/tools/testing)
   - Test runner: [Karma](https://github.com/karma-runner/karma)
 * Development tools
-  - Debugging: [CLJS DevTools](https://github.com/binaryage/cljs-devtools),
-  [`re-frame-10x`](https://github.com/day8/re-frame-10x)
+  - Debugging: [CLJS DevTools](https://github.com/binaryage/cljs-devtools)
   - Emacs integration: [CIDER](https://github.com/clojure-emacs/cider)
 
 #### Directory structure
@@ -42,7 +40,6 @@ you.
 * [`dev/`](dev/): source files compiled only with the [dev](#running-the-app) profile
   - [`cljs/user.cljs`](dev/cljs/user.cljs): symbols for use during development in the
 [ClojureScript REPL](#connecting-to-the-browser-repl-from-a-terminal)
-* [`less/`](less/): CSS compilation source files ([Less](http://lesscss.org/features/))
 * [`resources/public/`](resources/public/): SPA root directory;
 [dev](#running-the-app) / [prod](#production) profile depends on the most recent build
   - [`vendor/`](resources/public/vendor/): UI component CSS, fonts, and images
@@ -56,8 +53,6 @@ you.
   - Generated directories and files
     - Created on build with either the [dev](#running-the-app) or [prod](#production) profile
     - Deleted on `lein clean` (run by all `lein` aliases before building)
-    - `css/`: compiled CSS (`lein-less`, can also be
-[compiled manually](#compiling-css-with-lein-less))
     - `js/compiled/`: compiled CLJS (`shadow-cljs`)
       - Not tracked in source control; see [`.gitignore`](.gitignore)
 * [`src/clj/kotws/`](src/clj/kotws/): Backend and middleware source files (Clojure,
@@ -209,26 +204,6 @@ lein karma
 ```
 
 Please be patient; it may take over 15 seconds to see any output, and over 25 seconds to complete.
-
-### Compiling CSS with `lein-less`
-
-Use [Less](http://lesscss.org/features/) to edit styles in `.less` files located in the
-[`less/`](less/) directory. CSS files are compiled automatically on [`dev`](#running-the-app)
-or [`prod`](#production) build.
-
-Manually compile CSS files:
-```sh
-lein less once
-```
-
-The `resources/public/css/` directory is created, containing the compiled CSS files.
-
-#### Compiling CSS with `lein-less` on change
-
-Enable automatic compiling of CSS files when source `.less` files are changed:
-```sh
-lein less auto
-```
 
 ### Running `shadow-cljs` Actions
 
