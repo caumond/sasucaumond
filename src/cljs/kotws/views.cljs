@@ -29,9 +29,16 @@
      :level :level1]))
 
 (defn link-to-about-page []
-  [re-com/hyperlink-href
-   :label "go to About Page"
-   :href "#/about"])
+  [re-com/v-box
+   :gap "1em"
+   :children [
+              [re-com/hyperlink-href
+               :label "go to About Page"
+               :href "#/about"]
+              [re-com/hyperlink-href
+               :label "go to blog"
+               :href "#/blog-cc-clojure-panel"]]
+   ])
 
 (defn home-panel []
   [re-com/v-box
@@ -43,7 +50,10 @@
 
 ;; blog-1
 (defn blog-cc-clojure-panel []
-  [re-com/p "lein new re-frame kotws --force +10x +cider +handler +re-com +re-pressed +routes +test"])
+  [re-com/v-box
+   :gap "1em"
+   :children [[re-com/p "lein new re-frame kotws --force +10x +cider +handler +re-com +re-pressed +routes +test"]
+              ]])
 
 ;; about
 
