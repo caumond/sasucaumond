@@ -11,11 +11,11 @@
                  [re-com "2.8.0"]
                  [clj-commons/secretary "1.2.4"]
                  [compojure "1.6.1"]
+                 [cljs-time "0.1.0-SNAPSHOT"]
                  [yogthos/config "1.1.7"]
                  [ring "1.8.1"]]
 
   :plugins [[lein-shadow "0.2.0"]
-            
             [lein-less "1.7.5"]
             [lein-shell "0.5.0"]]
 
@@ -39,7 +39,7 @@
                              :linux   "xdg-open"}}}
 
   :shadow-cljs {:nrepl {:port 8777}
-                
+
                 :builds {:app {:target :browser
                                :output-dir "resources/public/js/compiled"
                                :asset-path "/js/compiled"
@@ -87,7 +87,7 @@
     :source-paths ["dev"]}
 
    :prod {}
-   
+
    :uberjar {:source-paths ["env/prod/clj"]
              :omit-source  true
              :main         kotws.server

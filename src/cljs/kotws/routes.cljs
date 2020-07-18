@@ -21,13 +21,12 @@
   (secretary/set-config! :prefix "#")
   ;; --------------------
   ;; define routes here
-  (defroute "/" []
+  (defroute home-link "/" []
     (re-frame/dispatch [::events/set-active-panel :home-panel])
     )
 
-  (defroute "/about" []
+  (defroute about-link "/about" []
     (re-frame/dispatch [::events/set-active-panel :about-panel]))
-
 
   ;; --------------------
   (hook-browser-navigation!))
