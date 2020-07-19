@@ -1,4 +1,4 @@
-(ns kotws.pages.about-panel
+(ns kotws.pages.about.panel
   (:require [re-com.core :as re-com]
             [kotws.multi-language :as ml]))
 
@@ -13,4 +13,5 @@
   [re-com/v-box
    :gap "1em"
    :children [[about-title]
+              [re-com/label :label (ml/get-msg :about-intro)]
               ]])

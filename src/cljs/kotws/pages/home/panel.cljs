@@ -1,6 +1,7 @@
-(ns kotws.pages.home-panel
+(ns kotws.pages.home.panel
   (:require [re-com.core :as re-com]
             [re-frame.core :as re-frame]
+            [kotws.multi-language :as ml]
             [kotws.subs :as subs]))
 
 ;; home
@@ -19,10 +20,9 @@
         :body rpe])]))
 
 (defn home-title []
-  (let [name (re-frame/subscribe [::subs/name])]
-    [re-com/title
-     :label (str "Hello from " @name ". This is the Home Page!!")
-     :level :level1]))
+  [re-com/title
+   :label (ml/get-msg :home-title)
+   :level :level1])
 
 (defn home-panel []
   [re-com/v-box

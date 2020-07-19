@@ -10,5 +10,9 @@
               [re-com/button :label [:img {:src "images/english.png" :id "flag"}]
                :on-click #(re-frame/dispatch [:change-language :en])]
               [re-com/hyperlink-href :label "Home" :href "#/"]
-              [re-com/hyperlink-href :label "Blog" :href "#/blog-cc-clojure-panel"]
-              [re-com/hyperlink-href :label "About" :href "#/about"]]])
+              [re-com/hyperlink-href :label "Blog" :href "#/blog-cc-clojure"]
+              [re-com/hyperlink-href :label "COI" :href "#/coi"]
+              [re-com/hyperlink-href :label "CV" :href "#/cv"]
+              [re-com/hyperlink-href :label "Biblio" :href "#/biblio"]
+              [re-com/hyperlink-href :label "About" :href "#/about"]
+              ]])

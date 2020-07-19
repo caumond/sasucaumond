@@ -25,26 +25,35 @@
   (defroute "/" []
     (re-frame/dispatch [::events/set-active-panel :home-panel])
     (re-frame/dispatch [::events/set-re-pressed-example nil])
-    (re-frame/dispatch
-     [::rp/set-keydown-rules
-      {:event-keys [[[::events/set-re-pressed-example "Hello, world!"]
-                     [{:keyCode 72} ;; h
-                      {:keyCode 69} ;; e
-                      {:keyCode 76} ;; l
-                      {:keyCode 76} ;; l
-                      {:keyCode 79} ;; o
-                      ]]]
-
-       :clear-keys
-       [[{:keyCode 27} ;; escape
-         ]]}])
+    (re-frame/dispatch [::rp/set-keydown-rules
+                        {:event-keys [[[::events/set-re-pressed-example "Hello, world!"]
+                                       [{:keyCode 72} ;; h
+                                        {:keyCode 69} ;; e
+                                        {:keyCode 76} ;; l
+                                        {:keyCode 76} ;; l
+                                        {:keyCode 79} ;; o
+                                        ]]]
+                         :clear-keys
+                         [[{:keyCode 27} ;; escape
+                           ]]}])
     )
 
   (defroute "/about" []
     (re-frame/dispatch [::events/set-active-panel :about-panel]))
 
-  (defroute "/blog-cc-clojure-panel" []
-    (re-frame/dispatch [::events/set-active-panel :blog-cc-clojure-panel]))
+  (defroute "/biblio" []
+    (re-frame/dispatch [::events/set-active-panel :biblio-panel]))
 
+  (defroute "/blog-cc-clojure" []
+    (re-frame/dispatch [::events/set-active-panel :blog-cc-clojure]))
+
+  (defroute "/coi" []
+    (re-frame/dispatch [::events/set-active-panel :coi]))
+
+  (defroute "/cv" []
+    (re-frame/dispatch [::events/set-active-panel :cv]))
+
+  (defroute "*" []
+    (re-frame/dispatch [::events/set-active-panel :unknown-route]))
   ;; --------------------
   (hook-browser-navigation!))

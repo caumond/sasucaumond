@@ -1,7 +1,6 @@
-(ns kotws.pages.blog-cc-clojure-panel
+(ns kotws.pages.blog.cc-clojure.panel
   (:require [re-com.core :as re-com]))
 
-;; blog-1
 (defn blog-cc-clojure-panel []
   [re-com/v-box
    :gap "1em"
