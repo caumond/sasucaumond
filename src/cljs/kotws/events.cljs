@@ -18,3 +18,8 @@
  ::set-re-pressed-example
  (fn [db [_ value]]
    (assoc db :re-pressed-example value)))
+
+(re-frame/reg-event-fx
+ :change-language
+ (fn [db [_ language]]
+   (assoc db :language language)))

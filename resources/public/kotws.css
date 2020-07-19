@@ -15,10 +15,15 @@ body{
 }
 
 #header {
-    border-bottom-style: dotted;
+    border-bottom-style: solid;
     width: 100%;
     min-height: 50px;
 }
+
+#flag {
+    height: 30px;
+}
+
 #app {
     flex: 1 0 auto;
     padding-left: 60px;

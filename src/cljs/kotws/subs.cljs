@@ -16,3 +16,8 @@
  ::re-pressed-example
  (fn [db _]
    (:re-pressed-example db)))
+
+(re-frame/reg-sub
+ ::change-language
+ (fn [db _]
+   (:language db)))

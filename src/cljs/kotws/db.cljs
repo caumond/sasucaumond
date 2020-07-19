@@ -1,4 +1,5 @@
 (ns kotws.db)
 
 (def default-db
-  {:name "re-frame"})
+  {:name "re-frame"
+   :language :en})
