@@ -19,7 +19,7 @@
  (fn [db [_ value]]
    (assoc db :re-pressed-example value)))
 
-(re-frame/reg-event-fx
+(re-frame/reg-event-db
  :change-language
  (fn [db [_ language]]
    (assoc db :language language)))
