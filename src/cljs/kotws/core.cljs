@@ -9,6 +9,7 @@
    [kotws.config :as config]
    [kotws.pages.footer :as footer]
    [kotws.pages.header :as header]
+   [kotws.pages.left-panel :as left-panel]
    ))
 
 (defn dev-setup []
@@ -18,11 +19,15 @@
 (defn ^:dev/after-load mount-root []
   (re-frame/clear-subscription-cache!)
   (let [root-el (.getElementById js/document "app")
+        left-panel-el (.getElementById js/document "left-panel")
         header-el (.getElementById js/document "header")
         footer-el (.getElementById js/document "footer")]
     (rdom/unmount-component-at-node root-el)
     (rdom/render [views/main-panel] root-el)
 
+    (rdom/unmount-component-at-node left-panel-el)
+    (rdom/render [left-panel/panel] left-panel-el)
+    
     (rdom/unmount-component-at-node header-el)
     (rdom/render [header/header] header-el)
 

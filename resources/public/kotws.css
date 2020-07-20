@@ -20,14 +20,48 @@ body{
     min-height: 50px;
 }
 
+#left-panel{
+    float: left;
+    position: fixed;
+    margin: 60px 0px 60px 0px;
+    width:150px;
+    overflow: auto;
+}
+
+#left-panel span {
+    background-color: #FF00;
+}
+
+#left-panel ul {
+    background-color: #f1f1f1;
+    list-style-type: none;
+    padding: 0;
+}
+
+#left-panel li{
+}
+
+#left-panel li a:hover {
+    background-color: #555;
+    width: 100%;
+    color: white;
+}
+
+#left-panel li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
 #flag {
     height: 30px;
 }
 
 #app {
     flex: 1 0 auto;
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: 200px;
+    padding-right: 200px;
 }
 
 #footer {
