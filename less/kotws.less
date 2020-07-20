@@ -1,3 +1,6 @@
+@header-height: 50px;
+@left-right-panel-width: 60px;
+
 html, body {
     height: 100%;
     margin: 5px;
@@ -17,19 +20,18 @@ body{
 #header {
     border-bottom-style: solid;
     width: 100%;
-    min-height: 50px;
+    min-height: @header-height;
 }
 
 #left-panel{
     float: left;
     position: fixed;
-    margin: 60px 0px 60px 0px;
+    margin: @left-right-panel-width 0px @left-right-panel-width 0px;
     width:150px;
     overflow: auto;
 }
 
 #left-panel span {
-    background-color: #FF00;
 }
 
 #left-panel ul {
@@ -44,7 +46,7 @@ body{
 #left-panel li a:hover {
     background-color: #555;
     width: 100%;
-    color: white;
+    color: lightgrey;
 }
 
 #left-panel li a {
@@ -67,5 +69,5 @@ body{
 #footer {
     border-top-style: dotted;
     flex-shrink: 0;
-    min-height: 50px;
+    min-height: @header-height;
 }

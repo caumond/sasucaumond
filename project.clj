@@ -18,19 +18,23 @@
                  ]
 
   :plugins [[lein-shadow "0.2.0"]
+            [lein-less "1.7.5"]
             [lein-shell "0.5.0"]]
 
   :min-lein-version "2.9.0"
 
   :jvm-opts ["-Xmx1G"]
 
-  :source-paths ["src/clj" "src/cljs"]
+  :source-paths ["src/clj"
+                 "src/cljs"]
 
   :test-paths   ["test/cljs"]
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"
                                     "test/js"]
 
+  :less {:source-paths ["less"]
+         :target-path  "resources/public/css"}
 
   :shell {:commands {"open" {:windows ["cmd" "/c" "start"]
                              :macosx  "open"
@@ -93,4 +97,6 @@
              :uberjar-name "kotws.jar"
              :prep-tasks   ["compile" ["prod"]]}}
 
-  :prep-tasks [])
+  :prep-tasks [
+               ["less" "once"]]
+  )
