@@ -33,7 +33,7 @@
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"
                                     "test/js"]
   
-  :less {:source-paths ["less/kotws.less"]
+  :less {:source-paths ["less/"]
          :target-path  "resources/public/css"}
 
   :shell {:commands {"open" {:windows ["cmd" "/c" "start"]
