@@ -32,8 +32,8 @@
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"
                                     "test/js"]
-  
-  :less {:source-paths ["less/"]
+
+  :less {:source-paths ["src/less"]
          :target-path  "resources/public/css"}
 
   :shell {:commands {"open" {:windows ["cmd" "/c" "start"]

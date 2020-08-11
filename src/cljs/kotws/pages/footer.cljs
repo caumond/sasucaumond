@@ -3,6 +3,11 @@
 
 
 (defn footer []
-  [re-com/box
+  [re-com/h-box
    :size "auto"
-   :child [re-com/label :class "copyright" :label "Copyright 2020 Caumond - All Rights Reserved."]])
+   :children [[re-com/label
+               :label "Copyright "]
+              [:div {:dangerouslySetInnerHTML {:__html "&copy;"}}]
+              [re-com/label
+               :label " 2020 Caumond - All Rights Reserved."]
+              ]])
