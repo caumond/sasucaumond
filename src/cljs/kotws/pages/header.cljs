@@ -10,3 +10,4 @@
               [re-com/button :class "flag" :label [:img {:src "images/english.png"}]
                :on-click #(re-frame/dispatch [:change-language :en])]
               ]])
+
