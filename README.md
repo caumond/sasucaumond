@@ -4,8 +4,40 @@ A [re-frame](https://github.com/day8/re-frame) application designed to store my 
 ## Getting Started
 ### Local installation
 After having copied a local copy of the repository on your computer, go to the directory and launch:
-``` lein dev ```
+``` lein dev
+```
+This is building the application and launch it on the port number set in the `shadow-cljs/builds/devtools/http-port` variable, usually 8280.
 
+Then, any modification in the cljs, or html code will be automagically sent to local web server.
+
+```lein less auto
+```
+is allowing you to modify less files in the src/less directory, which will be automatically compiled to css, then sent to the server.
+
+### Modification
+When code has been modified, the modification are expected to be push back to the repository.
+```git status
+```
+lists all files to be updated. Update the .git.ignore file to add the ones you don't want to push.
+
+```git add .
+```
+allows to add all modified files.
+
+```git commit -m "foo"
+```
+commits that files to the repository
+
+```git push
+```
+to push them back to the distant repository.
+
+### Distant installation
+First, you need to commit modifications as explained in the "modification" directory.
+
+Then, 
+```git push clever
+```
 
 ### Project Overview
 
