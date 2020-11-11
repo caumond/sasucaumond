@@ -13,5 +13,5 @@
   [re-com/v-box
    :gap "1em"
    :children [[about-title]
-              [re-com/label :label (ml/get-msg :about-intro)]
+              [re-com/p (ml/get-msg :about-intro)]
               ]])

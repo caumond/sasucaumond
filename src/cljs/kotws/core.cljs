@@ -27,7 +27,7 @@
 
     (rdom/unmount-component-at-node left-panel-el)
     (rdom/render [left-panel/panel] left-panel-el)
-    
+
     (rdom/unmount-component-at-node header-el)
     (rdom/render [header/header] header-el)
 

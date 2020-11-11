@@ -3,6 +3,7 @@
  General layout
 ***********************
 */
+@background-website-color: white;
 
 /* General layout variables */
 @left-right-panel-width: 150px;
@@ -18,32 +19,35 @@ body{
     flex-direction: column;
 }
 
-#app {
-    flex: 1 0 auto;
-    padding-left: @left-right-panel-width + @default-margin;
-    padding-right: @left-right-panel-width + @default-margin;
-}
-
 /*
  ***********************
  Header
 ***********************
 */
-@header-height: 50px;
-@bottom-margin: 30px;
+@header-height: 70px;
 
 #header {
     border-bottom-style: solid;
-    min-height: @header-height + @default-margin;
-    padding-bottom: @default-margin;
+    position: fixed;
+    width: 100%;
+    background-color: @background-website-color;
+    min-height: @header-height;
+    transition: 0.2s;
+}
+
+.label-header {
+    font-size: 4vh;
+    margin-left: @default-margin;
 }
 
 .flag {
-    height: @header-height - @default-margin;
+    height: @header-height - 2*@default-margin;
+    margin-right: @default-margin;
+    margin: 5px;
 }
 
 .flag img {
-    height: @header-height - @default-margin * 1.5;
+    height: @header-height - 3*@default-margin;
 }
 
 /*
@@ -51,50 +55,45 @@ body{
  Left panel
 ***********************
 */
-#left-panel{
+#left-panel ul{
     float: left;
     position: fixed;
-    margin : @header-height + @default-margin*2 0px @left-right-panel-width 0px;
+    margin : @header-height + @default-margin*2 0 @left-right-panel-width 0px;
     width: @left-right-panel-width;
     overflow: auto;
-}
 
-#left-panel span {
-}
-
-#left-panel ul {
     background-color: #f1f1f1;
     list-style-type: none;
-    padding: 0;
+    padding: 0px;
 }
 
-#left-panel li{
+#left-panel ul li{
+    padding: 8px 16px;
 }
 
-#left-panel li a:hover {
+#left-panel ul li:hover {
     background-color: #555;
-    width: 100%;
     color: lightgrey;
 }
 
-#left-panel li a {
+#left-panel ul li a {
     display: block;
     color: #000;
-    padding: 8px 16px;
     text-decoration: none;
 }
 
-.dropdown-content {
+#left-panel ul li .dropdown-content {
     display: none;
     position: fixed;
     left: @left-right-panel-width - @default-margin*1.5;
+    margin-top: -40px;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 4px 8px 0px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
-.dropdown-content a {
+#left-panel ul li .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -106,19 +105,43 @@ body{
     background-color: #f1f1f1;
 }
 
-.dropdown:hover .dropdown-content {
+#left-panel ul .dropdown:hover  .dropdown-content {
     display: block;
 }
-
+@media screen and (max-width: 850px) {
+    #left-panel ul{
+        float:none;
+        position:static;
+        width:100%;
+        overflow: visible;
+        height: 60px;
+    }
+    #Left-panel ul li {
+        display: inline;
+        width:auto;
+    }
+    #left-panel ul li a {
+    }
+    #left-panel ul li .dropdown-content{
+        background-color: red;
+        margin-top:@default-margin;
+        left:0px;
+    }
+}
 /*
-***********************
+ ***********************
  Footer
 ***********************
 */
 #footer {
     border-top-style: dotted;
-    flex-shrink: 0;
+    background-color: @background-website-color;
+    position: fixed;
+    bottom: 0px;
+    width:100%;
     padding-top: 10px;
+    margin-left: 3*@default-margin;
+    margin-right: 3*@default-margin;
     min-height: @header-height;
 }
 
@@ -129,3 +152,57 @@ body{
                  sans-serif;
 }
 
+/*
+ ***********************
+panel
+***********************
+*/
+#app {
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: @header-height;
+    margin-bottom: @header-height;
+    width: 80%;
+}
+#app .level1{
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: @background-website-color;
+    font-color: lightgrey;
+    top: @header-height;
+}
+
+/*
+ ***********************
+Bibliography
+***********************
+*/
+#book-image{
+    width: 100%;
+    padding: @default-margin*3;
+}
+
+.resume{
+    border: 3px solid grey;
+    padding: @default-margin*3;
+    margin: auto;
+    width: 90%;
+    height: 120px;
+    overflow: hidden;
+}
+
+.biblio-item {
+    margin-top: @default-margin;
+    margin-bottom: @default-margin;
+    padding-left: @default-margin;
+    padding-right: @default-margin;
+    padding-bottom: @default-margin;
+}
+
+.resume p{
+    width:100%;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

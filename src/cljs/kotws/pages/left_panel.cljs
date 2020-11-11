@@ -3,9 +3,10 @@
             [kotws.multi-language :as ml]
             ))
 
+
+
 (defn panel []
   [:ul
-   {:class "left-panel"}
    [:li [:a {:href "#/"} "Home"]]
    [:li {:class "dropdown"}
     [:a {:href "#/blog-cc-clojure"} "Blog"]
@@ -14,9 +15,9 @@
      [:a {:href "#"} "Link 2"]
      ]
     ]
-   [:li [re-com/hyperlink-href :label "COI" :href "#/coi"]]
-   [:li [re-com/hyperlink-href :label "CV" :href "#/cv"]]
-   [:li [:a {:href "#/biblio"} "Biblio"]]
-   [:li [re-com/hyperlink-href :label "About" :href "#/about"]]
+   [:li [:a {:href "#/coi"} "COI"]]
+   [:li [:a {:href "#/cv"} "CV"]]
+   [:li [:a {:href "#/biblio" } "Biblio"]]
+   [:li [:a {:href "#/about"} (ml/get-msg :about)]]
    ]
   )

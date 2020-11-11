@@ -88,7 +88,7 @@
     :source-paths ["dev"]
     :jvm-opts ["-Dclojure.spec.check-asserts=true"]}
 
-   :prod {}
+   :prod {:closure-defines {:goog.DEBUG false}}
 
    :uberjar {:source-paths ["env/prod/clj"]
              :omit-source  true
