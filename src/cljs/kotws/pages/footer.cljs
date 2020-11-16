@@ -1,13 +1,10 @@
 (ns kotws.pages.footer
-  (:require [re-com.core :as re-com]))
-
+  )
 
 (defn footer []
-  [re-com/h-box
-   :size "auto"
-   :children [[re-com/label
-               :label "Copyright "]
-              [:div {:dangerouslySetInnerHTML {:__html "&copy;"}}]
-              [re-com/label
-               :label " 2020 Caumond - All Rights Reserved."]
-              ]])
+  [:footer {:class "w3-container w3-padding-32 w3-dark-grey"}
+   [:p
+    "Copyright "
+    [:span {:dangerouslySetInnerHTML {:__html "&copy;"}}]
+    " 2020 Caumond - All rights reserved"]
+   ])

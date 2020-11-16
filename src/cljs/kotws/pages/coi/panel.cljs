@@ -43,19 +43,16 @@
      :description "To build heavy client-based on swing with clojure and multiplatform power"}
     ))
 
-;; créer une partie avec identification
-;; une page avec les bookmarks
 (defn coi-panel[]
-  [:div.main
+  [:div {:class "w3-row-padding"}
    [:h1 "My current prefered stack is:"]
    (for [elt stack]
-     [:div
-      [:hr]
-      [:div [:h2 (:name elt)]
-       [:a {:href (:href elt)} 
-        [:img.coi-image {:src (:img elt)}
-         ]]
-       [:p (:description elt)]
+     [:div {:class "w3-third"}
+      [:a {:id "coi-item" :class "w3-white w3-center w3-card" :href (:href elt)}
+       [:h2 {:class "w3-margin-bottom"} (:name elt)]
+       [:img.coi-image {:src (:img elt) :class "w3-margin-bottom"}]
+       [:p {:class "card-text-ellipsis w3-padding-large"}
+        (:description elt)]
        ]]
      )
    ]

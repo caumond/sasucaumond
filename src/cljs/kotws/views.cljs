@@ -1,7 +1,6 @@
 (ns kotws.views
   (:require
    [re-frame.core :as re-frame]
-   [re-com.core :as re-com]
    [kotws.subs :as subs]
    [kotws.multi-language :as ml]
    [kotws.pages.home.panel :refer [home-panel]]
@@ -21,14 +20,12 @@
     :coi [coi-panel]
     :cv [cv-panel]
     :biblio-panel [biblio-panel]
-    [re-com/title :label (ml/get-msg :non-existing-panel panel-name) :level :level1]))
+    [:h1 (ml/get-msg :non-existing-panel panel-name)]
+    ))
 
-(defn show-panel [panel-name]
-  [panels panel-name])
-
-(defn main-panel []
+(defn panel []
   (let [active-panel (re-frame/subscribe [::subs/active-panel])]
-    [re-com/v-box
-     :children [ [panels @active-panel]
-                ]]))
+    [panels @active-panel]
+    )
+  )
 

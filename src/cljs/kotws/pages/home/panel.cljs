@@ -1,19 +1,12 @@
 (ns kotws.pages.home.panel
-  (:require [re-com.core :as re-com]
-            [re-frame.core :as re-frame]
-            [kotws.multi-language :as ml]
-            [kotws.subs :as subs]))
-
-;; home
+  (:require [kotws.multi-language :as ml]
+            ))
 
 (defn home-panel []
-  [re-com/v-box
-   :gap "1em"
-   :children [[re-com/title
-               :level :level1
-               :label (ml/get-msg :home-title)]
-              [re-com/p
-               (ml/get-msg :home-intro)]
-              ]])
-
-
+  [:div {:class "home-main"}
+   [:div {:class "bg-image"}]
+   [:div {:class "bg-text" }
+    [:h1 "I'm Anthony CAUMOND"]
+    [:p (ml/get-msg :home-intro)]
+    ]]
+  )

@@ -1,16 +1,32 @@
 (ns kotws.pages.header
-  (:require [re-com.core :as re-com]
-            [re-frame.core :as re-frame]))
+  (:require
+   [kotws.multi-language :as ml]
+   [kotws.pages.left-panel-mgt :refer [open-left-panel]]
+   [re-frame.core :as re-frame]))
 
 (defn header[]
-  [re-com/h-box :gap "4em"
-   :children [
-              [re-com/label :class "label-header" :label "Kot website"]
-              [re-com/gap :size "1"]
-              [re-com/button :class "flag" :label [:img {:src "images/french.png"}]
-               :on-click #(re-frame/dispatch [:change-language :fr])]
-              [re-com/button :class "flag" :label [:img {:src "images/english.png"}]
-               :on-click #(re-frame/dispatch [:change-language :en])]
-              ]])
+  [:header {:id "portfolio"}
+   [:span {:class "w3-button w3-left w3-hide-large w3-xxlarge w3-hover-text-grey",
+           :on-click open-left-panel
+           }
+    [:i {:class "fa fa-bars"}]]
 
+   [:a {:href "#"}
+    [:img {:src "/images/avatar_g2.jpg", :width "40px"
+           :class "w3-circle w3-left w3-margin w3-hide-large w3-hover-opacity"}]]
 
+   [:span {:class "header-title"}
+    [:b (ml/get-msg :home-title)]]
+
+   [:div {:class "w3-container w3-right"}
+    [:img {:src "images/french.png"
+           :class "w3-circle w3-right w3-margin w3-hover-opacity"
+           :on-click #(re-frame/dispatch [:change-language :fr])
+           :width "40px"}]
+    [:img {:src "images/english.png"
+           :class "w3-circle w3-right w3-margin w3-hover-opacity"
+           :on-click #(re-frame/dispatch [:change-language :en])
+           :width "40px"}]
+    ]
+   ]
+  )
