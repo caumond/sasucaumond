@@ -1,5 +1,7 @@
 (ns kotws.pages.biblio.panel
-  (:require [kotws.multi-language :as ml]))
+  (:require [kotws.multi-language :as ml]
+            [re-frame.core :as rf])
+  )
 
 (def books
   [
@@ -31,10 +33,16 @@
 
 (defonce slideIndex (atom 1))
 
-(defn showdivs [n]
-  (let [biblio-items (. js/document getElementsByClassName "biblio-item")]
-    (.log js/console "start")
-    (for [biblio-item biblio-items]
+(defn limit [biblio-items]
+  (reset! slideIndex
+          (max 0 (min (- (count biblio-items) 1)
+                      @slideIndex))))
+
+(defn showdivs []
+  (let [biblio-items (array-seq
+                      (. js/document getElementsByClassName "biblio-item"))]
+    (limit biblio-items)
+    (doseq [biblio-item biblio-items]
       (set!
        (->  biblio-item
             (.-style)
@@ -42,9 +50,9 @@
             )
        "none")
       )
-    (.log js/console (get biblio-items 1))
+
     (set!
-     (->  (get biblio-items n)
+     (->  (nth biblio-items @slideIndex)
           (.-style)
           (.-display)
           )
@@ -54,19 +62,19 @@
 
 (defn plusdiv [c]
   (swap! slideIndex (partial + c))
-  (showdivs @slideIndex)
+  (showdivs)
   )
 
 (defn setndiv [c]
   (reset! slideIndex c)
-  (plusdiv c))
+  (showdivs))
 
 (defn biblio-panel []
   [:div
    [:h1 (ml/get-msg :biblio-title)]
    [:p (ml/get-msg :biblio-intro)]
 
-   [:div {:class "w3-content"}
+   [:div {:class "w3-content w3-center"}
     (for [book books]
       [:div {:class "biblio-item"}
        [:h2 (:name book)]
@@ -82,6 +90,6 @@
      [:button {:class "w3-button w3-light-grey" :on-click #(plusdiv 1)} "> Next"]
      ]
     (for [i (take (count books) (iterate inc 1))]
-      [:button {:class "w3-button demo" :on-click #(setndiv i)} i ])
+      [:button {:class "w3-button demo" :on-click #(setndiv (- i 1))} i ])
     ]]
   )
