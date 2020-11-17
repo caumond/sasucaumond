@@ -1,6 +1,5 @@
 (ns kotws.pages.biblio.panel
-  (:require [re-com.core :as re-com]
-            [kotws.multi-language :as ml]))
+  (:require [kotws.multi-language :as ml]))
 
 (def books
   [
@@ -30,25 +29,59 @@
     :sumup ""}
    ])
 
+(defonce slideIndex (atom 1))
+
+(defn showdivs [n]
+  (let [biblio-items (. js/document getElementsByClassName "biblio-item")]
+    (.log js/console "start")
+    (for [biblio-item biblio-items]
+      (set!
+       (->  biblio-item
+            (.-style)
+            (.-display)
+            )
+       "none")
+      )
+    (.log js/console (get biblio-items 1))
+    (set!
+     (->  (get biblio-items n)
+          (.-style)
+          (.-display)
+          )
+     "block")
+    )
+  )
+
+(defn plusdiv [c]
+  (swap! slideIndex (partial + c))
+  (showdivs @slideIndex)
+  )
+
+(defn setndiv [c]
+  (reset! slideIndex c)
+  (plusdiv c))
 
 (defn biblio-panel []
-  [re-com/v-box
-   :children [
-              [re-com/title :level :level1 :label (ml/get-msg :biblio-title)]
-              [re-com/p (ml/get-msg :biblio-intro)]
+  [:div
+   [:h1 (ml/get-msg :biblio-title)]
+   [:p (ml/get-msg :biblio-intro)]
 
-              [re-com/v-box :children (for [book books]
-                                        [re-com/border
-                                         :class "biblio-item"
-                                         :child [re-com/v-box
-                                                 :children [ [:h2 (:name book)]
-                                                            [:img#book-image {:src (:img book)}]
-                                                            [:div.resume
-                                                             [:h4 (ml/get-msg :resume-title)]
-                                                             [re-com/p (:description book)]
-                                                             ]
-                                                            ]
-                                                 ]]
-                                        )]
-              ]]
+   [:div {:class "w3-content"}
+    (for [book books]
+      [:div {:class "biblio-item"}
+       [:h2 (:name book)]
+       [:img {:src (:img book)}]
+       [:h4 (ml/get-msg :resume-title)]
+       [:p (:description book)]
+       ]
+      )]
+
+   [:div {:class "w3-center"}
+    [:div {:class "w3-section"}
+     [:button {:class "w3-button w3-light-grey" :on-click #(plusdiv -1)} "< Prev"]
+     [:button {:class "w3-button w3-light-grey" :on-click #(plusdiv 1)} "> Next"]
+     ]
+    (for [i (take (count books) (iterate inc 1))]
+      [:button {:class "w3-button demo" :on-click #(setndiv i)} i ])
+    ]]
   )
