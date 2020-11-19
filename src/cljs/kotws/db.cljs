@@ -2,4 +2,5 @@
 
 (def default-db
   {:name "re-frame"
-   :language :en})
+   :language :en
+   :slide-nb 0})

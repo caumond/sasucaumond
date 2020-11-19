@@ -1,6 +1,7 @@
 (ns kotws.subs
   (:require
-   [re-frame.core :as re-frame]))
+   [re-frame.core :as re-frame]
+   [kotws.events :as events]))
 
 (re-frame/reg-sub
  ::name
@@ -18,6 +19,12 @@
    (:re-pressed-example db)))
 
 (re-frame/reg-sub
- ::change-language
+ ::language-changed
  (fn [db _]
    (:language db)))
+
+(re-frame/reg-sub
+ ::slide-change
+ (fn [db _]
+   (:slide-nb db)))
+

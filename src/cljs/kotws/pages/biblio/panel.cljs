@@ -1,7 +1,10 @@
 (ns kotws.pages.biblio.panel
   (:require [kotws.multi-language :as ml]
-            [re-frame.core :as rf])
+            [re-frame.core :as rf]
+            [kotws.events :as events]
+            [kotws.subs :as subs])
   )
+
 
 (def books
   [
@@ -31,65 +34,44 @@
     :sumup ""}
    ])
 
-(defonce slideIndex (atom 1))
-
-(defn limit [biblio-items]
-  (reset! slideIndex
-          (max 0 (min (- (count biblio-items) 1)
-                      @slideIndex))))
-
-(defn showdivs []
-  (let [biblio-items (array-seq
-                      (. js/document getElementsByClassName "biblio-item"))]
-    (limit biblio-items)
-    (doseq [biblio-item biblio-items]
-      (set!
-       (->  biblio-item
-            (.-style)
-            (.-display)
-            )
-       "none")
-      )
-
-    (set!
-     (->  (nth biblio-items @slideIndex)
-          (.-style)
-          (.-display)
-          )
-     "block")
-    )
-  )
-
-(defn plusdiv [c]
-  (swap! slideIndex (partial + c))
-  (showdivs)
-  )
-
-(defn setndiv [c]
-  (reset! slideIndex c)
-  (showdivs))
+;;(defn limit [biblio-items]
+;;  (reset! slideIndex
+;;          (max 0 (min (- (count biblio-items) 1)
+;;                      @slideIndex))))
 
 (defn biblio-panel []
-  [:div
-   [:h1 (ml/get-msg :biblio-title)]
-   [:p (ml/get-msg :biblio-intro)]
+  (let [slide-idx (rf/subscribe [::subs/slide-change])]
+    [:div
+     [:h1 (ml/get-msg :biblio-title)]
+     [:p (ml/get-msg :biblio-intro)]
 
-   [:div {:class "w3-content w3-center"}
-    (for [book books]
-      [:div {:class "biblio-item"}
-       [:h2 (:name book)]
-       [:img {:src (:img book)}]
-       [:h4 (ml/get-msg :resume-title)]
-       [:p (:description book)]
+     (let [book (nth books @slide-idx)]
+       [:div {:class "biblio-item w3-content w3-center"}
+        [:h2 (:name book)]
+        [:img {:src (:img book)}]
+        [:h4 (ml/get-msg :resume-title)]
+        [:p (:description book)]
+        ]
+       )
+
+     [:div {:class "w3-center"}
+      [:div {:class "w3-section"}
+
+       (if (= 0 @slide-idx)
+         [:span {:class "w3-button w3-light-grey"} "< Prev"]
+         [:button {:class "w3-button w3-light-grey "
+                   :on-click #(rf/dispatch [::events/slide-change :rel -1])} "< Prev"]
+         )
+       (if (= (dec (count books))
+              @slide-idx)
+         [:span {:class "w3-button w3-light-grey"} "> Next"]
+         [:button {:class "w3-button w3-light-grey"
+                   :on-click #(rf/dispatch [::events/slide-change :rel 1])} "> Next"]
+         )
        ]
-      )]
 
-   [:div {:class "w3-center"}
-    [:div {:class "w3-section"}
-     [:button {:class "w3-button w3-light-grey" :on-click #(plusdiv -1)} "< Prev"]
-     [:button {:class "w3-button w3-light-grey" :on-click #(plusdiv 1)} "> Next"]
-     ]
-    (for [i (take (count books) (iterate inc 1))]
-      [:button {:class "w3-button demo" :on-click #(setndiv (- i 1))} i ])
-    ]]
+      (for [i (take (count books) (iterate inc 1))]
+        ^{:key i} [:button {:class "w3-button demo"
+                            :on-click #(rf/dispatch [::events/slide-change :abs (- i 1)])} i ])
+      ]])
   )

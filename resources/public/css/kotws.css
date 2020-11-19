@@ -79,7 +79,6 @@ body {
 .biblio-item {
   max-width: 100%;
   max-height: 500px;
-  display: none;
 }
 .biblio-item p {
   height: 50px;
