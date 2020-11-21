@@ -1,5 +1,4 @@
-(ns kotws.pages.footer
-  )
+(ns kotws.pages.footer)
 
 (defn footer []
   [:footer {:class "w3-container w3-padding-32 w3-dark-grey"}

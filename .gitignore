@@ -15,4 +15,6 @@
 /shadow-cljs.edn
 /.shadow-cljs/
 
+.clj-kondo/.cache/
+
 .calva

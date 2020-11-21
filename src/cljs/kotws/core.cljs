@@ -1,7 +1,7 @@
 (ns kotws.core
   (:require
    [reagent.dom :as rdom]
-   [re-frame.core :as re-frame]
+   [re-frame.core :as rf]
    [re-pressed.core :as rp]
    [kotws.events :as events]
    [kotws.routes :as routes]
@@ -18,7 +18,7 @@
     (println "dev mode")))
 
 (defn ^:dev/after-load mount-root []
-  (re-frame/clear-subscription-cache!)
+  (rf/clear-subscription-cache!)
   (let [views-el (.getElementById js/document "views")
         left-panel-el (.getElementById js/document "left-panel")
         overlay-el (.getElementById js/document "overlay")
@@ -42,7 +42,7 @@
 
 (defn init []
   (routes/app-routes)
-  (re-frame/dispatch-sync [::events/initialize-db])
-  (re-frame/dispatch-sync [::rp/add-keyboard-event-listener "keydown"])
+  (rf/dispatch-sync [::events/initialize-db])
+  (rf/dispatch-sync [::rp/add-keyboard-event-listener "keydown"])
   (dev-setup)
   (mount-root))

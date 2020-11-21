@@ -1,27 +1,10 @@
+@import (less) "../../resources/public/css/w3.css";
+
 /*
  ***********************
- General layout
+ Utility classes
 ***********************
 */
-@background-website-color: white;
-
-html, body {
-    height: 100%;
-    margin: 0px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-// Main container - common to all views
-#views {
-    margin-top: 20px;
-}
-
-/* Utility classes */
-// Needed 
 .card-text-ellipsis{
     width: 100%;
     white-space: initial;
@@ -44,7 +27,6 @@ html, body {
     background-size: cover;
 }
 
-
 /* Position text in the middle of the page/image */
 .bg-text {
     background-color: rgb(0,0,0); /* Fallback color */
@@ -62,30 +44,68 @@ html, body {
     text-align: center;
 }
 
-// Overlay
-.overlay {
-    z-index: 4
-    ;
+/*
+ ***********************
+ General layout
+***********************
+*/
+@background-website-color: white;
+
+html, body {
+    height: 100%;
+    margin: 0px;
+    max-width:1600px;
+    font-family: Raleway, sans-serif;
+}
+body{
+    &:extend(.w3-light-grey);
+    &:extend(.w3-container);
 }
 
+* {
+    box-sizing: border-box;
+}
+
+/*
+ ***********************
+ Common components
+***********************
+*/
+// Main container - common to all views
+#views {
+    margin-top: 20px;
+}
+
+// Overlay
+.overlay {
+    z-index: 10;
+    cursor: "pointer";
+}
+
+// Left panel
 #left-panel{
-    width: 300px;
+    &:extend(.w3-sidebar);
+    &:extend(.w3-collapse);
+    &:extend(.w3-white);
+    &:extend(.w3-animate-left);
+    width: 280px;
     z-index: 5;
 }
 
-/* Header */
+// Header
 .header-title{
     font-size: 30px;
     margin-bottom: auto;
     margin-top: auto;
-
 }
 
-/* Main */
-.home-main{
-}
+/*
+ ***********************
+ View specific
+***********************
+*/
 
-/* COI*/
+// COI
 #coi-item{
     height: 200px;
     display: block;
@@ -95,7 +115,11 @@ html, body {
     max-height: 50px;
 }
 
-/* Biblio */
+// Home
+.home-main{
+}
+
+// Biblio
 .biblio-item{
     max-width: 100%;
     max-height: 500px;
@@ -111,3 +135,4 @@ html, body {
 .biblio-item img{
     max-height: 350px;
 }
+
