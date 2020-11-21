@@ -1,5 +1,6 @@
 (ns kotws.pages.left-panel-mgt)
 
+;; TODO change that to idiomatic clojurescript
 (defn open-left-panel []
   (set!
    (-> js/document

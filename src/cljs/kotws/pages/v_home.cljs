@@ -1,6 +1,6 @@
-(ns kotws.pages.home.panel
-  (:require [kotws.multi-language :as ml]
-            ))
+(ns kotws.pages.v-home
+  (:require [kotws.multi-language :as ml])
+  )
 
 (defn home-panel []
   [:div {:class "home-main"}

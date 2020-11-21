@@ -2,7 +2,7 @@
   (:require
    [kotws.multi-language :as ml]
    [kotws.pages.left-panel-mgt :refer [open-left-panel]]
-   [re-frame.core :as re-frame]
+   [re-frame.core :as rf]
    [kotws.events :as events]))
 
 (defn header[]
@@ -22,11 +22,11 @@
    [:div {:class "w3-container w3-right"}
     [:img {:src "images/french.png"
            :class "w3-circle w3-right w3-margin w3-hover-opacity"
-           :on-click #(re-frame/dispatch [::events/change-language :fr])
+           :on-click #(rf/dispatch [::events/change-language :fr])
            :width "40px"}]
     [:img {:src "images/english.png"
            :class "w3-circle w3-right w3-margin w3-hover-opacity"
-           :on-click #(re-frame/dispatch [::events/change-language :en])
+           :on-click #(rf/dispatch [::events/change-language :en])
            :width "40px"}]
     ]
    ]

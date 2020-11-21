@@ -1,10 +1,9 @@
-(ns kotws.pages.biblio.panel
+(ns kotws.pages.v-biblio
   (:require [kotws.multi-language :as ml]
             [re-frame.core :as rf]
             [kotws.events :as events]
-            [kotws.subs :as subs])
-  )
-
+            [kotws.subs :as subs]
+            ))
 
 (def books
   [
@@ -34,13 +33,8 @@
     :sumup ""}
    ])
 
-;;(defn limit [biblio-items]
-;;  (reset! slideIndex
-;;          (max 0 (min (- (count biblio-items) 1)
-;;                      @slideIndex))))
-
 (defn biblio-panel []
-  (let [slide-idx (rf/subscribe [::subs/slide-change])]
+  (let [slide-idx (rf/subscribe [::subs/slide-idx])]
     [:div
      [:h1 (ml/get-msg :biblio-title)]
      [:p (ml/get-msg :biblio-intro)]
@@ -58,20 +52,23 @@
       [:div {:class "w3-section"}
 
        (if (= 0 @slide-idx)
-         [:span {:class "w3-button w3-light-grey"} "< Prev"]
+         [:span {:class "w3-button w3-light-grey"
+                 :on-click #(rf/dispatch [::events/change-slide-idx :abs (dec (count books))])} "< Prev"]
          [:button {:class "w3-button w3-light-grey "
-                   :on-click #(rf/dispatch [::events/slide-change :rel -1])} "< Prev"]
+                   :on-click #(rf/dispatch [::events/change-slide-idx :rel -1])} "< Prev"]
          )
        (if (= (dec (count books))
               @slide-idx)
-         [:span {:class "w3-button w3-light-grey"} "> Next"]
+         [:span {:class "w3-button w3-light-grey"
+                 :on-click #(rf/dispatch [::events/change-slide-idx :abs 0])} "Next >"]
          [:button {:class "w3-button w3-light-grey"
-                   :on-click #(rf/dispatch [::events/slide-change :rel 1])} "> Next"]
+                   :on-click #(rf/dispatch [::events/change-slide-idx :rel 1])} "Next >"]
          )
        ]
 
       (for [i (take (count books) (iterate inc 1))]
-        ^{:key i} [:button {:class "w3-button demo"
-                            :on-click #(rf/dispatch [::events/slide-change :abs (- i 1)])} i ])
+        ^{:key (str "page count-" i)} [:button {:class (str "w3-button demo"
+                                                            (if (= (dec i) @slide-idx) " w3-red"))
+                            :on-click #(rf/dispatch [::events/change-slide-idx :abs (- i 1)])} i ])
       ]])
   )

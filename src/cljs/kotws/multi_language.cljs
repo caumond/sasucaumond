@@ -34,5 +34,5 @@
   (tongue/build-translate dictionnary))
 
 (defn get-msg [msg & args]
-  (let [language (re-frame/subscribe [::subs/language-changed])]
+  (let [language (re-frame/subscribe [::subs/language])]
     (translate @language msg args)))

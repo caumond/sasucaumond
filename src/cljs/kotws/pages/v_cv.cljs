@@ -1,7 +1,6 @@
-(ns kotws.pages.cv.panel
+(ns kotws.pages.v-cv
   (:require
-   [cljs-time.core :as time])
-  )
+   [cljs-time.core :as time]))
 
 (defn years-of-experience []
   (-

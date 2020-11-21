@@ -19,12 +19,13 @@
 
 (re-frame/reg-event-db ::change-language
                        (fn-traced [db [_ language]]
-                                  (assoc db :language language)))
+                                  (assoc
+                                   db :language language)))
 
-(re-frame/reg-event-db ::slide-change
+(re-frame/reg-event-db ::change-slide-idx
                        (fn-traced
                         [db [_ change-mode val]]
                         (case change-mode
-                          :abs (assoc db :slide-nb val)
-                          :rel (update db :slide-nb (partial + val))
+                          :abs (assoc db :slide-idx val)
+                          :rel (update db :slide-idx (partial + val))
                           )))

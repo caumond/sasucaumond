@@ -1,4 +1,4 @@
-(ns kotws.pages.coi.panel)
+(ns kotws.pages.v-coi)
 
 (def stack
   '({:name :clojure

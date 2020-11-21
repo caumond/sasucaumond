@@ -1,9 +1,8 @@
 (ns kotws.routes
-  (:require-macros [secretary.core :refer [defroute]])
   (:import [goog History]
            [goog.history EventType])
   (:require
-   [secretary.core :as secretary]
+   [secretary.core :as secretary :refer-macros [defroute]]
    [goog.events :as gevents]
    [re-frame.core :as re-frame]
    [re-pressed.core :as rp]

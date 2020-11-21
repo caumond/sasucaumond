@@ -1,6 +1,6 @@
 (ns kotws.db)
 
 (def default-db
-  {:name "re-frame"
+  {:name "Kotfeller personal website"
    :language :en
-   :slide-nb 0})
+   :slide-idx 0})
