@@ -68,7 +68,7 @@ body{
 
 /*
  ***********************
- Common components
+ Views
 ***********************
 */
 // Main container - common to all views
@@ -76,27 +76,99 @@ body{
     margin-top: 20px;
 }
 
-// Overlay
-.overlay {
-    z-index: 10;
-    cursor: "pointer";
-}
-
-// Left panel
-#left-panel{
-    &:extend(.w3-sidebar);
-    &:extend(.w3-collapse);
-    &:extend(.w3-white);
-    &:extend(.w3-animate-left);
-    width: 280px;
-    z-index: 5;
+/*
+ ***********************
+ Common components
+***********************
+*/
+// Footer
+#footer{
+    &:extend(.w3-container);
+    &:extend(.w3-padding-32);
+    &:extend(.w3-dark-grey);
 }
 
 // Header
+#header button{
+    &:extend(.w3-button);
+    &:extend(.w3-left);
+    &:extend(.w3-hide-large);
+    &:extend(.w3-xxlarge);
+    &:extend(.w3-hover-text-grey);
+}
+
+#header .lang-bn{
+    &:extend(.w3-circle);
+    &:extend(.w3-right);
+    &:extend(.w3-margin);
+    &:extend(.w3-hover-opacity);
+    cursor: pointer;
+    width: 40px;}
+
+#header .avatar{
+    &:extend(.w3-circle);
+    &:extend(.w3-left);
+    &:extend(.w3-margin);
+    &:extend(.w3-hover-opacity);
+    width: 40px;}
+
 .header-title{
     font-size: 30px;
     margin-bottom: auto;
     margin-top: auto;
+}
+
+// Left panel
+#left-panel{
+    &:extend(.w3-white);
+    width: 280px;
+    padding: 20px;
+    z-index: 5;
+}
+
+#left-panel .close-menu{
+    &:extend(.w3-hide-large);
+    &:extend(.w3-right);
+    &:extend(.w3-jumbo);
+    &:extend(.w3-padding);
+    &:extend(.w3-hover-grey);
+}
+
+#left-panel .avatar{
+    &:extend(.w3-round);
+    width: 45%;
+}
+
+#left-panel h4{
+}
+
+#left-panel .home-comment{
+    &:extend(.w3-text-grey);
+}
+
+#left-panel .menu{
+    // forced on code-side w3-bar-block
+}
+
+.menu-item{
+    &:extend(.w3-hover-grey);
+    margin: 5px;
+}
+
+#left-panel .menu a i{
+    &:extend(.w3-margin-right);
+}
+
+#left-panel .contact-bar{
+    &:extend(.w3-center);
+    &:extend(.w3-padding-32);
+    letter-spacing: 10px;
+}
+
+// Overlay
+.overlay {
+    z-index: 10;
+    cursor: pointer;
 }
 
 /*
@@ -105,22 +177,13 @@ body{
 ***********************
 */
 
-// COI
-#coi-item{
-    height: 200px;
-    display: block;
-}
-#coi-item img {
-    max-width: 80%;
-    max-height: 50px;
-}
-
-// Home
-.home-main{
+// About
+.about{
 }
 
 // Biblio
 .biblio-item{
+    &:extend(.w3-center);
     max-width: 100%;
     max-height: 500px;
 }
@@ -136,3 +199,75 @@ body{
     max-height: 350px;
 }
 
+.page-menu{
+    &:extend(.w3-center);
+    padding: 20px;
+}
+
+.page-menu button{
+    //Forced w3-button in code
+    &:extend(.w3-button);
+    &:extend(.w3-dark-grey);
+    margin:3px;
+}
+
+.page-menu .selected-button{
+    &:extend(.w3-red);
+}
+
+.page-menu .unselected-button{
+    &:extend(.w3-light-grey);
+}
+
+// COI
+#coi{
+    // Forced w3-row-padding
+}
+
+#coi h1{
+}
+
+#coi #coi-item{
+    // Forced w3-third
+    &:extend(.w3-third);
+}
+#coi #coi-item a{
+    &:extend(.w3-white);
+    &:extend(.w3-center);
+    &:extend(.w3-card);
+    height: 200px;
+    display: block;
+}
+#coi-item a{
+}
+
+#coi #coi-item h2{
+}
+
+#coi-item img {
+    max-width: 80%;
+    max-height: 50px;
+}
+
+#coi p {
+    padding: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+// CV
+#cv{
+}
+
+// Home
+#home-main{
+}
+
+#home-main #me-image{
+    &:extend(.bg-image);
+}
+
+#home-main #me-intro{
+    &:extend(.bg-text);
+}

@@ -17,6 +17,7 @@
   (let [language (rf/subscribe [::subs/language])
         get-msg (partial (ml/build-translate dictionnary) @language)
         ]
-    [:div [:h1 (get-msg :about-title)]
+    [:div {:class "about"}
+     [:h1 (get-msg :about-title)]
      [:p (get-msg :about-intro)]])
   )

@@ -9,7 +9,7 @@
   )
 
 (defn cv-panel []
-  [:div.main
+  [:div#cv
    [:p
     "This is my curriculum vitae."]
    [:p "I started my career as a consultant in the industry, where I developed Supply Chain, Operations Research and I.T skills. I demonstrated a will and ability to be disruptive and pragmatic."]

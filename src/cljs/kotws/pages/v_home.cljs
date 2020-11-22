@@ -15,9 +15,9 @@
   (let [language (rf/subscribe [::subs/language])
         get-msg (partial (ml/build-translate dictionnary) @language)
         ]
-    [:div {:class "home-main"}
-     [:div {:class "bg-image"}]
-     [:div {:class "bg-text" }
+    [:div#home-main
+     [:div#me-image]
+     [:div#me-intro
       [:h1 (get-msg :home-msg)]
       [:p (get-msg :home-intro)]
       ]])

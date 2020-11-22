@@ -283,7 +283,9 @@ a {
   padding-left: 16px;
 }
 .w3-btn,
-.w3-button {
+.w3-button,
+#header button,
+.page-menu button {
   border: none;
   display: inline-block;
   padding: 8px 16px;
@@ -300,7 +302,9 @@ a {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .w3-btn,
-.w3-button {
+.w3-button,
+#header button,
+.page-menu button {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -412,8 +416,7 @@ a {
   position: relative;
   top: 6px;
 }
-.w3-sidebar,
-#left-panel {
+.w3-sidebar {
   height: 100%;
   width: 200px;
   background-color: #fff;
@@ -528,7 +531,8 @@ a {
 .w3-third,
 .w3-twothird,
 .w3-threequarter,
-.w3-quarter {
+.w3-quarter,
+#coi #coi-item {
   float: left;
   width: 100%;
 }
@@ -580,7 +584,8 @@ a {
     width: 24.99999%;
   }
   .w3-col.m4,
-  .w3-third {
+  .w3-third,
+  #coi #coi-item {
     width: 33.33333%;
   }
   .w3-col.m5 {
@@ -743,7 +748,9 @@ a {
   .w3-modal-content {
     width: 900px;
   }
-  .w3-hide-large {
+  .w3-hide-large,
+  #header button,
+  #left-panel .close-menu {
     display: none !important;
   }
   .w3-sidebar.w3-collapse {
@@ -858,14 +865,17 @@ a {
 .w3-display-position {
   position: absolute;
 }
-.w3-circle {
+.w3-circle,
+#header .lang-bn,
+#header .avatar {
   border-radius: 50%;
 }
 .w3-round-small {
   border-radius: 2px;
 }
 .w3-round,
-.w3-round-medium {
+.w3-round-medium,
+#left-panel .avatar {
   border-radius: 4px;
 }
 .w3-round-large {
@@ -888,7 +898,8 @@ a {
 }
 .w3-container,
 .w3-panel,
-body {
+body,
+#footer {
   padding: 0.01em 16px;
 }
 .w3-panel {
@@ -915,7 +926,8 @@ body {
   font-size: 110%;
 }
 .w3-card,
-.w3-card-2 {
+.w3-card-2,
+#coi #coi-item a {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 .w3-card-4,
@@ -972,8 +984,7 @@ body {
     opacity: 1;
   }
 }
-.w3-animate-left,
-#left-panel {
+.w3-animate-left {
   position: relative;
   animation: animateleft 0.4s;
 }
@@ -1085,13 +1096,15 @@ body {
 .w3-xlarge {
   font-size: 24px !important;
 }
-.w3-xxlarge {
+.w3-xxlarge,
+#header button {
   font-size: 36px !important;
 }
 .w3-xxxlarge {
   font-size: 48px !important;
 }
-.w3-jumbo {
+.w3-jumbo,
+#left-panel .close-menu {
   font-size: 64px !important;
 }
 .w3-left-align {
@@ -1103,7 +1116,11 @@ body {
 .w3-justify {
   text-align: justify !important;
 }
-.w3-center {
+.w3-center,
+#left-panel .contact-bar,
+.biblio-item,
+.page-menu,
+#coi #coi-item a {
   text-align: center !important;
 }
 .w3-border-0 {
@@ -1141,7 +1158,9 @@ body {
   margin-top: 16px!important;
   margin-bottom: 16px !important;
 }
-.w3-margin {
+.w3-margin,
+#header .lang-bn,
+#header .avatar {
   margin: 16px !important;
 }
 .w3-margin-top {
@@ -1153,13 +1172,15 @@ body {
 .w3-margin-left {
   margin-left: 16px !important;
 }
-.w3-margin-right {
+.w3-margin-right,
+#left-panel .menu a i {
   margin-right: 16px !important;
 }
 .w3-padding-small {
   padding: 4px 8px !important;
 }
-.w3-padding {
+.w3-padding,
+#left-panel .close-menu {
   padding: 8px 16px !important;
 }
 .w3-padding-large {
@@ -1173,7 +1194,9 @@ body {
   padding-top: 24px!important;
   padding-bottom: 24px !important;
 }
-.w3-padding-32 {
+.w3-padding-32,
+#footer,
+#left-panel .contact-bar {
   padding-top: 32px!important;
   padding-bottom: 32px !important;
 }
@@ -1185,10 +1208,14 @@ body {
   padding-top: 64px!important;
   padding-bottom: 64px !important;
 }
-.w3-left {
+.w3-left,
+#header button,
+#header .avatar {
   float: left !important;
 }
-.w3-right {
+.w3-right,
+#header .lang-bn,
+#left-panel .close-menu {
   float: right !important;
 }
 .w3-button:hover {
@@ -1291,7 +1318,8 @@ body {
   background-color: #673ab7 !important;
 }
 .w3-red,
-.w3-hover-red:hover {
+.w3-hover-red:hover,
+.page-menu .selected-button {
   color: #fff!important;
   background-color: #f44336 !important;
 }
@@ -1312,7 +1340,8 @@ body {
 }
 .w3-white,
 .w3-hover-white:hover,
-#left-panel {
+#left-panel,
+#coi #coi-item a {
   color: #000!important;
   background-color: #ffffff !important;
 }
@@ -1332,14 +1361,17 @@ body {
 .w3-hover-light-grey:hover,
 .w3-light-gray,
 .w3-hover-light-gray:hover,
-body {
+body,
+.page-menu .unselected-button {
   color: #000!important;
   background-color: #f1f1f1 !important;
 }
 .w3-dark-grey,
 .w3-hover-dark-grey:hover,
 .w3-dark-gray,
-.w3-hover-dark-gray:hover {
+.w3-hover-dark-gray:hover,
+#footer,
+.page-menu button {
   color: #fff!important;
   background-color: #616161 !important;
 }
@@ -1460,7 +1492,8 @@ body {
 .w3-text-grey,
 .w3-hover-text-grey:hover,
 .w3-text-gray,
-.w3-hover-text-gray:hover {
+.w3-hover-text-gray:hover,
+#left-panel .home-comment {
   color: #757575 !important;
 }
 .w3-text-light-grey,
@@ -1614,7 +1647,8 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.bg-image {
+.bg-image,
+#home-main #me-image {
   background-image: url("../background.jpg");
   width: 100%;
   height: 500px;
@@ -1626,7 +1660,8 @@ body {
   background-size: cover;
 }
 /* Position text in the middle of the page/image */
-.bg-text {
+.bg-text,
+#home-main #me-intro {
   background-color: #000000;
   /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4);
@@ -1660,38 +1695,52 @@ body {
 }
 /*
  ***********************
- Common components
+ Views
 ***********************
 */
 #views {
   margin-top: 20px;
 }
-.overlay {
-  z-index: 10;
-  cursor: "pointer";
+/*
+ ***********************
+ Common components
+***********************
+*/
+#header .lang-bn {
+  cursor: pointer;
+  width: 40px;
 }
-#left-panel {
-  width: 280px;
-  z-index: 5;
+#header .avatar {
+  width: 40px;
 }
 .header-title {
   font-size: 30px;
   margin-bottom: auto;
   margin-top: auto;
 }
+#left-panel {
+  width: 280px;
+  padding: 20px;
+  z-index: 5;
+}
+#left-panel .avatar {
+  width: 45%;
+}
+.menu-item {
+  margin: 5px;
+}
+#left-panel .contact-bar {
+  letter-spacing: 10px;
+}
+.overlay {
+  z-index: 10;
+  cursor: pointer;
+}
 /*
  ***********************
  View specific
 ***********************
 */
-#coi-item {
-  height: 200px;
-  display: block;
-}
-#coi-item img {
-  max-width: 80%;
-  max-height: 50px;
-}
 .biblio-item {
   max-width: 100%;
   max-height: 500px;
@@ -1704,4 +1753,24 @@ body {
 }
 .biblio-item img {
   max-height: 350px;
+}
+.page-menu {
+  padding: 20px;
+}
+.page-menu button {
+  margin: 3px;
+}
+#coi #coi-item a {
+  height: 200px;
+  display: block;
+}
+#coi-item img {
+  max-width: 80%;
+  max-height: 50px;
+}
+#coi p {
+  padding: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }

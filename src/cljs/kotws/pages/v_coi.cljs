@@ -28,7 +28,7 @@
     {:name :cider
      :img "https://cider.mx/img/cider_logo.svg"
      :href "https://docs.cider.mx/cider/index.html"
-     :description {:en "As a clojure development to REPL tool, providing a full interactive experience in clojure development"
+     :description {:en "As a clojure development to REPL tool, providing a full interactive experience in clojure development. Youpla boom.Youpla boom.Youpla boom.Youpla boom.Youpla boom.Youpla boom.Youpla boom.Youpla boom."
                    :fr "Comme un outil intégrant le développement et le REPL, permettant une expérience interactive pendant le développement clojure"}}
     {:name :re-agent
      :img "https://github.com/reagent-project/reagent/raw/master/logo/logo-text.png"
@@ -65,16 +65,14 @@
 (defn coi-panel[]
   (let [language (rf/subscribe [::subs/language])
         get-msg (partial (ml/build-translate dictionnary) @language)]
-    [:div {:class "w3-row-padding"}
+    [:div#coi.w3-row-padding
      [:h1 (get-msg :coi-title)]
      (for [elt stack]
-       [:div {:class "w3-third"}
-        [:a {:id "coi-item" :class "w3-white w3-center w3-card" :href (:href elt)}
-         [:h2 {:class "w3-margin-bottom"} (:name elt)]
-         [:img.coi-image {:src (:img elt)
-                          :class "w3-margin-bottom"}]
-
-         [:p {:class "card-text-ellipsis w3-padding-large"}
+       [:div#coi-item
+        [:a {:href (:href elt)}
+         [:h2 (:name elt)]
+         [:img.coi-image {:src (:img elt)}]
+         [:p
           (@language (:description elt))]
          ]]
        )
