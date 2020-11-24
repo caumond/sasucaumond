@@ -9,9 +9,14 @@
             {:img "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/1323/9780132350884.jpg"
              :name "Clean Code"
              :description {:en "How to clean code. This book explains the S.O.L.I.D. principles, how to format code, and how it is important to look at code as a writer look to a book. There's a language."
-                           :fr "Comment nettoyer du code. Ce livre explique les principes S.O.L.I.D., le formattage du code. Ce qui m'a frappé dans ce livre c'est l'importance du mot language dans 'language de programmation'"
-                           }
+                           :fr "Comment nettoyer du code. Ce livre explique les principes S.O.L.I.D., le formattage du code. Ce qui m'a frappé dans ce livre c'est l'importance du mot language dans 'language de programmation'"}
              :sumup "lorem ipsum"}
+            {:img "images/pages/biblio/DDD.jpg"
+             :name "Domain-Driven Design: Tackling Complexity in the Heart of Software"
+             :link "https://www.dddcommunity.org/book/evans_2003/"
+             :description {:en "A reference on the DDD method, this book is full of recipes, practical examples. More than the method, the book offers the reason why: why the method, why we want to avoid that situation, ..."
+                           :fr "Une référence dans le monde du DDD, ce livre est plein de recette et d'exemples pratiques. Plus qu'une liste de méthode, ce livre explique pourquoi: le pourquoi de la méthode, pourquoi on souhaite éviter cette situation, ..."}
+             :biblio-details "#/biblio-details-ddd"}
             {:img "https://images.fr.shopping.rakuten.com/photo/1141133651.jpg"
              :name "Clean Architecture"
              :description {:en "How to design apps"
@@ -58,13 +63,15 @@
      (let [book (nth books @slide-idx)]
        [:div {:class "biblio-item"}
         [:h2 (:name book)]
-        [:img {:src (:img book)}]
-        [:h4 (get-msg :resume-title)]
-        [:p (@language (:description book))]
+        [:a {:href (:biblio-details book)}[:img {:src (:img book)}]]
+        [:h4 (get-msg :resume-title)
+         (when-not (nil? (:link book))
+           [:a {:href (:link book)}[:i {:class "fa fa-shopping-cart"}]])
+         [:p (@language (:description book))]]
         ]
        )
 
-     [:div {:class "page-menu"} 
+     [:div {:class "page-menu"}
       [:button {:on-click #(rf/dispatch (if (= 0 @slide-idx)
                                           [::events/change-slide-idx :abs (dec (count books))]
                                           [::events/change-slide-idx :rel -1]))}

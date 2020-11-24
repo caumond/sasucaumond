@@ -14,7 +14,7 @@
   (let [language (rf/subscribe [::subs/language])
         get-msg (partial (ml/build-translate dictionnary) @language)]
     [:header
-     [:button {:on-click open-left-panel}
+     [:button {:class "menu-bn" :on-click open-left-panel}
       [:i {:class "fa fa-bars"}]]
 
      [:a {:href "#"}
@@ -23,11 +23,16 @@
      [:span {:class "header-title"}
       [:b (get-msg :home-title)]]
 
-     [:img {:src "images/french.png"
-            :class "lang-bn"
-            :on-click #(rf/dispatch [::events/change-language :fr])}]
-     [:img {:class "lang-bn"
-            :src "images/english.png"
-            :on-click #(rf/dispatch [::events/change-language :en])}]
+     [:a {:class "lang-bn"
+          :on-click #(rf/dispatch [::events/change-language :fr])}
+      "fr"
+      ]
+     [:a {:class "lang-bn"
+          :on-click #(rf/dispatch [::events/change-language :en])}
+      "en"]
+
+     [:a {:class "login-bn"
+          :href "#/connect"}
+      [:i {:class "fa fa-user"}]]
      ])
   )

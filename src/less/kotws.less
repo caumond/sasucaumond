@@ -74,6 +74,7 @@ body{
 // Main container - common to all views
 #views {
     margin-top: 20px;
+    min-height: 300px;
 }
 
 /*
@@ -89,10 +90,17 @@ body{
 }
 
 // Header
-#header button{
+#header .menu-bn{
     &:extend(.w3-button);
     &:extend(.w3-left);
     &:extend(.w3-hide-large);
+    &:extend(.w3-xxlarge);
+    &:extend(.w3-hover-text-grey);
+}
+
+#header .login-bn{
+    &:extend(.w3-button);
+    &:extend(.w3-right);
     &:extend(.w3-xxlarge);
     &:extend(.w3-hover-text-grey);
 }
@@ -217,6 +225,37 @@ body{
 
 .page-menu .unselected-button{
     &:extend(.w3-light-grey);
+}
+
+// Connection
+.connection-panel{
+    &:extend(.w3-center );
+    &:extend(.w3-panel);
+    &:extend(.w3-round-xlarge);
+    background-color: white;
+    margin:auto;
+    width:40%;
+    padding: 20px;
+}
+
+.form label{
+    &:extend(.w3-half);
+}
+
+.connection-panel input{
+    &:extend(.w3-half);
+}
+
+.bns{
+    &:extend(.w3-bar);
+    &:extend(.w3-padding-16);
+}
+
+.bns a {
+    &:extend(.w3-bar-item);
+    &:extend(.w3-button);
+    &:extend(.w3-black);
+    &:extend(.w3-margin);
 }
 
 // COI

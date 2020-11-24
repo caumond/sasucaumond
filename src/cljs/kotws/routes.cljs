@@ -52,6 +52,12 @@
   (defroute "/cv" []
     (re-frame/dispatch [::events/set-active-panel :cv]))
 
+  (defroute "/connect" []
+    (re-frame/dispatch [::events/set-active-panel :connection-panel]))
+
+  (defroute "/biblio-details-ddd" []
+    (re-frame/dispatch [::events/set-active-panel :biblio-details-ddd]))
+
   (defroute "*" []
     (re-frame/dispatch [::events/set-active-panel :unknown-route]))
   ;; --------------------

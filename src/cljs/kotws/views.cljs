@@ -8,6 +8,8 @@
    [kotws.pages.v-biblio :refer [biblio-panel]]
    [kotws.pages.v-coi :refer [coi-panel]]
    [kotws.pages.v-cv :refer [cv-panel]]
+   [kotws.pages.v-connect :refer [connection-panel]]
+   [kotws.pages.biblio-details.ddd :refer [biblio-details-ddd-panel]]
    ))
 
 (def dictionnary
@@ -25,6 +27,8 @@
       :coi [coi-panel]
       :cv [cv-panel]
       :biblio-panel [biblio-panel]
+      :connection-panel [connection-panel]
+      :biblio-details-ddd [biblio-details-ddd-panel]
       [:h1 (get-msg :non-existing-panel @active-panel)]
       )
 

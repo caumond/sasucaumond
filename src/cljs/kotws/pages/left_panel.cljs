@@ -41,12 +41,12 @@
       (get-msg :home-comment)]
 
      [:div {:class "menu w3-bar-block"}
-      [:a {:href "#/":on-click close-left-panel
+      [:a {:href "#/" :on-click close-left-panel
            :class "w3-bar-item menu-item"}
        [:i {:class "fa fa-home fa-fw"}] (get-msg :home-item)
        ]
 
-      [:a {:href "#/coi":on-click close-left-panel
+      [:a {:href "#/coi" :on-click close-left-panel
            :class "w3-bar-item menu-item"}
        [:i {:class "fa fa-bullhorn fa-fw"}] (get-msg :coi-item)
        ]
