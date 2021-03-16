@@ -1,10 +1,10 @@
 (ns kotws.handler
   (:require
-    [compojure.core :refer [GET defroutes]]
-    [compojure.route :refer [resources]]
-    [ring.util.response :refer [resource-response]]
-    [ring.middleware.reload :refer [wrap-reload]]
-    [shadow.http.push-state :as push-state]))
+   [compojure.core :refer [GET defroutes]]
+   [compojure.route :refer [resources]]
+   [ring.util.response :refer [resource-response]]
+   [ring.middleware.reload :refer [wrap-reload]]
+   [shadow.http.push-state :as push-state]))
 
 (defroutes routes
   (GET "/" [] (resource-response "index.html" {:root "public"}))

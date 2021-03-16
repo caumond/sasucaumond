@@ -19,11 +19,11 @@
 
 (defn ^:dev/after-load mount-root []
   (rf/clear-subscription-cache!)
-  (let [views-el (.getElementById js/document "views")
+  (let [views-el      (.getElementById js/document "views")
         left-panel-el (.getElementById js/document "left-panel")
-        overlay-el (.getElementById js/document "overlay")
-        header-el (.getElementById js/document "header")
-        footer-el (.getElementById js/document "footer")]
+        overlay-el    (.getElementById js/document "overlay")
+        header-el     (.getElementById js/document "header")
+        footer-el     (.getElementById js/document "footer")]
     (rdom/unmount-component-at-node views-el)
     (rdom/render [views/panel] views-el)
 

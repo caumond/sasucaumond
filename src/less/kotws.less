@@ -16,7 +16,7 @@
     background-image: url("../background.jpg");
 
     width: 100%;
-    height: 500px;
+    height: 400px;
 
     filter: blur(8px);
     -webkit-filter: blur(8px);
@@ -35,7 +35,7 @@
     font-weight: bold;
     border: 3px solid #f1f1f1;
     position: relative;
-    top: -250px;
+    top: -150px;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -60,6 +60,10 @@ html, body {
 body{
     &:extend(.w3-light-grey);
     &:extend(.w3-container);
+}
+
+a{
+    text-decoration: underline;
 }
 
 * {
@@ -90,6 +94,10 @@ body{
 }
 
 // Header
+header {
+    &:extend(.w3-container);
+    height:60px;
+}
 #header .menu-bn{
     &:extend(.w3-button);
     &:extend(.w3-left);
@@ -116,14 +124,14 @@ body{
 #header .avatar{
     &:extend(.w3-circle);
     &:extend(.w3-left);
-    &:extend(.w3-margin);
+    &:extend(.w3-hide-large);
     &:extend(.w3-hover-opacity);
+    &:extend(.w3-center);
     width: 40px;}
 
-.header-title{
+#header .header-title{
     font-size: 30px;
-    margin-bottom: auto;
-    margin-top: auto;
+    margin-left: 30px;
 }
 
 // Left panel
@@ -144,7 +152,8 @@ body{
 
 #left-panel .avatar{
     &:extend(.w3-round);
-    width: 45%;
+    &:extend(.w3-center);
+    width: 40%;
 }
 
 #left-panel h4{
@@ -170,7 +179,7 @@ body{
 #left-panel .contact-bar{
     &:extend(.w3-center);
     &:extend(.w3-padding-32);
-    letter-spacing: 10px;
+    letter-spacing: 20px;
 }
 
 // Overlay
@@ -300,8 +309,7 @@ body{
 }
 
 // Home
-#home-main{
-}
+
 
 #home-main #me-image{
     &:extend(.bg-image);

@@ -759,6 +759,7 @@ a {
   }
   .w3-hide-large,
   #header .menu-bn,
+  #header .avatar,
   #left-panel .close-menu {
     display: none !important;
   }
@@ -910,6 +911,7 @@ a {
 .w3-panel,
 body,
 #footer,
+header,
 .connection-panel {
   padding: 0.01em 16px;
 }
@@ -1130,6 +1132,8 @@ body,
   text-align: justify !important;
 }
 .w3-center,
+#header .avatar,
+#left-panel .avatar,
 #left-panel .contact-bar,
 .biblio-item,
 .page-menu,
@@ -1174,7 +1178,6 @@ body,
 }
 .w3-margin,
 #header .lang-bn,
-#header .avatar,
 .bns a {
   margin: 16px !important;
 }
@@ -1669,7 +1672,7 @@ body,
 #home-main #me-image {
   background-image: url("../background.jpg");
   width: 100%;
-  height: 500px;
+  height: 400px;
   filter: blur(8px);
   -webkit-filter: blur(8px);
   /* Center and scale the image nicely */
@@ -1688,7 +1691,7 @@ body,
   font-weight: bold;
   border: 3px solid #f1f1f1;
   position: relative;
-  top: -250px;
+  top: -150px;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -1708,6 +1711,9 @@ body {
   max-width: 1600px;
   font-family: Raleway, sans-serif;
 }
+a {
+  text-decoration: underline;
+}
 * {
   box-sizing: border-box;
 }
@@ -1725,6 +1731,9 @@ body {
  Common components
 ***********************
 */
+header {
+  height: 60px;
+}
 #header .lang-bn {
   cursor: pointer;
   width: 40px;
@@ -1732,10 +1741,9 @@ body {
 #header .avatar {
   width: 40px;
 }
-.header-title {
+#header .header-title {
   font-size: 30px;
-  margin-bottom: auto;
-  margin-top: auto;
+  margin-left: 30px;
 }
 #left-panel {
   width: 280px;
@@ -1743,13 +1751,13 @@ body {
   z-index: 5;
 }
 #left-panel .avatar {
-  width: 45%;
+  width: 40%;
 }
 .menu-item {
   margin: 5px;
 }
 #left-panel .contact-bar {
-  letter-spacing: 10px;
+  letter-spacing: 20px;
 }
 .overlay {
   z-index: 10;

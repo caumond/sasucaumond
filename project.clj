@@ -11,6 +11,7 @@
                  [clj-commons/secretary "1.2.4"]
                  [compojure "1.6.1"]
                  [tongue "0.2.9"]
+                 [com.taoensso/tempura "1.2.1"]
                  [yogthos/config "1.1.7"]
                  [ring "1.8.1"]
                  [re-pressed "0.3.1"]
@@ -42,31 +43,31 @@
 
   :shadow-cljs {:nrepl {:port 8777}
 
-                :builds {:app {:target :browser
+                :builds {:app {:target     :browser
                                :output-dir "resources/public/js/compiled"
                                :asset-path "/js/compiled"
-                               :modules {:app {:init-fn kotws.core/init
-                                               :preloads [devtools.preload
-                                                          day8.re-frame-10x.preload]}}
-                               :dev {:compiler-options {:closure-defines {re-frame.trace.trace-enabled? true
-                                                                          day8.re-frame.tracing.trace-enabled? true}}}
-                               :release {:build-options
-                                         {:ns-aliases
-                                          {day8.re-frame.tracing day8.re-frame.tracing-stubs}}}
-                               :devtools {:http-root "resources/public"
-                                          :http-port 8280
-                                          :http-handler kotws.handler/dev-handler
-                                          }}
+                               :modules    {:app {:init-fn  kotws.core/init
+                                                  :preloads [devtools.preload
+                                                             day8.re-frame-10x.preload]}}
+                               :dev        {:compiler-options {:closure-defines {re-frame.trace.trace-enabled?        true
+                                                                                 day8.re-frame.tracing.trace-enabled? true}}}
+                               :release    {:build-options
+                                            {:ns-aliases
+                                             {day8.re-frame.tracing day8.re-frame.tracing-stubs}}}
+                               :devtools   {:http-root    "resources/public"
+                                            :http-port    8280
+                                            :http-handler kotws.handler/dev-handler
+                                            }}
                          :browser-test
-                         {:target :browser-test
+                         {:target    :browser-test
                           :ns-regexp "-test$"
                           :runner-ns shadow.test.browser
-                          :test-dir "target/browser-test"
-                          :devtools {:http-root "target/browser-test"
-                                     :http-port 8290}}
+                          :test-dir  "target/browser-test"
+                          :devtools  {:http-root "target/browser-test"
+                                      :http-port 8290}}
 
                          :karma-test
-                         {:target :karma
+                         {:target    :karma
                           :ns-regexp "-test$"
                           :output-to "target/karma-test.js"}}}
 
@@ -86,7 +87,7 @@
    {:dependencies [[binaryage/devtools "1.0.2"]
                    [day8.re-frame/re-frame-10x "0.7.0"]]
     :source-paths ["dev"]
-    :jvm-opts ["-Dclojure.spec.check-asserts=true"]}
+    :jvm-opts     ["-Dclojure.spec.check-asserts=true"]}
 
    :prod {:closure-defines {:goog.DEBUG false}}
 

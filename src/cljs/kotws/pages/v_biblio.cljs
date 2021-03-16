@@ -54,8 +54,8 @@
 
 (defn biblio-panel []
   (let [slide-idx (rf/subscribe [::subs/slide-idx])
-        language (rf/subscribe [::subs/language])
-        get-msg (partial (ml/build-translate dictionnary) @language)]
+        language  (rf/subscribe [::subs/language])
+        get-msg   (partial (ml/build-translate dictionnary) @language)]
     [:div
      [:h1 (get-msg :biblio-title)]
      [:p (get-msg :biblio-intro)]
@@ -78,11 +78,11 @@
        (str "< " (get-msg :prev))]
 
       (doall
-       (for [i (take (count books) (iterate inc 1))]
-         ^{:key (str "page count-" i)} [:button {:class (if (= (dec i) @slide-idx)
-                                                          "selected-button"
-                                                          "unselected-button")
-                                                 :on-click #(rf/dispatch [::events/change-slide-idx :abs (- i 1)])} i ]))
+        (for [i (take (count books) (iterate inc 1))]
+          ^{:key (str "page count-" i)} [:button {:class    (if (= (dec i) @slide-idx)
+                                                              "selected-button"
+                                                              "unselected-button")
+                                                  :on-click #(rf/dispatch [::events/change-slide-idx :abs (- i 1)])} i ]))
 
       [:button {:on-click #(rf/dispatch (if (= (dec (count books)) @slide-idx)
                                           [::events/change-slide-idx :abs 0]
