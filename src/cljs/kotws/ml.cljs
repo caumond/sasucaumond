@@ -11,7 +11,6 @@
 (defn tr
   ([dic keys] (tr dic keys []))
   ([dic keys args]
-   (println (merge-with merge dic dictionary-registry))
    (tempura/tr {:dict (merge-with merge dic dictionary-registry)}
                [@(rf/subscribe [::subs/language])]
                keys

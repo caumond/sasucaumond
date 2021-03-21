@@ -15,7 +15,7 @@
 
 (defn about-panel []
   (let [language (rf/subscribe [::subs/language])
-        get-msg (partial (ml/build-translate dictionnary) @language)
+        get-msg  (partial (ml/build-translate dictionnary) @language)
         ]
     [:div {:class "about"}
      [:h1 (get-msg :about-title)]

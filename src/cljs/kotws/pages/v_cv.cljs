@@ -1,13 +1,12 @@
 (ns kotws.pages.v-cv
-  (:require
-   [cljs-time.core :as time]
-   [kotws.ml :as ml]))
+  (:require [cljs-time.core :as time]
+            [kotws.ml :as ml]))
 
 ;; private
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (def tr
   (partial ml/tr
-     {:fr {:cv {:intro   "Ma carrière a démarrer en 2010"
+     {:fr {:cv {:intro   "J'ai démarré l'informatique tôt, au collège. Ma carrière a démarré en 2001, à l'université en tant que doctorant."
                 :intro-2 "After some years developing mainly games, I started. I started my career as a phd student in operational research, teaching sciences. I started in Unilog - a software firm, working @Michelin. consultant in the industry, where I developed Supply Chain, Operations Research and I.T skills. I demonstrated a will and ability to be disruptive and pragmatic."}
            }
       :en {:cv {:intro   "My career has been focused on three pillars: development, Industry / Supply Chain / Logistics metier, and optimization research. My experience described below gives some insights on that."
@@ -27,13 +26,14 @@
     [:p (tr [:cv/intro])]
     [:p (tr [:cv/intro-2])]
 
-    [:div.w3-panel.w3-grey.w3-card.w3-display-container.w3-cell-row
-     [:div.w3-panel.w3-white.w3-card.w3-display-container.w3-cell
-
+    [:div#Michelin.w3-grey.w3-cell-row
+     [:div.w3-cell.w3-card.w3-white.w3-padding
       [:p.entreprise (tr ["Michelin"])]]
+
      [:div.w3-cell.w3-cell-row
       [:div.w3-cell [:p.years.w3-light-grey (tr ["2016-2019"])]]
-      [:div.w3-panel.w3-white.w3-card.w3-display-container.w3-cell
+      [:div.w3-cell
+       ;;.w3-panel.w3-white.w3-card.w3-display-container
        [:h1 "ENTERPRISE ARCHITECT"]
        [:h2 (years-of-experience)
         " years of experience"]
@@ -64,27 +64,27 @@
         [:li "Target and Roadmaps for Post manufacturing, Offtake, OEM"]
         [:li [:a {:href "https://www.supplychaindigital.com/technology/exclusive-interview-girish-rishi-ceo-jda-software" :blank "blank"}
               "First purchasing in the group of an A.I. focus software"]]
-        ]]
-      [:div.w3-panel.w3-white.w3-card.w3-display-container
-       [:p.years "2013-2016"]
-       [:h3 "Upstream« Supply Chain » business architect"]
-       [:h4 "Perimeter:"]
-       [:ul
-        [:li "Planning process for upstream industry"]
-        ]
-       [:h4 "Main activities:"]
-       [:ul
-        [:li "Animate business ambitions with C level"]
-        [:li "Build architecture rules and business process"]
-        ]
-       [:h4 "Main achievements:"]
-       [:ul
-        [:li "Reshape program objectives with C-level,"]
-        [:li "PLM / product B.O.M. and routing data model for planning, quality, manufacturing costing and purchasing,"]
-        [:li "New decentralized planning process for the 5 upstream industries"]
         ]]]
      ]
 
+    [:div.w3-panel.w3-white.w3-card.w3-display-container
+     [:p.years "2013-2016"]
+     [:h3 "Upstream« Supply Chain » business architect"]
+     [:h4 "Perimeter:"]
+     [:ul
+      [:li "Planning process for upstream industry"]
+      ]
+     [:h4 "Main activities:"]
+     [:ul
+      [:li "Animate business ambitions with C level"]
+      [:li "Build architecture rules and business process"]
+      ]
+     [:h4 "Main achievements:"]
+     [:ul
+      [:li "Reshape program objectives with C-level,"]
+      [:li "PLM / product B.O.M. and routing data model for planning, quality, manufacturing costing and purchasing,"]
+      [:li "New decentralized planning process for the 5 upstream industries"]
+      ]]
     [:p.years "2008-2013"]
     [:h3 "IT Supply Chain Consultant / IT Architect"]
     [:h4 "Perimeter"]

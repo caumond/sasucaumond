@@ -760,7 +760,7 @@ a {
   .w3-hide-large,
   #header .menu-bn,
   #header .avatar,
-  #left-panel .close-menu {
+  #left-panel .close-button {
     display: none !important;
   }
   .w3-sidebar.w3-collapse {
@@ -1104,7 +1104,8 @@ header,
 .w3-medium {
   font-size: 15px !important;
 }
-.w3-large {
+.w3-large,
+#left-panel .close-button {
   font-size: 18px !important;
 }
 .w3-xlarge {
@@ -1118,8 +1119,7 @@ header,
 .w3-xxxlarge {
   font-size: 48px !important;
 }
-.w3-jumbo,
-#left-panel .close-menu {
+.w3-jumbo {
   font-size: 64px !important;
 }
 .w3-left-align {
@@ -1190,15 +1190,14 @@ header,
 .w3-margin-left {
   margin-left: 16px !important;
 }
-.w3-margin-right,
-#left-panel .menu a i {
+.w3-margin-right {
   margin-right: 16px !important;
 }
 .w3-padding-small {
   padding: 4px 8px !important;
 }
 .w3-padding,
-#left-panel .close-menu {
+#left-panel .close-button {
   padding: 8px 16px !important;
 }
 .w3-padding-large {
@@ -1235,7 +1234,7 @@ header,
 .w3-right,
 #header .login-bn,
 #header .lang-bn,
-#left-panel .close-menu {
+#left-panel .close-button {
   float: right !important;
 }
 .w3-button:hover {
@@ -1746,15 +1745,15 @@ header {
   margin-left: 30px;
 }
 #left-panel {
-  width: 280px;
-  padding: 20px;
+  width: 180px;
+  padding: 5px;
   z-index: 5;
 }
 #left-panel .avatar {
   width: 40%;
 }
-.menu-item {
-  margin: 5px;
+#left-panel .menu a i {
+  padding-left: 0px;
 }
 #left-panel .contact-bar {
   letter-spacing: 20px;

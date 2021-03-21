@@ -137,15 +137,16 @@ header {
 // Left panel
 #left-panel{
     &:extend(.w3-white);
-    width: 280px;
-    padding: 20px;
+    &:extend(.w3-bar-block);
+    width: 180px;
+    padding: 5px;
     z-index: 5;
 }
 
-#left-panel .close-menu{
+#left-panel .close-button{
     &:extend(.w3-hide-large);
     &:extend(.w3-right);
-    &:extend(.w3-jumbo);
+    &:extend(.w3-large);
     &:extend(.w3-padding);
     &:extend(.w3-hover-grey);
 }
@@ -156,25 +157,22 @@ header {
     width: 40%;
 }
 
-#left-panel h4{
-}
-
 #left-panel .home-comment{
     &:extend(.w3-text-grey);
 }
 
 #left-panel .menu{
-    // forced on code-side w3-bar-block
+    &:extend(.w3-bar-block);
 }
 
-.menu-item{
-    &:extend(.w3-hover-grey);
-    margin: 5px;
+#left-panel .menu a{
+    &:extend(.w3-bar-item);
 }
 
 #left-panel .menu a i{
-    &:extend(.w3-margin-right);
-}
+    &:extend(.w3-fa);
+    &:extend(.w3-fw);
+    padding-left:0px;}
 
 #left-panel .contact-bar{
     &:extend(.w3-center);

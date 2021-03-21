@@ -55,6 +55,9 @@
   (defroute "/connect" []
     (re-frame/dispatch [::events/set-active-panel :connection-panel]))
 
+  (defroute "/vision" []
+    (re-frame/dispatch [::events/set-active-panel :vision-panel]))
+
   (defroute "/biblio-details-ddd" []
     (re-frame/dispatch [::events/set-active-panel :biblio-details-ddd]))
 
