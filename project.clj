@@ -86,7 +86,7 @@
   :profiles
   {:dev
    {:dependencies [[binaryage/devtools "1.0.2"]
-                   ;;                   [day8.re-frame/re-frame-10x "0.7.0"]
+                   [day8.re-frame/re-frame-10x "0.7.0"]
                    ]
     :source-paths ["dev"]
     :jvm-opts     ["-Dclojure.spec.check-asserts=true"]}

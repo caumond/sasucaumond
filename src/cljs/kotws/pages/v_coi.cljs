@@ -64,17 +64,18 @@
 
 (defn coi-panel[]
   (let [language (rf/subscribe [::subs/language])
-        get-msg (partial (ml/build-translate dictionnary) @language)]
+        get-msg  (partial (ml/build-translate dictionnary) @language)]
     [:div#coi.w3-row-padding
      [:h1 (get-msg :coi-title)]
-     (for [elt stack]
-       [:div#coi-item
-        [:a {:href (:href elt)}
-         [:h2 (:name elt)]
-         [:img.coi-image {:src (:img elt)}]
-         [:p
-          (@language (:description elt))]
-         ]]
-       )
+     (doall
+       (for [elt stack]
+         ^{:key elt} [:div#coi-item
+                      [:a {:href (:href elt)}
+                       [:h2 (:name elt)]
+                       [:img.coi-image {:src (:img elt)}]
+                       [:p
+                        (@language (:description elt))]
+                       ]]
+         ))
      ])
   )

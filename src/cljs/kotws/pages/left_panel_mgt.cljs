@@ -33,6 +33,4 @@
 ;; Public
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(def closeable {:href     "#"
-                :on-click close-left-panel
-                :title    "close menu"})
+(def closeable-link {:on-click close-left-panel})

@@ -1,4 +1,6 @@
 @import (less) "../../resources/public/css/w3.css";
+@import (less) "timeline.less";
+
 
 /*
  ***********************
@@ -139,16 +141,16 @@ header {
     &:extend(.w3-white);
     &:extend(.w3-bar-block);
     width: 180px;
-    padding: 5px;
+    padding: 1px;
     z-index: 5;
 }
 
 #left-panel .close-button{
     &:extend(.w3-hide-large);
-    &:extend(.w3-right);
-    &:extend(.w3-large);
-    &:extend(.w3-padding);
+    &:extend(.w3-display-topright);
+    &:extend(.w3-xlarge);
     &:extend(.w3-hover-grey);
+    margin-right: 5px;
 }
 
 #left-panel .avatar{
@@ -167,12 +169,15 @@ header {
 
 #left-panel .menu a{
     &:extend(.w3-bar-item);
-}
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;}
 
 #left-panel .menu a i{
     &:extend(.w3-fa);
     &:extend(.w3-fw);
-    padding-left:0px;}
+    padding-right:10px;}
 
 #left-panel .contact-bar{
     &:extend(.w3-center);
@@ -306,9 +311,27 @@ header {
 #cv{
 }
 
+#cv .timeline__event__description li{
+    padding-left: 0px;
+}
+
+#cv .timeline__event__description .desc-item{
+    width: 94%;
+    padding: 0px 10px;
+}
+#cv .timeline__event__description i{
+    padding: 20px 0px 0px 0px;
+}
+
+.cv-button{
+    cursor: pointer;
+}
+
+.timeline__event__icon i {
+    margin-left: -15px;
+}
+
 // Home
-
-
 #home-main #me-image{
     &:extend(.bg-image);
 }
