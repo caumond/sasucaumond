@@ -3,33 +3,33 @@
             [kotws.ml :as ml]))
 
 (def tr (partial ml/tr
-           {:en {:home         "Home"
-                 :home-comment "My digital life"
-                 :home-item    "Home"
-                 :coi-item     "Tech stack"
-                 :cv-item      "Resume"
-                 :biblio-item  "Biblio"
-                 :about-item   "About"
-                 :vision-item  "Vision"
-                 :contact-item "Contact"
+           {:en {:home           "Home"
+                 :home-comment   "My digital life"
+                 :home-item      "Home"
+                 :techstack-item "Tech stack"
+                 :cv-item        "Resume"
+                 :biblio-item    "Biblio"
+                 :about-item     "About"
+                 :vision-item    "Vision"
+                 :contact-item   "Contact"
                  }
-            :fr {:home         "Accueil"
-                 :home-comment "Ma vie digital"
-                 :home-item    "Accueil"
-                 :coi-item     "Centre d'intérêts"
-                 :cv-item      "CV"
-                 :biblio-item  "Biblio"
-                 :about-item   "A propos"
-                 :vision-item  "Vision"
-                 :contact-item "Contact"
+            :fr {:home           "Accueil"
+                 :home-comment   "Ma vie digital"
+                 :home-item      "Accueil"
+                 :techstack-item "Centre d'intérêts"
+                 :cv-item        "CV"
+                 :biblio-item    "Biblio"
+                 :about-item     "A propos"
+                 :vision-item    "Vision"
+                 :contact-item   "Contact"
                  }}))
 
 
 (def left-menu-entries
   [{:icon "fa-home" :text :home-item :link "#/"}
-   {:icon "fa-bullhorn" :text :coi-item :link "#/coi"}
-   {:icon "fa-graduation-cap" :text :cv-item :link "#/cv"}
+   {:icon "fa-graduation-cap" :text :cv-item :link "#/resume"}
    {:icon "fa-eye" :text :vision-item :link "#/vision"}
+   {:icon "fa-bullhorn" :text :techstack-item :link "#/tech-stack"}
    {:icon "fa-book" :text :biblio-item :link "#/biblio"}
    {:icon "fa-user" :text :about-item :link "#/about"}
    ])
@@ -45,6 +45,7 @@
    [:p.home-comment
     (tr [:home-comment])]
 
+   [:hr.rounded]
    [:div.menu.w3-bar-block
     (doall
       (for [menu left-menu-entries]

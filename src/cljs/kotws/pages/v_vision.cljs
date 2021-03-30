@@ -1,5 +1,5 @@
 (ns kotws.pages.v-vision
-  (:require    [kotws.ml :as ml]))
+  (:require [kotws.ml :as ml]))
 
 (def tr
   (partial ml/tr {:en {

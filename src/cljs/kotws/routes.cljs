@@ -46,11 +46,11 @@
   (defroute "/blog-cc-clojure" []
     (re-frame/dispatch [::events/set-active-panel :blog-cc-clojure]))
 
-  (defroute "/coi" []
-    (re-frame/dispatch [::events/set-active-panel :coi]))
+  (defroute "/tech-stack" []
+    (re-frame/dispatch [::events/set-active-panel :tech-stack-panel]))
 
-  (defroute "/cv" []
-    (re-frame/dispatch [::events/set-active-panel :cv]))
+  (defroute "/resume" []
+    (re-frame/dispatch [::events/set-active-panel :resume-panel]))
 
   (defroute "/connect" []
     (re-frame/dispatch [::events/set-active-panel :connection-panel]))
