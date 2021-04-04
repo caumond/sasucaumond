@@ -15,25 +15,25 @@ my initial training. software engineer, designing and building software. Having 
             }))
 
 (defn home-panel []
-  [:div
+  [:<>
    [:h1 (tr [:home-msg])]
-   [:p (tr [:home-intro])]
-   [:p (tr [:home-intro2])]
+   [:p  (tr [:home-intro])]
+   [:p  (tr [:home-intro2])]
 
-   [:table {:style {:width "80%" :margin-left "auto" :margin-right "auto"}}
+   [:table#home-three-pilars
     [:tbody
      [:tr
       [:th]
-      [:th.w3-center [:a {:href "#/tech-stack"} [:img.home-image {:src "images/pages/it.png"}]]]
+      [:th [:a {:href "#/tech-stack"} [:img#it {:src "images/pages/it.png"}]]]
       [:th]
       ]
      [:tr
       [:th]
-      [:th.w3-center [:img.home-image {:src "images/pages/three-pilars.png" :style { :margin-top "2vw"}} ]]
+      [:th [:img#pilars {:src "images/pages/three-pilars.png"} ]]
       [:th]
       ]
      [:tr
-      [:th [:a {:href "#/vision"} [:img.home-image.w3-right {:src "images/pages/sc.png" :style { :margin-right "-10vw"}} ]]]
+      [:th [:a {:href "#/vision"} [:img#sc {:src "images/pages/sc.png"} ]]]
       [:th]
-      [:th [:a {:href "#/maths"}[:img.home-image.w3-left {:src "images/pages/math.png" :style { :margin-left "-10vw"}}]]]
+      [:th [:a {:href "#/maths"}[:img#math {:src "images/pages/math.png"}]]]
       ]]]])

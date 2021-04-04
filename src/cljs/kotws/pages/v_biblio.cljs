@@ -62,39 +62,33 @@
 
 (defn biblio-panel []
   (let [slide-idx (rf/subscribe [::subs/slide-idx])]
-    [:div
+    [:<>
      [:h1 (tr [:biblio-title])]
      [:p (tr [:biblio-intro])]
 
      (let [book (nth books @slide-idx)]
-       [:div {:class "biblio-item"}
+       [:div.biblio-item
         [:h2 (:name book)]
         [:a {:href (:biblio-details book)}[:img {:src (:img book)}]]
-        [:div {:class "page-menu"}
-         [:button {:on-click #(rf/dispatch (if (= 0 @slide-idx)
+        [:div.page-menu
+         [:i.button.fa.fa-angle-left {:on-click #(rf/dispatch (if (= 0 @slide-idx)
                                              [::events/change-slide-idx :abs (dec (count books))]
-                                             [::events/change-slide-idx :rel -1]))}
-          (str "< " (tr [:prev]))]
-
-         (doall
+                                             [::events/change-slide-idx :rel -1]))}]
+         [:div
+          (doall
            (for [i (take (count books) (iterate inc 1))]
              ^{:key (str "page count-" i)} [:button {:class    (if (= (dec i) @slide-idx)
                                                                  "selected-button"
                                                                  "unselected-button")
-                                                     :on-click #(rf/dispatch [::events/change-slide-idx :abs (- i 1)])} i ]))
+                                                     :on-click #(rf/dispatch [::events/change-slide-idx :abs (- i 1)])} i ]))]
 
-         [:button {:on-click #(rf/dispatch (if (= (dec (count books)) @slide-idx)
-                                             [::events/change-slide-idx :abs 0]
-                                             [::events/change-slide-idx :rel 1]
-                                             ))}
-          (str (tr [:next]) " >")]
-         ]
+         [:i.button.fa.fa-angle-right {:on-click #(rf/dispatch (if (= (dec (count books)) @slide-idx)
+                                                                 [::events/change-slide-idx :abs 0]
+                                                                 [::events/change-slide-idx :rel 1]
+                                                                 ))}]]
         [:h4 (tr [:resume-title])
          (when-not (nil? (:link book))
            [:a {:href (:link book)}[:i.fa.fa-shopping-cart]])]
         [:p (tr [(:description book)])]
         ]
-       )
-
-     ])
-  )
+       )]))

@@ -32,7 +32,7 @@
   )
 
 (defn about-panel []
-  [:div {:class "about"}
+  [:<>
    [:h1 (tr [:about-title])]
    [:p (tr [:about-intro])]
 

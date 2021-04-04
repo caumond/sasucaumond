@@ -1,9 +1,7 @@
-(ns kotws.events
-  (:require
-   [re-frame.core :as rf]
-   [kotws.db :as db]
-   [day8.re-frame.tracing :refer-macros [fn-traced]]
-   ))
+(ns kotws.events (:require
+                  [re-frame.core :as rf]
+                  [kotws.db :as db]
+                  [day8.re-frame.tracing :refer-macros [fn-traced]]))
 
 (rf/reg-event-db ::initialize-db
                  (fn-traced [_ _]
@@ -29,16 +27,18 @@
                               :rel (update db :slide-idx (partial + val))
                               )))
 
-(rf/reg-event-db ::password-change
-                 (fn-traced [db [_ txt]]
-                            (assoc db :password txt))
-                 )
+(rf/reg-event-db ::close-left-panel
+                 (fn-traced [db _]
+                            (assoc db :show-left-panel false)))
 
-(rf/reg-event-db ::login-change
-                 (fn-traced [db [_ txt]]
-                            (assoc db :login txt))
-                 )
+(rf/reg-event-db ::open-left-panel
+                 (fn-traced [db _]
+                            (assoc db :show-left-panel true)))
 
-;;(rf/reg-event-fx ::check-credentials
-;;                 (fn-traced [cofx _]
-;;                           ))
+(rf/reg-event-db ::selected-items
+                 (fn-traced [db [_ key item]]
+                            (update-in db [:selected-items]
+                                       (fn [selected-items]
+                                         (if (get selected-items key)
+                                           (dissoc selected-items key)
+                                           (assoc selected-items key item))))))

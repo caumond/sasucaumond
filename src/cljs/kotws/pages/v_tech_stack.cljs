@@ -2,25 +2,25 @@
   (:require [kotws.ml :as ml]))
 
 (def tr (partial ml/tr
-           {:en {:coi-title    "My current preferred stack is:"
-                 :clojure      {:desc "As a programming language used by default everywhere in the stack "}
-                 :spacemacs    {:desc "As a full IDE integrated with clojure"}
-                 :leiningen    {:desc "As an integration, templating, compilation tool"}
-                 :cider        {:desc "As a clojure development to REPL tool, providing a full interactive experience in clojure development."}
-                 :re-agent     {:desc "As a reactive UI provider"}
-                 :clever-cloud {:desc "As a cloud provider"}
-                 :git-lab      {:desc "As a configuration management system and PR/ER management tool"}
-                 }
-            :fr {:coi-title    "Ma stack technique préférée est "
-                 :clojure      {:desc "Le language de programmation à utiliser partout sur la stack"}
-                 :spacemacs    {:desc "IDE complétement intégré à clojure"}
-                 :leiningen    {:desc "Comme outil d'intégration, de templating, de compilation"}
-                 :cider        {:desc "Comme un outil intégrant le développement et le REPL, permettant une expérience interactive pendant le développement clojure"}
-                 :re-agent     {:desc "Permet de faire des interfaces utilisateurs basées sur React"}
-                 :clever-cloud {:desc "Hébergeur cloud"}
-                 :git-lab      {:desc "Comme outil de gestion de configuration et de ticketing"}
-                 }
-            }))
+                 {:en {:title    "My current preferred stack is:"
+                       :clojure      {:desc "As a programming language used by default everywhere in the stack "}
+                       :spacemacs    {:desc "As a full IDE integrated with clojure"}
+                       :leiningen    {:desc "As an integration, templating, compilation tool"}
+                       :cider        {:desc "As a clojure development to REPL tool, providing a full interactive experience in clojure development."}
+                       :re-agent     {:desc "As a reactive UI provider"}
+                       :clever-cloud {:desc "As a cloud provider"}
+                       :git-lab      {:desc "As a configuration management system and PR/ER management tool"}
+                       }
+                  :fr {:title    "Ma stack technique préférée est "
+                       :clojure      {:desc "Le language de programmation à utiliser partout sur la stack"}
+                       :spacemacs    {:desc "IDE complétement intégré à clojure"}
+                       :leiningen    {:desc "Comme outil d'intégration, de templating, de compilation"}
+                       :cider        {:desc "Comme un outil intégrant le développement et le REPL, permettant une expérience interactive pendant le développement clojure"}
+                       :re-agent     {:desc "Permet de faire des interfaces utilisateurs basées sur React"}
+                       :clever-cloud {:desc "Hébergeur cloud"}
+                       :git-lab      {:desc "Comme outil de gestion de configuration et de ticketing"}
+                       }
+                  }))
 
 (def stack
   [{:name        :clojure
@@ -53,16 +53,14 @@
     :description :git-lab/desc}])
 
 (defn tech-stack-panel[]
-  [:div#coi.w3-row-padding
-   [:h1 (tr [:coi-title])]
+  [:<>
+   [:h1 (tr [:title])]
    (doall
-     (for [elt stack]
-       ^{:key elt} [:div#coi-item
-                    [:a {:href (:href elt)}
-                     [:h2 (:name elt)]
-                     [:img.coi-image {:src (:img elt)}]
-                     [:p (tr [(:description elt)])]
-                     ]]
-       ))
-   ]
-  )
+    (for [elt stack]
+      ^{:key elt} [:div.tech-stack-item
+                   [:a {:href (:href elt)}
+                    [:h2 (:name elt)]
+                    [:img {:src (:img elt)}]
+                    [:p (tr [(:description elt)])]
+                    ]]
+      ))])

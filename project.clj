@@ -16,6 +16,7 @@
                  [ring "1.8.1"]
                  [re-pressed "0.3.1"]
                  [day8.re-frame/tracing "0.6.0"]
+                 [breaking-point "0.1.2"]
                  ]
 
   :plugins [[lein-shadow "0.2.0"]
@@ -48,7 +49,7 @@
                                :asset-path "/js/compiled"
                                :modules    {:app {:init-fn  kotws.core/init
                                                   :preloads [devtools.preload
-                                                             ;;day8.re-frame-10x.preload
+                                                             day8.re-frame-10x.preload
                                                              ]}}
                                :dev        {:compiler-options {:closure-defines {re-frame.trace.trace-enabled?        true
                                                                                  day8.re-frame.tracing.trace-enabled? true}}}

@@ -18,7 +18,7 @@
                  }}))
 
 (defn vision-panel []
-  [:div {:class "about"}
+  [:<>
    [:h1 (tr [:title])]
    [:p (tr [:intro])]
 

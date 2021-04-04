@@ -1,73 +1,32 @@
 @import (less) "../../resources/public/css/w3.css";
 @import (less) "timeline.less";
 
-/*
- ***********************
- Utility classes
-***********************
-*/
-.card-text-ellipsis{
-    width: 100%;
-    white-space: initial;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+@footer-height: 42px;
+@left-panel-width: 220px;
+@default-padding: 32px;
+@default-margin: 32px;
+@header-height: 60px;
+@margin-small: 5px;
 
-.bg-image {
-    width: 100%;
-    height: 400px;
-
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-/* Position text in the middle of the page/image */
-.bg-text {
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-    color: white;
-    font-weight: bold;
-    border: 3px solid #f1f1f1;
-    position: relative;
-    top: -150px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    width: 80%;
-    padding: 20px;
-    text-align: center;
-}
-
-/*
- ***********************
- General layout
-***********************
-*/
-@background-website-color: white;
-
-html, body {
-    height: 100%;
-    margin: 0px;
-    max-width:1600px;
+* body{
     font-family: Raleway, sans-serif;
 }
+
+html {
+    height: 100%;
+}
+
 body{
     &:extend(.w3-light-grey);
-    &:extend(.w3-container);
+    max-width:1300px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 a{
     &:extend(.w3-hover-text-grey);
+    cursor: pointer;
     text-decoration: none;
-}
-
-* {
-    box-sizing: border-box;
 }
 
 /*
@@ -75,10 +34,14 @@ a{
  Views
 ***********************
 */
-// Main container - common to all views
+#main-panel{
+    padding-top: @default-padding;
+    margin-left: @left-panel-width + @default-margin;
+    margin-right: @default-margin;
+}
+
 #views {
-    margin-top: 20px;
-    min-height: 300px;
+    min-height: 500px;
 }
 
 /*
@@ -86,76 +49,57 @@ a{
  Common components
 ***********************
 */
-// Footer
-#footer{
-    &:extend(.w3-container);
-    &:extend(.w3-padding-32);
-    &:extend(.w3-dark-grey);
+
+#header {
+    height:@header-height;
+    line-height: @header-height;
 }
 
-// Header
-header {
-    &:extend(.w3-container);
-    height:60px;
-}
 #header .menu-bn{
     &:extend(.w3-button);
     &:extend(.w3-left);
-    &:extend(.w3-hide-large);
     &:extend(.w3-xxlarge);
-}
-
-#header .login-bn{
-    &:extend(.w3-button);
-    &:extend(.w3-right);
-    &:extend(.w3-xxlarge);
-}
+    line-height: 100%;
+    height: 100%;}
 
 #header .lang-bn{
-    &:extend(.w3-circle);
     &:extend(.w3-right);
-    &:extend(.w3-margin);
     &:extend(.w3-hover-opacity);
     cursor: pointer;
-    width: 40px;}
+    margin-left: 1em;
+}
 
 #header .avatar{
     &:extend(.w3-circle);
     &:extend(.w3-left);
-    &:extend(.w3-hide-large);
-    &:extend(.w3-hover-opacity);
     &:extend(.w3-center);
-    width: 40px;}
-
-#header .header-title{
-    font-size: 30px;
-    margin-left: 30px;
+    height: @header-height;
 }
 
 // Left panel
 #left-panel{
+    &:extend(.w3-animate-left);
+    &:extend(.w3-center);
     &:extend(.w3-white);
     &:extend(.w3-bar-block);
-    width: 180px;
-    padding: 1px;
-    z-index: 5;
+    position: absolute;
+    left: 0px;
+    width: @left-panel-width;
+    padding: @header-height @default-padding;
+    height: 100%;
+    z-index: 10;
 }
 
 #left-panel .close-button{
-    &:extend(.w3-hide-large);
     &:extend(.w3-display-topright);
     &:extend(.w3-xlarge);
-    margin-right: 5px;
+    margin-right: @margin-small;
 }
 
 #left-panel .avatar{
     &:extend(.w3-round);
     &:extend(.w3-center);
     width: 40%;
-}
-
-#left-panel .home-comment{
-    &:extend(.w3-text-grey);
 }
 
 #left-panel .menu{
@@ -172,52 +116,72 @@ header {
 #left-panel .menu a i{
     &:extend(.w3-fa);
     &:extend(.w3-fw);
-    padding-right:10px;}
+    padding-right:@default-padding;}
 
 #left-panel .contact-bar{
     &:extend(.w3-center);
     &:extend(.w3-padding-32);
-    letter-spacing: 20px;
+    letter-spacing: @default-padding;
 }
 
-// Home
-
-@home-size: 10vw;
-@home-spread: @home-size*0.7;
-
-#home th{
-    width: 33%;}
-
-.home-image{
-    width: 15vw;}
-
-#home-three-pilars{
-    &:extend(.w3-display-middle);
-    width: @home-size/2;
-}
-
-#home-sc{
-    &:extend(.w3-display-middle);
-    width: @home-size;
-    transform : translate(@home-spread - @home-size / 2, @home-spread - @home-size/2);
-}
-
-#home-it{
-    &:extend(.w3-display-middle);
-    width: @home-size;
-    transform : translate(-@home-size/2, -@home-spread - @home-size/2);
-}
-
-#home-math{
-    &:extend(.w3-display-middle);
-    width: @home-size;
-    transform : translate(-@home-spread - @home-size/2, @home-spread - @home-size/2);
+// Footer
+#footer{
+    &:extend(.w3-dark-grey);
+    padding-left: @default-padding;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left:@left-panel-width;
+    z-index: 5;
+    line-height: @footer-height+@default-margin;
+    overflow-x: auto;
+    height: @footer-height+@default-margin;
 }
 
 // Overlay
-.overlay {
-    z-index: 10;
+#overlay {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: black;
+    opacity: 0.7;
     cursor: pointer;
+}
+
+// Home
+#home-three-pilars{
+    &:extend(.w3-center);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-image{
+        width: 15vw;
+}
+
+#it{
+    &:extend(.home-image);
+}
+
+#pilars{
+    &:extend(.home-image);
+    margin-top: 2vw;
+}
+
+#sc{
+    &:extend(.home-image);
+    &:extend(.w3-right);
+    margin-right: -10vw;
+}
+
+#math{
+    &:extend(w3-left);
+    &:extend(.home-image);
+    margin-left: -10vw;
 }
 
 /*
@@ -226,15 +190,38 @@ header {
 ***********************
 */
 
-// About
-.about{
+// Resume
+.timeline__event__description li{
+    padding-left: 0px;
+}
+
+.timeline__event__description .desc-item{
+    width: 94%;
+
+}
+.timeline__event__description i{
+    padding: auto 0px auto 0px;
+}
+
+.cv-button{
+    cursor: pointer;
+    padding-left: 15px;
+}
+
+.timeline__event__icon i {
+    margin-left: -15px;
+}
+
+.timeline .detailed-item {
+    &:extend(.w3-card);
+    margin: 8px 1px;
+    padding: 8px 1px;
 }
 
 // Biblio
 .biblio-item{
     &:extend(.w3-center);
     max-width: 100%;
-    max-height: 500px;
 }
 
 .biblio-item p{
@@ -251,96 +238,43 @@ header {
 .page-menu{
     &:extend(.w3-center);
     padding: 20px;
+    overflow-x: auto;
 }
 
-.page-menu button{
-    //Forced w3-button in code
+.page-menu .button{
     &:extend(.w3-button);
     &:extend(.w3-dark-grey);
     margin:3px;
 }
 
 .page-menu .selected-button{
-    &:extend(.w3-red);
-}
+    &:extend(.w3-button);
+    &:extend(.w3-red);}
 
 .page-menu .unselected-button{
-    &:extend(.w3-light-grey);
-}
-
-// Connection
-.connection-panel{
-    &:extend(.w3-center );
-    &:extend(.w3-panel);
-    &:extend(.w3-round-xlarge);
-    background-color: white;
-    margin:auto;
-    width:40%;
-    padding: 20px;
-}
-
-.form label{
-    &:extend(.w3-half);
-}
-
-.connection-panel input{
-    &:extend(.w3-half);
-}
-
-.bns{
-    &:extend(.w3-bar);
-    &:extend(.w3-padding-16);
-}
-
-.bns a {
-    &:extend(.w3-bar-item);
     &:extend(.w3-button);
-    &:extend(.w3-black);
-    &:extend(.w3-margin);
-}
+    &:extend(.w3-light-grey);}
 
-// COI
-#coi #coi-item{
+// Technical stack
+.tech-stack-item{
     &:extend(.w3-third);
     &:extend(.w3-padding);
-    &:extend(.w3-container);
 }
-#coi #coi-item a{
+
+.tech-stack-item h2{
+    margin: 0px;
+}
+
+.tech-stack-item a{
     &:extend(.w3-white);
     &:extend(.w3-center);
     &:extend(.w3-card);
+    overflow-y: auto;
+    padding: 0px @margin-small;
     height: 200px;
     display: block;
 }
-#coi-item img {
+.tech-stack-item img {
     max-width: 80%;
     max-height: 50px;
-}
-
-#coi p {
-    padding: 20px;
-}
-
-// CV
-#cv{
-}
-
-#cv .timeline__event__description li{
-    padding-left: 0px;
-}
-
-#cv .timeline__event__description .desc-item{
-    width: 94%;
-    padding: 0px 10px;
-}
-#cv .timeline__event__description i{
-    padding: 20px 0px 0px 0px;
-}
-
-.cv-button{
-    cursor: pointer;
-}
-
-.timeline__event__icon i {
-    margin-left: -15px;
 }

@@ -9,6 +9,11 @@
             [kotws.pages.v-resume :refer [resume-panel]]
             [kotws.pages.v-vision :refer [vision-panel]]
             [kotws.pages.biblio-details.ddd :refer [biblio-details-ddd-panel]]
+            [kotws.pages.footer :as footer]
+            [kotws.pages.header :as header]
+            [kotws.pages.overlay :as overlay]
+            [kotws.pages.left-panel :as left-panel]
+            [breaking-point.core :as bp]
             ))
 
 (def tr (partial ml/tr
@@ -16,14 +21,25 @@
             :fr {:non-existing-panel "Erreur fatale: le panel `%1` n'est pas paramétré dans les vues"}}))
 
 (defn panel []
-  (let [active-panel (rf/subscribe [::subs/active-panel])]
-    (case @active-panel
-      :home-panel               [home-panel]
-      :about-panel              [about-panel]
-      :tech-stack-panel         [tech-stack-panel]
-      :resume-panel             [resume-panel]
-      :vision-panel             [vision-panel]
-      :biblio-panel             [biblio-panel]
-      :biblio-details-ddd-panel [biblio-details-ddd-panel]
-      [:h1 (tr [:non-existing-panel])]
-      )))
+  (let [small-monitor? (rf/subscribe [::bp/small-screen?])
+        show-left-panel? (rf/subscribe [::subs/show-left-panel])
+        display-menu? (or (not @small-monitor?)
+                          (and @small-monitor? @show-left-panel?))]
+    [:<>
+     [left-panel/panel]
+     [overlay/panel]
+     [:div#main-panel {:style (if display-menu? {} {:margin-top "0px" :margin-left "32px" :margin-bottom "32px"})}
+      [header/header]
+      (let [active-panel (rf/subscribe [::subs/active-panel])]
+        (case @active-panel
+          :home-panel               [home-panel]
+          :about-panel              [about-panel]
+          :tech-stack-panel         [tech-stack-panel]
+          :resume-panel             [resume-panel]
+          :vision-panel             [vision-panel]
+          :biblio-panel             [biblio-panel]
+          :biblio-details-ddd-panel [biblio-details-ddd-panel]
+          [:p (tr [:non-existing-panel])]
+          ))]
+     [footer/footer]
+     ]))
