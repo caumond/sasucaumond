@@ -1189,7 +1189,6 @@ a {
 .w3-padding,
 .timeline .where,
 .tooltipable,
-.timeline .download,
 .tech-stack-item {
   padding: 8px 16px !important;
 }
@@ -1227,8 +1226,7 @@ a {
 #header .lang-bn,
 #sc,
 .timeline .where,
-.tooltipable,
-.timeline .download {
+.tooltipable {
   float: right !important;
 }
 .w3-button:hover {
@@ -1920,7 +1918,7 @@ a {
 /*
  ***********************
  Common components
-<***********************
+ ***********************
 */
 #header {
   height: 60px;
@@ -2041,6 +2039,9 @@ timeline .cv-button {
 .timeline .detailed-item {
   margin: 8px 2px;
   padding: 8px 5px;
+}
+.tooltipable {
+  height: 5px;
 }
 .tooltipable .tooltip {
   visibility: hidden;

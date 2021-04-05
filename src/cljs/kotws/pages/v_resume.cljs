@@ -29,6 +29,7 @@
   [{:icon     "fa-wrench"
     :evt-type "timeline__event--type1"
     :date     "2021"
+    :where-link "https://www.michelin.fr/"
     :ml {:en {:title "Product owner of an in-house PLM"
               :where "Michelin"}
          :fr {:title "'Product owner' d'un logiciel de gestion de cycle de vie produit (PLM)"
@@ -64,6 +65,7 @@
    {:icon     "fa-ruler-combined"
     :evt-type "timeline__event--type2"
     :date     "08-2020"
+    :where-link "https://www.michelin.fr/"
     :ml {:en {:title "Supply Chain Entreprise Architect"
               :where "Michelin"}
          :fr {:title "Architecte entreprise pour la supply chain"
@@ -111,6 +113,7 @@
     }
    {:icon "fa-ruler-horizontal"
     :evt-type "timeline__event--type3"
+    :where-link "https://www.michelin.fr/"
     :date "2015"
     :ml {:en {:title "I.T. Architect and Supply Chain consultant"
               :where "Michelin"}
@@ -183,13 +186,15 @@
                            :fr {:text "Connaissance pratique d'un order to cash"
                                 :details ""}}}]}
             {:icon "fa-code"
-             :items [{:ml {:en {:text "Php5 - mysql paradox db - Borland C++"
+             :items [{:public-reference "https://web.archive.org/web/20060614232036/http:/www.bijouteriecaumond.fr/"
+                      :ml {:en {:text "Php5 - mysql paradox db - Borland C++"
                                 :details "The website was operational and worked during roughly two years. Targeting family jewerly, a backend in Borland C++ was developped to manage and upload product catalog. The website by itself contains some e-payment and CMS to delegate some site update"}
                            :fr {:text "Php5 - mysql paradox db - Borland C++"
                                 :details "Le site web était opérationnel et fonctionnait pendant environ deux ans. Ciblant la bijouterie familiale, un backend en Borland C++ permettait de gérer et de télécharger le catalogue produit. Le site offrait des fonctionnalités de paiement et de CMS, afin de déléguer une partie de sa mise à jour."}}}]}]}
 
    {:icon "fa-university"
     :evt-type "timeline__event-type1"
+    :where-link "https://www.uca.fr/"
     :date "2001"
     :ml {:en {:title "Operation Research PhD and teacher"
               :where "Blaise Pascal University"}
@@ -197,29 +202,9 @@
               :where "Université Blaise Pascal"}}
     :roles [{:icon "fa-industry"
              :items [{:ml {:en {:text "Industrial Proof Of Concepts"
-                                :details ""}
+                                :details "PSA - Assembly line optimization - PSA - Workshop optimization - Eramet - Forging workshop optimization - Michelin - Test tracks time tabling - Michelin - Plant simulation"}
                            :fr {:text "P.O.C. industriels"
-                                :details ""}}}
-                     {:ml {:en {:text "PSA – Assembly line optimization"
-                                :details ""}
-                           :fr {:text "PSA - Optimisation des lignes d'assemblage"
-                                :details ""}}}
-                     {:ml {:en {:text "PSA - Workshop optimization"
-                                :details ""}
-                           :fr {:text "PSA - Optimisation des chantiers polyvalents"
-                                :details ""}}}
-                     {:ml {:en {:text "Eramet – Forging workshop optimization"
-                                :details ""}
-                           :fr {:text "Eramet - Optimisation des ateliers de forge à chaud"
-                                :details ""}}}
-                     {:ml {:en {:text "Michelin – Test tracks time tabling"
-                                :details ""}
-                           :fr {:text "Michelin - Gestion d'emploi du temps des pistes d'essais"
-                                :details ""}}}
-                     {:ml {:en {:text "Michelin – Plant simulation"
-                                :details ""}
-                           :fr {:text "Michelin - Simulation et optimisation des usines"
-                                :details ""}}}
+                                :details "PSA - Optimisation des lignes d'assemblage - PSA - Optimisation des chantiers polyvalents - Eramet - Optimisation des ateliers de forge à chaud - Michelin - Gestion d'emploi du temps des pistes d'essais - Michelin - Simulation et optimisation des usines"}}}
                      ]}
             {:icon "fa-code"
              :items [{:ml {:en {:text "UI and backend in Borland C++"
@@ -232,31 +217,30 @@
                                 :details ""}}}
                      ]}
             {:icon "fa-university"
-             :items [{:ml {:en {:text "Phd thesis and Articles"
+             :items [{:download "https://tel.archives-ouvertes.fr/tel-00713587/document"
+                      :ml {:en {:text "Phd thesis"
                                 :details ""}
-                           :fr {:text "Article et thèse"
+                           :fr {:text "Thèse"
                                 :details ""}}}
-                     {:ml {:en {:text "C.O.R. - Timelag"
+                     {:public-reference "https://scholar.google.com/scholar?hl=fr&as_sdt=0%2C5&q=CAUMOND&btnG="
+                      :ml {:en {:text "Articles"
+                                :details ""}
+                           :fr {:text "Articles"
+                                :details ""}}}
+                     {:public-reference "https://www.sciencedirect.com/science/article/pii/S0305054806002930"
+                      :ml {:en {:text "C.O.R. - Timelag"
                                 :details ""}
                            :fr {:text "C.O.R. - Timelage"
                                 :details ""}}}
-                     {:ml {:en {:text "E.J.O.R. - Transportation"
+                     {:public-reference "https://www.sciencedirect.com/science/article/abs/pii/S0377221708004608"
+                      :ml {:en {:text "E.J.O.R. - Transportation"
                                 :details ""}
                            :fr {:text "E.J.O.R. - Transports"
                                 :details ""}}}
                      {:ml {:en {:text "Iterative methods"
-                                :details ""}
+                                :details "Iterative methods, integer linear programming, graph optimization"}
                            :fr {:text "Méthodes itératives"
-                                :details ""}}}
-                     {:ml {:en {:text "Integer linear programming"
-                                :details ""}
-                           :fr {:text "Programmation linéaire en nombres entiers"
-                                :details ""}}}
-                     {:ml {:en {:text "Graph optimization"
-                                :details ""}
-                           :fr {:text "Optimisation de graphes"
-                                :details ""}}}
-
+                                :details "Méthodes itératives, programmation linéaire en nombres entierss, optimisation de graphe"}}}
                      ]}
             ]}
    {:icon "fa-school"
@@ -265,11 +249,17 @@
               :where "ISIMA"}
          :fr {:title "Ecole d'ingénieurs en informatique"
               :where "ISIMA"}}
-    :roles [{:icon "fa-code"
-             :items [{:ml {:en {:text "Computer science Engineering degree"
-                                :details ""}
-                           :fr {:text "Ecole d'ingénieurs en informatique"
-                                :details ""}}}]}]}
+    :roles [{:icon "fa-industry"
+             :items [{:ml {:en {:text "Simulation, modelling and optimization of industrial systems"
+                                :details "Complex systems simulation, production and operations research with markov chains, Constraint Programming, Heuristics for production systems, Modelling and simulation of production systems"}
+                           :fr {:text "Simulation, modélisation et optimisation des systèmes industriels"
+                                :details ""}}
+                      }]}
+            {:icon "fa-code"
+             :items [{:ml {:en {:text "Decision Support System and Information System"
+                                :details "ADA, Assembly, C, Fortran, LISP, data structure, matlab, algorithmic, java, numerical programming, prolog. Two stages and two internships of six months long."}
+                           :fr {:text "Systèmes d’Information et Aide à la Décision"
+                                :details "ADA, Assembleur, C, fortran, LISP, structure de données, matlab, algorithmique, java, programmation numérique, prolog. Ces cours sont assortis de deux projets et de deux stages de 6 mois"}}}]}]}
    {:icon "fa-user-alt"
     :ml {:en {:title "Coding for fun"
               :where "@home"}
