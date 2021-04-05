@@ -260,6 +260,7 @@
                      ]}
             ]}
    {:icon "fa-school"
+    :where-link "https://www.isima.fr/"
     :ml {:en {:title "Computer science Engineering degree"
               :where "ISIMA"}
          :fr {:title "Ecole d'ingénieurs en informatique"
@@ -277,17 +278,17 @@
     :roles [{:icon "fa-code"
              :items [{:what-is-it "https://en.wikipedia.org/wiki/Demoscene"
                       :ml {:en {:text "Demo making and games"
-                                :details ""}
+                                :details "I discovered development with game creation. They could be in text mode at that time (redefining fonts to define sprites), or in graphical mode. But I spent a lot of time to develop demos: vectoballs, rasters, overscans, wireframe 3D. I had to rediscover how to draw lines..."}
                            :fr {:text "Démos et jeux"
-                                :details "J'ai découvert le développement en créant des jeux, en mode texte (en redéfinissant les caractères), ou en mode graphique. Mais j'ai passé beaucoup de temps à apprendre à faire des démos: des vectors balls, des rasters, des fullscreens, de la 3D en wireframe, en redéveloppant le traçage d'une ligne avec seulement des décalages de registres."}}}
+                                :details "J'ai découvert le développement en créant des jeux, en mode texte (en redéfinissant les caractères) ou en mode graphique. Mais j'ai passé beaucoup de temps à faire des démos: des vectors balls, des rasters, des overscans, de la 3D en wireframe, en redécouvrant les algorithmes de traçage de lignes."}}}
                      {:ml {:en {:text "Jewelry stock management tool"
-                                :details ""}
+                                :details "At a time when professionnal software were quite scarce, I had the occasion to build one in GFA Basic, in order to manage the stock of the family jewelry."}
                            :fr {:text "Outil de gestion de stock pour bijouterie"
-                                :details ""}}}
-                     {:ml {:en {:text "Z80 & 68000 assembly"
-                                :details ""}
+                                :details "A une époque où les logiciels de gestion professionnels étaient rares, j'ai eu l'occasion d'en construire en gfa basic, permettant de gérer le stock de la bijouterie familiale."}}}
+                     {:ml {:en {:text "GFA basic & 68000 assembly"
+                                :details "I used mainly that two languages for the above achievements. I also had the opportunity to use Z80 and code machine."}
                            :fr {:text "Assembleur Z80 et 68000"
-                                :details ""}}}]}]}
+                                :details "J'ai majoritairement utilisé ces deux languages pour les réalisations ci-dessus. J'ai aussi eu l'occasion de faire du Z80 et du language machine."}}}]}]}
    ])
 
 ;; public
@@ -312,7 +313,11 @@
         [:div.timeline__event__content
          [:div.timeline__event__title
           (tr-item position [:title])]
-         [:p.where (tr-item position [:where])]
+         (let [where-link (:where-link position)]
+           (if (nil? where-link)
+             [:p.where (tr-item position [:where])]
+             [:a {:href where-link :target "blank"}
+              [:p.where (tr-item position [:where])]]))
          [:hr.round]
          [:ul.timeline__event__description.w3-ul
           (doall

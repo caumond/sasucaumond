@@ -2039,8 +2039,8 @@ timeline .cv-button {
   margin-left: -15px;
 }
 .timeline .detailed-item {
-  margin: 8px 1px;
-  padding: 8px 1px;
+  margin: 8px 2px;
+  padding: 8px 5px;
 }
 .tooltipable .tooltip {
   visibility: hidden;
