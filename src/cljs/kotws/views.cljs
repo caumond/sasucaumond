@@ -8,7 +8,6 @@
             [kotws.pages.v-tech-stack :refer [tech-stack-panel]]
             [kotws.pages.v-resume :refer [resume-panel]]
             [kotws.pages.v-vision :refer [vision-panel]]
-            [kotws.pages.biblio-details.ddd :refer [biblio-details-ddd-panel]]
             [kotws.pages.footer :as footer]
             [kotws.pages.header :as header]
             [kotws.pages.overlay :as overlay]
@@ -17,8 +16,8 @@
             ))
 
 (def tr (partial ml/tr
-           {:en {:non-existing-panel "Fatal error: the panel `%1` is not setup in views"}
-            :fr {:non-existing-panel "Erreur fatale: le panel `%1` n'est pas paramétré dans les vues"}}))
+                 {:en {:non-existing-panel "Fatal error: the panel `%1` is not setup in views"}
+                  :fr {:non-existing-panel "Erreur fatale: le panel `%1` n'est pas paramétré dans les vues"}}))
 
 (defn panel []
   (let [small-monitor? (rf/subscribe [::bp/small-screen?])
@@ -38,7 +37,6 @@
           :resume-panel             [resume-panel]
           :vision-panel             [vision-panel]
           :biblio-panel             [biblio-panel]
-          :biblio-details-ddd-panel [biblio-details-ddd-panel]
           [:p (tr [:non-existing-panel])]
           ))]
      [footer/footer]

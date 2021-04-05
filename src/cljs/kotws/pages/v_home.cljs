@@ -1,7 +1,5 @@
 (ns kotws.pages.v-home
-  (:require [kotws.ml :as ml]
-            [kotws.subs :as subs]
-            [re-frame.core :as rf]))
+  (:require [kotws.ml :as ml]))
 
 (def tr (partial ml/tr
            {:en {:home-intro "I'm Anthony Caumond, I built my career on three

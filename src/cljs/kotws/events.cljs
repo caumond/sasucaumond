@@ -36,9 +36,9 @@
                             (assoc db :show-left-panel true)))
 
 (rf/reg-event-db ::selected-items
-                 (fn-traced [db [_ key item]]
+                 (fn-traced [db [_ key]]
                             (update-in db [:selected-items]
                                        (fn [selected-items]
                                          (if (get selected-items key)
-                                           (dissoc selected-items key)
-                                           (assoc selected-items key item))))))
+                                           (disj selected-items key)
+                                           (conj selected-items key))))))

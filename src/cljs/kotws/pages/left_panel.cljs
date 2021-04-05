@@ -14,16 +14,18 @@
                  :about-item     "About"
                  :vision-item    "Vision"
                  :contact-item   "Contact"
+                 :gitlab "See on gitlab"
                  }
             :fr {:home           "Accueil"
                  :home-comment   "Ma vie digital"
                  :home-item      "Accueil"
-                 :techstack-item "Centre d'intérêts"
+                 :techstack-item "Stack technique"
                  :cv-item        "CV"
                  :biblio-item    "Biblio"
                  :about-item     "A propos"
                  :vision-item    "Vision"
                  :contact-item   "Contact"
+                 :gitlab "Voir sur gitlab"
                  }}))
 
 
@@ -71,4 +73,10 @@
        [:i.fa.fa-envelope-open.w3-hover-opacity]]
       [:a {:target "blank" :href "https://clojurians.slack.com/team/U018QDQGZ9Q"}
        [:i.fa.fa-slack.w3-hover-opacity]]
-      ]]))
+      [:a {:target "blank" :href "https://gitlab.com/caumond"}
+       [:i.fa.fa-gitlab.w3-hover-opacity]]
+      [:a {:target "blank" :href "https://github.com/caumond"}
+       [:i.fa.fa-github.w3-hover-opacity]]
+      ]
+     [:a {:href "https://gitlab.com/caumond/kot-ws" :target "blank"} [:div.git (tr [:gitlab])]]
+     ]))
