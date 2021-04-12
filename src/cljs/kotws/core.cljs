@@ -26,7 +26,7 @@
   (rf/dispatch-sync [::bp/set-breakpoints
                            {;; required
                             :breakpoints [ :small-screen
-                                          640
+                                          700
                                           :large-screen]
                             ;; optional
                             :debounce-ms 166

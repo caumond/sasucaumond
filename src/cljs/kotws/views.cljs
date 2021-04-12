@@ -29,15 +29,17 @@
      [overlay/panel]
      [:div#main-panel {:style (if display-menu? {} {:margin-top "0px" :margin-left "32px" :margin-bottom "32px"})}
       [header/header]
-      (let [active-panel (rf/subscribe [::subs/active-panel])]
-        (case @active-panel
-          :home-panel               [home-panel]
-          :about-panel              [about-panel]
-          :tech-stack-panel         [tech-stack-panel]
-          :resume-panel             [resume-panel]
-          :vision-panel             [vision-panel]
-          :biblio-panel             [biblio-panel]
-          [:p (tr [:non-existing-panel])]
-          ))]
-     [footer/footer]
+      [:div.content
+       (let [active-panel (rf/subscribe [::subs/active-panel])]
+         (case @active-panel
+           :home-panel               [home-panel]
+           :about-panel              [about-panel]
+           :tech-stack-panel         [tech-stack-panel]
+           :resume-panel             [resume-panel]
+           :vision-panel             [vision-panel]
+           :biblio-panel             [biblio-panel]
+           [:p (tr [:non-existing-panel])]
+           ))]
+
+      [footer/footer]]
      ]))

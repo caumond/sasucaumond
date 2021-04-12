@@ -3,6 +3,7 @@
 
 (def tr (partial ml/tr
                  {:en {:title    "My current preferred stack is:"
+                       :sub-title "Find below the elements used for that website."
                        :clojure      {:desc "As a programming language used by default everywhere in the stack "}
                        :spacemacs    {:desc "As a full IDE integrated with clojure"}
                        :leiningen    {:desc "As an integration, templating, compilation tool"}
@@ -12,6 +13,7 @@
                        :git-lab      {:desc "As a configuration management system and PR/ER management tool"}
                        }
                   :fr {:title    "Ma stack technique préférée est "
+                       :sub-title "Ci-dessous sont listées les éléments que j'ai utilisé pour ce site"
                        :clojure      {:desc "Le language de programmation à utiliser partout sur la stack"}
                        :spacemacs    {:desc "IDE complétement intégré à clojure"}
                        :leiningen    {:desc "Comme outil d'intégration, de templating, de compilation"}
@@ -24,41 +26,43 @@
 
 (def stack
   [{:name        :clojure
-    :img         "http://clojure.org/images/clojure-logo-120b.png"
+    :img         "images/pages/tech-stack/clojure.png"
     :href        "https://clojure.org"
     :description :clojure/desc}
    {:name        :spacemacs
-    :img         "http://spacemacs.org/img/logo.svg"
+    :img         "images/pages/tech-stack/spacemacs.svg"
     :href        "https://www.spacemacs.org/"
     :description :spacemacs/desc}
-   {:name        :leiningen
-    :img         "https://leiningen.org/img/leiningen.jpg"
-    :href        "https://leiningen.org/"
-    :description :leiningen/desc}
    {:name        :cider
-    :img         "https://cider.mx/img/cider_logo.svg"
+    :img         "images/pages/tech-stack/cider.svg"
     :href        "https://docs.cider.mx/cider/index.html"
     :description :cider/desc}
-   {:name        :re-agent
-    :img         "https://github.com/reagent-project/reagent/raw/master/logo/logo-text.png"
-    :href        "https://github.com/reagent-project/reagent"
+   {:name        :leiningen
+    :img         "images/pages/tech-stack/leiningen.jpg"
+    :href        "https://leiningen.org/"
+    :description :leiningen/desc}
+   {:name        :re-frame
+    :img         "images/pages/tech-stack/re-frame.png"
+    :href        "https://github.com/day8/re-frame"
     :description :re-agent/desc}
    {:name        :clever-cloud
-    :img         "https://www.clever-cloud.com/images/brand-assets/logos/v2/logo_on_white.svg"
+    :img         "images/pages/tech-stack/clever-cloud.svg"
     :href        "https://www.clever-cloud.com/en/"
     :description :clever-cloud/desc}
    {:name        :git-lab
-    :img         "https://assets.gitlab-static.net/assets/illustrations/golden_tanuki-a88ad492b973a0ea6be2316b12aeb3a76ee4e926b3b217dc26d01a57033c9948.svg"
-    :href        "https://gitlab.com/dashboard/projects"
+    :img         "images/pages/tech-stack/git.svg"
+    :href        "https://gitlab.com"
     :description :git-lab/desc}])
 
 (defn tech-stack-panel[]
   [:<>
    [:h1 (tr [:title])]
+   [:p (tr [:sub-title])]
+
    (doall
     (for [elt stack]
       ^{:key elt} [:div.tech-stack-item
-                   [:a {:href (:href elt)}
+                   [:a {:href (:href elt) :target "blank"}
                     [:h2 (:name elt)]
                     [:img {:src (:img elt)}]
                     [:p (tr [(:description elt)])]

@@ -12,7 +12,9 @@
 
 (defn footer []
   (let [small-monitor? (rf/subscribe [::bp/small-screen?])]
-    [:div#footer {:style (when @small-monitor? {:left "0px"})}
+    [:div#footer {:style (if @small-monitor?
+                           {:left "0px"}
+                           {:width "calc(100vw - 220px)"})}
      (tr [:copyright])
      " "
      [:span {:dangerouslySetInnerHTML {:__html "&copy;"}}]

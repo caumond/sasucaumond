@@ -8,6 +8,17 @@
 @header-height: 60px;
 @margin-small: 5px;
 
+@bg-color: white;
+@text-color: black;
+@left-panel-color: #F6F6F6;
+@git-color: orange;
+@selected-button-color: #AFF1B6;
+@git-text-color: white;
+@overlay-color: black;
+@footer-color: #616161;
+@footer-text-color: white;
+@evt-type-2-color: #87BBFE;
+
 * body{
     font-family: Raleway, sans-serif;
 }
@@ -16,8 +27,9 @@ html {
 }
 
 body{
-    &:extend(.w3-light-grey);
     max-width:1300px;
+    background-color: @bg-color;
+    color: @text-color;
 }
 
 a{
@@ -26,17 +38,21 @@ a{
     text-decoration: none;
 }
 
+a:hover{
+    color: @evt-type-2-color;
+}
+
 .git{
     position: absolute;
-    background-color: orange;
-    color: white;
+    background-color: @git-color;
+    color: @git-text-color;
     text-decoration: none;
     text-align: center;
     font-size: 1em;
     padding:3px;
     margin:0px -@default-margin*2;
     line-height: 2rem;
-    bottom:50px;
+    bottom:25px;
     left: 0px;
     width: 260px;
     z-index: 10;
@@ -49,7 +65,7 @@ a{
 
 .git:hover{
     background-color: inherit;
-    color: orange;
+    color: @git-color;
 }
 
 /*
@@ -59,7 +75,7 @@ a{
 */
 #main-panel{
     padding-top: @default-padding;
-    margin-left: @left-panel-width + @default-margin;
+    margin-left: @left-panel-width;// + @default-margin;
     margin-right: @default-margin;
     padding-bottom: @footer-height + @default-padding*2;
 }
@@ -68,6 +84,9 @@ a{
     min-height: 500px;
 }
 
+.content{
+    margin-left: @default-margin;
+}
 /*
  ***********************
  Common components
@@ -75,7 +94,7 @@ a{
 */
 
 #header {
-    height:@header-height;
+    height: @header-height;
     line-height: @header-height;
 }
 
@@ -104,8 +123,8 @@ a{
 #left-panel{
     &:extend(.w3-animate-left);
     &:extend(.w3-center);
-    &:extend(.w3-white);
     &:extend(.w3-bar-block);
+    background-color: @left-panel-color;
     width: @left-panel-width;
     position: fixed;
     left: 0px;
@@ -151,8 +170,9 @@ a{
 
 // Footer
 #footer{
-    &:extend(.w3-dark-grey);
     &:extend(.w3-center);
+    background-color: @footer-color;
+    color: @footer-text-color;
     width: 100vw;
     position: fixed;
     bottom: 0px;
@@ -170,7 +190,7 @@ a{
     width: 100%;
     height: 100%;
     z-index: 5;
-    background-color: black;
+    background-color: @overlay-color;
     opacity: 0.7;
     cursor: pointer;
 }
@@ -178,34 +198,25 @@ a{
 // Home
 #home-three-pilars{
     &:extend(.w3-center);
-    width: 80%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
+
+    & th {
+        width: 33%;
+        max-width: 33%;
+        & img {
+            width: 100%;
+        }
+    }
+}
+
+#home-three-pilars #pilars {
+    margin-top: 50px;
 }
 
 .home-image{
     width: 15vw;
-}
-
-#it{
-    &:extend(.home-image);
-}
-
-#pilars{
-    &:extend(.home-image);
-    margin-top: 2vw;
-}
-
-#sc{
-    &:extend(.home-image);
-    &:extend(.w3-right);
-    margin-right: -10vw;
-}
-
-#math{
-    &:extend(w3-left);
-    &:extend(.home-image);
-    margin-left: -10vw;
 }
 
 /*
@@ -219,7 +230,7 @@ a{
     &:extend(.w3-right);
     &:extend(.w3-padding);
     &:extend(.w3-round);
-    &:extend(.w3-light-grey);
+    background-color: @left-panel-color;
     margin:0px;
 }
 .timeline .role{
@@ -227,7 +238,8 @@ a{
 
 .timeline .role .role-icon {
     &:extend(.w3-col);
-    width: 40px;}
+    padding-right: 10px;
+    width: 60px;}
 
 .timeline__event__description li{
     padding-left: 0px;}
@@ -239,7 +251,6 @@ a{
     padding: auto 0px auto 0px;}
 
 .timeline .item {
-    &:extend(.w3-hover-text-grey);
     cursor: pointer;}
 
 .timeline .item .arrow{
@@ -263,16 +274,14 @@ timeline .cv-button{
 
 .tooltipable{
     &:extend(.w3-right);
-    &:extend(.w3-padding);
     height: 5px;
 }
-
 
 .tooltipable .tooltip{
     visibility: hidden;
     width: 120px;
-    background-color: black;
-    color: #fff;
+    background-color: @text-color;
+    color: @bg-color;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
@@ -293,7 +302,7 @@ timeline .cv-button{
 }
 
 .biblio-item #desc{
-    background-color: lightgrey;
+    &:extend(.w3-card);
     overflow: auto;
     margin: @default-margin;
     padding: @default-padding;
@@ -322,18 +331,19 @@ timeline .cv-button{
 }
 
 .page-menu .button{
-    &:extend(.w3-button);
-    &:extend(.w3-dark-grey);
-    margin:3px;
+    background-color: @footer-color;
+    color: @footer-text-color;
+    margin: 10px;
+    padding: 10px;
 }
 
 .page-menu .selected-button{
-    &:extend(.w3-button);
-    &:extend(.w3-red);}
+    background-color: @selected-button-color;}
 
 .page-menu .unselected-button{
-    &:extend(.w3-button);
-    &:extend(.w3-light-grey);}
+    background-color:inherit;
+    color: @text-color;
+}
 
 // Technical stack
 .tech-stack-item{
@@ -346,7 +356,6 @@ timeline .cv-button{
 }
 
 .tech-stack-item a{
-    &:extend(.w3-white);
     &:extend(.w3-center);
     &:extend(.w3-card);
     overflow-y: auto;

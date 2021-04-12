@@ -70,10 +70,10 @@
                                              [::events/change-slide-idx :rel -1]))}]
          (doall
           (for [i (take (count books) (iterate inc 1))]
-            ^{:key (str "page count-" i)} [:button {:class    (if (= (dec i) @slide-idx)
-                                                                "selected-button"
-                                                                "unselected-button")
-                                                    :on-click #(rf/dispatch [::events/change-slide-idx :abs (- i 1)])} i ]))
+            ^{:key (str "page count-" i)} [:span {:class (str "button " (if (= (dec i) @slide-idx)
+                                                                          "selected-button"
+                                                                          "unselected-button"))
+                                                  :on-click #(rf/dispatch [::events/change-slide-idx :abs (- i 1)])} i ]))
 
          [:i.button.fa.fa-angle-right {:on-click #(rf/dispatch (if (= (dec (count books)) @slide-idx)
                                                                  [::events/change-slide-idx :abs 0]
