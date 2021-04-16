@@ -40,6 +40,6 @@
 
    [:ul
     (for [p pars]
-      [:li (tr-item p [:desc])])]
+      ^{:key p}[:li (tr-item p [:desc])])]
    ]
   )

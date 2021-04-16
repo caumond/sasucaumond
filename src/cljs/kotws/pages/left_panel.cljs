@@ -14,7 +14,7 @@
                  :about-item     "About"
                  :vision-item    "Vision"
                  :contact-item   "Contact"
-                 :gitlab "See on gitlab"
+                 :gitlab "See code on gitlab"
                  }
             :fr {:home           "Accueil"
                  :home-comment   "Ma vie digital"
@@ -25,7 +25,7 @@
                  :about-item     "A propos"
                  :vision-item    "Vision"
                  :contact-item   "Contact"
-                 :gitlab "Voir sur gitlab"
+                 :gitlab "Voir le code sur gitlab"
                  }}))
 
 

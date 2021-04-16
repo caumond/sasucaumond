@@ -1875,11 +1875,11 @@ a:hover {
   text-align: center;
   font-size: 1em;
   padding: 3px;
-  margin: 0px -64px;
+  margin: 20px -64px;
   line-height: 2rem;
   bottom: 25px;
   left: 0px;
-  width: 260px;
+  width: 300px;
   z-index: 10;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
@@ -2071,7 +2071,7 @@ timeline .cv-button {
   text-align: left;
 }
 .biblio-item img {
-  max-height: 350px;
+  max-height: 300px;
 }
 .page-menu {
   padding: 20px;

@@ -59,12 +59,13 @@
    [:h1 (tr [:title])]
    [:p (tr [:sub-title])]
 
-   (doall
-    (for [elt stack]
-      ^{:key elt} [:div.tech-stack-item
-                   [:a {:href (:href elt) :target "blank"}
-                    [:h2 (:name elt)]
-                    [:img {:src (:img elt)}]
-                    [:p (tr [(:description elt)])]
-                    ]]
-      ))])
+   [:div.w3-row
+    (doall
+     (for [elt stack]
+       ^{:key elt} [:div.tech-stack-item
+                    [:a {:href (:href elt) :target "blank"}
+                     [:h2 (:name elt)]
+                     [:img {:src (:img elt)}]
+                     [:p (tr [(:description elt)])]
+                     ]]
+       ))]])
