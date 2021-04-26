@@ -38,7 +38,8 @@
            :resume-panel             [resume-panel]
            :vision-panel             [vision-panel]
            :biblio-panel             [biblio-panel]
-           [:p (tr [:non-existing-panel])]
+           :unknown-route [:p (tr [:non-existing-panel])]
+           [:p]
            ))]
 
       [footer/footer]]

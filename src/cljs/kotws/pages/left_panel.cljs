@@ -6,7 +6,7 @@
 
 (def tr (partial ml/tr
            {:en {:home           "Home"
-                 :home-comment   "My digital life"
+                 :home-comment   "My resume website"
                  :home-item      "Home"
                  :techstack-item "Tech stack"
                  :cv-item        "Resume"
@@ -17,7 +17,7 @@
                  :gitlab "See code on gitlab"
                  }
             :fr {:home           "Accueil"
-                 :home-comment   "Ma vie digital"
+                 :home-comment  "Mon site web pour CV"
                  :home-item      "Accueil"
                  :techstack-item "Stack technique"
                  :cv-item        "CV"

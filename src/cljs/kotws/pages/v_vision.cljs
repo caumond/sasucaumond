@@ -3,26 +3,66 @@
 
 (def tr
   (partial ml/tr
-           {:en {
-                 :title                  "My vision"
-                 :intro                  "During the time I spent in the industry, I acquired strong knowledge of industry process: Supply Chain, Logistics, Order To Cash, Industrialization, Quality Guarantee ... I discovered also the package software of that domain. I have strong opinions, supported by their strength and weakness."
+           {:en {:title                  "My vision"
+
+                 :where-i-come-from      "Where I come from"
+                 :intro                  "I started development early, and I made it the target of my studies. In my computational science and engineering school, I choose the industry specialization to be build software at the service of something. I discovered a technical and conceptual playground, where I needed to learn also modelling and mathematics. Then, I decided to enter the industry to be an actor of that tranformation and complete my domain knowledge. I did want to stop to work on prototypes and start to build."
+
                  :what-i-want-to-do      "What I want to do"
-                 :what-i-want-to-do-text "I want to work in team at human scale, in an entreprise at human scale. That enterprise should privilege leadership, technical skills, innovation."
-                 :what-i-know "What I think"
+                 :what-i-want-to-do-text "I wish to focus on my technical skills (development - design - optimisation and modelling). Work on complex subjects, with concepts. Use my industry knowledge of processes (Supply Chain, Logistics, Order To Cash, Industrialization, Quality Guarantee) in different industry sectors (automotive, petrochemicals, steel industry, ...)"
+
+                 :what-i-want-to-become "What I want to become"
+                 :what-i-want-to-become-text "Craftsmanship, domain driven designer"
+
+                 :where-i-want-to-work "Where I want to work?"
+                 :where-i-want-to-work-text "Typically a small enterprise, at human scale, technology oriented, focusing on leadership and innovation"
+
+                 :first-typical-mission "First typical mission"
+                 :first-typical-mission-text "Some examples: \"Hands-on product [owner | manager]\". This position allow me to bring my industry knowledge and allow me to improve by developing professionally. \"Designer and or developer\" I would work on complex subjects mixing development, optimization and modelling. \"For sure many any ideas I don't have right now\" I have no issue to manage a project or a team, as it is not the main part of the position."
+
+                 :some-positions "What I think"
                  }
             :fr {
                  :title                  "Ma vision"
-                 :intro                  "Durant mes années dans l'industrie, j'ai acquis une solide connaissance des processus Supply Chain, logistique, order to cash, industrialisation et garantie qualité ... Ainsi que les progiciels qui les animent. J'ai des opinions ancrées, étayées par les succès et les faiblesses des progiciels."
+
+                 :where-i-come-from      "D'où je viens"
+                 :intro                  "J'ai commencé le développement tôt, et j'en ai fait le but de mes études. En école d'informatique, j'ai choisi la filière industrie pour faire une informatique `au service de`. J'ai découvert un terrain de jeu technique et conceptuel, où j'ai eu à m'augmenter de connaissances mathématiques et de modélisation. J'ai décidé de rentrer dans l'industrie pour être acteur de cette transformation. Cela m'a permis de compléter mes connaissances, et de dépasser le stade du prototypes."
+
                  :what-i-want-to-do      "Ce que je veux faire"
-                 :what-i-want-to-do-text "Je veux travailler dans une équipe à taille humaine, dans une entreprise à taille humaine. Elle doit privilégier le leadership, la technique, l'innovation. J'aime les sujets complexes, avec des concepts."
-                 :what-i-know "Ce que je pense"
+                 :what-i-want-to-do-text "Je souhaite me refocaliser sur mes compétences techniques (développement - conception - optimisation et modélisation). Travailler sur des sujets complexes, avec des concepts. Utiliser ma connaissance transverse des processus de l'industrie (Supply Chain, Logistics, Order To Cash, Industrialization, Quality Guarantee) ainsi que ses différentes filières (automobile, pétro-chimie, sidérurgie, ...)"
+
+                 :where-i-want-to-work "Où je souhaite travailler?"
+                 :where-i-want-to-work-text "Dans une équipe à taille humaine, techniquement à la pointe, qui privilégie le leadership et l'innovation."
+
+                 :first-typical-mission "Prochain poste typique"
+                 :first-typical-mission-text "Quelques exemples: \"Hands-on product [owner | manager]\": Ce poste me permet de développer une expérience de développement professionnelle. \"Concepteur ou développeur\": Ce poste pourrait me permettre de travailler sur des sujets complexes mêlant développement optimisation et modélisation. \"Surement d'autres idées...\": Il peut y avoir de l'organisation de projet et de management, même si ce n'est pas la composante principale."
+
+                 :what-i-want-to-become "Ce que j'aimerais devenir"
+                 :what-i-want-to-become-text "Un développeur professionnel, concepteur logiciel (en DDD), software craftsman."
+
+                 :some-positions "Ce que je pense"
                  }}))
 
 (def pars
-  [{:fr {:desc "Ma vision est qu'il faut savoir distinguer dans une entreprise là où l'effort doit être porté. A cet endroit, la connaissance métier doit être extraite pour en faire une application coeur. La jointure. Mes connaissances en recherche opérationnelle m'ont permis d'avoir une approche systémique, savoir modéliser un système. Foncièrement full stack, j'aime les projets d'une petite équipe de haut niveau, adressant des sujets complexes ambitieux. Ajouter les compétences de modélisation - optimisation. Je souhaite"}
-    :en {:desc ""}}
-   {:fr {:desc "L'informatique est un avantage compétitif pour l'industrie. Mon sentiment est que l'industrie mesure mal l'importance de ces compétences techniques, ni même l'importance des compétences transverses."}
-    :en {:desc "Information technology is a real competitive advantage for industries. My feeling is that industry don't measure the importance of IT competencies, neither the importance of transversal competencies."}}
+  [{:fr {:sumup "L'avantage compétitif doit passer par un IT coeur: "
+         :desc "Quand une entreprise décide de se différencier, (près de son avantage compétitif normalement), elle doit inventer sa différence, l'implémenter dans un logiciel spécifique, dont l'équipe d'ingénerie et de développement sont reconnues au coeur de la valeur. La conséquence est que cette équipe devrait être pérenne, de bon niveau et internalisée: les vraies équipes digitales de l'industrie."}
+    :en {:sumup "The competitive advantage needs a core IT"
+         :desc "When an enterprise needs to differentiate, it needs to invent its difference, implement it in a specific software, which engineering and development team are recognized to bring the enterprise value. The consequence should be a durable internal team, with the appropriate level of competency: the real digital teams of industry."}}
+
+   {:fr {:sumup "Intègrer, c'est adopter, se conformer : "
+         :desc "Il y a des endroits où les progiciels et l'informatique des intégrateurs sont parfaitement adaptés. Quand c'est le cas, il faut adopter le système, son processus et donc se conformer au domaine du progiciel. Sinon, le risque est d'avoir des équipes taillées pour utiliser un logiciel, et d'autres qui en inventent un nouvel usage. C'est comme cela qu'on finit par tenter de faire entrer des ronds dans des carrés."}
+    :en {:sumup "Integration is adoption, needs conformist design pattern: "
+         :desc "There are some part of the enterprise where software package and system integrator are perfectly adapted. But there, the system should be adopted, as its process and so, we should be conformist with its domain language. Otherwise, the risk is to have badly staffed teams trying to deploy something, while other teams trying to build a new usage. This is how we square the circle."}}
+
+   {:fr {:sumup "Evolution digitale : "
+         :desc "Les grandes industries sont des plateformes, basées sur de la technologie, les autres industries se transforment en \"digital\". Pour tous l'informatique devient critique, et le crafstmanship pourrait être la prochaine révolution, après l'agilité."}
+    :en {:sumup "The digital evolution: "
+         :desc "Biggest industries are platforms, based on technology, other industry are moving to the \"digital\". For all, computers science is critical, and crafstmanship should be the next revolution, following the agility / scrum one."}}
+
+   {:fr {:sumup "Le brouillard de l'I.A. et la réalité de la recherche opérationnelle : "
+         :desc "Les techniques de l'I.A. sont très médiatisées, souvent centrées sur quelques techniques, et quelques exemples de réussite. Les techniques de modélisation, d'optimisation itérative, souvent classées en dehors l'I.A. n'ont pas à rougir de leur apport. J'ai souvent vu des projets basés sur de la recherche opérationnelle échouer par manque de données fiables. Le volume de ces données augmentant, je pense que ces techniques vont gagner en intérêt dans l'industrie et qu'il y a un beau champ d'investigations."}
+    :en {:sumup "I.A. fog and O.R. reality: "
+         :desc "IA techniques are well covered in the news. Often centered on a few techniques and success stories. The modelling and operationnal research techniques should not be shy. I often meet some O.R. projects failing due to bad data / modelling. The data volume increasing, I have no doubt formalization quality will increase, and O.R. interest will increase in the industry."}}
    ])
 
 (defn tr-item [par & args]
@@ -31,15 +71,25 @@
 (defn vision-panel []
   [:<>
    [:h1 (tr [:title])]
+   [:h2 (tr [:where-i-come-from])]
    [:p (tr [:intro])]
 
    [:h2 (tr [:what-i-want-to-do])]
    [:p (tr [:what-i-want-to-do-text])]
 
-   [:h2 (tr [:what-i-know])]
+   [:h2 (tr [:where-i-want-to-work])]
+   [:p (tr [:where-i-want-to-work-text])]
+
+   [:h2 (tr [:what-i-want-to-become])]
+   [:p (tr [:what-i-want-to-become-text])]
+
+   [:h2 (tr [:first-typical-mission])]
+   [:p (tr [:first-typical-mission-text])]
+
+   [:h2 (tr [:some-positions])]
 
    [:ul
-    (for [p pars]
-      ^{:key p}[:li (tr-item p [:desc])])]
-   ]
-  )
+    (doall
+     (for [p pars]
+       ^{:key p}[:li [:span.par-title (tr-item p [:sumup]) ] (tr-item p [:desc])]))]
+   ])

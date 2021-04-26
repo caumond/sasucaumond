@@ -2053,6 +2053,9 @@ timeline .cv-button {
 .tooltipable:hover .tooltip {
   visibility: visible;
 }
+.par-title {
+  font-weight: bold;
+}
 .biblio-item {
   max-width: 100%;
 }

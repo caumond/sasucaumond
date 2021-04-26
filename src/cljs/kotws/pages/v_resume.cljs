@@ -12,14 +12,14 @@
                  :public-reference "Référence en ligne"
                  :download "Télécharger ce document"
                  :what-is-it "Qu'est-ce?"
-                 :intro "La version plus traditionnelle en pdf de mon curriculum vitae est téléchargeable, sous forme de pdf, grâce à l'icône en haut à droite de cette page. La version ci-dessous en est une version détaillée, riche de références."
+                 :intro "La version ci-dessous en est une version détaillée, riche de références. Une version plus traditionnelle en pdf de mon curriculum vitae est téléchargeable, sous forme de pdf, grâce à l'icône en haut à droite de cette page."
                  :intro2 "Trois aspects de mon expérience sont développés ici: supply chain, développement et optimisation."
                  }
             :en {:title "Resume"
                  :public-reference "Online reference"
                  :download "Download that document"
                  :what-is-it "What is it?"
-                 :intro "The classical pdf version of my resume is downloadable (cf. download icon in the upper right corner of that page). The below version is much more detailed and full of references."
+                 :intro "The below version is a detailed version of my resume, full of references. A more classical pdf version of my resume is downloadable (cf. download icon in the upper right corner of that page)."
                  :intro2 "The focus here is made three aspects: supply chain, development and optimization."}}))
 
 (defn tr-item[item & args]
@@ -40,10 +40,10 @@
                                 :details "A PLM is a product lifecycle management tool, providing a product, bill of materials and routings referential."}
                            :fr {:text "Construction d'un PLM (Product Lifecycle Management)"
                                 :details "Un PLM est un outil de gestion du cycle de vie du produit, permettant de créer un référentiel de produits, gammes et nomenclatures."}}}
-                     {:ml {:en {:text "Create, sell and materialize the vision"
+                     {:ml {:en {:text "Creation, selling and materialization the vision"
                                 :details "Starting in 2018, my first mission was to build the vision in an Entreprise Architecture study. Then, I communicate that vision to teams and executives to trigger inscription in investments plans. As a product owner and project manager, I looked for customers, build the team and materialize the vision. One of the challenge was to conciliate short and long term ambitions."}
-                           :fr {:text "Crée, promeut et met en oeuvre la vision"
-                                :details "Commencé en 2018 dans une étude d'architecture Entreprise, ma première mission a été de construire une vision, de la communiquer dans les équipes et aux `executive` pour la faire inscrire dans les plans d'investissement. Puis, en tant que product owner et chef projet, j'ai cherché des premiers clients du produit, monté l'équipe et matéralisé la vision. Un des challenges a été de concilier les ambitions courts et longs termes."}}}
+                           :fr {:text "Création, promotion et mise en oeuvre de la vision"
+                                :details "Commencée en 2018 dans une étude d'architecture Entreprise, ma première mission a été de construire une vision, de la communiquer dans les équipes et aux `executive` pour la faire inscrire dans les plans d'investissement. Puis, en tant que product owner et chef projet, j'ai cherché des premiers clients du produit, monté l'équipe et matéralisé la vision. Un des challenges a été de concilier les ambitions courts et longs termes."}}}
                      {:ml {:en {:text "Team leader"
                                 :details "About ten people to manage."}
                            :fr {:text "Team leader"

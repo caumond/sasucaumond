@@ -3,13 +3,13 @@
 
 (def tr (partial ml/tr
                  {:en {:home-msg   "Professional website of Anthony CAUMOND"
-                       :home-intro "This website presents me and my professional career. Have a look to my resume, you'll see it is based on three pilars: I.T. - supply chain - optimization:"
+                       :home-intro "This website presents me and my professional career. Have a look to my resume, you'll see it is based on three pilars: I.T. - supply chain - optimization."
                        :it "COMPUTING"
                        :maths "MATHEMATICS"
                        :sc "SUPPLY CHAIN"
                        }
                   :fr {:home-msg    "Site professionnel d'Anthony CAUMOND"
-                       :home-intro  "Ce site me présente, moi et ma carrière professionnelle. Vous pourrez découvrir dans mon cv qu'elle est basée sur trois piliers: l'informatique, la supply chain et l'optimisation:"
+                       :home-intro  "Ce site vous présente ma carrière professionnelle. Vous pourrez découvrir dans mon cv qu'elle est basée sur trois piliers : l'informatique, la supply chain et l'optimisation."
                        :maths "MATHEMATIQUES"
                        :sc "SUPPLY CHAIN"
                        :it "INFORMATIQUE"}

@@ -3,23 +3,23 @@
 
 (def tr (partial ml/tr
                  {:en {:title    "My current preferred stack is:"
-                       :sub-title "Find below the elements used for that website."
+                       :sub-title "Find below the elements used for that website. It is my first website in clojure."
                        :clojure      {:desc "As a programming language used by default everywhere in the stack "}
                        :spacemacs    {:desc "As a full IDE integrated with clojure"}
                        :leiningen    {:desc "As an integration, templating, compilation tool"}
                        :cider        {:desc "As a clojure development to REPL tool, providing a full interactive experience in clojure development."}
                        :re-agent     {:desc "As a reactive UI provider"}
-                       :clever-cloud {:desc "As a cloud provider"}
+                       :clever-cloud {:desc "A cloud provider - deployment in docker mode"}
                        :git-lab      {:desc "As a configuration management system and PR/ER management tool"}
                        }
                   :fr {:title    "Ma stack technique préférée est "
-                       :sub-title "Ci-dessous sont listées les éléments que j'ai utilisé pour ce site"
+                       :sub-title "Ci-dessous sont listés les éléments que j'ai utilisé pour ce site. Ce site est mon premier site en clojure."
                        :clojure      {:desc "Le language de programmation à utiliser partout sur la stack"}
                        :spacemacs    {:desc "IDE complétement intégré à clojure"}
                        :leiningen    {:desc "Comme outil d'intégration, de templating, de compilation"}
                        :cider        {:desc "Comme un outil intégrant le développement et le REPL, permettant une expérience interactive pendant le développement clojure"}
                        :re-agent     {:desc "Permet de faire des interfaces utilisateurs basées sur React"}
-                       :clever-cloud {:desc "Hébergeur cloud"}
+                       :clever-cloud {:desc "Hébergeur cloud - déploiement en mode docker"}
                        :git-lab      {:desc "Comme outil de gestion de configuration et de ticketing"}
                        }
                   }))
