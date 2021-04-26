@@ -1,76 +1,36 @@
-# kotws
-A [re-frame](https://github.com/day8/re-frame) application designed to store my personal data.
+# caumond-resume
+A [re-frame](https://github.com/day8/re-frame) application designed to store my resume.
+
+## Goal
+
+This website shows some of my abilities in development, to demonstrate a minimum level I have. Since I'm not the best at frontend, it may be improved. It shows how much eager I am to learn re-frame just to publish my resume !
 
 ## Getting Started
 ### Local installation
 After having copied a local copy of the repository on your computer, go to the directory and launch:
-``` lein dev
+```
+lein dev
 ```
 This is building the application and launch it on the port number set in the `shadow-cljs/builds/devtools/http-port` variable, usually 8280.
 
 Then, any modification in the cljs, or html code will be automagically sent to local web server.
 
-```lein less auto
+```
+lein less auto
 ```
 is allowing you to modify less files in the src/less directory, which will be automatically compiled to css, then sent to the server.
-
-### Modification
-When code has been modified, the modification are expected to be push back to the repository.
-```git status
-```
-lists all files to be updated. Update the .git.ignore file to add the ones you don't want to push.
-
-```git add .
-```
-allows to add all modified files.
-
-```git commit -m "foo"
-```
-commits that files to the repository
-
-```git push
-```
-to push them back to the distant repository.
 
 ### Distant installation
 First, you need to commit modifications as explained in the "modification" directory.
 
-Then, 
-```git push clever
+Then,
 ```
-
-### Project Overview
-
-* Architecture:
-[Single Page Application (SPA)](https://en.wikipedia.org/wiki/Single-page_application)
-* Languages
-  - Front end ([re-frame](https://github.com/day8/re-frame)): [ClojureScript](https://clojurescript.org/) (CLJS)
-  - Back end/middleware ([Compojure](https://github.com/weavejester/compojure)): [Clojure](https://clojure.org/)
-* Dependencies
-  - UI framework: [re-frame](https://github.com/day8/re-frame)
-  ([docs](https://github.com/day8/re-frame/blob/master/docs/README.md),
-  [FAQs](https://github.com/day8/re-frame/blob/master/docs/FAQs/README.md)) ->
-  [Reagent](https://github.com/reagent-project/reagent) ->
-  [React](https://github.com/facebook/react)
-  - Full stack framework: [Compojure](https://github.com/weavejester/compojure)
-  ([Wiki](https://github.com/weavejester/compojure/wiki), [API docs](http://weavejester.github.com/compojure)) ->
-  [Ring](https://github.com/ring-clojure/ring)
-  ([Wiki](https://github.com/ring-clojure/ring/wiki), [API docs](http://ring-clojure.github.com/ring))
-  - Client-side routing: [Secretary](https://github.com/gf3/secretary)
-  - UI components: [re-com](https://github.com/day8/re-com)
-  - Keyboard event handler: [re-pressed](https://github.com/gadfly361/re-pressed)
-* Build tools
-  - Project task & dependency management: [Leiningen](https://github.com/technomancy/leiningen)
-  - CLJS compilation, REPL, & hot reload: [`shadow-cljs`](https://github.com/thheller/shadow-cljs)
-  - Test framework: [cljs.test](https://clojurescript.org/tools/testing)
-  - Test runner: [Karma](https://github.com/karma-runner/karma)
-* Development tools
-  - Debugging: [CLJS DevTools](https://github.com/binaryage/cljs-devtools)
-  - Emacs integration: [CIDER](https://github.com/clojure-emacs/cider)
+git push clever
+```
 
 #### Directory structure
 
-* [`/`](/../../): project config files
+* [`/`](.): project config files
 * [`dev/`](dev/): source files compiled only with the [dev](#running-the-app) profile
   - [`cljs/user.cljs`](dev/cljs/user.cljs): symbols for use during development in the
 [ClojureScript REPL](#connecting-to-the-browser-repl-from-a-terminal)
