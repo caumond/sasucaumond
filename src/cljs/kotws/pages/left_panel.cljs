@@ -78,5 +78,5 @@
       [:a {:target "blank" :href "https://github.com/caumond"}
        [:i.fa.fa-github.w3-hover-opacity]]
       ]
-     [:a {:href "https://gitlab.com/caumond/kot-ws" :target "blank"} [:div.git (tr [:gitlab])]]
+     [:a {:href "https://gitlab.com/caumond/caumond-resume" :target "blank"} [:div.git (tr [:gitlab])]]
      ]))
