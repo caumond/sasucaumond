@@ -42,8 +42,8 @@
     [:ul.w3-ul
      (doall (for [credit-item inspiration-sources]
               ^{:key credit-item}[:li (if-let [credit-item-hyperlink (:hyperlink credit-item)]
-                                        [:a.w3-margin {:href credit-item-hyperlink :target "blank"} [:i.fa.fa-search]]
-                                        [:i.w3-margin.fa.fa-exclamation])
+                                        [:a.w3-margin-right {:href credit-item-hyperlink :target "blank"} [:i.fa.fa-search.about-bullet]]
+                                        [:i.w3-margin-right.about-bullet.fa.fa-exclamation])
                                   (tr [(:text credit-item)])
                                   ]
               ))]

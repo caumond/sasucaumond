@@ -1897,7 +1897,6 @@ a:hover {
 ***********************
 */
 #main-panel {
-  padding-top: 32px;
   margin-left: 220px;
   margin-right: 32px;
   padding-bottom: 106px;
@@ -1991,7 +1990,8 @@ a:hover {
   width: 100%;
 }
 #home-three-pilars #pilars {
-  margin-top: 50px;
+  margin-top: 40px;
+  width: 50%;
 }
 .home-image {
   width: 15vw;
@@ -2052,6 +2052,9 @@ timeline .cv-button {
 }
 .tooltipable:hover .tooltip {
   visibility: visible;
+}
+.about-bullet {
+  width: 10px;
 }
 .par-title {
   font-weight: bold;

@@ -27,7 +27,7 @@
       [:tr
        [:th]
        [:th
-        [:p (tr [:it])]
+        [:p (tr [:it]) [:i.fa.fa-code.w3-margin-left]]
         [:img#it {:src "images/pages/it.png"}]
         ]
        [:th]
@@ -39,12 +39,12 @@
        ]
       [:tr
        [:th
-        [:p (tr [:sc])]
+        [:p (tr [:sc]) [:i.fa.fa-industry.w3-margin-left]]
         [:img#sc {:src "images/pages/sc.png"}]
         ]
        [:th]
        [:th
-        [:p (tr [:maths])]
+        [:p (tr [:maths]) [:i.fa.fa-infinity.w3-margin-left]]
         [:img#math {:src "images/pages/math.png"}]
         ]
        ]]]

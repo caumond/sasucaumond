@@ -24,13 +24,11 @@
   (routes/app-routes)
   (rf/dispatch-sync [::events/initialize-db])
   (rf/dispatch-sync [::bp/set-breakpoints
-                           {;; required
-                            :breakpoints [ :small-screen
-                                          700
-                                          :large-screen]
-                            ;; optional
-                            :debounce-ms 166
-                            }])
+                     { :breakpoints [ :small-screen
+                                     700
+                                     :large-screen]
+                      :debounce-ms 166
+                      }])
   (dev-setup)
   (mount-root)
   )

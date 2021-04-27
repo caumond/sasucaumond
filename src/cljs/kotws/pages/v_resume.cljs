@@ -327,12 +327,7 @@
                  :let [role (nth (:roles position) role-idx)]]
              ^{:key (str "role-" position-idx "-" role-idx)}
              [:li.role
-              [:img.role-icon
-               {:src (case (:icon role)
-                       "fa-industry" "images/pages/sc.png"
-                       "fa-infinity" "images/pages/math.png"
-                       "images/pages/it.png"
-                      )}]
+              [:i.fa.role-icon {:class (:icon role)}]
               [:div.w3-rest
                (doall
                 (for [item-idx (range (count(:items role)))
