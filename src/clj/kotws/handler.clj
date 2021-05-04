@@ -12,4 +12,4 @@
 
 (def dev-handler (-> #'routes wrap-reload push-state/handle))
 
-(def handler routes)
+(def handler #'routes)
