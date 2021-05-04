@@ -1,5 +1,5 @@
 (ns kotws.server
-  (:require [kotws.handler :refer [handler]]
+  (:require [kotws.handler :refer [dev-handler]]
             [config.core :refer [env]]
             [taoensso.tempura :as tempura]
             [ring.adapter.jetty :refer [run-jetty]])
@@ -13,4 +13,4 @@
          port (if (int? env-port)
                 env-port
                 (Integer/parseInt (or env-port "3000")))]
-     (run-jetty (wrap-i18n handler) {:port port :join? false})))
+     (run-jetty (wrap-i18n dev-handler) {:port port :join? false})))

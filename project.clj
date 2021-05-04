@@ -6,6 +6,7 @@
                                org.clojure/google-closure-library-third-party]]
                  [thheller/shadow-cljs "2.10.13"]
                  [reagent "0.10.0"]
+                 [selmer "1.12.34"]
                  [re-frame "0.12.0"]
                  [re-com "2.8.0"]
                  [clj-commons/secretary "1.2.4"]
@@ -53,9 +54,9 @@
                                                              ]}}
                                :dev        {:compiler-options {:closure-defines {re-frame.trace.trace-enabled?        true
                                                                                  day8.re-frame.tracing.trace-enabled? true}}}
-                               :release    {:build-options
-                                            {:ns-aliases
-                                             {day8.re-frame.tracing day8.re-frame.tracing-stubs}}}
+                               :release {:build-options {:ns-aliases
+                                            {day8.re-frame.tracing
+                                            day8.re-frame.tracing-stubs}}}
                                :devtools   {:http-root    "resources/public"
                                             :http-port    8280
                                             :http-handler kotws.handler/dev-handler
