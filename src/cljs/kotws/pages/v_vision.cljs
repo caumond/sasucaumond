@@ -39,22 +39,22 @@
 (def pars
   [{:fr {:sumup "L'avantage compétitif doit passer par un IT coeur: "
          :desc "Quand une entreprise décide de se différencier, (près de son avantage compétitif normalement), elle doit inventer sa différence, l'implémenter dans un logiciel spécifique, dont l'équipe d'ingénierie et de développement sont reconnues au coeur de la valeur. La conséquence est que cette équipe devrait être pérenne, de bon niveau et internalisée: les vraies équipes digitales de l'industrie."}
-    :en {:sumup "The competitive advantage needs a core IT"
+    :en {:sumup "The competitive advantage needs a core IT: "
          :desc "When an enterprise needs to differentiate, it needs to invent its difference, implement it in a specific software, which engineering and development team are recognized to bring the enterprise value. The consequence should be a durable internal team, with the appropriate level of competency: the real digital teams of industry."}}
 
-   {:fr {:sumup "Intègrer, c'est adopter, se conformer : "
+   {:fr {:sumup "Intègrer, c'est adopter, se conformer: "
          :desc "Il y a des endroits où les progiciels et l'informatique des intégrateurs sont parfaitement adaptés. Quand c'est le cas, il faut adopter le système, son processus et donc se conformer au domaine du progiciel. Sinon, le risque est d'avoir des équipes taillées pour utiliser un logiciel, et d'autres qui en inventent un nouvel usage. C'est comme cela qu'on finit par tenter de faire entrer des ronds dans des carrés."}
     :en {:sumup "Integration is adoption, needs conformist design pattern: "
          :desc "There are some part of the enterprise where software package and system integrator are perfectly adapted. But there, the system should be adopted, as its process and so, we should be conformist with its domain language. Otherwise, the risk is to have badly staffed teams trying to deploy something, while other teams trying to build a new usage. This is how we square the circle."}}
 
-   {:fr {:sumup "Evolution digitale : "
+   {:fr {:sumup "Evolution digitale: "
          :desc "Les grandes industries sont des plateformes, basées sur de la technologie, les autres industries se transforment en \"digital\". Pour tous l'informatique devient critique, et le crafstmanship pourrait être la prochaine révolution, après l'agilité."}
     :en {:sumup "The digital evolution: "
          :desc "Biggest industries are platforms, based on technology, other industry are moving to the \"digital\". For all, computers science is critical, and crafstmanship should be the next revolution, following the agility / scrum one."}}
 
-   {:fr {:sumup "L'I.A. et la recherche opérationnelle : "
+   {:fr {:sumup "L'I.A. et la recherche opérationnelle: "
          :desc "Les techniques de l'I.A. sont très médiatisées, souvent centrées sur quelques techniques, et quelques exemples de réussite. Leur valeur n'est donc plus à démontrer, mais les techniques de modélisation, d'optimisation itérative et de simulation peuvent les compléter habilement, dans certaines problématiques, en particulier dans l'industrie. Dans le passé, j'ai souvent vu des projets basés sur de la recherche opérationnelle échouer par manque de données fiables. Les conditions qui ont fait évoluer l'intelligence artificielle se mettent en place aussi pour la recherche opérationnelle. Je suis persuadé que c'est un beau champ d'investigations et que de belles histoires sont à écrire."}
-    :en {:sumup "I.A. and O.R. : "
+    :en {:sumup "I.A. and O.R.: "
          :desc "IA techniques are well covered in the news. Often centered on a few techniques and success stories. The modelling and operationnal research techniques should not be shy. I often meet some O.R. projects failing due to bad data / modelling. The data volume increasing, I have no doubt formalization quality will increase, and O.R. interest will increase in the industry."}}
    ])
 
