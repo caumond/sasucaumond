@@ -12,7 +12,7 @@
                  :what-i-want-to-do-text "I would like to do what I love: innovate as a day-to-day activity. And my strength today is to be able to make appear a vision, to sell it and make it happens, in particular in supply chains, logistics, order to cash, industrialization. When I say make it happens, I'm not speaking of delegation, but to build a solution with competitive advantages, brought by new technologies. This disruption happens because I have these transversal knowledges in three domains: supply chain, computing and mathematics."
 
                  :where-i-want-to-work "Where I want to work?"
-                 :where-i-want-to-work-text "Typically, a small enterprise, at human scale, technology oriented, focusing on leadership and innovation. I prefer full remote position even if discussions are open."
+                 :where-i-want-to-work-text "Typically, a small team, at human scale, technology oriented, focusing on leadership and innovation. I prefer full remote position even if discussions are open."
 
                  :first-typical-mission "First typical mission"
                  :first-typical-mission-text "Some examples: \"Hands-on product [owner | manager]\". If this position let me the possibility to be in the team, in core design, ideally with some developments, this position will be fun. \"Designer or developer\": Beyond development, which is a passion, if that position allow me to work on complex subjects, mixing optimization and modelling, if am able to meet users and innovate with them, it would make me really happy. \"Maybe other ideas I don't have now ...\": I proved my ability to organize project and to manage, but it should not be a principal activity."
