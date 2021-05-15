@@ -12,7 +12,7 @@
                  :cv-item        "Resume"
                  :biblio-item    "Biblio"
                  :about-item     "About"
-                 :vision-item    "Vision"
+                 :vision-item    "Motivations"
                  :contact-item   "Contact"
                  :gitlab "See code on gitlab"
                  }
@@ -23,7 +23,7 @@
                  :cv-item        "CV"
                  :biblio-item    "Biblio"
                  :about-item     "A propos"
-                 :vision-item    "Vision"
+                 :vision-item    "Motivations"
                  :contact-item   "Contact"
                  :gitlab "Voir le code sur gitlab"
                  }}))
@@ -32,7 +32,7 @@
 (def left-menu-entries
   [{:icon "fa-home" :text :home-item :link "#/"}
    {:icon "fa-graduation-cap" :text :cv-item :link "#/resume"}
-   {:icon "fa-eye" :text :vision-item :link "#/vision"}
+   {:icon "fa-chart-line" :text :vision-item :link "#/vision"}
    {:icon "fa-bullhorn" :text :techstack-item :link "#/tech-stack"}
    {:icon "fa-book" :text :biblio-item :link "#/biblio"}
    {:icon "fa-user" :text :about-item :link "#/about"}

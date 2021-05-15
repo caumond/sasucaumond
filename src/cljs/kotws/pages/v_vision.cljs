@@ -3,7 +3,7 @@
 
 (def tr
   (partial ml/tr
-           {:en {:title                  "My vision"
+           {:en {:title                  "My motivations"
 
                  :where-i-come-from      "Where I come from"
                  :intro                  "During my career, computing has been my preferred innovation vector. After a few years building \"demos\", I loved to bring some innovative methods, based on operations research to industries (PSA | Michelin | Eramet). Thanks to the funding of my phD, I could have done some academic research, but I required to work with industries. The prototypes were fun, but I targeted the industry to be in the heart of the issues, where the decisions were taken. After some years there, I am very happy to have learnt most of main process, their diversity, the markets and had some opportunities to innovate."
@@ -19,7 +19,7 @@
 
                  :some-positions "What I think"
                  }
-            :fr { :title                  "Ma vision"
+            :fr { :title                  "Mes motivations"
 
                  :where-i-come-from      "D'où je viens"
                  :intro                  "L'informatique a été tout au long de ma carrière mon vecteur préféré pour innover. Après quelques années passées à faire des \"démos\", j'ai adoré apporter des méthodes innovantes basées sur la recherche opérationnelle à des enterprises (PSA | Michelin | Aubert & Duval, Eramet). Avec ma bourse d'état, j'aurais pu faire des recherches plus académiques, mais je souhaitais travailler pour des industries. Les prototypes, c'est bien mais je souhaitais être dans le coeur de l'action, là où les décisions se prennent. L'industrie fût l'endroit. Quelques années après, je suis très heureux d'avoir quelques occasions d'innover et d'apprendre largement sur les processus de l'entreprise, leurs variétés, les marchés."
