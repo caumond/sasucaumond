@@ -1,0 +1,7 @@
+{:tasks {clj-repl {:doc "Start REPL",
+                   :task (shell "clj -X:repl -m nrepl.cmdline -p 8000")},
+         cljs-repl {:doc "Starts cljs REPL",
+                    :task (shell "npx shadow-cljs watch app")},
+         deps {:doc "Update deps", :task (shell "clj -M:antq")},
+         dev {:depends [clj-repl cljs-repl],
+              :doc "Prepare dev environment (both repls and css)."}}}

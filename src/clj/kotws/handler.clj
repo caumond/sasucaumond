@@ -1,15 +1,54 @@
 (ns kotws.handler
-  (:require
-   [compojure.core :refer [GET defroutes]]
-   [compojure.route :refer [resources]]
-   [ring.util.response :refer [resource-response]]
-   [ring.middleware.reload :refer [wrap-reload]]
-   [shadow.http.push-state :as push-state]))
+  "Backend handler to serve images"
+  (:require [reitit.ring :as rring]
+            [clojure.string :as str]
+            [clojure.java.io :as io]
+            [ring.util.response :as rr]))
 
-(defroutes routes
-  (GET "/" [] (resource-response "index.html" {:root "public"}))
-  (resources "/"))
+(def index
+  {:en (slurp (io/resource "public/index_en.html")),
+   :fr (slurp (io/resource "public/index_fr.html"))})
 
-(def dev-handler (-> #'routes wrap-reload push-state/handle))
+(defn extract-query
+  [query-string]
+  (when (string? query-string)
+    (->> (str/split query-string #",")
+         (mapv (fn [x]
+                 (let [[q v] (str/split x #"=")]
+                   (when-not (str/blank? q) [(keyword q) v]))))
+         (filter some?)
+         (into {}))))
 
-(def handler #'routes)
+(comment
+  (extract-query "l=fr,m=en")
+  (extract-query "")
+  (extract-query nil)
+  ;
+)
+
+(defn page-request
+  [request]
+  (let [{:keys [headers query-string]} request
+        {:keys [accept-language]} headers
+        query-language (extract-query query-string)
+        language (some-> query-language
+                         (get :l)
+                         keyword)]
+    (-> (cond (contains? #{:en :fr} language) language
+              (and (some? accept-language)
+                   (str/starts-with? accept-language "en"))
+                :en
+              :else :fr)
+        index
+        rr/response
+        (rr/content-type "text/html"))))
+
+(def handler
+  (rring/ring-handler
+    (rring/router [["/ping"
+                    (constantly (-> "pong"
+                                    rr/response
+                                    (rr/content-type "text/plain")))]
+                   ["/index.html" page-request]])
+    (rring/routes (rring/create-resource-handler {:path "/"})
+                  (rring/create-default-handler {:not-found page-request}))))

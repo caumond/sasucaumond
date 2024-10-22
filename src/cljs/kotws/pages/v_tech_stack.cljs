@@ -1,71 +1,92 @@
 (ns kotws.pages.v-tech-stack
-  (:require [kotws.ml :as ml]))
+  (:require [kotws.multi-language :as ml]
+            [kotws.components.headered-list :as kheadered-list]))
 
-(def tr (partial ml/tr
-                 {:en {:title    "My current preferred stack is:"
-                       :sub-title "Find below the elements used for that website. It is my first website in clojure."
-                       :clojure      {:desc "As a programming language used by default everywhere in the stack "}
-                       :spacemacs    {:desc "As a full IDE integrated with clojure"}
-                       :leiningen    {:desc "As an integration, templating, compilation tool"}
-                       :cider        {:desc "As a clojure development to REPL tool, providing a full interactive experience in clojure development."}
-                       :re-agent     {:desc "As a reactive UI provider"}
-                       :clever-cloud {:desc "A cloud provider - deployment in docker mode"}
-                       :git-lab      {:desc "As a configuration management system and PR/ER management tool"}
-                       }
-                  :fr {:title    "Ma stack technique préférée est "
-                       :sub-title "Ci-dessous sont listés les éléments que j'ai utilisé pour ce site. Ce site est mon premier site en clojure."
-                       :clojure      {:desc "Le language de programmation à utiliser partout sur la stack"}
-                       :spacemacs    {:desc "IDE complétement intégré à clojure"}
-                       :leiningen    {:desc "Comme outil d'intégration, de templating, de compilation"}
-                       :cider        {:desc "Comme un outil intégrant le développement et le REPL, permettant une expérience interactive pendant le développement clojure"}
-                       :re-agent     {:desc "Permet de faire des interfaces utilisateurs basées sur React"}
-                       :clever-cloud {:desc "Hébergeur cloud - déploiement en mode docker"}
-                       :git-lab      {:desc "Comme outil de gestion de configuration et de ticketing"}
-                       }
-                  }))
+(defn tr
+  [kw]
+  (->
+    {:title {:en "My technical stack is:", :fr "Ma pile technique:"},
+     :sub-title
+       {:en
+          "I'm typically using the libraries and toolings below to build my apps.",
+        :fr
+          "J'utilise typiquement les librairies et outils ci-dessous pour construire mes applications."},
+     :clojure {:en "Programming language for backends.",
+               :fr "Language de programmation côté serveur."},
+     :clojure-desc
+       {:en
+          "Clojure is my preferred language, here are some reasons why: the community is highly skilled, available, and benevolent, some small but stable libraries, immutability is at the core, data orientation is the norm",
+        :fr
+          "Clojure est mon langage préféré, voici quelques raisons: communauté hautement compétente, bienveillante et disponible, des librairies élémentaires mais stables, l'immutabilité au coeur, être orienté donnée est la norme."},
+     :clojurescript {:en "Programming language for web frontends",
+                     :fr "Le language de programmation côté client web"},
+     :clojurescript-desc
+       {:en "",
+        :fr
+          "Dans la continuité de clojure, faire du clojurescript pour le web offre de grands avantages. Particulièrement de n'écrire qu'une seule fois le code métier (car il doit être agnostique de toute technologie) dans des fichiers communs à Clojure et Clojurescript."},
+     :babashka {:en "Scripting programming language.",
+                :fr "Le language de programmation pour scripter"},
+     :babashka-desc
+       {:fr
+          "Son temps de démarrage ultra rapide (basé sur Graalvm) permet de gérer les tâches du projet dans un langage très proche de Clojure.",
+        :en
+          "Its ultra-fast startup time (based on Graalvm) allows you to write project tasks in a language very close to Clojure."},
+     :doom-emacs {:en "Integrated Development Environment",
+                  :fr "Environnement intégré de développement"},
+     :doom-emacs-desc
+       {:en
+          "With Doom Emacs, I can simply make the most of Emacs without paying the whole cost up-front. The Emacs's editing features are crazily efficient, Clojure integration is perfect, and PC resource consumption is quite reasonable compared to other IDEs. Furthermore, the same setup works on Mac and Linux together.",
+        :fr
+          "Doom me permet de tirer le meilleur parti d'Emacs sans pour autant payer le ticket d'entrée dès le début. Les fonctionnalités d'édition d'emacs sont follement productives, l'intégration avec clojure parfaite, et l'emprunte sur les ressources du pc complétement raisonnable. Sans compter que la même configuration fonctionne à l'identique sur mes environnements Linux et Mac."},
+     :re-frame {:en "React in Clojure", :fr "Du react en Clojure"},
+     :re-frame-desc
+       {:en
+          "Reframe is a lightweight library for many reasons. It is efficient at runtime, nothing is mandatory, and other behaviors could happen outside the framework. Reframe is nearly a de facto standard for Clojurescript frontend development.",
+        :fr
+          "Reframe est une libraire très légère à plus d'un titre, les outils sont efficaces à l'exécution, rien n'est obligatoire et d'autres comportements peuvent être réalisés complètement à l'extérieur, et c'est quasiment un standard 'de facto' pour les frontends clojure."},
+     :clever-cloud {:en "A souvereign and managed cloud provider.",
+                    :fr "Hébergeur français souverain simple et automatisé."},
+     :clever-cloud-desc
+       {:en "",
+        :fr
+          "Clever cloud est tout à fait adapté pour déployer les solutions JVMs, comme l'est clojure. Simple et efficace, il est à l'image des solutions que j'aime construire: \"ça marche tout simplement!\""},
+     :git-hub {:en "Code configuration management",
+               :fr "Gestion de configuration"},
+     :git-hub-desc
+       {:en
+          "To store the code repositories, to interact with other developers, to publish open source code, and to automatize CICD.",
+        :fr
+          "D'abord pour stocker les repositories de code, interagir avec les autres développeurs, publier les open sources, et automatiser la CICD."}}
+    (ml/tr* kw)))
 
-(def stack
-  [{:name        :clojure
-    :img         "images/pages/tech-stack/clojure.png"
-    :href        "https://clojure.org"
-    :description :clojure/desc}
-   {:name        :spacemacs
-    :img         "images/pages/tech-stack/spacemacs.svg"
-    :href        "https://www.spacemacs.org/"
-    :description :spacemacs/desc}
-   {:name        :cider
-    :img         "images/pages/tech-stack/cider.svg"
-    :href        "https://docs.cider.mx/cider/index.html"
-    :description :cider/desc}
-   {:name        :leiningen
-    :img         "images/pages/tech-stack/leiningen.jpg"
-    :href        "https://leiningen.org/"
-    :description :leiningen/desc}
-   {:name        :re-frame
-    :img         "images/pages/tech-stack/re-frame.png"
-    :href        "https://github.com/day8/re-frame"
-    :description :re-agent/desc}
-   {:name        :clever-cloud
-    :img         "images/pages/tech-stack/clever-cloud.svg"
-    :href        "https://www.clever-cloud.com/en/"
-    :description :clever-cloud/desc}
-   {:name        :git-lab
-    :img         "images/pages/tech-stack/git.svg"
-    :href        "https://gitlab.com"
-    :description :git-lab/desc}])
+(defn data
+  []
+  (-> [{:name "Clojure",
+        :img-url "images/tech_stack/clojure.png",
+        :href "https://clojure.org"}
+       {:name "Clojurescript",
+        :img-url "images/tech_stack/clojurescript.png",
+        :href "https://clojurescript.org/"}
+       {:name "babashka",
+        :img-url "images/tech_stack/babashka.png",
+        :href "https://github.com/babashka/babashka#installation"}
+       {:name "Doom emacs",
+        :img-url "images/tech_stack/doom.png",
+        :href "https://github.com/doomemacs/doomemacs"}
+       {:name "re-frame",
+        :img-url "images/tech_stack/re-frame.png",
+        :href "https://github.com/day8/re-frame"}
+       {:name "Clever cloud",
+        :img-url "images/tech_stack/clever-cloud.svg",
+        :href "https://www.clever-cloud.com/en/"}
+       {:name "Git hub",
+        :img-url "images/gh.jpeg",
+        :href "https://github.com/caumond"}]
+      ml/defaulting
+      (ml/translate-keys [:description :short :long-desc] tr)))
 
-(defn tech-stack-panel[]
-  [:<>
-   [:h1 (tr [:title])]
-   [:p (tr [:sub-title])]
-
-   [:div.w3-row
-    (doall
-     (for [elt stack]
-       ^{:key elt} [:div.tech-stack-item
-                    [:a {:href (:href elt) :target "blank"}
-                     [:h2 (:name elt)]
-                     [:img {:src (:img elt)}]
-                     [:p (tr [(:description elt)])]
-                     ]]
-       ))]])
+(defn tech-stack-panel
+  []
+  (let [d (data)]
+    [:<> [:h1 (tr :title)] [:p (tr :sub-title)] [kheadered-list/header d] [:hr]
+     [:h1 "Details:"] [kheadered-list/detailed-list d]]))
