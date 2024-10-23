@@ -1,12 +1,12 @@
 (ns kotws.page-place-holder
-  (:require [kotws.pages.v-home :refer [home-panel]]
-            [kotws.pages.v-about :refer [about-panel]]
-            [kotws.pages.v-biblio :refer [biblio-panel]]
-            [kotws.pages.v-developper :refer [developper-panel]]
-            [kotws.pages.v-or :refer [or-panel]]
-            [kotws.pages.v-sc :refer [sc-panel]]
-            [kotws.pages.v-tech-stack :refer [tech-stack-panel]]
-            [kotws.pages.v-founder :refer [founder-panel]]))
+  (:require [kotws.pages.c-home :refer [home-panel]]
+            [kotws.pages.c-about :refer [about-panel]]
+            [kotws.pages.c-biblio :refer [biblio-panel]]
+            [kotws.pages.c-developper :refer [developper-panel]]
+            [kotws.pages.c-or :refer [or-panel]]
+            [kotws.pages.c-sc :refer [sc-panel]]
+            [kotws.pages.c-tech-stack :refer [tech-stack-panel]]
+            [kotws.pages.c-founder :refer [founder-panel]]))
 
 (defn page
   "map the `panel` value (a keyword) to the component itself."

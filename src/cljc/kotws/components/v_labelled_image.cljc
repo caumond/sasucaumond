@@ -1,4 +1,4 @@
-(ns kotws.components.labelled-image
+(ns kotws.components.v-labelled-image
   "Display an image with predefined images and optional label.")
 
 (defn- predefined-seize

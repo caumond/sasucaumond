@@ -1,7 +1,7 @@
-(ns kotws.pages.v-tech-stack
+(ns kotws.pages.c-tech-stack
   (:require [kotws.multi-language :as ml]
             [kotws.fe-language :as kfe-lang]
-            [kotws.components.headered-list :as kheadered-list]))
+            [kotws.components.v-headered-list :as kvheadered-list]))
 
 (defn tr
   [kw]
@@ -89,5 +89,5 @@
 (defn tech-stack-panel
   []
   (let [d (data)]
-    [:<> [:h1 (tr :title)] [:p (tr :sub-title)] [kheadered-list/header d] [:hr]
-     [:h1 "Details:"] [kheadered-list/detailed-list d]]))
+    [:<> [:h1 (tr :title)] [:p (tr :sub-title)] [kvheadered-list/header d] [:hr]
+     [:h1 "Details:"] [kvheadered-list/detailed-list d]]))

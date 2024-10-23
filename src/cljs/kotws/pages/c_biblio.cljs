@@ -1,7 +1,7 @@
-(ns kotws.pages.v-biblio
+(ns kotws.pages.c-biblio
   "Show bibliography."
   (:require [kotws.fe-language :as kfe-lang]
-            [kotws.components.selector :as kselector]))
+            [kotws.components.c-selector :as kcselector]))
 
 (defn tr
   [k]
@@ -73,17 +73,17 @@
     [:<> [:h1 (tr :biblio-title)] [:p (tr :biblio-intro)]
      (let [{:keys [title sub-title img details detailed-desc]} (nth books
                                                                     slide-idx)]
-       [:div [:div.w3-center (kselector/selector selector-kw (count books))]
+       [:div [:div.w3-center (kcselector/selector selector-kw (count books))]
         [:h2.text title] (when-not (nil? sub-title) [:h3.text sub-title])
         [:div.w3-row [:p.w3-third] [:img.w3-third {:src img}]] [:hr]
         [:div.w3-container.w3-card-4 [:h3 (tr :desc-title) ": "]
          [:p.text (tr details)]]
         (when-not (nil? detailed-desc) [:p (tr :desc-detailed-title) ": "])
         (when-not (nil? detailed-desc) [:p.text (tr detailed-desc)]) [:hr]
-        [:div.w3-center (kselector/selector selector-kw (count books))]
+        [:div.w3-center (kcselector/selector selector-kw (count books))]
         [:hr]])]))
 
 (defn biblio-panel
   []
-  (-> (kselector/selected :biblio-book)
+  (-> (kcselector/selected :biblio-book)
       (v-biblio-panel :biblio-book)))

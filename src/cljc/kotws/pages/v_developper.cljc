@@ -1,6 +1,6 @@
-(ns kotws.pages.developper
+(ns kotws.pages.v-developper
   (:require [kotws.multi-language :as kmulti-language]
-            [kotws.components.headered-list :as kheadered-list]))
+            [kotws.components.v-headered-list :as kvheadered-list]))
 
 (def dic
   {:developper {:fr "Développeur", :en "Developer"},
@@ -44,4 +44,4 @@
   (let [tr (partial kmulti-language/tr dic l)]
     [:<> [:h1 (tr :developper)] [:div.text (tr :intro)] [:hr]
      (-> (cv-items l)
-         kheadered-list/detailed-list) [:hr]]))
+         kvheadered-list/detailed-list) [:hr]]))

@@ -1,4 +1,4 @@
-(ns kotws.components.lists "Component to list values.")
+(ns kotws.components.v-lists "Component to list values.")
 
 (defn one-per-row
   "List of elements to display, one per row.

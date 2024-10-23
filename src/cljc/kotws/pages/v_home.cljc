@@ -1,4 +1,4 @@
-(ns kotws.pages.home-data)
+(ns kotws.pages.v-home)
 
 (def dic
   {:home-msg {:en "Resume", :fr "Curriculum vitae"},

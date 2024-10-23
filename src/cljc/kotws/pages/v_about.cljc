@@ -1,8 +1,8 @@
-(ns kotws.pages.about-data
+(ns kotws.pages.v-about
   "About panel."
   (:require [kotws.multi-language :as kmulti-language]
-            [kotws.components.table :as ktable]
-            [kotws.components.lists :as klists]))
+            [kotws.components.v-table :as kvtable]
+            [kotws.components.v-lists :as kvlists]))
 
 (def dic
   {:about-title {:en "About", :fr "A propos"},
@@ -29,18 +29,16 @@
         [:desc]
         (partial kmulti-language/tr dic l))))
 
-(inspiration-sources :en)
-
 (defn ids
   [_l]
   (-> {:SIREN {:cells ["905156402"]}, :SIRET {:cells ["90515640200018"]}}
       (kmulti-language/default-and-translate [] nil)))
 
-(defn v-about-panel
+(defn v-about
   [l]
   (let [tr (partial kmulti-language/tr dic l)]
     [:<> [:h1 "SASU CAUMOND"]
      [:div (tr :introduce-sasu)
       [:a {:href "https://www.societe.com/societe/caumond-905156402.html"}
-       "SASU CAUMOND (cf. societe.com)"] [ktable/simple (ids l)]] [:hr]
-     [:p (tr :intro-sources)] (klists/bullet (inspiration-sources l))]))
+       "SASU CAUMOND (cf. societe.com)"] [kvtable/simple (ids l)]] [:hr]
+     [:p (tr :intro-sources)] (kvlists/bullet (inspiration-sources l))]))

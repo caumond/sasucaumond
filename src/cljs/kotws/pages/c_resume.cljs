@@ -1,4 +1,4 @@
-(ns kotws.pages.v-resume)
+(ns kotws.pages.c-resume)
 
 ;; ;; private
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

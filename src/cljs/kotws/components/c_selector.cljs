@@ -1,4 +1,4 @@
-(ns kotws.components.selector
+(ns kotws.components.c-selector
   "A stateful selector displaying numbered elements, wrapped in previous and next buttons."
   (:require [re-frame.core :as rf]))
 

@@ -1,13 +1,13 @@
-(ns kotws.pages.v-founder
+(ns kotws.pages.c-sc
   "About panel."
   (:require [kotws.multi-language :as ml]
             [kotws.fe-language :as kfe-lang]
-            [kotws.components.headered-list :as kheadered-list]))
+            [kotws.components.v-headered-list :as kvheadered-list]))
 
 (defn tr
   [k]
   (->
-    {:founder {:fr "Fondateur", :en "Founder"},
+    {:founder {:fr "Chaîne logistique", :en "Supply chain"},
      :intro
        {:fr
           "J'ai créé mon Entreprise SASU Caumond, en 2022 et fondé la marque Hephaistox en 2023."},
@@ -24,10 +24,10 @@
       ml/defaulting
       (ml/translate-keys [:description :long-desc] tr)))
 
-(defn v-founder-panel
+(defn v-sc
   []
   [:<> [:h1 (tr :founder)] [:div (tr :intro)]
    (-> (inspiration-sources)
-       kheadered-list/detailed-list) [:hr]])
+       kvheadered-list/detailed-list) [:hr]])
 
-(defn founder-panel [] (v-founder-panel))
+(defn sc-panel [] (v-sc))

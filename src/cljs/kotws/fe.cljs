@@ -3,7 +3,7 @@
             [re-frame.core :as rf]
             [kotws.events :as events]
             [kotws.routes :as routes]
-            [kotws.app-view :as app-view]
+            [kotws.app-view :refer [c-header-el c-footer-el c-panel-el]]
             [kotws.config :as config]))
 
 (defn- dev-warning
@@ -20,9 +20,9 @@
     (rdom/unmount-component-at-node app-el)
     (rdom/unmount-component-at-node header-el)
     (rdom/unmount-component-at-node footer-el)
-    (rdom/render [app-view/header-el] header-el)
-    (rdom/render [app-view/panel-el] app-el)
-    (rdom/render [app-view/footer-el] footer-el)))
+    (rdom/render [c-header-el] header-el)
+    (rdom/render [c-panel-el] app-el)
+    (rdom/render [c-footer-el] footer-el)))
 
 (defn- update-page [] (routes/setup!) (dev-warning) (mount-root))
 

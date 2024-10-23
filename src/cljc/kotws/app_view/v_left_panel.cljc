@@ -1,8 +1,8 @@
-(ns kotws.app-view.left-panel-data
+(ns kotws.app-view.v-left-panel
   "Left panel presents the menu, a picture of me when on wide screen mode, and the social links, with the source code link."
   (:require [kotws.multi-language :as kmulti-language]
-            [kotws.components.labelled-image :as klabelled-image]
-            [kotws.components.lists :as klists]))
+            [kotws.components.v-labelled-image :as kvlabelled-image]
+            [kotws.components.v-lists :as kvlists]))
 
 (def dic
   {:about-label {:en "About", :fr "A propos"},
@@ -56,14 +56,14 @@
         []
         (partial kmulti-language/tr dic nil))))
 
-(defn v-panel
+(defn v-left-panel
   "Panel view."
   [l]
   (let [tr (partial kmulti-language/tr dic l)]
     [:<>
-     [klabelled-image/labelled-image "/images/anthonycaumond.jpg"
+     [kvlabelled-image/labelled-image "/images/anthonycaumond.jpg"
       "Anthony's picture" nil nil]
      [:h3.w3-center.w3-animate-opacity "Anthony CAUMOND"] [:hr]
-     [:div.w3-left-align [klists/one-per-row (skills l)] [:hr]
-      (->> (klists/small-buttons (tr :contact) (social)))
-      [klists/one-per-row (tr :content-title) (pages l)] [:hr]]]))
+     [:div.w3-left-align [kvlists/one-per-row (skills l)] [:hr]
+      (->> (kvlists/small-buttons (tr :contact) (social)))
+      [kvlists/one-per-row (tr :content-title) (pages l)] [:hr]]]))

@@ -1,8 +1,8 @@
-(ns kotws.pages.v-or
+(ns kotws.pages.c-or
   "About panel."
   (:require [kotws.fe-language :as kfe-lang]
             [kotws.multi-language :as ml]
-            [kotws.components.headered-list :as kheadered-list]))
+            [kotws.components.v-headered-list :as kvheadered-list]))
 
 (defn tr
   [k]
@@ -28,6 +28,6 @@
   []
   [:<> [:h1 (tr :founder)] [:div (tr :intro)]
    (-> (inspiration-sources)
-       kheadered-list/detailed-list) [:hr]])
+       kvheadered-list/detailed-list) [:hr]])
 
 (defn or-panel [] (v-or-panel))
