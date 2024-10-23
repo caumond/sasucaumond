@@ -12,12 +12,12 @@
 (defn c-cards
   "Displays cards for each element in `name-img-href-desc`,
 
-  Each element should be a map with `name`, `img`, `short`, `href`, `description`"
+  Each element should be a map with `name`, `img`, `short`, `href`, `desc`"
   [name-img-href-desc]
   (-> [:div.w3-row-padding.w3-section]
       (concat (->> name-img-href-desc
-                   (mapv (fn [{:keys [name img short href description]}]
+                   (mapv (fn [{:keys [name img short href desc]}]
                            [:div.w3-margin-top.w3-half
                             [:a {:href href, :target "blank"}
-                             [card name short img description]]]))))
+                             [c-card name short img desc]]]))))
       vec))

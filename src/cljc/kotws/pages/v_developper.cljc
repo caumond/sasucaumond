@@ -36,7 +36,7 @@
        :gfa {:img-url "images/developper/demo_making.png"},
        :demo-making-desc {:img-url "images/developper/demo_making.png"}}
       (kmulti-language/default-and-translate
-        [:label]
+        [:label :desc]
         (partial kmulti-language/tr dic l))))
 
 (defn v-founder-panel

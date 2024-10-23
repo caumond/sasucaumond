@@ -1,4 +1,4 @@
-(ns kotws.app-view.v-left-panel
+(ns kotws.app-view.v-left
   "Left panel presents the menu, a picture of me when on wide screen mode, and the social links, with the source code link."
   (:require [kotws.multi-language :as kmulti-language]
             [kotws.components.v-labelled-image :as kvlabelled-image]
@@ -56,7 +56,7 @@
         []
         (partial kmulti-language/tr dic nil))))
 
-(defn v-left-panel
+(defn v-left
   "Panel view."
   [l]
   (let [tr (partial kmulti-language/tr dic l)]

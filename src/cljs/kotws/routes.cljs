@@ -16,7 +16,7 @@
   (-> [["/" :home-panel] ["/biblio" :biblio-panel]
        ["/blog-cc-clojure" :blog-cc-clojure] ["/tech-stack" :tech-stack-panel]
        ["/vision" :vision-panel] ["/founder" :founder-panel]
-       ["/developper" :developper-panel] ["/or" :or-panel] ["/sc" :sc-panel]
+       ["/developper" :developper-panel] ["/or" :or-panel] ["/sc" :sc]
        ["/about" :about-panel]]
       rfe/router
       (rfe-ez/start! on-navigate {})))

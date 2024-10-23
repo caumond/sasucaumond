@@ -27,18 +27,20 @@
            (str/replace #" " "-")
            keyword)))
 
+;;TODO To remove
 (defn defaulting
   "Defaulting the next keys (meaning they're not modified if they already exist)"
   [items]
   (->> items
-       (mapv (fn [{:keys [description long-desc name], :as d}]
+       (mapv (fn [{:keys [desc long-desc name], :as d}]
                (let [k (wellformed-kw name)
                      kd (wellformed-kw name "-desc")]
                  (cond-> d
                    k (assoc :kw k)
-                   (and (some? k) (nil? description)) (assoc :description k)
+                   (and (some? k) (nil? desc)) (assoc :desc k)
                    (and (some? kd) (nil? long-desc)) (assoc :long-desc kd)))))))
 
+;;TODO To remove
 (defn translate-keys
   "Helper to call `tr` on all keys set in `kws`."
   [items kws tr]
@@ -56,14 +58,15 @@
   (->> kws
        (reduce (fn [items kw]
                  (->> items
-                      (mapv (fn [[name item]] [name
-                                               (-> item
-                                                   (update kw
-                                                           #(if (nil? %)
-                                                              (-> name
-                                                                  (wellformed-kw
-                                                                    kw)
-                                                                  tr)
-                                                              %)))]))))
-         items)
-       (mapv (fn [[k v]] (assoc v :name k)))))
+                      (mapv (fn [[name item]]
+                              (println "xx->" name "-" item)
+                              [name
+                               (-> item
+                                   (update kw
+                                           #(if (nil? %)
+                                              (-> name
+                                                  (wellformed-kw kw)
+                                                  tr)
+                                              (tr %))))]))))
+         (mapv (fn [[k v]] [k (assoc v :name k)]) items))
+       (mapv second)))

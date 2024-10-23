@@ -3,8 +3,8 @@
             [kotws.pages.c-about :refer [about-panel]]
             [kotws.pages.c-biblio :refer [biblio-panel]]
             [kotws.pages.c-developper :refer [developper-panel]]
-            [kotws.pages.c-or :refer [or-panel]]
-            [kotws.pages.c-sc :refer [sc-panel]]
+            [kotws.pages.c-o-r :refer [o-r]]
+            [kotws.pages.c-sc :refer [sc]]
             [kotws.pages.c-tech-stack :refer [tech-stack-panel]]
             [kotws.pages.c-founder :refer [founder-panel]]))
 
@@ -17,7 +17,7 @@
     :tech-stack-panel [tech-stack-panel]
     :founder-panel [founder-panel]
     :developper-panel [developper-panel]
-    :or-panel [or-panel]
-    :sc-panel [sc-panel]
+    :or-panel [o-r]
+    :sc [sc]
     :biblio-panel [biblio-panel]
     [home-panel]))

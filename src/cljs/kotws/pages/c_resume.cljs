@@ -127,7 +127,8 @@
 ;;                     communicate that vision to teams and executives to
 ;;                     trigger inscription in investments plans. As a product
 ;;                     owner and project manager, I looked for customers, build
-;;                     the team and materialize the vision. One of the challenge
+;;                     the team and materialize the vision. One of the
+;;                     challenge
 ;;                     was to conciliate short and long term ambitions."},
 ;;                :fr
 ;;                  {:text "Création, promotion et mise en oeuvre de la
@@ -137,9 +138,11 @@
 ;;                     Entreprise, ma première mission a été de construire une
 ;;                     vision, de la communiquer dans les équipes et aux
 ;;                     `executive` pour la faire inscrire dans les plans
-;;                     d'investissement. Puis, en tant que product owner et chef
+;;                     d'investissement. Puis, en tant que product owner et
+;;                     chef
 ;;                     projet, j'ai cherché des premiers clients du produit,
-;;                     monté l'équipe et matéralisé la vision. Un des challenges
+;;                     monté l'équipe et matéralisé la vision. Un des
+;;                     challenges
 ;;                     a été de concilier les ambitions courts et longs
 ;;                     termes."}}}
 ;;            {:ml {:en {:text "Team leader",
@@ -175,7 +178,8 @@
 ;;                :fr
 ;;                  {:text "Conception de l'application",
 ;;                   :details
-;;                     "Conception de concepts complexes autour de la gestion de
+;;                     "Conception de concepts complexes autour de la gestion
+;;                     de
 ;;                     configuration: la gestion des versions et les ordres de
 ;;                     changements."}}}]}]}
 ;;    {:icon "fa-ruler-combined",
@@ -203,7 +207,8 @@
 ;;                     "Quelques études pour illustrer cette activité:
 ;;                     L'intégration de la sous traitance dans un processus
 ;;                     groupe, avec la prise en compte de la stratégie groupe,
-;;                     de la fiscalité, des douanes et logistiques. Etude sur la
+;;                     de la fiscalité, des douanes et logistiques. Etude sur
+;;                     la
 ;;                     suite du programme de transformation OPE sur les usines
 ;;                     de produits finis."}}}
 ;;            {:ml
@@ -231,7 +236,8 @@
 ;;                  {:text "Framework studies for a major transformation
 ;;                  program",
 ;;                   :details
-;;                     "As a team member of the architecture team of OPE program
+;;                     "As a team member of the architecture team of OPE
+;;                     program
 ;;                     (cf. the hyperlink), we had in charge to find business
 ;;                     and I.T. solutions when they concern many teams and
 ;;                     metiers. The missions are: define interactions between
@@ -270,10 +276,12 @@
 ;;                     develop in-house."},
 ;;                :fr
 ;;                  {:text
-;;                     "Première tentative d'achat d'un progiciel d'IA au niveau
+;;                     "Première tentative d'achat d'un progiciel d'IA au
+;;                     niveau
 ;;                     du groupe",
 ;;                   :details
-;;                     "Dans un groupe s'éveillant à l'IA, cette étude a proposé
+;;                     "Dans un groupe s'éveillant à l'IA, cette étude a
+;;                     proposé
 ;;                     de ne pas se baser sur un progiciel mais de développer
 ;;                     les compétences internes."}}}]}
 ;;        {:icon "fa-code",
@@ -298,7 +306,8 @@
 ;;                  {:text "Enterprise Architecture - TOGAF",
 ;;                   :details
 ;;                     "Entreprise Architecture deliverables as described in
-;;                     TOGAF (cf. certification). 200+ software in my perimeters
+;;                     TOGAF (cf. certification). 200+ software in my
+;;                     perimeters
 ;;                     and some architects in my network."},
 ;;                :fr
 ;;                  {:text "Pratique de l'architecture entreprise",
@@ -312,12 +321,14 @@
 ;;             :ml
 ;;               {:en
 ;;                  {:text
-;;                     "Launch of an event streaming app - the so called booster
+;;                     "Launch of an event streaming app - the so called
+;;                     booster
 ;;                     stock",
 ;;                   :details
 ;;                     "Create the vision: create a resiliant snapshot of stock
 ;;                     information based on stock movements. The stock snapshot
-;;                     is built based on stock events while adding a constraint:
+;;                     is built based on stock events while adding a
+;;                     constraint:
 ;;                     a stock element should be in one place, in one state.
 ;;                     Starting of the project as a product owner."},
 ;;                :fr
@@ -328,7 +339,8 @@
 ;;                     "Création de la vision: créer une image résiliante du
 ;;                     stock à partir des mouvements de stock. On construit un
 ;;                     état de stock à partir des événements de stocks tout en
-;;                     ajoutant la contrainte: un élément de stock n'est qu'à un
+;;                     ajoutant la contrainte: un élément de stock n'est qu'à
+;;                     un
 ;;                     seul endroit, dans un seul état - Lancement du projet en
 ;;                     tant que product owner."}}}]}]}
 ;;    {:icon "fa-ruler-horizontal",
@@ -347,9 +359,12 @@
 ;;                   :details
 ;;                     "At the beginning of OPE program, the 60 semi finished
 ;;                     production sites are locally managed, with a high
-;;                     diversity of process and maturity. My contribution is the
-;;                     design of supply chain process, build planning model in a
-;;                     PLM, integrate planning with and ERP and a WMS (Warehouse
+;;                     diversity of process and maturity. My contribution is
+;;                     the
+;;                     design of supply chain process, build planning model in
+;;                     a
+;;                     PLM, integrate planning with and ERP and a WMS
+;;                     (Warehouse
 ;;                     Management System)."},
 ;;                :fr
 ;;                  {:text "Architecture business",
@@ -358,7 +373,8 @@
 ;;                     production de semis-finis sont gérés complétement
 ;;                     localement. Ma contribution consiste à concevoir les
 ;;                     processus supply chain, construire le modèle de
-;;                     planification dans un PLM, intégrer la planification avec
+;;                     planification dans un PLM, intégrer la planification
+;;                     avec
 ;;                     l'ERP et l'outil de gestion de magasin (WMS)."}}}
 ;;            {:ml
 ;;               {:en
@@ -370,7 +386,8 @@
 ;;                :fr
 ;;                  {:text "Expert d'une solution de planning de production",
 ;;                   :details
-;;                     "Expert (solution consultant) d'une application de master
+;;                     "Expert (solution consultant) d'une application de
+;;                     master
 ;;                     planning des usines produits finis - déploiement sur des
 ;;                     usines d'asie et d'amérique du sud."}}}
 ;;            {:ml
@@ -385,7 +402,8 @@
 ;;                  {:text "Certification BASICS à l'APICS",
 ;;                   :details
 ;;                     "J'ai été certifié par MGCM pour le niveau BASICS de
-;;                     l'APICS. Orientée Supply Chain, outils et méthodes, cette
+;;                     l'APICS. Orientée Supply Chain, outils et méthodes,
+;;                     cette
 ;;                     formation fournit un panorama complet de la supply
 ;;                     chain."}},
 ;;             :public-reference
@@ -417,7 +435,8 @@
 ;;               {:en
 ;;                  {:text "Distribution planning - DRP - change management",
 ;;                   :details
-;;                     "Design of distribution network, deployment of a DRP on 3
+;;                     "Design of distribution network, deployment of a DRP on
+;;                     3
 ;;                     product lines (European truck tires, Agriculture, Africa
 ;;                     India Middle east)"},
 ;;                :fr
@@ -435,7 +454,8 @@
 ;;                  {:text "Distribution network optimization",
 ;;                   :details
 ;;                     "Solving thousands of minimum flow algorithms (one per
-;;                     article reference) thanks to busaker and gowen algorithm.
+;;                     article reference) thanks to busaker and gowen
+;;                     algorithm.
 ;;                     Design, development and integration of the solution."},
 ;;                :fr
 ;;                  {:text "Optimisation du réseau de distribution",
@@ -448,7 +468,8 @@
 ;;               {:en
 ;;                  {:text "Trainer in Supply Chain",
 ;;                   :details
-;;                     "Temporary trainer in Master I and Master II in logistics
+;;                     "Temporary trainer in Master I and Master II in
+;;                     logistics
 ;;                     and Supply Chain."},
 ;;                :fr
 ;;                  {:text "Formateur en Supply Chain",
@@ -472,7 +493,8 @@
 ;;               {:en
 ;;                  {:text "C++ Tactical planning optimization tool",
 ;;                   :details
-;;                     "Needs analysis - design - development of an optimization
+;;                     "Needs analysis - design - development of an
+;;                     optimization
 ;;                     tool for tactical planning (make or buy)."},
 ;;                :fr
 ;;                  {:text "Outil tactique d'optimisation en C++",
@@ -496,7 +518,8 @@
 ;;                :fr
 ;;                  {:text "Connaissance pratique d'un order to cash",
 ;;                   :details
-;;                     "Construction et mise en pratique d'un processus order to
+;;                     "Construction et mise en pratique d'un processus order
+;;                     to
 ;;                     cash."}}}]}
 ;;        {:icon "fa-code",
 ;;         :items
@@ -508,7 +531,8 @@
 ;;                   :details
 ;;                     "The website was operational and worked during roughly
 ;;                     three years. The website objective was to create extra
-;;                     activity for the family jewerly. A backend in Borland C++
+;;                     activity for the family jewerly. A backend in Borland
+;;                     C++
 ;;                     was developped to manage and upload product catalog. The
 ;;                     website by itself contains some e-payment and CMS to
 ;;                     delegate some site update."},
@@ -519,7 +543,8 @@
 ;;                     environ trois ans, permettant d'offrir une activité
 ;;                     supplémentaire à la bijouterie familiale. Un backend en
 ;;                     Borland C++ permettait de gérer et de télécharger le
-;;                     catalogue produit. Le site offrait des fonctionnalités de
+;;                     catalogue produit. Le site offrait des fonctionnalités
+;;                     de
 ;;                     paiement et de CMS, afin de déléguer une partie de sa
 ;;                     mise à jour."}}}]}]}
 ;;    {:icon "fa-university",
@@ -538,7 +563,8 @@
 ;;                   :details
 ;;                     "PSA - Assembly line optimization (post optimization) -
 ;;                     PSA - Workshop optimization (RCSPSP) - Eramet - Forging
-;;                     workshop optimization (Jobshop with time lags) - Michelin
+;;                     workshop optimization (Jobshop with time lags) -
+;;                     Michelin
 ;;                     - Test tracks time tabling (Time tabling problem) -
 ;;                     Michelin - Plant simulation (Discrete event simulation
 ;;                     and heuristics)."},
@@ -588,20 +614,26 @@
 ;;               {:en
 ;;                  {:text "Phd thesis",
 ;;                   :details
-;;                     "The title of this thesis is `Le problème de jobshop avec
+;;                     "The title of this thesis is `Le problème de jobshop
+;;                     avec
 ;;                     contraintes: modélisation et optimisation` which stands
 ;;                     for `Jobshop problem with constraints: modelling and
-;;                     optimization`. In its first chapter, the thesis describes
+;;                     optimization`. In its first chapter, the thesis
+;;                     describes
 ;;                     modelling and optimization of production systems. In the
-;;                     second chapter, the jobshop problem and some optimization
+;;                     second chapter, the jobshop problem and some
+;;                     optimization
 ;;                     methods are described, they'll be a basis on which the
-;;                     proposal in the next chapters will be built. In the third
+;;                     proposal in the next chapters will be built. In the
+;;                     third
 ;;                     chapter, original optimization methods are described to
-;;                     deal with jobshop with time lags. The chapter 4 describes
+;;                     deal with jobshop with time lags. The chapter 4
+;;                     describes
 ;;                     the jobshop problem with transportation and additional
 ;;                     constraints. Two different methods are proposed for
 ;;                     exactly the same complex problem: a linear programming
-;;                     method and a simulation method, this help to validate the
+;;                     method and a simulation method, this help to validate
+;;                     the
 ;;                     assumption of each method. The last chapter described a
 ;;                     C++ framework for optimisation methods."},
 ;;                :fr
@@ -612,14 +644,18 @@
 ;;                     premier chapitre, le document décrit les problématiques
 ;;                     traitées - l'optimisation, la modélisation des systèmes
 ;;                     de production. Le second chapitre décrit le problème de
-;;                     jobshop et quelques méthodes de résolution afin de servir
+;;                     jobshop et quelques méthodes de résolution afin de
+;;                     servir
 ;;                     de base aux propositions des chapitres suivants. Dans le
 ;;                     troisième chapitre, des méthodes originales
-;;                     d'optimisation des jobshops avec time lags sont décrites.
+;;                     d'optimisation des jobshops avec time lags sont
+;;                     décrites.
 ;;                     Le chapitre 4 présente le problème de jobshop avec
 ;;                     transport et contraintes additionnelles, avec une double
-;;                     modélisation mathématique et de simulation sur exactement
-;;                     les mêmes problématiques afin de valider chacune des deux
+;;                     modélisation mathématique et de simulation sur
+;;                     exactement
+;;                     les mêmes problématiques afin de valider chacune des
+;;                     deux
 ;;                     méthodes. Le dernier chapitre décrit un cadriciel
 ;;                     (framework) permettant de modéliser les problèmes
 ;;                     d'optimisation."}}}
@@ -651,9 +687,11 @@
 ;;                  {:text "C.O.R. - Timelag",
 ;;                   :details
 ;;                     "Les contraintes de time lags permettent de gérer des
-;;                     contraintes de temps minimum et maximum de chauffe, entre
+;;                     contraintes de temps minimum et maximum de chauffe,
+;;                     entre
 ;;                     les opérations de forgeage. Ces contraintes rendent
-;;                     NP-complet les problèmes à une seule machine. Cet article
+;;                     NP-complet les problèmes à une seule machine. Cet
+;;                     article
 ;;                     met en oeuvre un algorithme génétique permettant de
 ;;                     trouver des solutions optimisées à des problèmes
 ;;                     pratiques."}}}
@@ -663,7 +701,8 @@
 ;;               {:en
 ;;                  {:text "E.J.O.R. - Transportation",
 ;;                   :details
-;;                     "That article present a mathematical model to demonstrate
+;;                     "That article present a mathematical model to
+;;                     demonstrate
 ;;                     the importance of the anticipation constraint."},
 ;;                :fr
 ;;                  {:text "E.J.O.R. - Transports",
@@ -704,7 +743,8 @@
 ;;                     "Simulation, modélisation et optimisation des systèmes
 ;;                     industriels",
 ;;                   :details
-;;                     "Simulation des systèmes complex, production et recherche
+;;                     "Simulation des systèmes complex, production et
+;;                     recherche
 ;;                     opérationnelle avec les chaînes de markov, programmation
 ;;                     par contraintes, heuristiques pour les systèmes de
 ;;                     production, modélisation et simulation des systèmes de
@@ -715,13 +755,15 @@
 ;;               {:en
 ;;                  {:text "Decision Support System and Information System",
 ;;                   :details
-;;                     "ADA, Assembly, C, Fortran, LISP, data structure, matlab,
+;;                     "ADA, Assembly, C, Fortran, LISP, data structure,
+;;                     matlab,
 ;;                     algorithmic, java, numerical programming, prolog. Two
 ;;                     stages and two internships of six months long."},
 ;;                :fr
 ;;                  {:text "Systèmes d’Information et Aide à la Décision",
 ;;                   :details
-;;                     "ADA, Assembleur, C, fortran, LISP, structure de données,
+;;                     "ADA, Assembleur, C, fortran, LISP, structure de
+;;                     données,
 ;;                     matlab, algorithmique, java, programmation numérique,
 ;;                     prolog. Ces cours sont assortis de deux projets et de
 ;;                     deux stages de 6 mois"}}}]}]}
@@ -738,7 +780,8 @@
 ;;                   :details
 ;;                     "I discovered development with game creation. They could
 ;;                     be in text mode at that time (redefining fonts to define
-;;                     sprites), or in graphical mode. But I spent a lot of time
+;;                     sprites), or in graphical mode. But I spent a lot of
+;;                     time
 ;;                     to develop demos: vectoballs, rasters, overscans,
 ;;                     wireframe 3D. I had to rediscover how to draw
 ;;                     lines..."},
@@ -755,8 +798,10 @@
 ;;               {:en
 ;;                  {:text "Jewelry stock management tool",
 ;;                   :details
-;;                     "At a time when professionnal software were quite scarce,
-;;                     I had the occasion to build one in GFA Basic, in order to
+;;                     "At a time when professionnal software were quite
+;;                     scarce,
+;;                     I had the occasion to build one in GFA Basic, in order
+;;                     to
 ;;                     manage the stock of the family jewelry."},
 ;;                :fr
 ;;                  {:text "Outil de gestion de stock pour bijouterie",
@@ -775,6 +820,8 @@
 ;;                :fr
 ;;                  {:text "Assembleur Z80 et 68000",
 ;;                   :details
-;;                     "J'ai majoritairement utilisé ces deux languages pour les
-;;                     réalisations ci-dessus. J'ai aussi eu l'occasion de faire
+;;                     "J'ai majoritairement utilisé ces deux languages pour
+;;                     les
+;;                     réalisations ci-dessus. J'ai aussi eu l'occasion de
+;;                     faire
 ;;                     du Z80 et du language machine."}}}]}]}])

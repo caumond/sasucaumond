@@ -19,19 +19,17 @@
 (defn detailed-list
   "Show all elements of items.
 
-  Is a collection of maps, each has `name` `img-url` `description` `long-desc` `href`"
+  Is a collection of maps, each has `name` `img-url` `desc` `long-desc` `href`"
   [items]
   [:table.w3-table.w3-striped.w3-bordered
    (->> items
-        (reduce (fn [hiccup-item
-                     {:keys [name img-url description long-desc href]}]
+        (reduce (fn [hiccup-item {:keys [name img-url desc long-desc href]}]
                   (conj hiccup-item
                         [:tr
                          (when img-url
                            [:td.w3-centered
                             [kvlabelled-image/labelled-image img-url name
                              :middle nil nil]])
-                         [:td [:a {:href href} [:h1.text name]]
-                          [:p.text description]
+                         [:td [:a {:href href} [:h1.text name]] [:p.text desc]
                           (when long-desc [:p.text long-desc])]]))
           [:tbody]))])
