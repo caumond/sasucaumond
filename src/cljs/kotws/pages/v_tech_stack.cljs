@@ -1,5 +1,6 @@
 (ns kotws.pages.v-tech-stack
   (:require [kotws.multi-language :as ml]
+            [kotws.fe-language :as kfe-lang]
             [kotws.components.headered-list :as kheadered-list]))
 
 (defn tr
@@ -57,7 +58,7 @@
           "To store the code repositories, to interact with other developers, to publish open source code, and to automatize CICD.",
         :fr
           "D'abord pour stocker les repositories de code, interagir avec les autres développeurs, publier les open sources, et automatiser la CICD."}}
-    (ml/tr* kw)))
+    (kfe-lang/tr kw)))
 
 (defn data
   []

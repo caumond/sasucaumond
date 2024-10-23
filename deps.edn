@@ -9,4 +9,4 @@
  :deps {metosin/reitit {:mvn/version "0.7.2"},
         re-frame/re-frame {:mvn/version "1.4.3"},
         ring/ring {:mvn/version "1.8.1"}},
- :paths ["src/clj" "resources" "env/dev/src/clj"]}
+ :paths ["src/clj" "src/cljc" "resources" "env/dev/src/clj"]}

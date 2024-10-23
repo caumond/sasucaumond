@@ -6,8 +6,7 @@
             [kotws.pages.v-or :refer [or-panel]]
             [kotws.pages.v-sc :refer [sc-panel]]
             [kotws.pages.v-tech-stack :refer [tech-stack-panel]]
-            [kotws.pages.v-founder :refer [founder-panel]]
-            [kotws.pages.v-resume :refer [resume-panel]]))
+            [kotws.pages.v-founder :refer [founder-panel]]))
 
 (defn page
   "map the `panel` value (a keyword) to the component itself."
@@ -16,7 +15,6 @@
     :home-panel [home-panel]
     :about-panel [about-panel]
     :tech-stack-panel [tech-stack-panel]
-    :resume-panel [resume-panel]
     :founder-panel [founder-panel]
     :developper-panel [developper-panel]
     :or-panel [or-panel]

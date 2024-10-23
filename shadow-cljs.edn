@@ -25,4 +25,4 @@
                  :target :karma}},
  :dependencies [[re-frame "1.4.3"] [metosin/reitit "0.7.2"]],
  :nrepl {:port 8777},
- :source-paths ["src/cljs"]}
+ :source-paths ["src/cljs" "src/cljc"]}

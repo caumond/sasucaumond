@@ -1,6 +1,7 @@
 (ns kotws.pages.v-or
   "About panel."
-  (:require [kotws.multi-language :as ml]
+  (:require [kotws.fe-language :as kfe-lang]
+            [kotws.multi-language :as ml]
             [kotws.components.headered-list :as kheadered-list]))
 
 (defn tr
@@ -13,7 +14,7 @@
      :histoire-desc
        {:fr
           "L'idée de fonder une entreprise sur la technique m'a longtemps suivi, mais je n'étais ni mûr ni j'avais un sujet sur lequel je voulais démarrer. En sortant de doctorat, j'ai préféré intégrer une Entrerprise comme Michelin qui m'a permis de découvrir de nombreux domaines différnts, tout en étant intégré dans l'Industrie."}}
-    (ml/tr* k)))
+    (kfe-lang/tr k)))
 
 (defn inspiration-sources
   []

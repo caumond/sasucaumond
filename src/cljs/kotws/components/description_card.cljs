@@ -6,7 +6,8 @@
   [title sub-title img-url detail]
   [:div.w3-card-4 [:header.w3-container.w3-light-grey [:h3 title]]
    [:div.w3-container.w3-white [:p sub-title] [:hr]
-    [klabelled-image/labelled-image img-url "Avatar" :small nil] [:p detail]]])
+    [klabelled-image/labelled-image img-url "Avatar" :small nil nil]
+    [:p detail]]])
 
 (defn cards
   "Displays cards for each element in `name-img-href-desc`,

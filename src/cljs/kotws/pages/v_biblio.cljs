@@ -1,6 +1,6 @@
 (ns kotws.pages.v-biblio
   "Show bibliography."
-  (:require [kotws.multi-language :as ml]
+  (:require [kotws.fe-language :as kfe-lang]
             [kotws.components.selector :as kselector]))
 
 (defn tr
@@ -44,7 +44,7 @@
           "Ce livre m'a inspiré et redonné envie de faire du développement. Je trouve les règles détaillées et contraignantes, mais j'ai beaucoup aimé les observations. Par exemple, que le comportement et le fonctionnement doivent être distinguées, c'est-à-dire qu'un code qui fonctionne ne fait qu'une partie du travail, il doit être évolutif, lisible, ... Les règles énoncées montrent des leviers intéressant pour atteindre ces objectifs, quoiqu'un peu spécifique à la Programmation Orientée Objet.",
         :en
           "That book inspired me and made me develop again after some years of pause. They describe SOLID principles which are insightful even if I think that rules are too detailed and constraining, but I have appreciated their code observations. For instance, the behavior and functioning should be distinguished, and a code that is working is not enough, it should also be easy to modify, to extend, to read ... The rules detailed in the book are interesting levers to reach that objective, even if they are a little bit specific to Object Oriented Programming."}}
-    (ml/tr* k)))
+    (kfe-lang/tr k)))
 
 (defn v-biblio-panel
   [slide-idx selector-kw]

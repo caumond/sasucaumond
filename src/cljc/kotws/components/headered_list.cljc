@@ -13,7 +13,7 @@
                     (mapv (fn [{:keys [name img-url]}]
                             [:div.w3-container.w3-cell
                              [klabelled-image/labelled-image img-url name :tiny
-                              nil]]))))
+                              nil nil]]))))
        vec)])
 
 (defn detailed-list
@@ -21,15 +21,16 @@
 
   Is a collection of maps, each has `name` `img-url` `description` `long-desc` `href`"
   [items]
-  (-> [:table.w3-table.w3-striped.w3-bordered]
-      (concat (->> items
-                   (mapv (fn [{:keys [name img-url description long-desc href]}]
-                           [:tr
-                            (when img-url
-                              [:td.w3-centered
-                               [klabelled-image/labelled-image img-url name
-                                :middle nil]])
-                            [:td [:a {:href href} [:h1.text name]]
-                             [:p.text description]
-                             (when long-desc [:p.text long-desc])]]))))
-      vec))
+  (->> items
+       (reduce (fn [hiccup-item
+                    {:keys [name img-url description long-desc href]}]
+                 (conj hiccup-item
+                       [:tr
+                        (when img-url
+                          [:td.w3-centered
+                           [klabelled-image/labelled-image img-url name :middle
+                            nil nil]])
+                        [:td [:a {:href href} [:h1.text name]]
+                         [:p.text description]
+                         (when long-desc [:p.text long-desc])]]))
+         [:table.w3-table.w3-striped.w3-bordered])))

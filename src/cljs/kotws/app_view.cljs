@@ -18,9 +18,9 @@
 (defn v-panel
   [active-panel]
   [:<>
-   [:div.w3-row-padding [:div.w3-quarter [:div.w3-card-4 [left-panel/panel]]]
+   [:div.w3-row-padding [:div.w3-quarter [:div.w3-card [left-panel/panel]]]
     [:div.w3-threequarter
-     [:div.w3-card-4.w3-container (kws-page-place-holder/page active-panel)]]]])
+     [:div.w3-card.w3-container (kws-page-place-holder/page active-panel)]]]])
 
 (defn panel-el
   []
