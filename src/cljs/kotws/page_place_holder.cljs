@@ -1,23 +1,47 @@
 (ns kotws.page-place-holder
-  (:require [kotws.pages.c-home :refer [home-panel]]
-            [kotws.pages.c-about :refer [about-panel]]
-            [kotws.pages.c-biblio :refer [biblio-panel]]
-            [kotws.pages.c-developper :refer [developper-panel]]
+  (:require [kotws.pages.c-home :refer [home]]
+            [kotws.pages.c-about :refer [about]]
+            [kotws.pages.c-biblio :refer [biblio]]
+            [kotws.pages.c-developper :refer [developper]]
             [kotws.pages.c-o-r :refer [o-r]]
+            [kotws.pages :as kpages]
             [kotws.pages.c-sc :refer [sc]]
-            [kotws.pages.c-tech-stack :refer [tech-stack-panel]]
-            [kotws.pages.c-founder :refer [founder-panel]]))
+            [kotws.pages.c-tech-stack :refer [tech-stack]]
+            [kotws.pages.c-founder :refer [founder]]
+            [clojure.set :as set]))
+
+(def kw->panel
+  {:about [about],
+   :biblio [biblio],
+   :developper [developper],
+   :founder [founder],
+   :home [home],
+   :or [o-r],
+   :sc [sc],
+   :tech-stack [tech-stack]})
+
+(defn check-route
+  "Log if there are some gaps between routes (in frontend) and pages."
+  []
+  (let [defined-pages (set (mapv :name (vals kpages/pages)))
+        defined-routes (set (keys kw->panel))]
+    (when-not (= defined-routes defined-pages)
+      (let [page-wo-route (set/difference defined-pages defined-routes)
+            route-wo-page (set/difference defined-routes defined-pages)]
+        (js/console.log "Error: route  is not ok")
+        (when-not (empty? page-wo-route)
+          (js/console.log "Page without route" (pr-str page-wo-route)))
+        (when-not (empty? route-wo-page)
+          (js/console.log "Route without page" (pr-str route-wo-page)))
+        (js/console.log "Well defined:"
+                        (pr-str (set/intersection defined-pages
+                                                  defined-routes)))
+        true))))
+
+;; To log errors before the beginning of the page loading
+(check-route)
 
 (defn page
   "map the `panel` value (a keyword) to the component itself."
   [panel]
-  (case panel
-    :home-panel [home-panel]
-    :about-panel [about-panel]
-    :tech-stack-panel [tech-stack-panel]
-    :founder-panel [founder-panel]
-    :developper-panel [developper-panel]
-    :or-panel [o-r]
-    :sc [sc]
-    :biblio-panel [biblio-panel]
-    [home-panel]))
+  (let [home-panel (:home kw->panel)] (get kw->panel panel home-panel)))

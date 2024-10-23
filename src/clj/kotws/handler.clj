@@ -1,6 +1,7 @@
 (ns kotws.handler
   "Backend handler to serve images"
   (:require [reitit.ring :as rring]
+            [kotws.language :as klang]
             [clojure.string :as str]
             [clojure.java.io :as io]
             [ring.util.response :as rr]))
@@ -19,13 +20,6 @@
          (filter some?)
          (into {}))))
 
-(comment
-  (extract-query "l=fr,m=en")
-  (extract-query "")
-  (extract-query nil)
-  ;
-)
-
 (defn page-request
   [request]
   (let [{:keys [headers query-string]} request
@@ -34,7 +28,7 @@
         language (some-> query-language
                          (get :l)
                          keyword)]
-    (-> (cond (contains? #{:en :fr} language) language
+    (-> (cond (contains? klang/possible-langs language) language
               (and (some? accept-language)
                    (str/starts-with? accept-language "en"))
                 :en

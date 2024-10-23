@@ -1,7 +1,9 @@
 (ns kotws.routes
+  "Frontend routing"
   (:require [reitit.frontend :as rfe]
             [kotws.events :as ke]
             [re-frame.core :as rf]
+            [kotws.pages :as kpages]
             [reitit.frontend.easy :as rfe-ez]))
 
 (defn on-navigate
@@ -13,10 +15,6 @@
 
 (defn setup!
   []
-  (-> [["/" :home-panel] ["/biblio" :biblio-panel]
-       ["/blog-cc-clojure" :blog-cc-clojure] ["/tech-stack" :tech-stack-panel]
-       ["/vision" :vision-panel] ["/founder" :founder-panel]
-       ["/developper" :developper-panel] ["/or" :or-panel] ["/sc" :sc]
-       ["/about" :about-panel]]
+  (-> (mapv (juxt :uri :name) (vals kpages/pages))
       rfe/router
       (rfe-ez/start! on-navigate {})))

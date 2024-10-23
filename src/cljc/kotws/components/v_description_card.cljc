@@ -1,4 +1,4 @@
-(ns kotws.components.c-description-card
+(ns kotws.components.v-description-card
   "Cards describing elements."
   (:require [kotws.components.v-labelled-image :as kvlabelled-image]))
 

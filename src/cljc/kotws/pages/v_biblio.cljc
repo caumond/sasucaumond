@@ -1,6 +1,6 @@
 (ns kotws.pages.v-biblio
   (:require [kotws.components.v-selector :as kvselector]
-            [kotws.multi-language :as kmulti-language]))
+            [kotws.language :as klang]))
 
 (def dic
   {:desc-title {:en "Sum-up", :fr "Synthèse"},
@@ -66,11 +66,11 @@
           "How networked markets are transforming the economy and how to make them work for you",
         :img "images/biblio/platform.jpg",
         :details :platform-details}}
-    (kmulti-language/default-and-translate [:details]
-                                           (partial kmulti-language/tr dic l))))
-(defn v-biblio-panel
+    (klang/default-and-translate [:details]
+                                           (partial klang/tr dic l))))
+(defn v-biblio
   [l selected opts-go-to opts-go-rel]
-  (let [tr (partial kmulti-language/tr dic l)
+  (let [tr (partial klang/tr dic l)
         books (books l)]
     [:<> [:h1 (tr :biblio-title)] [:p (tr :biblio-intro)]
      (let [{:keys [title sub-title img details detailed-desc]}

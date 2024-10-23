@@ -1,6 +1,6 @@
 (ns kotws.pages.v-about
   "About panel."
-  (:require [kotws.multi-language :as kmulti-language]
+  (:require [kotws.language :as klang]
             [kotws.components.v-table :as kvtable]
             [kotws.components.v-lists :as kvlists]))
 
@@ -17,28 +17,35 @@
    :introduce-sasu {:fr "Ces activités sont réalisées par la ",
                     :en "These activities are carried over by "}})
 
-(defn inspiration-sources
-  [l]
-  (-> {:w3-template
-         {:href
-            "https://www.w3schools.com/w3css/tryw3css_templates_portfolio.htm"},
-       :reitit {:href "https://github.com/metosin/reitit"},
-       :reframe {:href "https://github.com/day8/re-frame"},
-       :ring {:href "https://github.com/ring-clojure/ring"}}
-      (kmulti-language/default-and-translate
-        [:desc]
-        (partial kmulti-language/tr dic l))))
+(def inspiration-sources
+  (letfn
+    [(i [l]
+       (->
+         {:w3-template
+            {:href
+               "https://www.w3schools.com/w3css/tryw3css_templates_portfolio.htm"},
+          :reitit {:href "https://github.com/metosin/reitit"},
+          :reframe {:href "https://github.com/day8/re-frame"},
+          :ring {:href "https://github.com/ring-clojure/ring"}}
+         (klang/default-and-translate [:desc] (partial klang/tr dic l))))]
+    (->> klang/possible-langs
+         (mapv (fn [l] [l (i l)]))
+         (into {}))))
 
-(defn ids
-  [_l]
-  (-> {:SIREN {:cells ["905156402"]}, :SIRET {:cells ["90515640200018"]}}
-      (kmulti-language/default-and-translate [] nil)))
+(def ids
+  (letfn [(i [_l]
+            (-> {:SIREN {:cells ["905156402"]},
+                 :SIRET {:cells ["90515640200018"]}}
+                (klang/default-and-translate [] nil)))]
+    (->> klang/possible-langs
+         (mapv (fn [l] [l (i l)]))
+         (into {}))))
 
 (defn v-about
   [l]
-  (let [tr (partial kmulti-language/tr dic l)]
+  (let [tr (partial klang/tr dic l)]
     [:<> [:h1 "SASU CAUMOND"]
      [:div (tr :introduce-sasu)
       [:a {:href "https://www.societe.com/societe/caumond-905156402.html"}
-       "SASU CAUMOND (cf. societe.com)"] [kvtable/simple (ids l)]] [:hr]
-     [:p (tr :intro-sources)] (kvlists/bullet (inspiration-sources l))]))
+       "SASU CAUMOND (cf. societe.com)"] [kvtable/simple (get ids l)]] [:hr]
+     [:p (tr :intro-sources)] (kvlists/bullet (get inspiration-sources l))]))

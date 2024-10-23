@@ -1,12 +1,12 @@
 (ns kotws.app-view.v-header
-  (:require [kotws.multi-language :as kmulti-language]))
+  (:require [kotws.language :as klang]))
 
 (defn v-header
   "Display the header reused for all pages."
   [current-language switch-lang]
   [:<>
    (-> [:div.w3-bar]
-       (concat (->> (kmulti-language/possible-langs)
+       (concat (->> klang/possible-langs
                     (mapv
                       (fn [l] [:a.w3-right
                                (cond-> {}

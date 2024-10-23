@@ -1,5 +1,5 @@
 (ns kotws.pages.v-developper
-  (:require [kotws.multi-language :as kmulti-language]
+  (:require [kotws.language :as klang]
             [kotws.components.v-headered-list :as kvheadered-list]))
 
 (def dic
@@ -30,18 +30,21 @@
       :en
         "I used mainly that two languages for the above achievements. I also had the opportunity to use Z80 and code machine."}})
 
-(defn cv-items
-  [l]
-  (-> {:jewelry {:img-url "images/developper/demo_making.png"},
-       :gfa {:img-url "images/developper/demo_making.png"},
-       :demo-making-desc {:img-url "images/developper/demo_making.png"}}
-      (kmulti-language/default-and-translate
-        [:label :desc]
-        (partial kmulti-language/tr dic l))))
+(def cv-items
+  (letfn [(c [l]
+            (-> {:jewelry {:img-url "images/developper/demo_making.png"},
+                 :gfa {:img-url "images/developper/demo_making.png"},
+                 :demo-making-desc {:img-url
+                                      "images/developper/demo_making.png"}}
+                (klang/default-and-translate [:label :desc]
+                                             (partial klang/tr dic l))))]
+    (->> klang/possible-langs
+         (mapv (fn [l] [l (c l)]))
+         (into {}))))
 
-(defn v-founder-panel
+(defn v-founder
   [l]
-  (let [tr (partial kmulti-language/tr dic l)]
+  (let [tr (partial klang/tr dic l)]
     [:<> [:h1 (tr :developper)] [:div.text (tr :intro)] [:hr]
-     (-> (cv-items l)
+     (-> (get cv-items l)
          kvheadered-list/detailed-list) [:hr]]))

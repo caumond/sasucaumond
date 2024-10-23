@@ -30,8 +30,8 @@
 
 (defn init
   []
-  (println "Init shadow")
-  ;; Initialization should be done before `routes/setup!` so current `url`
-  ;; can be turned into current route.
+  (println "Init frontend")
+  ;; DB initialization should be done before `routes/setup!` so current
+  ;; `url` can be turned into current route.
   (rf/dispatch-sync [::events/initialize-db])
   (update-page))

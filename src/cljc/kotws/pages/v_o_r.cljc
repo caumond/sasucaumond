@@ -1,5 +1,5 @@
 (ns kotws.pages.v-o-r
-  (:require [kotws.multi-language :as kmulti-language]
+  (:require [kotws.language :as klang]
             [kotws.components.v-headered-list :as kvheadered-list]))
 
 (def dic
@@ -12,16 +12,18 @@
      {:fr
         "L'idée de fonder une entreprise sur la technique m'a longtemps suivi, mais je n'étais ni mûr ni j'avais un sujet sur lequel je voulais démarrer. En sortant de doctorat, j'ai préféré intégrer une Entrerprise comme Michelin qui m'a permis de découvrir de nombreux domaines différnts, tout en étant intégré dans l'Industrie."}})
 
-(defn founder-steps
-  [l]
-  (-> {:introa {}}
-      (kmulti-language/default-and-translate
-        [:desc :name]
-        (partial kmulti-language/tr dic l))))
+(def founder-steps
+  (letfn [(f [l]
+            (-> {:introa {}}
+                (klang/default-and-translate [:desc :name]
+                                             (partial klang/tr dic l))))]
+    (->> klang/possible-langs
+         (mapv (fn [l] [l (f l)]))
+         (into {}))))
 
 (defn v-o-r
   [l]
-  (let [tr (partial kmulti-language/tr dic l)]
+  (let [tr (partial klang/tr dic l)]
     [:<> [:h1 (tr :founder)] [:div (tr :intro)]
-     (-> (founder-steps l)
+     (-> (get founder-steps l)
          kvheadered-list/detailed-list) [:hr]]))

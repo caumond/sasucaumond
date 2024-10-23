@@ -1,7 +1,8 @@
 (ns kotws.app-view.v-left
   "Left panel presents the menu, a picture of me when on wide screen mode, and the social links, with the source code link."
-  (:require [kotws.multi-language :as kmulti-language]
+  (:require [kotws.language :as klang]
             [kotws.components.v-labelled-image :as kvlabelled-image]
+            [kotws.pages :as kpages]
             [kotws.components.v-lists :as kvlists]))
 
 (def dic
@@ -16,27 +17,35 @@
                     :fr "Industrie / Chaîne logistique"},
    :content-title {:en "Contents", :fr "Contenus"},
    :home-label {:en "Home", :fr "Accueil"},
-   :techstack-label {:en "Tech stack", :fr "Stack technique"}})
+   :tech-stack-label {:en "Tech stack", :fr "Stack technique"}})
 
-(defn skills
-  [l]
-  (-> {:founder {:icon "fa-diamond", :href "#/founder"},
-       :developper {:icon "fa-code", :href "#/developper"},
-       :or {:icon "fa-calculator", :href "#/or"},
-       :industry {:icon "fa-industry", :href "#/sc"}}
-      (kmulti-language/default-and-translate
-        [:label]
-        (partial kmulti-language/tr dic l))))
 
-(defn pages
-  [l]
-  (-> {:home {:icon "fa-home", :href "#/"},
-       :techstack {:icon "fa-bullhorn", :href "#/tech-stack"},
-       :biblio {:icon "fa-book", :href "#/biblio"},
-       :about {:icon "fa-user", :href "#/about"}}
-      (kmulti-language/default-and-translate
-        [:label]
-        (partial kmulti-language/tr dic l))))
+(def skills
+  (letfn [(s [l]
+            (-> {:founder {:icon "fa-diamond", :href "#/founder"},
+                 :developper {:icon "fa-code", :href "#/developper"},
+                 :or {:icon "fa-calculator", :href "#/or"},
+                 :industry {:icon "fa-industry", :href "#/sc"}}
+                (klang/default-and-translate [:label]
+                                             (partial klang/tr dic l))))]
+    (->> klang/possible-langs
+         (mapv (fn [l] [l (s l)]))
+         (into {}))))
+
+(def pages
+  (letfn [(p [l]
+            (let [x (->> (vals kpages/pages)
+                         (filter :menu?)
+                         (mapv (fn [{:keys [name icon url]}] [name
+                                                              {:icon icon,
+                                                               :href url}]))
+                         (into {}))]
+              (-> x
+                  (klang/default-and-translate [:label]
+                                               (partial klang/tr dic l)))))]
+    (->> klang/possible-langs
+         (mapv (fn [l] [l (p l)]))
+         (into {}))))
 
 (defn social
   []
@@ -52,18 +61,16 @@
        :github {:icon "fa-github",
                 :href "https://github.com/caumond",
                 :label "Github"}}
-      (kmulti-language/default-and-translate
-        []
-        (partial kmulti-language/tr dic nil))))
+      (klang/default-and-translate [] (partial klang/tr dic nil))))
 
 (defn v-left
   "Panel view."
   [l]
-  (let [tr (partial kmulti-language/tr dic l)]
+  (let [tr (partial klang/tr dic l)]
     [:<>
      [kvlabelled-image/labelled-image "/images/anthonycaumond.jpg"
-      "Anthony's picture" nil nil]
-     [:h3.w3-center.w3-animate-opacity "Anthony CAUMOND"] [:hr]
-     [:div.w3-left-align [kvlists/one-per-row (skills l)] [:hr]
+      "Anthony's picture" nil nil "#/home"]
+     [:h3.w3-center.w3-animate-opacity.text "Anthony CAUMOND"] [:hr]
+     [:div.w3-left-align [kvlists/one-per-row (get skills l)] [:hr]
       (->> (kvlists/small-buttons (tr :contact) (social)))
-      [kvlists/one-per-row (tr :content-title) (pages l)] [:hr]]]))
+      [kvlists/one-per-row (tr :content-title) (get pages l)] [:hr]]]))

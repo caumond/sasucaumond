@@ -1,5 +1,5 @@
 (ns kotws.pages.v-tech-stack
-  (:require [kotws.multi-language :as kmulti-language]
+  (:require [kotws.language :as klang]
             [kotws.components.v-headered-list :as kvheadered-list]))
 
 (def dic
@@ -56,36 +56,39 @@
       :fr
         "D'abord pour stocker les repositories de code, interagir avec les autres développeurs, publier les open sources, et automatiser la CICD."}})
 
-(defn tech-stack
-  [l]
-  (-> {:clojure {:name "Clojure",
-                 :img-url "images/tech_stack/clojure.png",
-                 :href "https://clojure.org"},
-       :clojurescript {:name "Clojurescript",
-                       :img-url "images/tech_stack/clojurescript.png",
-                       :href "https://clojurescript.org/"},
-       :babashka {:name "babashka",
-                  :img-url "images/tech_stack/babashka.png",
-                  :href "https://github.com/babashka/babashka#installation"},
-       :doom {:name "Doom emacs",
-              :img-url "images/tech_stack/doom.png",
-              :href "https://github.com/doomemacs/doomemacs"},
-       :re-frame {:name "re-frame",
-                  :img-url "images/tech_stack/re-frame.png",
-                  :href "https://github.com/day8/re-frame"},
-       :clever-cloud {:name "Clever cloud",
-                      :img-url "images/tech_stack/clever-cloud.svg",
-                      :href "https://www.clever-cloud.com/en/"},
-       :github {:name "Git hub",
-                :img-url "images/gh.jpeg",
-                :href "https://github.com/caumond"}}
-      (kmulti-language/default-and-translate
-        [:desc :name]
-        (partial kmulti-language/tr dic l))))
+(def tech-stack
+  (letfn
+    [(t [l]
+       (->
+         {:clojure {:name "Clojure",
+                    :img-url "images/tech_stack/clojure.png",
+                    :href "https://clojure.org"},
+          :clojurescript {:name "Clojurescript",
+                          :img-url "images/tech_stack/clojurescript.png",
+                          :href "https://clojurescript.org/"},
+          :babashka {:name "babashka",
+                     :img-url "images/tech_stack/babashka.png",
+                     :href "https://github.com/babashka/babashka#installation"},
+          :doom {:name "Doom emacs",
+                 :img-url "images/tech_stack/doom.png",
+                 :href "https://github.com/doomemacs/doomemacs"},
+          :re-frame {:name "re-frame",
+                     :img-url "images/tech_stack/re-frame.png",
+                     :href "https://github.com/day8/re-frame"},
+          :clever-cloud {:name "Clever cloud",
+                         :img-url "images/tech_stack/clever-cloud.svg",
+                         :href "https://www.clever-cloud.com/en/"},
+          :github {:name "Git hub",
+                   :img-url "images/gh.jpeg",
+                   :href "https://github.com/caumond"}}
+         (klang/default-and-translate [:desc :name] (partial klang/tr dic l))))]
+    (->> klang/possible-langs
+         (mapv (fn [l] [l (t l)]))
+         (into {}))))
 
 (defn c-tech-stack
   [l]
-  (let [tr (partial kmulti-language/tr dic l)
-        ts (tech-stack l)]
+  (let [tr (partial klang/tr dic l)
+        ts (get tech-stack l)]
     [:<> [:h1 (tr :title)] [:p (tr :sub-title)] [kvheadered-list/header ts]
      [:hr] [:h1 "Details:"] [kvheadered-list/detailed-list ts]]))

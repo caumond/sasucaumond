@@ -1,6 +1,6 @@
 (ns kotws.app-view.v-footer
   (:require [kotws.components.v-labelled-image :as kvlabelled-image]
-            [kotws.multi-language :as kmulti-language]))
+            [kotws.language :as klang]))
 
 (def dic
   {:copyright {:en "Copyright", :fr "Copyright"},
@@ -10,7 +10,7 @@
 
 (defn v-footer
   [l year]
-  (let [tr (partial kmulti-language/tr dic l)]
+  (let [tr (partial klang/tr dic l)]
     [:<>
      [:div.secondary-bg.w3-display-container.secondary-text
       {:style {:height "10em"}}

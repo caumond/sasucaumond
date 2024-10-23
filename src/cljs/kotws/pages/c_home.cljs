@@ -2,4 +2,4 @@
   (:require [kotws.fe-language :as kfe-lang]
             [kotws.pages.v-home :as kvhome]))
 
-(defn home-panel [] (kvhome/v-home (kfe-lang/current-language)))
+(defn home [] (kvhome/v-home (kfe-lang/current-language)))
