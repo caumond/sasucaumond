@@ -7,5 +7,6 @@
    (->> items
         (reduce (fn [hiccup-item {:keys [name cells]}]
                   (conj hiccup-item
-                        [:tr [:td [:p name]] [:td [:p.text (first cells)]]]))
+                        [:tr [:td [:p.text name]]
+                         [:td [:p.text (first cells)]]]))
           [:tbody]))])

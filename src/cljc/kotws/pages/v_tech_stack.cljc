@@ -61,26 +61,26 @@
     [(t [l]
        (->
          {:clojure {:name "Clojure",
-                    :img-url "images/tech_stack/clojure.png",
+                    :img-url "images/clojure.png",
                     :href "https://clojure.org"},
           :clojurescript {:name "Clojurescript",
-                          :img-url "images/tech_stack/clojurescript.png",
+                          :img-url "images/clojurescript.png",
                           :href "https://clojurescript.org/"},
           :babashka {:name "babashka",
-                     :img-url "images/tech_stack/babashka.png",
+                     :img-url "images/babashka.png",
                      :href "https://github.com/babashka/babashka#installation"},
-          :doom {:name "Doom emacs",
-                 :img-url "images/tech_stack/doom.png",
-                 :href "https://github.com/doomemacs/doomemacs"},
+          :doom-emacs {:name "Doom emacs",
+                       :img-url "images/doom.png",
+                       :href "https://github.com/doomemacs/doomemacs"},
           :re-frame {:name "re-frame",
-                     :img-url "images/tech_stack/re-frame.png",
+                     :img-url "images/re-frame.png",
                      :href "https://github.com/day8/re-frame"},
           :clever-cloud {:name "Clever cloud",
-                         :img-url "images/tech_stack/clever-cloud.svg",
+                         :img-url "images/clever-cloud.svg",
                          :href "https://www.clever-cloud.com/en/"},
-          :github {:name "Git hub",
-                   :img-url "images/gh.jpeg",
-                   :href "https://github.com/caumond"}}
+          :git-hub {:name "Git hub",
+                    :img-url "images/gh.jpeg",
+                    :href "https://github.com/caumond"}}
          (klang/default-and-translate [:desc :name] (partial klang/tr dic l))))]
     (->> klang/possible-langs
          (mapv (fn [l] [l (t l)]))
@@ -90,5 +90,6 @@
   [l]
   (let [tr (partial klang/tr dic l)
         ts (get tech-stack l)]
-    [:<> [:h1 (tr :title)] [:p (tr :sub-title)] [kvheadered-list/header ts]
-     [:hr] [:h1 "Details:"] [kvheadered-list/detailed-list ts]]))
+    [:<> [:h1.text (tr :title)] [:p.text (tr :sub-title)]
+     [kvheadered-list/header ts] [:hr] [:h1.text "Details:"]
+     [kvheadered-list/detailed-list ts]]))

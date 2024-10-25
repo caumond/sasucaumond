@@ -53,5 +53,9 @@
                                                                     kw)
                                                                   tr)
                                                               (tr %))))]))))
-         (mapv (fn [[k v]] [k (assoc v :name k)]) items))
+         (mapv (fn [[k v]] [k
+                            (assoc v
+                              :name k
+                              :tag (wellformed-kw k))])
+           items))
        (mapv second)))

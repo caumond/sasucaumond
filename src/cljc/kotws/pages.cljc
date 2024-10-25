@@ -6,9 +6,9 @@
         :biblio {:uri "/biblio", :icon "fa-book", :menu? true},
         :tech-stack {:uri "/tech-stack", :icon "fa-bullhorn", :menu? true},
         :founder {:uri "/founder"},
-        :developper {:uri "/developper", :icon "images/home/it.png"},
-        :or {:uri "/or", :icon "images/home/math.png"},
-        :sc {:uri "/sc", :icon "images/home/sc.png"},
+        :developper {:uri "/developper", :icon "images/it.png"},
+        :or {:uri "/or", :icon "images/math.png"},
+        :sc {:uri "/sc", :icon "images/sc.png"},
         :about {:icon "fa-user", :uri "/about", :menu? true}}
        (mapv (fn [[name {:keys [uri], :as page}]] [name
                                                    (assoc page

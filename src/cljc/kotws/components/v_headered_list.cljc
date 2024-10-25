@@ -1,6 +1,7 @@
 (ns kotws.components.v-headered-list
   "A long lasting list of elements, each separated with a hr, has its icon, short and long text."
-  (:require [kotws.components.v-labelled-image :as kvlabelled-image]))
+  (:require [kotws.components.v-labelled-image :as kvlabelled-image]
+            [kotws.components.sizes :as ksizes]))
 
 (defn header
   "Show the header of the items.
@@ -10,10 +11,10 @@
   [:div.w3-row.w3-center
    (-> [:span]
        (concat (->> items
-                    (mapv (fn [{:keys [name img-url]}]
+                    (mapv (fn [{:keys [name img-url href]}]
                             [:div.w3-container.w3-cell
                              [kvlabelled-image/labelled-image img-url name :tiny
-                              nil nil]]))))
+                              nil href]]))))
        vec)])
 
 (defn detailed-list
@@ -21,15 +22,22 @@
 
   Is a collection of maps, each has `name` `img-url` `desc` `long-desc` `href`"
   [items]
-  [:table.w3-table.w3-striped.w3-bordered
-   (->> items
-        (reduce (fn [hiccup-item {:keys [name img-url desc long-desc href]}]
-                  (conj hiccup-item
-                        [:tr
-                         (when img-url
-                           [:td.w3-centered
-                            [kvlabelled-image/labelled-image img-url name
-                             :middle nil nil]])
-                         [:td [:a {:href href} [:h1.text name]] [:p.text desc]
-                          (when long-desc [:p.text long-desc])]]))
-          [:tbody]))])
+  (let [image-width-kw :medium
+        actual-size (ksizes/predefined-seize image-width-kw)]
+    [:table.w3-table.w3-striped
+     (->>
+       items
+       (reduce (fn [hiccup-item {:keys [tag name img-url desc long-desc href]}]
+                 (conj hiccup-item
+                       [:tr
+                        (when img-url
+                          [:td.w3-centered
+                           {:style {:max-width actual-size, :width actual-size},
+                            :id tag}
+                           [:a {:href href}
+                            [kvlabelled-image/labelled-image img-url name nil
+                             nil nil]]]) [:td]
+                        [:td [:a {:href href} [:h1.text name]]
+                         [:p.w3-panel.w3-light-grey.w3-leftbar.text desc]
+                         (when long-desc [:p.text long-desc])]]))
+         [:tbody]))]))

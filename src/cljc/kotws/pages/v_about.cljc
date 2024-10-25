@@ -44,8 +44,9 @@
 (defn v-about
   [l]
   (let [tr (partial klang/tr dic l)]
-    [:<> [:h1 "SASU CAUMOND"]
-     [:div (tr :introduce-sasu)
+    [:<> [:h1.text "SASU CAUMOND"]
+     [:div.text (tr :introduce-sasu)
       [:a {:href "https://www.societe.com/societe/caumond-905156402.html"}
        "SASU CAUMOND (cf. societe.com)"] [kvtable/simple (get ids l)]] [:hr]
-     [:p (tr :intro-sources)] (kvlists/bullet (get inspiration-sources l))]))
+     [:p.text (tr :intro-sources)]
+     (kvlists/bullet (get inspiration-sources l))]))

@@ -48,31 +48,30 @@
     {:clean-archi {:title "Clean Architecture",
                    :sub-title
                      "A Cratsman's guide to software structure and design",
-                   :img "images/biblio/Clean architecture.jpg"},
+                   :img "images/Clean architecture.jpg"},
      :clean-code {:title "Clean Code",
                   :sub-title "A Handbook of Agile Software Craftsmanship",
-                  :img "images/biblio/Clean code.jpg",
+                  :img "images/Clean code.jpg",
                   :details :clean-code-details},
      :ddd {:title "Domain-Driven Design",
            :sub-title "Tackling Complexity in the Heart of Software",
-           :img "images/biblio/DDD.jpg",
+           :img "images/DDD.jpg",
            :details :ddd-details},
      :clojure-programming {:title "Clojure programming",
-                           :img "images/biblio/Clojure programming.jpg",
+                           :img "images/Clojure programming.jpg",
                            :details :clojure-details},
      :platform-revolution
        {:title "Platform revolution",
         :sub-title
           "How networked markets are transforming the economy and how to make them work for you",
-        :img "images/biblio/platform.jpg",
+        :img "images/platform.jpg",
         :details :platform-details}}
-    (klang/default-and-translate [:details]
-                                           (partial klang/tr dic l))))
+    (klang/default-and-translate [:details] (partial klang/tr dic l))))
 (defn v-biblio
   [l selected opts-go-to opts-go-rel]
   (let [tr (partial klang/tr dic l)
         books (books l)]
-    [:<> [:h1 (tr :biblio-title)] [:p (tr :biblio-intro)]
+    [:<> [:h1.text (tr :biblio-title)] [:p.text (tr :biblio-intro)]
      (let [{:keys [title sub-title img details detailed-desc]}
              (nth books (if (number? selected) selected 0))]
        [:div

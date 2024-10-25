@@ -33,7 +33,7 @@
                    (mapv (fn [{:keys [icon label href], :as entry}]
                            (when (seq entry)
                              [:a (when href {:href href})
-                              [:div.w3-tooltip.w3-button.w3-mobile
+                              [:div.w3-tooltip.w3-button
                                {:style {:overflow "visible"}}
                                [:p.fa
                                 (cond-> {:class icon}
@@ -54,8 +54,8 @@
               (->> data
                    (map (fn [{:keys [name href desc]}]
                           ^{:key name}
-                          [:li [:i.fa.fa-circle.w3-margin-right]
-                           [:b
+                          [:li.text [:i.fa.fa-circle.w3-margin-right]
+                           [:b.text
                             [:a.w3-margin-right
                              (when href {:href href, :target "blank"}) name
                              ":"]] desc]))))

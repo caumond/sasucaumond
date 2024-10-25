@@ -70,7 +70,6 @@
     [:<>
      [kvlabelled-image/labelled-image "/images/anthonycaumond.jpg"
       "Anthony's picture" nil nil "#/home"]
-     [:h3.w3-center.w3-animate-opacity.text "Anthony CAUMOND"] [:hr]
-     [:div.w3-left-align [kvlists/one-per-row (get skills l)] [:hr]
+     [:div.w3-left-align [kvlists/one-per-row "Anthony CAUMOND" (get skills l)]
       (->> (kvlists/small-buttons (tr :contact) (social)))
       [kvlists/one-per-row (tr :content-title) (get pages l)] [:hr]]]))
