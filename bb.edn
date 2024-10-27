@@ -1,0 +1,52 @@
+{:paths ["src/cljc"],
+ :tasks
+   {-env-dev {:depends [repl-clj repl-cljs]},
+    :init (def dir "target/production"),
+    build-uberjar {:doc "Build an uberjar",
+                   :task (do (println "Build production uberjar")
+                             (shell "clj -T:uberjar")
+                             (shell "git init -b master" {:dir dir})
+                             (shell (str "git remote add clever "
+                                         (System/getenv
+                                           "SASU_CAUMOND_PROD_REPO"))
+                                    {:dir dir})
+                             (shell "git add ." {:dir dir})
+                             (shell "git commit -m \"auto\"" {:dir dir}))},
+    deploy {:depends [build-uberjar],
+            :doc "Build and deploy",
+            :task (shell "git push --force -u clever master" {:dir dir})},
+    deps {:doc "Update deps",
+          :task (do (shell "clj -M:antq") (shell "npm upgrade"))},
+    doctor
+      {:doc "Doctor checks the project pre requisites",
+       :requires ([babashka.http-client :as http]
+                  [clojure.string :as str]
+                  [kotws.links :as klinks]),
+       :task
+         (let [r (->> klinks/all-links
+                      (mapv (fn [{:keys [url], :as tested-url}]
+                              (print "testing " (pr-str (:url tested-url)))
+                              (try (let [content (http/get url)
+                                         valid? (= 200 (:status content))]
+                                     (if valid?
+                                       (println " -> ok")
+                                       (println " -> ko"))
+                                     (merge tested-url
+                                            (dissoc content :uri)
+                                            {:valid? valid?}))
+                                   (catch Exception e
+                                     (println " -> ko")
+                                     (assoc tested-url :exception url))))))]
+           (println "Errors: " (mapv :name (remove :valid? r)))
+           (if (nil? (System/getenv "SASU_CAUMOND_PROD_REPO"))
+             (println
+               "Setup this environment variable SASU_CAUMOND_PROD_REPO to be able to push to production")
+             (println "Ready to push to production")))},
+    env-dev {:doc "Prepare dev environment (both repls and css).",
+             :task (run '-env-dev {:parallel true})},
+    env-prod
+      {:doc "Compile frontend and backend in production mode and start it",
+       :task (do (shell "npx shadow-cljs release app") (shell "clj -X:prod"))},
+    repl-clj {:doc "Start REPL", :task (shell "clj -X:repl")},
+    repl-cljs {:doc "Starts cljs REPL",
+               :task (shell "npx shadow-cljs watch app")}}}

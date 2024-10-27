@@ -1,4 +1,3 @@
-(ns kotws.config)
+(ns kotws.config "Returns debug status.")
 
-(def debug?
-  ^boolean goog.DEBUG)
+(def debug? ^boolean goog.DEBUG)
