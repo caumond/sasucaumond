@@ -11,15 +11,17 @@
   * `width-kw` width of the picture
   * `label` text to display below the image.
   * `href` where click will lead to, could be nil"
-  [c img-url alt width-kw label href]
-  (let [width-kw (ksizes/predefined-seize width-kw)]
+  [kw c img-url alt width-kw label href]
+  (let [width (ksizes/predefined-size width-kw)
+        min-width (ksizes/size-minus1 width-kw)]
     [:a {:href href}
      [:div.w3-center (when c {:class c})
       [:img
        {:src img-url,
+        :id kw,
         :alt alt,
         :style (assoc (if width-kw
-                        {:max-width width-kw, :width "80%"}
+                        {:max-width width, :width "80%", :min-width min-width}
                         {:width "100%"})
                  :pointer-events "none")}] (when label [:p.w3-small label])]]))
 
@@ -31,8 +33,8 @@
   * `width-kw` width of the picture
   * `label` text to display below the image.
   * `href` where click will lead to, could be nil"
-  [img-url alt width-kw label href]
-  (v-labelled-image "" img-url alt width-kw label href))
+  [kw img-url alt width-kw label href]
+  (v-labelled-image kw "" img-url alt width-kw label href))
 
 (defn card-image
   "Display an image with a label, rounded with a card.
@@ -42,8 +44,14 @@
   * `width-kw` width of the picture
   * `label` text to display below the image.
   * `href` where click will lead to, could be nil"
-  [img-url alt width-kw label href]
-  (v-labelled-image "w3-card-4 w3-container" img-url alt width-kw label href))
+  [kw img-url alt width-kw label href]
+  (v-labelled-image kw
+                    "w3-card-4 w3-container"
+                    img-url
+                    alt
+                    width-kw
+                    label
+                    href))
 
 (defn raw-image
   "Display a raw image.
@@ -53,5 +61,5 @@
   * `width-kw` width of the picture
   * `label` text to display below the image.
   * `href` where click will lead to, could be nil"
-  [img-url alt width-kw label href]
-  (v-labelled-image "w3-container" img-url alt width-kw label href))
+  [kw img-url alt width-kw label href]
+  (v-labelled-image kw "w3-container" img-url alt width-kw label href))

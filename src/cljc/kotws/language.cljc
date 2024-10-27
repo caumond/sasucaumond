@@ -59,3 +59,32 @@
                               :tag (wellformed-kw k))])
            items))
        (mapv second)))
+
+(defn urls
+  "Each `kw` in `kws` is added ot all items.
+
+  * If `kw` is a string, it is not modified,
+  * If `kw` is a kw it is translated with its value in `url` map
+  * If `kw` is `nil`, the name is reused."
+  [items kws url]
+  (reduce (fn [items kw]
+            (->> items
+                 (mapv (fn [[name item]]
+                         (let [kw-val (get item kw)
+                               translated
+                                 (if (keyword? kw-val) (url kw-val) (url name))]
+                           [name
+                            (if (or (nil? translated) (string? kw-val))
+                              item
+                              (cond-> item
+                                (or (nil? kw-val) (keyword? kw-val))
+                                  (assoc kw translated)))])))))
+    items
+    kws))
+
+(comment
+  (urls [[:downstream-ope {:img-url "images/framing.png", :href "zaz"}]]
+        [:href]
+        {:xx "xxx-str"})
+  ;
+)

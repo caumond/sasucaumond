@@ -7,9 +7,9 @@
   {:home-msg {:en "Resume", :fr "Curriculum vitae"},
    :home-intro
      {:en
-        "My professional career developed mainly three of my skills. I'm from computer science, but Supply Chain and industry have been a wonderful playground. Operation Research is an obvious complement to decision-making concerns; and what is computer science if it is not there to help decision-making?",
+        "My professional career developed mainly three of my skills. I'm from computer science, but Supply Chain and industry are wonderful playgrounds. Operation Research is an obvious complement to decision-making concerns; and what is computer science if it is not there to help decision-making?",
       :fr
-        "Ma carrière professionnalle m'a permis de développer trois grandes compétences. Je suis informaticien, mais la chaîne logistique et l'industrie ont été un terrain de jeux exceptionnel. La recherche opérationnelle un complément évident pour aider à la prise de décision"},
+        "Ma carrière professionnelle m'a permis de développer trois grandes compétences. Je suis informaticien, mais la chaîne logistique et l'industrie sont des terrains de jeux exceptionnels. La recherche opérationnelle un complément évident pour aider à la prise de décision"},
    :next
      {:en
         "The next step is obvious to me: Assemble those skills in an offer for small and medium-sized industries, where a small team in charge is compatible with their culture and the amount of investments that make sense.",
@@ -35,12 +35,13 @@
                       vals
                       (mapv (fn [{:keys [icon name url]}]
                               [:div.w3-cell.w3-mobile
-                               [vclabelled-image/labelled-image icon (tr name) w
-                                (tr name) url]]))))
+                               [vclabelled-image/labelled-image nil icon
+                                (tr name) w (tr name) url]]))))
          vec) [:hr] [:div.text (tr :next)]
      [:div.w3-center
-      [vclabelled-image/labelled-image "images/hephaistox_logo.png"
+      [vclabelled-image/labelled-image nil "images/hephaistox_logo.png"
        (tr :founder) w (tr :founder) (kpages/url :founder)]] [:hr]
      [:p.text (tr :resume-download)
-      [vclabelled-image/labelled-image "images/resume.png" "resume" :medium ""
+      [vclabelled-image/labelled-image nil "images/resume.png" "resume" :medium
+       ""
        (if (= :en l) "docs/caumond-resume.pdf" "docs/caumond-resume.pdf")]]]))

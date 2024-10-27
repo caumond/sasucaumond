@@ -1,5 +1,6 @@
 (ns kotws.pages.v-tech-stack
   (:require [kotws.language :as klang]
+            [kotws.links :as klinks]
             [kotws.components.v-headered-list :as kvheadered-list]))
 
 (def dic
@@ -9,21 +10,22 @@
         "I'm typically using the libraries and toolings below to build my apps.",
       :fr
         "J'utilise typiquement les librairies et outils ci-dessous pour construire mes applications."},
+   :details {:en "Details", :fr "Détails"},
    :clojure {:en "Programming language for backends.",
-             :fr "Language de programmation côté serveur."},
+             :fr "Langage de programmation côté serveur."},
    :clojure-desc
      {:en
         "Clojure is my preferred language, here are some reasons why: the community is highly skilled, available, and benevolent, some small but stable libraries, immutability is at the core, data orientation is the norm",
       :fr
         "Clojure est mon langage préféré, voici quelques raisons: communauté hautement compétente, bienveillante et disponible, des librairies élémentaires mais stables, l'immutabilité au coeur, être orienté donnée est la norme."},
    :clojurescript {:en "Programming language for web frontends",
-                   :fr "Le language de programmation côté client web"},
+                   :fr "Le langage de programmation côté client web"},
    :clojurescript-desc
      {:en "",
       :fr
         "Dans la continuité de clojure, faire du clojurescript pour le web offre de grands avantages. Particulièrement de n'écrire qu'une seule fois le code métier (car il doit être agnostique de toute technologie) dans des fichiers communs à Clojure et Clojurescript."},
    :babashka {:en "Scripting programming language.",
-              :fr "Le language de programmation pour scripter"},
+              :fr "Le langage de programmation pour scripter"},
    :babashka-desc
      {:fr
         "Son temps de démarrage ultra rapide (basé sur Graalvm) permet de gérer les tâches du projet dans un langage très proche de Clojure.",
@@ -35,7 +37,7 @@
      {:en
         "With Doom Emacs, I can simply make the most of Emacs without paying the whole cost up-front. The Emacs's editing features are crazily efficient, Clojure integration is perfect, and PC resource consumption is quite reasonable compared to other IDEs. Furthermore, the same setup works on Mac and Linux together.",
       :fr
-        "Doom me permet de tirer le meilleur parti d'Emacs sans pour autant payer le ticket d'entrée dès le début. Les fonctionnalités d'édition d'emacs sont follement productives, l'intégration avec clojure parfaite, et l'emprunte sur les ressources du pc complétement raisonnable. Sans compter que la même configuration fonctionne à l'identique sur mes environnements Linux et Mac."},
+        "Doom me permet de tirer le meilleur parti d'Emacs sans pour autant payer le ticket d'entrée dès le début. Les fonctionnalités d'édition d'emacs sont follement productives, l'intégration avec clojure parfaite, et l'empreinte sur les ressources du pc complétement raisonnable. Sans compter que la même configuration fonctionne à l'identique sur mes environnements Linux et Mac."},
    :re-frame {:en "React in Clojure", :fr "Du react en Clojure"},
    :re-frame-desc
      {:en
@@ -57,31 +59,18 @@
         "D'abord pour stocker les repositories de code, interagir avec les autres développeurs, publier les open sources, et automatiser la CICD."}})
 
 (def tech-stack
-  (letfn
-    [(t [l]
-       (->
-         {:clojure {:name "Clojure",
-                    :img-url "images/clojure.png",
-                    :href "https://clojure.org"},
-          :clojurescript {:name "Clojurescript",
-                          :img-url "images/clojurescript.png",
-                          :href "https://clojurescript.org/"},
-          :babashka {:name "babashka",
-                     :img-url "images/babashka.png",
-                     :href "https://github.com/babashka/babashka#installation"},
-          :doom-emacs {:name "Doom emacs",
-                       :img-url "images/doom.png",
-                       :href "https://github.com/doomemacs/doomemacs"},
-          :re-frame {:name "re-frame",
-                     :img-url "images/re-frame.png",
-                     :href "https://github.com/day8/re-frame"},
-          :clever-cloud {:name "Clever cloud",
-                         :img-url "images/clever-cloud.svg",
-                         :href "https://www.clever-cloud.com/en/"},
-          :git-hub {:name "Git hub",
-                    :img-url "images/gh.jpeg",
-                    :href "https://github.com/caumond"}}
-         (klang/default-and-translate [:desc :name] (partial klang/tr dic l))))]
+  (letfn [(t [l]
+            (-> {:clojure {},
+                 :clojurescript {},
+                 :babashka {},
+                 :doom-emacs {:name "Doom emacs"},
+                 :re-frame {},
+                 :clever-cloud {:name "Clever cloud"},
+                 :git-hub {}}
+                (klang/urls [:img-url :name] klinks/relative-urls)
+                (klang/urls [:href] klinks/external-urls)
+                (klang/default-and-translate [:desc :name]
+                                             (partial klang/tr dic l))))]
     (->> klang/possible-langs
          (mapv (fn [l] [l (t l)]))
          (into {}))))
@@ -91,5 +80,5 @@
   (let [tr (partial klang/tr dic l)
         ts (get tech-stack l)]
     [:<> [:h1.text (tr :title)] [:p.text (tr :sub-title)]
-     [kvheadered-list/header ts] [:hr] [:h1.text "Details:"]
+     [kvheadered-list/header ts] [:hr] [:h1.text (tr :details)]
      [kvheadered-list/detailed-list ts]]))

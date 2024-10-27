@@ -6,22 +6,33 @@
 
 (def dic
   {:about-title {:en "About", :fr "A propos"},
-   :intro-sources {:en "This site is built with:",
-                   :fr "Ce site est construit à partir de:"},
-   :w3-template-desc {:en "w3 schools for its templates w3.css",
-                      :fr "w3 schools pour ses templates w3.css"},
+   :intro-sources
+     {:en
+        "The project is built on the following dependencies. Note that they are few in number, which is in my conception of computing a guarantee of simplicity and stability.",
+      :fr
+        "Le projet est bâti sur les dépendances suivantes. Remarquez qu'elles sont peu nombreuses, ce qui est dans ma conception de l'informatique un gage de simplicité, de stabilité."},
+   :w3-css-desc
+     {:en
+        "A css library for building simple, reactive sites (i.e. compatible with computer, pads or phone screen size).",
+      :fr
+        "Une bibliothèque css pour construire des sites simples, et `reactive` (i.e. compatible avec les écrans d'ordinateurs, téléphones ou tablettes ...)."},
    :reitit-desc {:fr "Gestion des routes backend et frontend.",
                  :en "Backend and frontend routes"},
    :reframe-desc {:fr "React en Clojure", :en "React in Clojure"},
    :ring-desc {:fr "Serveur http", :en "Http server"},
    :introduce-sasu {:fr "Ces activités sont réalisées par la ",
-                    :en "These activities are carried over by "}})
+                    :en "These activities are carried over by "},
+   :icons {:fr "Icones créées avec Freepik - Flaticon",
+           :en "Icons created by Freepik - Flaticon"},
+   :font-awesome {:fr "Icones créées avec Fontawesome",
+                  :en "Icons created by fontawesome"}})
+
 
 (def inspiration-sources
   (letfn
     [(i [l]
        (->
-         {:w3-template
+         {:w3-css
             {:href
                "https://www.w3schools.com/w3css/tryw3css_templates_portfolio.htm"},
           :reitit {:href "https://github.com/metosin/reitit"},
@@ -48,5 +59,6 @@
      [:div.text (tr :introduce-sasu)
       [:a {:href "https://www.societe.com/societe/caumond-905156402.html"}
        "SASU CAUMOND (cf. societe.com)"] [kvtable/simple (get ids l)]] [:hr]
-     [:p.text (tr :intro-sources)]
-     (kvlists/bullet (get inspiration-sources l))]))
+     [:p.text (tr :intro-sources)] (kvlists/bullet (get inspiration-sources l))
+     [:a {:href "https://www.flaticon.com/free-icons/tire"} (tr :icons)]
+     [:a {:href "https://fontawesome.com/v4/"} (tr :font-awesome)]]))

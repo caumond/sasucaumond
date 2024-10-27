@@ -15,7 +15,7 @@
      [:div.secondary-bg.w3-display-container.secondary-text
       {:style {:height "10em"}}
       [:div.w3-right
-       [kvlabelled-image/raw-image "images/gh.jpeg" "Github" :tiny
+       [kvlabelled-image/raw-image nil "images/gh.jpeg" "Github" :tiny
         "See on github" "https://github.com/caumond/sasucaumond"]]
       [:div.w3-display-bottommiddle.w3-padding-32.w3-center
        [:div (tr :copyright) (str " © " year " Caumond - ")

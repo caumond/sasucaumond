@@ -68,7 +68,7 @@
   [l]
   (let [tr (partial klang/tr dic l)]
     [:<>
-     [kvlabelled-image/labelled-image "/images/anthonycaumond.jpg"
+     [kvlabelled-image/labelled-image nil "images/anthonycaumond.jpg"
       "Anthony's picture" nil nil "#/home"]
      [:div.w3-left-align [kvlists/one-per-row "Anthony CAUMOND" (get skills l)]
       (->> (kvlists/small-buttons (tr :contact) (social)))

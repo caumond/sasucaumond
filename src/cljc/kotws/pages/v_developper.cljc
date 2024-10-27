@@ -8,7 +8,7 @@
      {:en
         "I started software development when I was 10, when much less resources were available. This is a passion that has accompanied me all my life long, as a side project, a tool, and now as a support of the offer of my enterprise.",
       :fr
-        "Le développement informatique est une passion constante chez moi. Démarré tôt, vers 10 ans, j'ai toujours voulu la rendre appliquée aux problématiques qui m'entouraient. En arrivant en école d'ingénieur, je cherchais un domaine d'application, et la recherche opérationnelle ainsi que l'industrie à laquelle elle s'applique ont été des terrains de jeux privilégiés pour explorer les différents aspects de l'informatique."},
+        "Le développement informatique est une passion constante chez moi. Démarré tôt, vers 10 ans, j'ai toujours voulu la rendre appliquée aux problèmatiques qui m'entouraient. En arrivant en école d'ingénieur, je cherchais un domaine d'application, et la recherche opérationnelle ainsi que l'industrie à laquelle elle s'applique ont été des terrains de jeux privilégiés pour explorer les différents aspects de l'informatique."},
    :hephaistox {:fr "Hephaistox", :en "Hephaistox"},
    :hephaistox-desc
      {:fr "Open source pour aider les PMIs dans leur prise de décision",
@@ -36,6 +36,13 @@
         "Un PLM sert à gérer les différentes version de tous les produits d'une industrie et surtout animer la compatibilité et le cycle de vie des produits à travers tous les métiers de l'industrie: la qualité, l'obtention, le planning, la fabrication, le stockage, la livraison client, ... En m'inspirant de la gestion de configuration de git, j'ai fortement contribué à la création de cette conception et à sa diffusion.",
       :en
         "A PLM is a product lifecycle management, for the industry this is software that stores the different versions of a product but also the compatibility of them. It concerns all the production-oriented departments of an industry: design, quality, obtention, planning, manufacturing, storage, and customer delivery ... Based on git public knowledge of configuration management, I was one of the main contributors to this design and its diffusion."},
+   :event-stock {:fr "Les flux d'événements pour gérer le stock", :en "TODO"},
+   :event-stock-desc {:fr "Décaler la qualité de la connaissance du stock",
+                      :en "TODO"},
+   :event-stock-long-desc
+     {:fr
+        "La connaissance du stock est un problème récurrent dans l'industrie, de l'extérieur on ne soupçonne pas à quel point il y a des imprécisions. Bien sûr il y a des industries meilleures que d'autres, mais toutes ont fortement intérêt à s'améliorer sur le sujet. L'idée est de créer une image résiliente du stock à partir des mouvements de stock. On construit un état de stock à partir des événements de stocks tout en ajoutant la contrainte: un élément de stock n'est qu'à un seul endroit, dans un seul état. Autant il est facile d'accumuler les erreurs quand on compte combien de produits entrent et sortent, autant quand on un individu est muni d'un code barre, on peut beaucoup moins se tromper. Soit le produit n'est pas à l'endroit que l'on croit car on a râté un événement (mais le prochain mouvement rattrapera cette erreur), soit le produit est définitivement sorti et le délai de vieillissement, le prochain inventaire corrigeront cette erreur. Bien sûr que l'image ne sera pas parfaite, mais elle sera beaucoup plus résiliente.",
+      :en "TODO"},
    :archi {:en "Architecture", :fr "Architecture"},
    :archi-desc
      {:en "Solution architect and Supply Chain Entreprise Architect (EA)",
@@ -44,7 +51,7 @@
      {:en
         "During my job interview at Michelin, I expressed my wish to become an Enterprise Architect (EA) and achieved it. Now I'm a certified TOGAF architect (click on the tile to see the certificate). So I started with the solution architect position to defend some architecture files built with the teams and defend them in front of the architect network. I was dealing with production planning applications (4 applications). Then, I became a Supply Chain business architect to update processes to fit changes in the program I was introducing. Finally, I became an enterprise architect for a Supply Chain (200+ applications for which hundreds of people are working), so I became a prescriber. So I've carried out some studies for C-levels of Michelin groups to propose technical and business transformation that were evaluated to millions of Euros, I've organized software purchasing and promoted projects where some new technologies made sense.",
       :fr
-        "Durant mes entretiens d'embauche, j'avais exprimé mon souhait de devenir architecte entreprise (EA). Maintenant je suis un architecte certifié TOGAF (cliquez sur le titre pour voir mon cerfificat). J'ai donc commencé par faire de l'architecture solution afin de défendre les dossiers d'architecture construits avec les équipes auprès des réseaux d'architecte sur des solutions de planification de la production (4 applications). Puis je suis devenu architecte des processus de la chaîne logistique, et enfin architecte entreprise (200+ applications employant des centaines de personnes), ce qui m'a permis de devenir prescripteur. J'ai donc fait des études pour les exécutifs du groupe Michelin afin de proposer des transformations techniques et métiers de projets et programmes chiffrés en millions d'Euros, animer l'achat de logiciels, promouvoir de nouvelles technologies dans les projets où elles font sens ... "},
+        "Durant mes entretiens d'embauche, j'avais exprimé mon souhait de devenir architecte entreprise (EA). Maintenant je suis un architecte certifié TOGAF (cliquez sur le titre pour voir mon certificat). J'ai donc commencé par faire de l'architecture solution afin de défendre les dossiers d'architecture construits avec les équipes auprès des réseaux d'architecte sur des solutions de planification de la production (4 applications). Puis je suis devenu architecte des processus de la chaîne logistique, et enfin architecte entreprise (200+ applications employant des centaines de personnes), ce qui m'a permis de devenir prescripteur. J'ai donc fait des études pour les exécutifs du groupe Michelin afin de proposer des transformations techniques et métiers de projets et programmes chiffrés en millions d'Euros, animer l'achat de logiciels, promouvoir de nouvelles technologies dans les projets où elles font sens ... "},
    :make-or-buy-optimization {:fr "`Make or buy` en horizon tactique",
                               :en "Tactical planning for make or buy"},
    :make-or-buy-optimization-desc
@@ -54,7 +61,7 @@
         "Integrated tooling with users' spreadsheet which is optimizing their plans."},
    :make-or-buy-optimization-long-desc
      {:fr
-        "Ce qui est appelé renfort textile est un matériau complexe qui entre dans la composition du pneu, il est soit fabriqué, soit acheté par le groupe Michelin. Signer des contrats fixant à l'avance les prix entre un volume minimum et un maximum, et remplir les usines internes sont deux objectifs contradictoires avec les évolutions du marché. Ce problème est complexe à résoudre et j'ai pu utilisé le cadriciel de mon doctorat pour résoudre ce problème en une semaine. La solution est restée au moins une dizaine d'années en production.",
+        "Ce qui est appelé renfort textile est un matériau complexe qui entre dans la composition du pneu, il est soit fabriqué, soit acheté par le groupe Michelin. Signer des contrats fixant à l'avance les prix entre un volume minimum et un maximum, et remplir les usines internes sont deux objectifs contradictoires avec les évolutions du marché. Ce problème est complexe à résoudre et j'ai pu utiliser le cadriciel de mon doctorat pour résoudre ce problème en une semaine. La solution est restée au moins une dizaine d'années en production.",
       :en
         "Reinforced fabric is a complex material used in tire making. In Michelin, it is both internally made and bought. There are some contradictory objectives: fitting the unstable demand and signing in advance some contracts with suppliers to fix prices in some minimum / maximum corridors together with amortizing internal plants. I've been able to build such a tool in one week, and it's been used for at least ten years every month. Its simplicity and robustness come from the framework I've built during my PhD."},
    :distribution-network {:fr "Sourcing de distribution",
@@ -64,7 +71,7 @@
       :en "Graph flow optimization to optimize Michelin distribution network"},
    :distribution-network-long-desc
      {:fr
-        "Alors qu'un bug non anticipé est apparu en plein déploiement, j'ai dû réécrire en urgence des algorihmes d'optimisation de flot qui calcule et optimise le réseau de distribution de Michelin (des millions de couple produits/location). En PLSQL pour s'intégrer facilement à l'architecture, j'ai en deux semaines réécrit ces algorithmes qui sont toujours en production une dizaine d'années après.",
+        "Alors qu'un bug non anticipé est apparu en plein déploiement, j'ai dû réécrire en urgence des algorithmes d'optimisation de flot qui calcule et optimise le réseau de distribution de Michelin (des millions de couple produits/location). En PLSQL pour s'intégrer facilement à l'architecture, j'ai en deux semaines réécrit ces algorithmes qui sont toujours en production une dizaine d'années après.",
       :en
         "After a bug appeared during deployment, I had to rewrite in an emergency the flow optimization algorithm which was computing the Michelin distribution network (millions of products/location couple). Written in PLSQL to integrate easily into the existing architecture, I wrote the algorithms in two weeks and they were still in production ten years later."},
    :dss {:en "Decision support system", :fr "Outils d'aide à la décision"},
@@ -78,9 +85,14 @@
       :fr
         "J'ai développé des outils d'aide à la décision: CPFERV pour l'ordonnancement des ateliers de pièces de rechange à PSA, un outil d'ordonnancement des ateliers de forge à chaud d'Aubert & Duval et SMPP pour la planification pour une vingtaine de manufacture pneumatique de Michelin. J'ai aussi développé des prototypes: planification des lamineurs de Péchiney, planification des pistes de tests de pneumatique de Michelin. Cela inclut les moteurs d'optimisation, des interfaces utilisateurs pour saisir les données, explorer les résultats d'optimisation. Certains d'entre eux étaient fait en complète autonomie, d'autres en petite équipe."},
    :chapter5 {:fr "BCOOLIB", :en "BCOOLIB"},
-   :chapter5-desc {:fr "Librairie C++ orienté objet",
-                   :en "Object oriented optimization library"},
-   :chapter5-long-desc {:fr "", :en ""},
+   :chapter5-desc
+     {:fr "Bibliothèque de Composants d’Optimisation orientée Objets",
+      :en "Object oriented optimization components library"},
+   :chapter5-long-desc
+     {:fr
+        "Tout mon savoir-faire en recherche opérationnelle pour l'industrie que j'ai acquis en thèse a été inclus dans cette bibliothèque. L'objectif était de capitaliser et d'accélérer le développement des projets ultérieurs. Cet objectif a été atteint car il a été le support des articles de recherches, mais aussi de la plupart des applications industrielles.",
+      :en
+        "All my know-how in operational research for industry that I acquired in my thesis was included in this library. The objective was to capitalize and accelerate the development of subsequent projects. This objective was achieved because it was the support for research articles, but also for most industrial applications."},
    :jewerly-website {:en "Jewelry e-commerce",
                      :fr "Site e-ecommerce de bijouterie"},
    :jewerly-website-desc {:en "Php5 - mysql paradox db - Borland C++",
@@ -122,7 +134,7 @@
                          :en "Z80 assembly, 68000 and GFA basic"},
    :coding-for-fun-long-desc
      {:fr
-        "J'ai appris ces languages en auto didacte. C'était une époque sans Internet, avec peu de livres, peu de bibliothéques logicielles. J'ai par exemple dû à redécouvrir comment tracer des lignes qu'avec des décalages de registres.",
+        "J'ai appris ces langages en autodidacte. C'était une époque sans Internet, avec peu de livres, peu de bibliothèques logicielles. J'ai par exemple dû à redécouvrir comment tracer des lignes qu'avec des décalages de registres.",
       :en
         "I've learned these languages by myself. It was a time with no Internet, few books, and few software libraries. I had, for instance, to rediscover how to draw lines with registry shifts."}})
 
@@ -138,6 +150,9 @@
           [:design
            {:img-url "images/plm.png",
             :href "https://en.wikipedia.org/wiki/Configuration_management"}]
+          [:event-stock
+           {:img-url "images/kafka.png",
+            :href "https://videos.confluent.io/watch/Uny8xop6vWZut5Hb5CaNpA?"}]
           [:archi {:img-url "images/archi.png", :href "docs/togaf.pdf"}]
           [:make-or-buy-optimization
            {:img-url "images/make_or_buy.png",
@@ -147,9 +162,10 @@
            {:img-url "images/distribution_network.png",
             :href
               "https://fr.wikipedia.org/wiki/Algorithme_de_Busacker_et_Gowen"}]
-          [:dss {:img-url "images/optimization.png"}] [:chapter5 {:img-url ""}]
+          [:dss {:img-url "images/optimization.png"}]
+          [:chapter5 {:img-url "images/bcoo.png"}]
           [:jewerly-website
-           {:img-url "images/web_caumond.jpg",
+           {:img-url "images/web_caumond.png",
             :href
               "https://web.archive.org/web/20060614232036/http:/www.bijouteriecaumond.fr/"}]
           [:initial

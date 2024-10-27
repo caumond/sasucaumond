@@ -1,5 +1,6 @@
 (ns kotws.pages.v-founder
   (:require [kotws.language :as klang]
+            [kotws.links :as klinks]
             [kotws.components.v-headered-list :as kvheadered-list]))
 
 (def dic
@@ -9,7 +10,7 @@
      {:en
         "I have always been driven by an entrepreneurial spirit, surely a legacy from my parents who were traders. I finally created my company SASU Caumond in 2021 and founded the Hephaistox brand in 2023.",
       :fr
-        "J'ai toujours été animé d'un esprit d'entrepeunariat, sûrmenent un héritage de mes parents commerçants. J'ai finalement créé mon Entreprise SASU Caumond en 2021 et fondé la marque Hephaistox en 2023."},
+        "J'ai toujours été animé d'un esprit d'entrepenariat, sûremenent un héritage de mes parents commerçants. J'ai finalement créé mon Entreprise SASU Caumond en 2021 et fondé la marque Hephaistox en 2023."},
    :first-desc {:fr "J'y vais ou j'y vais pas?", :en "Go / nogo?"},
    :first-long-desc
      {:fr
@@ -27,13 +28,17 @@
    :hephaistox-desc {:fr "Intégrer mes compétences", :en "Integrate my skills"},
    :hephaistox-long-desc
      {:fr
-        "Hephaistox est un point d'orgue dans ma carrière, une façon de tout assembler, donner du sens. Je pense mon expérience assez unique et je crois que je peux faire des belles choses avec ces connaissances.",
+        "Avec mati, j'ai co-fondé Hephaistox et c'est un point d'orgue dans ma carrière, une façon de tout assembler, donner du sens. Je pense mon expérience assez unique et je crois que je peux faire des belles choses avec ces connaissances.",
       :en
-        "Hephaistox is a high point in my career, a way to put everything together, to give meaning. I think my experience is quite unique and I believe I can do great things with this knowledge."}})
+        "With mati, I've co-founded Hephaistox and it's a high point in my career, a way to put everything together, to give meaning. I think my experience is quite unique and I believe I can do great things with this knowledge."}})
 
 (def founder-steps
   (letfn [(f [l]
-            (-> {:first {}, :attempts {}, :hephaistox {}}
+            (-> {:first {:img-url :gonogo},
+                 :attempts {:img-url :falsestart},
+                 :hephaistox {}}
+                (klang/urls [:img-url] klinks/relative-urls)
+                (klang/urls [:href] klinks/external-urls)
                 (klang/default-and-translate [:desc :name :long-desc]
                                              (partial klang/tr dic l))))]
     (->> klang/possible-langs
