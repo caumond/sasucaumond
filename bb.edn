@@ -32,8 +32,23 @@
     image-run
       {:depends [image-build],
        :doc "Launch in production mode through docker",
-       :task (shell
-               "docker run  -p 8080:8080 -it --rm --name sasu sasu_caumond")},
+       :requires [babashka.fs :as fs],
+       :task
+         (let [target-dir "target/prod"]
+           (fs/create-dirs target-dir)
+           (fs/copy "Dockerfile" target-dir)
+           (shell
+             "docker run  -p 8080:8080 -it --rm --name sasu sasu_caumond"))},
+    jar
+      {:doc "Build an uberjar",
+       :task
+         (let [dir "target/production"]
+           (shell "clj -T:uberjar")
+           (shell "git init" {:dir dir})
+           (shell
+             "git add remote add git+ssh://git@push-n3-par-clevercloud-customers.services.clever-cloud.com/app_de90b017-993e-4788-8d7f-1cdd0496dc10.git"
+             {:dir dir})
+           (shell "git push -u clever master"))},
     prod {:doc "Compile frontend and backend in production mode and start it",
           :task (do (shell "npx shadow-cljs release app")
                     (shell "clj -X:prod"))}}}
