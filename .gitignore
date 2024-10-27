@@ -1,22 +1,16 @@
-/out/
-/resources/public/js/compiled/
-/target/
-/*-init.clj
-/*.log
+# System tmp files
 .DS_Store
 
-# Leiningen
-/.lein-*
-/.nrepl-port
+# Compilation temporary files
+/resources/public/js/compiled/
+/target/
 
-# Node.js dependencies
+# Dev temporary files
+.nrepl-port
 /node_modules/
-
-# shadow-cljs cache, port files
-/shadow-cljs.edn
 /.shadow-cljs/
-
 .clj-kondo/.cache/
+.cpcache
 
-.calva
+# Documentation
 /resources/~$Resume.docx

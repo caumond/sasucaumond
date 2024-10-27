@@ -1,0 +1,39 @@
+{:paths ["src/cljc"],
+ :tasks
+   {clj-repl {:doc "Start REPL",
+              :task (shell "clj -X:repl -m nrepl.cmdline -p 8000")},
+    cljs-repl {:doc "Starts cljs REPL",
+               :task (shell "npx shadow-cljs watch app")},
+    deps {:doc "Update deps", :task (shell "clj -M:antq")},
+    dev {:depends [clj-repl cljs-repl],
+         :doc "Prepare dev environment (both repls and css)."},
+    doctor
+      {:doc "Doctor checks the project pre requisites",
+       :requires ([babashka.http-client :as http]
+                  [clojure.string :as str]
+                  [kotws.links :as klinks]),
+       :task (let [r (->> klinks/full-urls
+                          (mapv (fn [{:keys [url], :as tested-url}]
+                                  (print "testing " (pr-str (:url tested-url)))
+                                  (try (let [content (http/get url)
+                                             valid? (= 200 (:status content))]
+                                         (if valid?
+                                           (println " -> ok")
+                                           (println " -> ko"))
+                                         (merge tested-url
+                                                (dissoc content :uri)
+                                                {:valid? valid?}))
+                                       (catch Exception e
+                                         (println " -> ko")
+                                         (assoc tested-url :exception url))))))]
+               (println "Errors: " (mapv :name (remove :valid? r))))},
+    image-build {:doc "Build the docker image",
+                 :task (shell "docker build . -t sasu_caumond")},
+    image-run
+      {:depends [image-build],
+       :doc "Launch in production mode through docker",
+       :task (shell
+               "docker run  -p 8080:8080 -it --rm --name sasu sasu_caumond")},
+    prod {:doc "Compile frontend and backend in production mode and start it",
+          :task (do (shell "npx shadow-cljs release app")
+                    (shell "clj -X:prod"))}}}

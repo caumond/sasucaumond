@@ -1,7 +1,9 @@
-FROM caumond/alpine-reframe:latest
-COPY . /usr/src/app
-WORKDIR /usr/src/app
+FROM clojure:tools-deps
 
-RUN lein with-profile prod uberjar
-CMD java -DPORT=8080 -Dclojure.spec.compile-asserts=false -jar /usr/src/app/target/kotws.jar
-# CMD lein dev
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY deps.edn /usr/src/app/
+RUN clj -X:deps prep
+COPY . /usr/src/app
+EXPOSE 8080
+CMD clj -X:prod

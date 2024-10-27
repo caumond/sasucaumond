@@ -1,12 +1,21 @@
 # caumond-resume
-A [re-frame](https://github.com/day8/re-frame) application designed to store my resume.
+
+A [re-frame](https://github.com/day8/re-frame) application designed to share my resume.
+
+TODO Add launch with bb
+TODO Add antq task and usage
+TODO Add deployment
+
+TODO Look below what could be useful
 
 ## Goal
 
-This website shows some of my abilities in development, to demonstrate a minimum level I have. Since I'm not the best at frontend, it may be improved. It shows how much eager I am to learn re-frame just to publish my resume !
+This website embeds my resume.
 
 ## Getting Started
+
 ### Local installation
+
 After having copied a local copy of the repository on your computer, go to the directory and launch:
 ```
 lein dev
@@ -57,11 +66,6 @@ git push clever
 * [`test/cljs/kotws/`](test/cljs/kotws/): test files (ClojureScript,
 [cljs.test](https://clojurescript.org/tools/testing))
   - Only namespaces ending in `-test` (files `*_test.cljs`) are compiled and sent to the test runner
-
-### Editor/IDE
-
-Use your preferred editor or IDE that supports Clojure/ClojureScript development. See
-[Clojure tools](https://clojure.org/community/resources#_clojure_tools) for some popular options.
 
 ### Environment Setup
 
@@ -254,15 +258,3 @@ port=2000 java -jar target/kotws.jar
 
 If `port` is not set, the server will run on port 3000 by default.
 
-### Deploying to Heroku
-
-1. [Create a Heroku app](https://devcenter.heroku.com/articles/creating-apps):
-    ```sh
-    heroku create
-    ```
-
-2. [Deploy the app code](https://devcenter.heroku.com/articles/git#deploying-code):
-
-    ```sh
-    git push heroku master
-    ```
