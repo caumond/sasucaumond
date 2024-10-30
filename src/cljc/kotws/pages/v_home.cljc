@@ -1,47 +1,82 @@
 (ns kotws.pages.v-home
-  (:require [kotws.language :as klang]
-            [kotws.pages :as kpages]
+  (:require [kotws.lang :as klang]
+            [kotws.links :as klinks]
+            [kotws.components.items :as kcitems]
+            [kotws.components.v-lang :as kvlang]
             [kotws.components.v-labelled-image :as vclabelled-image]))
 
 (def dic
   {:home-msg {:en "Resume", :fr "Curriculum vitae"},
    :home-intro
      {:en
-        "My professional career developed mainly three of my skills. I'm from computer science, but Supply Chain and industry are wonderful playgrounds. Operation Research is an obvious complement to decision-making concerns; and what is computer science if it is not there to help decision-making?",
+        "I have developed three major skills. Although I am a computer scientist, the supply chain and industry are exceptional playgrounds. Operational research is an obvious complement to help with decision-making.",
       :fr
-        "Ma carrière professionnelle m'a permis de développer trois grandes compétences. Je suis informaticien, mais la chaîne logistique et l'industrie sont des terrains de jeux exceptionnels. La recherche opérationnelle un complément évident pour aider à la prise de décision"},
+        "J'ai développé trois compétences principales: Je suis informaticien, mais la chaîne logistique et l'industrie sont des terrains de jeux exceptionnels. La recherche opérationnelle un complément évident pour aider à la prise de décision."},
    :next
      {:en
-        "The next step is obvious to me: Assemble those skills in an offer for small and medium-sized industries, where a small team in charge is compatible with their culture and the amount of investments that make sense.",
+        "View my resume below, or choose one of the more detailed forms from one of the four images below.",
       :fr
         "La prochaine étape est naturelle pour moi: Assembler ces compétences dans une offre pour les PMIs, où avoir une petite équipe est la culture et ce qui est compatible avec les montants des investissements."},
    :founder {:en "Hephaistox's founder", :fr "Fondateur d'Hephaistox"},
-   :developper {:en "Computing", :fr "Informatique"},
+   :it {:en "Computing", :fr "Informatique"},
    :or {:en "Mathematics", :fr "Mathématiques"},
    :sc {:en "Supply chain", :fr "Chaîne logistique"},
    :resume-download
      {:en
         "You can read my resume through these four point of views or the more classical document below.",
       :fr
-        "Vous pouvez consulter mon cv avec un de ces quatre éclairages ou le document plus classique ci-dessous."}})
+        "Visualisez mon cv ci-dessous, ou choisissez une des formes plus détaillées sur une des quatre images ci-dessous."}})
+
+(def items
+  {:docs {:caumond-resume {:fr {:img-link :caumond-cv, :href-link :caumond-cv},
+                           :en {:img-link :caumond-resume,
+                                :href-link :caumond-resume}}},
+   :skills {:it {}, :sc {}, :or {:img-link :math}},
+   :founding {:img-link :hephaistox}})
+
+(def tr (partial klang/tr dic))
+
+(defn defaulting
+  [items tr]
+  (-> items
+      (update :skills
+              #(-> %
+                   kcitems/default-name
+                   (kcitems/default-with-kws [[:href :name ""]
+                                              [:img-link :name ""]])
+                   (kcitems/apply-dic [:href] klinks/route-links)
+                   (kcitems/apply-dic [:img-link] klinks/image-links)))
+      (update :docs
+              #(update-vals
+                 %
+                 (fn [doc]
+                   (-> doc
+                       (kcitems/apply-dic [:img-link] klinks/image-links)
+                       (kcitems/apply-dic [:href-link] klinks/doc-links)))))))
+
+;;TODO ADd memoize
+(comment
+  (defaulting items tr)
+  ;
+)
 
 (defn v-home
   [l]
-  (let [tr (partial klang/tr dic l)
-        w "10em"]
-    [:div [:h1.text (tr :home-msg)] [:p.text (tr :home-intro)] [:hr]
+  (let [{:keys [resumes skills founding]} (defaulting items tr)
+        current-tr (partial tr l)
+        w :small]
+    [:div [:h1.text (current-tr :home-msg)]
+     [:p.text (current-tr :resume-download)] [:hr]
+     [kvlang/vclabelled-image l (:caumond-resume resumes)]
+     [:p.text (current-tr :home-intro)] [:hr]
      (-> [:div.w3-cell-row]
-         (concat (->> (select-keys kpages/pages [:developper :sc :or])
+         (concat (->> skills
                       vals
-                      (mapv (fn [{:keys [icon name url]}]
+                      (mapv (fn [{:keys [img-link name href]}]
                               [:div.w3-cell.w3-mobile
-                               [vclabelled-image/labelled-image nil icon
-                                (tr name) w (tr name) url]]))))
-         vec) [:hr] [:div.text (tr :next)]
+                               [vclabelled-image/labelled-image img-link href
+                                (current-tr name) w]]))))
+         vec) [:hr] [:div.text (current-tr :next)]
      [:div.w3-center
-      [vclabelled-image/labelled-image nil "images/hephaistox_logo.png"
-       (tr :founder) w (tr :founder) (kpages/url :founder)]] [:hr]
-     [:p.text (tr :resume-download)
-      [vclabelled-image/labelled-image nil "images/resume.png" "resume" :medium
-       ""
-       (if (= :en l) "docs/caumond-resume.pdf" "docs/caumond-resume.pdf")]]]))
+      [vclabelled-image/labelled-image (klinks/image-link (:img-link founding))
+       (klinks/route-link :founder) (current-tr :founder) w]] [:hr]]))

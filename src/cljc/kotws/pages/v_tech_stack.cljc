@@ -1,5 +1,5 @@
 (ns kotws.pages.v-tech-stack
-  (:require [kotws.language :as klang]
+  (:require [kotws.lang :as klang]
             [kotws.links :as klinks]
             [kotws.components.v-headered-list :as kvheadered-list]))
 
@@ -59,21 +59,18 @@
         "D'abord pour stocker les repositories de code, interagir avec les autres développeurs, publier les open sources, et automatiser la CICD."}})
 
 (def tech-stack
-  (letfn [(t [l]
-            (-> {:clojure {},
-                 :clojurescript {},
-                 :babashka {},
-                 :doom-emacs {:name "Doom emacs"},
-                 :re-frame {},
-                 :clever-cloud {:name "Clever cloud"},
-                 :git-hub {}}
-                (klang/urls [:img-url :name] klinks/relative-urls)
-                (klang/urls [:href] klinks/external-urls)
-                (klang/default-and-translate [:desc :name]
-                                             (partial klang/tr dic l))))]
-    (->> klang/possible-langs
-         (mapv (fn [l] [l (t l)]))
-         (into {}))))
+  (-> {:clojure {},
+       :clojurescript {},
+       :babashka {},
+       :doom-emacs {:name "Doom emacs"},
+       :re-frame {},
+       :clever-cloud {:name "Clever cloud"},
+       :git-hub {}}
+      klang/default-name
+      (klang/urls [:img-url :href] klinks/image-links)
+      (klang/translate-langs [:desc :name]
+                             klang/possible-langs
+                             (partial klang/tr dic))))
 
 (defn c-tech-stack
   [l]

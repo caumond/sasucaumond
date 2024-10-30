@@ -1,6 +1,7 @@
 (ns kotws.pages.v-founder
-  (:require [kotws.language :as klang]
+  (:require [kotws.lang :as klang]
             [kotws.links :as klinks]
+            [kotws.components.items :as kcitems]
             [kotws.components.v-headered-list :as kvheadered-list]))
 
 (def dic
@@ -32,22 +33,30 @@
       :en
         "With mati, I've co-founded Hephaistox and it's a high point in my career, a way to put everything together, to give meaning. I think my experience is quite unique and I believe I can do great things with this knowledge."}})
 
-(def founder-steps
-  (letfn [(f [l]
-            (-> {:first {:img-url :gonogo},
-                 :attempts {:img-url :falsestart},
-                 :hephaistox {}}
-                (klang/urls [:img-url] klinks/relative-urls)
-                (klang/urls [:href] klinks/external-urls)
-                (klang/default-and-translate [:desc :name :long-desc]
-                                             (partial klang/tr dic l))))]
-    (->> klang/possible-langs
-         (mapv (fn [l] [l (f l)]))
-         (into {}))))
+(def items
+  {:first {:img-url :gonogo}, :attempts {:img-url :falsestart}, :hephaistox {}})
+
+(def tr (partial klang/tr dic))
+
+(defn defaulting
+  [items]
+  (-> items
+      kcitems/default-name
+      (kcitems/default-with-kws [[:img-url :name ""] [:label :name ""] :desc
+                                 :long-desc [:href :name ""]])
+      (kcitems/apply-dic [:img-url] klinks/image-links)
+      (kcitems/apply-dic [:href] klinks/external-links)
+      (kcitems/translate [:desc :long-desc :label] klang/possible-langs tr)))
+
+(comment
+  (defaulting items)
+  ;
+)
 
 (defn v-founder
   [l]
-  (let [tr (partial klang/tr dic l)]
+  (let [founder-steps (defaulting items)
+        tr (partial tr l)]
     [:<> [:h1.text (tr :founder)] [:div.text (tr :intro)]
      (-> (get founder-steps l)
          kvheadered-list/detailed-list) [:hr]]))

@@ -1,5 +1,6 @@
 (ns kotws.pages.v-sc
-  (:require [kotws.language :as klang]
+  (:require [kotws.lang :as klang]
+            [kotws.components.items :as kcitems]
             [kotws.links :as klinks]
             [kotws.components.v-headered-list :as kvheadered-list]))
 
@@ -123,36 +124,40 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
         "J'ai construit un processus de prise de commande intégrant les contraintes de la bijouterie aux débuts du e-commerce. Peu de sites e-commerces comparables existaient, et le coût du panier moyen nécessitait une attention particulière au client et une résistance aux escrocs.",
       :en
         "I built an order-to-cash process that incorporated the constraints of jewelry in the early days of e-commerce. Few comparable e-commerce sites existed, and the cost of the average basket required special attention to the customer and resistance to scammers."},
-   :isima-training {:fr "Ecole d'ingénieur", :en "Engineering school"},
-   :isima-training-desc
+   :isima {:fr "Ecole d'ingénieur", :en "Engineering school"},
+   :isima-desc
      {:fr
         "ISIMA - Filière simulation, modélisation et optimisation des systèmes industriels.",
       :en
         "ISIMA - Simulation, modeling, and optimization of industrial systems"},
-   :isima-training-long-desc
+   :isima-long-desc
      {:en
         "At school, I've learned the basics of modeling, complex system simulation, production systems, and operational research: Markov chain, constraint and linear programming, heuristics, and metaheuristics.",
       :fr
         "A l'école, j'ai appris les rudiments de la modélisation, de la simulation des systèmes complexes, des systèmes de production et de recherche opérationnelle: les chaînes de Markov, programmation par contraintes, programmation linéaire,  heuristiques et métaheuristiques."}})
 
-(def sc-steps
-  (letfn [(f [l]
-            (-> [[:hephaistox {}] [:plm {}] [:plm-start {}] [:downstream-ope {}]
-                 [:market-knowledge {}] [:software-purchasing {}] [:apics {}]
-                 [:upstream-ope {}] [:pp {}] [:drp {}] [:jewelry-ecommerce {}]
-                 [:isima-training {}]]
-                (klang/urls [:img-url] klinks/relative-urls)
-                (klang/urls [:href] klinks/external-urls)
-                (klang/default-and-translate [:desc :name :long-desc]
-                                             (partial klang/tr dic l))))]
-    (->> klang/possible-langs
-         (map (fn [l] [l (f l)]))
-         (into {}))))
+(def tr (partial klang/tr dic))
+
+(def items
+  [[:hephaistox {}] [:plm {}] [:plm-start {}] [:downstream-ope {}]
+   [:market-knowledge {}] [:software-purchasing {}] [:apics {}]
+   [:upstream-ope {}] [:pp {}] [:drp {}] [:jewelry-ecommerce {}] [:isima {}]])
+
+(defn defaulting
+  [items]
+  (-> items
+      kcitems/default-name
+      (kcitems/default-with-kws [:desc :long-desc [:img-url :name ""] :href
+                                 [:label :name ""]])
+      (kcitems/apply-dic [:img-url] klinks/image-links)
+      (kcitems/apply-dic [:href] klinks/external-links)
+      (kcitems/translate [:desc :long-desc :label] klang/possible-langs tr)))
 
 (defn v-sc
   [l]
-  (let [tr (partial klang/tr dic l)]
-    [:<> [:h1.text (tr :sc-title)] [:div.text (tr :intro)] [:p ""]
-     [:div.text (tr :intro-2)]
+  (let [current-tr (partial tr l)
+        sc-steps (defaulting items)]
+    [:<> [:h1.text (current-tr :sc-title)] [:div.text (current-tr :intro)]
+     [:p ""] [:div.text (current-tr :intro-2)]
      (-> (get sc-steps l)
          kvheadered-list/detailed-list) [:hr]]))

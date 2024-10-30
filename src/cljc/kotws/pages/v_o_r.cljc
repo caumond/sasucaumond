@@ -1,5 +1,7 @@
 (ns kotws.pages.v-o-r
-  (:require [kotws.language :as klang]
+  (:require [kotws.lang :as klang]
+            [kotws.links :as klinks]
+            [kotws.components.items :as kcitems]
             [kotws.components.v-headered-list :as kvheadered-list]))
 
 (def dic
@@ -32,29 +34,29 @@
         "L'optimisation `make or buy` consiste à décider ce qu'une entreprise produit avec ses moyens propres et ce qu'elle achète. Sachant que pour être performant, les achats doivent être réalisé à l'avance, ce qui permet de négocier les prix, mais obligé à s'imposer des volumes de commandes minimum et maximum (minimum par an, par mois, par référence, ...). Décider quoi produire quand, dans un univers incertain, c'est très difficile et de nombreuses décisions sont à prendre. L'outil que j'ai réalisé prend est une métaheuristique explorant efficacement ces décisions. Basé sur la BCOO (cf. onglet développement), c'est un outil qui a été en production pendant au moins plus de dix ans.",
       :en
         "`Make or buy` optimization consists of deciding what a company produces with its resources and what it buys. Knowing that to be efficient, purchases must be made in advance, which allows for price negotiations, but requires imposing minimum and maximum order volumes (minimum per year, per month, per reference, ...). Deciding what to produce when, in an uncertain universe, is very difficult and many decisions have to be made. The tool I created is a metaheuristic that effectively explores these decisions. Based on BCOO (see development tab), it is a tool that has been in production for at least ten years."},
-   :drp-sourcing {:fr "Réseau de distribution", :en "Distribution sourcing"},
-   :drp-sourcing-desc {:fr "Michelin - Des milliers d'algorithme de flots",
-                       :en "Michelin - Thousands of flow algorithms"},
-   :drp-sourcing-long-desc
+   :drp {:fr "Réseau de distribution", :en "Distribution sourcing"},
+   :drp-desc {:fr "Michelin - Des milliers d'algorithme de flots",
+              :en "Michelin - Thousands of flow algorithms"},
+   :drp-long-desc
      {:fr
         "Découvert pendant le déploiement, le bug de la version précédente aurait pu arrêter le déploiement du projet. J'ai réécrit dans l'urgence, en PLSQL des algorithmes de flot (Busaker et Goven), pour pouvoir corriger la version précédente. Il y a autant d'algorithmes de flots à traiter que de références dans le groupe Michelin, autant dire plusieurs milliers.",
       :en
         "Discovered during deployment, the bug in the previous version could have stopped the deployment of the project. I urgently rewrote flow algorithms (Busaker and Goven) in PLSQL to be able to correct the previous version. There are as many flow algorithms to process as there are references in the Michelin group, which is to say several thousand."},
-   :time-lag {:fr "C.O.R. - Timelag", :en "C.O.R. - Timelag"},
-   :time-lag-desc
+   :cor-time-lag {:fr "C.O.R. - Timelag", :en "C.O.R. - Timelag"},
+   :cor-time-lag-desc
      {:fr "Résoudre un problème pratique et théoriquement peu traité",
       :en "Solving a practical and theoretically little-treated problem"},
-   :time-lag-long-desc
+   :cor-time-lag-long-desc
      {:en
         "In `Computers and Operation Research`, I had the chance to publish an article on time lags. Time lag constraints express minimum and maximum times between two operations. These constraints make the problems very difficult (a single-machine problem is already NP-complete). This article implements a genetic algorithm to find optimized solutions to practical problems. The difficulty is that outside of special cases, it is not possible to build a feasible solution. This requires the use of slightly more complex graph algorithms, but above all it disrupts iterative search algorithms. Indeed, they must travel large spaces where no solution is feasible before finding a new feasible solution. We must imagine the search space as a Swiss cheese in which we would only want to be in the `holes`. These issues come from my research following the internship at Aubert & Duval. The workshop is that of hot forging, the time lags then represent the minimum heating times (without which the part cannot pass on the forge) and maximum without which the loss of material and energy becomes too significant. COR is one of the very best scientific journals on operational research.",
       :fr
         "Dans Computers and Operation Research`, j'ai eu la chance de publier un article sur les time lags. Les contraintes de time lags expriment des temps minimum et maximum entre deux opérations. Ces contraintes rendent les problèmes très difficiles (un problème à une machine est déjà NP-complet). Cet article met en oeuvre un algorithme génétique permettant de trouver des solutions optimisées à des problèmes pratiques. La difficulté est qu'en dehors de cas particuliers, il n'est pas possible d'être de construire une solution faisable. Cela oblige à utiliser des algorithmes de graphe légèrement plus complexe, mais surtout cela perturbe les algorithmes de recherche itératives. En effet, ceux-ci doivent parcourir de grands espaces où aucune solution n'est faisable avant de trouver une nouvelle solution faisable. Il faut s'imaginer l'espace de recherche comme un gruyère dans lequel on ne voudrait être que dans les trous`. Ces problématiques sont issues de mes recherches suite au stage chez Aubert & Duval. Latelier est celui de forge à chaud, les time lags représentent alors les temps de chauffe minimum (sans quoi la pièce ne peut passer sur la forge) et maximum sans quoi la perte de matière et d'énergie deviennent trop importante. COR est un des tout meilleurs journaux scientifiques sur la recherche opérationnelle."},
-   :transport {:en "EJOR - Transportation", :fr "E.J.O.R. - Transports"},
-   :transport-desc
+   :ejor-transport {:en "EJOR - Transportation", :fr "E.J.O.R. - Transports"},
+   :ejor-transport-desc
      {:en "Iterative methods, integer linear programming, graph optimization",
       :fr
         "Méthodes itératives, programmation linéaire en nombres entiers, optimisation de graphe"},
-   :transport-long-desc
+   :ejor-transport-long-desc
      {:en
         "In the `European Journal of Optimization Research`, I had the chance to publish this article demonstrating the importance of the non-anticipation constraint. An anticipation constraint expresses that in the real world, a conveyor rarely anticipates the arrival of a part, it waits for a signal from the machine that triggers it, making assumptions about the next part that will have to be transported is a source of error, it is much more complex to implement in industry and make the installation sensitive to hazards. In this article, we show that not taking these constraints into account drastically changes the best solutions, their form, and the optimization criterion. By grouping in the same article two very different but self-validating methods, we were able to show the importance of this often neglected constraint. EJOR is a high-level operational research journal, focused on Europe.",
       :fr
@@ -77,8 +79,11 @@
         "Michelin - Simulation et optimisation des usines (Simulation à événements discrets et heuristiques).",
       :en
         "Michelin - Simulation and optimization of factories (Discrete event simulation and heuristics)."},
-   :smpp-long-desc {:fr "Les usines a", :en ""},
-   ;;TODO
+   :smpp-long-desc
+     {:fr
+        "Les usines de fabrication de pneumatiques étaient planifiées manuellement. En déployant le programme Mercure, le groupe Michelin avait besoin d'un plan de production de plus long terme. Faire ce planning manuellement créait trop de charge sur les planneurs, et SMPP est l'outil qui a permis de compléter le plan de production. A deux, nous avons créé un outil de planification calculant automatiquement ces plans. Intégré à l'architecture du groupe, SMPP a été déployé sur plusieurs usines du groupe;",
+      :en
+        "The tire manufacturing plants were planned manually. By deploying the Mercure program, the Michelin group needed a longer-term production plan. Doing this planning manually created too much workload for the planners, and SMPP is the tool that allowed production planning to be completerd. Together, we created a planning tool that automatically calculated these plans. Integrated into the group's architecture, SMPP was deployed across several of the group's plants;"},
    :forge-workshop {:fr "Atelier de forge à chaud", :en "Hot forging workshop"},
    :forge-workshop-desc
      {:fr
@@ -97,59 +102,45 @@
         "Les chantiers polyvalents fabriquent des pièces de rechange métallique pour l'automobile. Ils ont la particularité d'être très flexibles pour fabriquer toutes les pièces détachées des modèles passés. Le prix de cette flexibilité est la complexité des configurations possibles. Les chantiers sont de formes variables et la première décision à prendre est la position du chantier au sol. Certains outils sont lourds et donc suspendus sur des rails. Mais lorsque le chantier est installé, il n'est plus possible de faire se doubler les outils. Une autre contrainte majeure est la disponibilité des personnes qui installent et désinstallent les chantiers.",
       :en
         "Multi-purpose yards manufacture metal spare parts for automobiles. They are particularly flexible in manufacturing all spare parts for past models. The price of this flexibility is the complexity of the possible configurations. The yards are of variable shapes and the first decision to be made is the position of the yard on the ground. Some tools are heavy and therefore suspended on rails. However, when the yard is installed, it is no longer possible to duplicate the tools. Another major constraint is the availability of the people who install and uninstall the yards."},
-   :initial {:fr "Ecole d'ingénieur", :en "Initial training"},
-   :initial-desc
+   :isima {:fr "Ecole d'ingénieur", :en "Initial training"},
+   :isima-desc
      {:fr
         "ISIMA - Simulation, modélisation et optimisation des systèmes industriels",
       :en
         "ISIMA - Simulation, modelling and optimization of industrial systems"},
-   :initial-long-desc
+   :isima-long-desc
      {:fr
         "C'est avec mes enseignants et ces cours que j'ai découvert la chaine logistique: simulation des systèmes complexes, production et recherche opérationnelle avec les chaînes de Markov, programmation par contraintes, heuristiques pour les systèmes de production, modélisation et simulation des systèmes de production.",
       :en
         "It was with my teachers and these courses that I discovered the supply chain: simulation of complex systems, production and operational research with Markov chains, constraint programming, heuristics for production systems, modeling and simulation of production systems."}})
 
-(def founder-steps
-  (letfn
-    [(f [l]
-       (->
-         [[:hephaistox
-           {:img-url "images/hephaistox_logo.png",
-            :href "https://hephaistox.com"}]
-          [:tissue-tactical-planning {:img-url "images/graduation_cap.png"}]
-          [:drp-sourcing {:img-url "images/drp.png"}]
-          [:time-lag
-           {:img-url "images/cor_time_lag.png",
-            :href
-              "https://www.sciencedirect.com/science/article/pii/S0305054806002930"}]
-          [:transport
-           {:img-url "images/ejor_transport.png",
-            :href
-              "https://www.sciencedirect.com/science/article/abs/pii/S0377221708004608"}]
-          [:phd
-           {:url "https://tel.archives-ouvertes.fr/tel-00713587/document",
-            :img-url "images/graduation_cap.png"}]
-          [:smpp {:img-url "images/tires.png"}]
-          [:forge-workshop {:img-url "images/forging.png"}]
-          [:cpferv {:img-url "images/psa.png"}]
-          [:initial
-           {:img-url "images/isima.png",
-            :href
-              "https://www.isima.fr/formations/formation-ingenieur/f3-systemes-dinformation-et-aide-a-la-decision/"}]]
-         (klang/default-and-translate [:desc :name :long-desc]
-                                      (partial klang/tr dic l))))]
-    (->> klang/possible-langs
-         (mapv (fn [l] [l (f l)]))
-         (into {}))))
+(def items
+  [[:hephaistox {}] [:tissue-tactical-planning {}] [:drp {}] [:cor-time-lag {}]
+   [:ejor-transport {}] [:phd {}] [:smpp {:img-url :tire}] [:forge-workshop {}]
+   [:cpferv {:img-url :psa}] [:isima {}]])
+
+(def tr (partial klang/tr dic))
+
+(defn defaulting
+  [items tr]
+  (-> items
+      kcitems/default-name
+      (kcitems/default-with-kws [[:img-url :name ""] :desc :long-desc
+                                 [:label :name ""] [:href :name ""]])
+      (kcitems/apply-dic [:img-url] klinks/image-links)
+      (kcitems/apply-dic [:href] klinks/external-links)
+      (kcitems/translate [:desc :long-desc :label] klang/possible-langs tr)))
+
+(comment
+  (defaulting items tr)
+  ;
+)
 
 (defn v-o-r
   [l]
-  (let [tr (partial klang/tr dic l)]
-    [:<> [:h1.text (tr :founder)] [:div.text (tr :intro)] [:p ""]
-     [:div.text (tr :intro-2)] [:hr]
+  (let [current-tr (partial tr l)
+        founder-steps (defaulting items tr)]
+    [:<> [:h1.text (current-tr :founder)] [:div.text (current-tr :intro)]
+     [:p ""] [:div.text (current-tr :intro-2)] [:hr]
      (-> (get founder-steps l)
          kvheadered-list/detailed-list) [:hr]]))
-
-;; [ {:public-reference
-;; "https://scholar.google.com/scholar?hl=fr&as_sdt=0%2C5&q=CAUMOND&btnG=", ]
-;; "https://www.uca.fr/"

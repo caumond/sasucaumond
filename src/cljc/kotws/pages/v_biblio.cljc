@@ -1,6 +1,7 @@
 (ns kotws.pages.v-biblio
   (:require [kotws.components.v-selector :as kvselector]
-            [kotws.language :as klang]))
+            [kotws.links :as klinks]
+            [kotws.lang :as klang]))
 
 (def dic
   {:desc-title {:en "Sum-up", :fr "Synthèse"},
@@ -42,35 +43,41 @@
       :en
         "That book inspired me and made me develop again after some years of pause. They describe SOLID principles which are insightful even if I think that rules are too detailed and constraining, but I have appreciated their code observations. For instance, the behavior and functioning should be distinguished, and a code that is working is not enough, it should also be easy to modify, to extend, to read ... The rules detailed in the book are interesting levers to reach that objective, even if they are a little bit specific to Object Oriented Programming."}})
 
-(defn books
-  [l]
-  (->
-    {:clean-archi {:title "Clean Architecture",
-                   :sub-title
-                     "A Cratsman's guide to software structure and design",
-                   :img "images/Clean architecture.jpg"},
-     :clean-code {:title "Clean Code",
-                  :sub-title "A Handbook of Agile Software Craftsmanship",
-                  :img "images/Clean code.jpg",
-                  :details :clean-code-details},
-     :ddd {:title "Domain-Driven Design",
-           :sub-title "Tackling Complexity in the Heart of Software",
-           :img "images/DDD.jpg",
-           :details :ddd-details},
-     :clojure-programming {:title "Clojure programming",
-                           :img "images/Clojure programming.jpg",
-                           :details :clojure-details},
-     :platform-revolution
-       {:title "Platform revolution",
-        :sub-title
-          "How networked markets are transforming the economy and how to make them work for you",
-        :img "images/platform.jpg",
-        :details :platform-details}}
-    (klang/default-and-translate [:details] (partial klang/tr dic l))))
+(def items
+  {:clean-archi {:title "Clean Architecture",
+                 :sub-title
+                   "A Cratsman's guide to software structure and design",
+                 :img "images/Clean architecture.jpg"},
+   :clean-code {:title "Clean Code",
+                :sub-title "A Handbook of Agile Software Craftsmanship",
+                :img "images/Clean code.jpg",
+                :details :clean-code-details},
+   :ddd {:title "Domain-Driven Design",
+         :sub-title "Tackling Complexity in the Heart of Software",
+         :img "images/DDD.jpg",
+         :details :ddd-details},
+   :clojure-programming {:title "Clojure programming",
+                         :img "images/Clojure programming.jpg",
+                         :details :clojure-details},
+   :platform-revolution
+     {:title "Platform revolution",
+      :sub-title
+        "How networked markets are transforming the economy and how to make them work for you",
+      :img "images/platform.jpg",
+      :details :platform-details}})
+
+(def books
+  (-> items
+      klang/default-name
+      (klang/urls [:img-url :name :href] klinks/all-urls)
+      (klang/translate-langs [:details]
+                             klang/possible-langs
+                             (partial klang/tr dic))))
+
 (defn v-biblio
   [l selected opts-go-to opts-go-rel]
   (let [tr (partial klang/tr dic l)
-        books (books l)]
+        books (get books l)]
     [:<> [:h1.text (tr :biblio-title)] [:p.text (tr :biblio-intro)]
      (let [{:keys [title sub-title img details detailed-desc]}
              (nth books (if (number? selected) selected 0))]

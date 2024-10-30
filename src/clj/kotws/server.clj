@@ -6,6 +6,7 @@
 
 (defn -main
   "The `port` environment variable is could be used to change the port."
-  [{:keys [port], :or {port 8080}}]
-  (let [port (Integer/parseInt port)]
+  [& _]
+  (let [port (Integer/parseInt (or (System/getenv "port") "8080"))]
+    (println "start webserver on port:" port)
     (run-jetty #'handler {:port port, :join? false})))

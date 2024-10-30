@@ -11,32 +11,41 @@
   [:div.w3-row.w3-center
    (-> [:span]
        (concat (->> items
-                    (mapv (fn [{:keys [name img-url href tag]}]
-                            [:div.w3-container.w3-cell
-                             [kvlabelled-image/labelled-image tag img-url name
-                              :tiny nil href]]))))
+                    (mapv (fn [[_ {:keys [name img-url href]}]]
+                            [:div.w3-container.w3-cell.w3-mobile
+                             [kvlabelled-image/labelled-image img-url href name
+                              :tiny]]))))
        vec)])
 
 (defn detailed-list
-  "Show all elements of items.
+  "List elements of `items`
 
-  Is a collection of maps, each has `name` `img-url` `desc` `long-desc` `href`"
+  * Start with the image of `img-url` (on top on small screen, on left on medium and wide screens)
+  * The `label` as a title
+  * Then a small `desc` highlighted
+  * And a `long-desc`
+
+  All that box is linked into `href` link."
   [items]
   (let [image-width-kw :medium
         actual-size (ksizes/predefined-size image-width-kw)]
-    [:table.w3-table.w3-striped
+    [:table.w3-table
      (->>
        items
-       (reduce (fn [hiccup-item {:keys [tag name img-url desc long-desc href]}]
+       (reduce (fn [hiccup-item [_ {:keys [label img-url desc long-desc href]}]]
                  (conj hiccup-item
                        [:tr
-                        [:td.w3-centered
+                        [:td.w3-centered.w3-hide-small.w3-hide-medium
                          {:style {:max-width actual-size, :width actual-size}}
-                         [:a {:href href}
+                         (when img-url
+                           [kvlabelled-image/labelled-image img-url href ""
+                            image-width-kw])] [:td]
+                        [:td [:a {:href (:url href)} [:h1.text label]]
+                         [:div.w3-centered.w3-hide-large
+                          {:style {:max-width actual-size, :width actual-size}}
                           (when img-url
-                            [kvlabelled-image/labelled-image tag img-url name
-                             image-width-kw nil nil])]] [:td]
-                        [:td [:a {:href href} [:h1.text name]]
-                         [:p.w3-panel.w3-light-grey.w3-leftbar.text desc]
+                            [kvlabelled-image/labelled-image img-url href ""
+                             image-width-kw])]
+                         [:p.w3-panel.w3-leftbar.text.light-bg desc]
                          (when long-desc [:p.text long-desc])]]))
          [:tbody]))]))

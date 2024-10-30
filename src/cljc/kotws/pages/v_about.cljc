@@ -1,6 +1,6 @@
 (ns kotws.pages.v-about
-  "About panel."
-  (:require [kotws.language :as klang]
+  (:require [kotws.lang :as klang]
+            [kotws.links :as klinks]
             [kotws.components.v-table :as kvtable]
             [kotws.components.v-lists :as kvlists]))
 
@@ -11,7 +11,7 @@
         "The project is built on the following dependencies. Note that they are few in number, which is in my conception of computing a guarantee of simplicity and stability.",
       :fr
         "Le projet est bâti sur les dépendances suivantes. Remarquez qu'elles sont peu nombreuses, ce qui est dans ma conception de l'informatique un gage de simplicité, de stabilité."},
-   :w3-css-desc
+   :w3-template-desc
      {:en
         "A css library for building simple, reactive sites (i.e. compatible with computer, pads or phone screen size).",
       :fr
@@ -27,38 +27,31 @@
    :font-awesome {:fr "Icones créées avec Fontawesome",
                   :en "Icons created by fontawesome"}})
 
+(def tr (partial klang/tr dic))
+
+(def inspiration-sources-data
+  {:w3-template {}, :reitit {}, :re-frame {}, :ring {}})
 
 (def inspiration-sources
-  (letfn
-    [(i [l]
-       (->
-         {:w3-css
-            {:href
-               "https://www.w3schools.com/w3css/tryw3css_templates_portfolio.htm"},
-          :reitit {:href "https://github.com/metosin/reitit"},
-          :reframe {:href "https://github.com/day8/re-frame"},
-          :ring {:href "https://github.com/ring-clojure/ring"}}
-         (klang/default-and-translate [:desc] (partial klang/tr dic l))))]
-    (->> klang/possible-langs
-         (mapv (fn [l] [l (i l)]))
-         (into {}))))
+  (-> inspiration-sources-data
+      klang/default-name
+      (klang/urls [:href] klinks/external-links)
+      (klang/translate-langs [:desc] klang/possible-langs tr)))
 
 (def ids
-  (letfn [(i [_l]
-            (-> {:SIREN {:cells ["905156402"]},
-                 :SIRET {:cells ["90515640200018"]}}
-                (klang/default-and-translate [] nil)))]
-    (->> klang/possible-langs
-         (mapv (fn [l] [l (i l)]))
-         (into {}))))
+  (-> {:SIREN {:cells ["905156402"]}, :SIRET {:cells ["90515640200018"]}}
+      klang/default-name))
 
 (defn v-about
   [l]
-  (let [tr (partial klang/tr dic l)]
+  (let [tr (partial tr l)]
     [:<> [:h1.text "SASU CAUMOND"]
      [:div.text (tr :introduce-sasu)
-      [:a {:href "https://www.societe.com/societe/caumond-905156402.html"}
-       "SASU CAUMOND (cf. societe.com)"] [kvtable/simple (get ids l)]] [:hr]
-     [:p.text (tr :intro-sources)] (kvlists/bullet (get inspiration-sources l))
-     [:a {:href "https://www.flaticon.com/free-icons/tire"} (tr :icons)]
-     [:a {:href "https://fontawesome.com/v4/"} (tr :font-awesome)]]))
+      [:a {:href (:url (klinks/external-link :sasu-societe))}
+       "SASU CAUMOND (cf. societe.com)"]
+      ;
+      [kvtable/simple ids]] [:hr] [:p.text (tr :intro-sources)]
+     [kvlists/bullet (get inspiration-sources l)]
+     [:a {:href (:url (klinks/external-link :flaticon))} [:p (tr :icons)]]
+     [:a {:href (:url (klinks/external-link :fontawesome))}
+      [:p (tr :font-awesome)]]]))

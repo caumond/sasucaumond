@@ -1,7 +1,7 @@
 (ns kotws.handler
   "Backend handler to serve images"
   (:require [reitit.ring :as rring]
-            [kotws.language :as klang]
+            [kotws.lang :as klang]
             [clojure.string :as str]
             [clojure.java.io :as io]
             [ring.util.response :as rr]))

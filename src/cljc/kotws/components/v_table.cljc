@@ -5,7 +5,7 @@
   [items]
   [:table.w3-table.w3-striped.w3-bordered
    (->> items
-        (reduce (fn [hiccup-item {:keys [name cells]}]
+        (reduce (fn [hiccup-item [_ {:keys [name cells]}]]
                   (conj hiccup-item
                         [:tr [:td [:p.text name]]
                          [:td [:p.text (first cells)]]]))

@@ -1,9 +1,0 @@
-{
-  "build": {
-    "type": "maven",
-    "goal": "package"
-  },
-  "deploy": {
-    "jarName": "target/production/sasu-caumond-1.0.standalone.jar"
-  }
-}

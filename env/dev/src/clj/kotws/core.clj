@@ -5,11 +5,15 @@
 
 (def port 8000)
 
-(defonce server (start-server :port port :handler cider-nrepl-handler))
+(defn repl-server [port] (start-server :port port :handler cider-nrepl-handler))
+
+(defn start
+  [& _args]
+  (println "REPL started on port " port)
+  (def server (repl-server port))
+  (-main))
 
 (comment
   (stop-server server)
   ;
 )
-
-(defn start [& _args] (println "REPL started on port " port) (-main))

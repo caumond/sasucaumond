@@ -1,6 +1,6 @@
 html,body,h1,h2,h3,h4,h5,h6 {
  font-family: Roboto, sans-serif;
- color: #000}
+}
 
 h1,h2,h3,h4,h5,h6,p,div {
   -webkit-user-select: none; /* Safari */
@@ -30,6 +30,7 @@ a:active {
 
 .primary-bg {background-color: #f1f1f1!important;}
 .secondary-bg {background-color: #616161!important;}
+.light-bg {background-color: #f8f8f8!important;}
 
 .secondary-text{color: #FFF}
 .primary-text{color: #000}

@@ -1,12 +1,23 @@
 {:paths ["src/cljc"],
  :tasks
-   {clj-repl {:doc "Start REPL",
-              :task (shell "clj -X:repl -m nrepl.cmdline -p 8000")},
-    cljs-repl {:doc "Starts cljs REPL",
-               :task (shell "npx shadow-cljs watch app")},
+   {-env-dev {:depends [repl-clj repl-cljs]},
+    :init (def dir "target/production"),
+    build-uberjar
+      {:doc "Build an uberjar",
+       :task
+         (do
+           (println "Print production uberjar")
+           (shell "clj -T:uberjar")
+           (shell "git init -b master" {:dir dir})
+           (shell
+             "git remote add clever git+ssh://git@push-n3-par-clevercloud-customers.services.clever-cloud.com/app_de90b017-993e-4788-8d7f-1cdd0496dc10.git"
+             {:dir dir})
+           (shell "git add ." {:dir dir})
+           (shell "git commit -m \"auto\"" {:dir dir}))},
+    deploy {:depends [build-uberjar],
+            :doc "Build and deploy",
+            :task (shell "git push --force -u clever master" {:dir dir})},
     deps {:doc "Update deps", :task (shell "clj -M:antq")},
-    dev {:depends [clj-repl cljs-repl],
-         :doc "Prepare dev environment (both repls and css)."},
     doctor
       {:doc "Doctor checks the project pre requisites",
        :requires ([babashka.http-client :as http]
@@ -27,28 +38,13 @@
                                          (println " -> ko")
                                          (assoc tested-url :exception url))))))]
                (println "Errors: " (mapv :name (remove :valid? r))))},
-    image-build {:doc "Build the docker image",
-                 :task (shell "docker build . -t sasu_caumond")},
-    image-run
-      {:depends [image-build],
-       :doc "Launch in production mode through docker",
-       :requires [babashka.fs :as fs],
-       :task
-         (let [target-dir "target/prod"]
-           (fs/create-dirs target-dir)
-           (fs/copy "Dockerfile" target-dir)
-           (shell
-             "docker run  -p 8080:8080 -it --rm --name sasu sasu_caumond"))},
-    jar
-      {:doc "Build an uberjar",
-       :task
-         (let [dir "target/production"]
-           (shell "clj -T:uberjar")
-           (shell "git init" {:dir dir})
-           (shell
-             "git add remote add git+ssh://git@push-n3-par-clevercloud-customers.services.clever-cloud.com/app_de90b017-993e-4788-8d7f-1cdd0496dc10.git"
-             {:dir dir})
-           (shell "git push -u clever master"))},
-    prod {:doc "Compile frontend and backend in production mode and start it",
-          :task (do (shell "npx shadow-cljs release app")
-                    (shell "clj -X:prod"))}}}
+    env-dev {:task (run '-env-dev {:parallel true}),
+             ;;TODO Check why small screens are bad
+             ;;TODO Ends resume
+             :doc "Prepare dev environment (both repls and css)."},
+    env-prod
+      {:doc "Compile frontend and backend in production mode and start it",
+       :task (do (shell "npx shadow-cljs release app") (shell "clj -X:prod"))},
+    repl-clj {:doc "Start REPL", :task (shell "clj -X:repl")},
+    repl-cljs {:doc "Starts cljs REPL",
+               :task (shell "npx shadow-cljs watch app")}}}

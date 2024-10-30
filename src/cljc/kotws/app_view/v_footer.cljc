@@ -1,6 +1,8 @@
 (ns kotws.app-view.v-footer
   (:require [kotws.components.v-labelled-image :as kvlabelled-image]
-            [kotws.language :as klang]))
+            [kotws.links :as klinks]
+            [kotws.components.sizes :as ksizes]
+            [kotws.lang :as klang]))
 
 (def dic
   {:copyright {:en "Copyright", :fr "Copyright"},
@@ -13,13 +15,12 @@
   (let [tr (partial klang/tr dic l)]
     [:<>
      [:div.secondary-bg.w3-display-container.secondary-text
-      {:style {:height "10em"}}
+      {:style {:height (ksizes/predefined-size :small)}}
       [:div.w3-right
-       [kvlabelled-image/raw-image nil "images/gh.jpeg" "Github" :tiny
-        "See on github" "https://github.com/caumond/sasucaumond"]]
+       [kvlabelled-image/raw-image (klinks/image-link :git-hub)
+        (klinks/external-link :sasu-caumond) (tr :see-on-gh) :tiny]]
       [:div.w3-display-bottommiddle.w3-padding-32.w3-center
        [:div (tr :copyright) (str " © " year " Caumond - ")
-        (tr :rights-assertion)]
+        (tr :rights-assertion)] [:hr]
        [:div (tr :powered-by) " "
-        [:a {:href "https://www.w3schools.com/w3css/default.asp"}
-         "w3.css"]]]]]))
+        [:a {:href (:w3-css klinks/external-links)} "w3.css"]]]]]))

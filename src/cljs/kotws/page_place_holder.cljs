@@ -2,7 +2,7 @@
   (:require [kotws.pages.c-home :refer [home]]
             [kotws.pages.c-about :refer [about]]
             [kotws.pages.c-biblio :refer [biblio]]
-            [kotws.pages.c-developper :refer [developper]]
+            [kotws.pages.c-it :refer [it]]
             [kotws.pages.c-o-r :refer [o-r]]
             [kotws.pages :as kpages]
             [kotws.pages.c-sc :refer [sc]]
@@ -13,7 +13,7 @@
 (def kw->panel
   {:about [about],
    :biblio [biblio],
-   :developper [developper],
+   :it [it],
    :founder [founder],
    :home [home],
    :or [o-r],
