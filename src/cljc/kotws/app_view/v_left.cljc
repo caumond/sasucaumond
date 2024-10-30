@@ -2,7 +2,7 @@
   "Left panel presents the menu, a picture of me when on wide screen mode, and the social links, with the source code link."
   (:require [kotws.lang :as klang]
             [kotws.components.v-labelled-image :as kvlabelled-image]
-            [kotws.components.items :as kcitems]
+            [kotws.components.single :as ksingle]
             [kotws.links :as klinks]
             [kotws.pages :as kpages]
             [kotws.components.v-lists :as kvlists]))
@@ -43,47 +43,32 @@
 
 (defn defaulting
   [items tr]
-  (-> items
-      (update :bottom-line
-              #(-> %
-                   kcitems/default-name
-                   (kcitems/default-with-kws [[:href :name ""]
-                                              [:label :name "-label"]])
-                   (kcitems/apply-dic [:href] klinks/route-links)
-                   (kcitems/translate [:label] klang/possible-langs tr)))
-      (update :contacts
-              #(-> %
-                   kcitems/default-name
-                   (kcitems/default-with-kws [[:href :name ""]])
-                   (kcitems/apply-dic [:href] klinks/external-links)))
-      (update :left-menu
-              (fn [{:keys [marked], :or {marked :left-menu?}}]
-                (-> (filterv (comp marked second) kpages/pages)
-                    kcitems/default-name
-                    (kcitems/default-with-kws [[:href :name ""]
-                                               [:label :name "-label"]])
-                    (kcitems/apply-dic [:href] klinks/external-links)
-                    (kcitems/translate [:label] klang/possible-langs tr))))))
-
-(comment
-  (defaulting items tr)
-  ;
-)
+  (->
+    items
+    (update :bottom-line
+            #(kvlists/defaulting % tr klinks/route-links klang/possible-langs))
+    (update :contacts
+            #(kvlists/defaulting % tr klinks/route-links klang/possible-langs))
+    (update :contacts-header ksingle/translate klang/possible-langs tr)
+    (update :left-menu-header ksingle/translate klang/possible-langs tr)
+    (update
+      :left-menu
+      (fn [{:keys [marked], :or {marked :left-menu?}}]
+        (-> (filterv (comp marked second) kpages/pages)
+            (kvlists/defaulting tr klinks/route-links klang/possible-langs))))
+    (update :header-image klinks/image-link)))
 
 (def defaulting* (memoize defaulting))
 
 (defn v-left
   [l]
-  (let [current-tr (partial tr l)
-        {:keys [bottom-line contacts left-menu header-image header-link
+  (let [{:keys [bottom-line contacts left-menu header-image header-link
                 left-menu-header contacts-header bottom-line-header]}
-          (defaulting items tr)]
+          (defaulting* items tr)]
     [:<>
-     [kvlabelled-image/labelled-image (klinks/image-link header-image)
+     [kvlabelled-image/labelled-image header-image
       (klinks/route-link header-link) nil :full]
      [:div.w3-left-align
-      ;
       [kvlists/one-per-row bottom-line-header (get bottom-line l)]
-      (kvlists/small-buttons (current-tr contacts-header) contacts)
-      [kvlists/one-per-row (current-tr left-menu-header) (get left-menu l)]
-      [:hr]]]))
+      (kvlists/small-buttons (get contacts-header l) (get contacts l))
+      [kvlists/one-per-row (get left-menu-header l) (get left-menu l)] [:hr]]]))

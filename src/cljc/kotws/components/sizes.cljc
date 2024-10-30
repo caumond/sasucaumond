@@ -4,7 +4,7 @@
   "Turn `kw` into a size in `em`."
   [kw]
   (if (keyword? kw)
-    (-> {:small "10em", :middle "20em", :tiny "4em", :big "40em"}
+    (-> {:small "10em", :medium "20em", :tiny "4em", :big "40em"}
         (get kw "10em"))
     kw))
 
@@ -12,6 +12,6 @@
   "Minimum size linked to `kw`."
   [kw]
   (if (keyword? kw)
-    (-> {:small "4em", :middle "5em", :tiny "3em", :big "20em"}
+    (-> {:small "4em", :medium "5em", :tiny "3em", :big "20em"}
         (get kw "4em"))
     kw))

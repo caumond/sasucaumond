@@ -1,7 +1,6 @@
 (ns kotws.pages.v-o-r
   (:require [kotws.lang :as klang]
             [kotws.links :as klinks]
-            [kotws.components.items :as kcitems]
             [kotws.components.v-headered-list :as kvheadered-list]))
 
 (def dic
@@ -121,26 +120,13 @@
 
 (def tr (partial klang/tr dic))
 
-(defn defaulting
-  [items tr]
-  (-> items
-      kcitems/default-name
-      (kcitems/default-with-kws [[:img-url :name ""] :desc :long-desc
-                                 [:label :name ""] [:href :name ""]])
-      (kcitems/apply-dic [:img-url] klinks/image-links)
-      (kcitems/apply-dic [:href] klinks/external-links)
-      (kcitems/translate [:desc :long-desc :label] klang/possible-langs tr)))
-
-(comment
-  (defaulting items tr)
-  ;
-)
-
 (defn v-o-r
   [l]
   (let [current-tr (partial tr l)
-        founder-steps (defaulting items tr)]
+        founder-steps (kvheadered-list/defaulting items
+                                                  tr
+                                                  klinks/image-link
+                                                  klinks/external-link)]
     [:<> [:h1.text (current-tr :founder)] [:div.text (current-tr :intro)]
      [:p ""] [:div.text (current-tr :intro-2)] [:hr]
-     (-> (get founder-steps l)
-         kvheadered-list/detailed-list) [:hr]]))
+     [kvheadered-list/detailed-list (get founder-steps l) :small] [:hr]]))

@@ -1,8 +1,8 @@
 (ns kotws.pages.v-about
   (:require [kotws.lang :as klang]
             [kotws.links :as klinks]
-            [kotws.components.v-table :as kvtable]
-            [kotws.components.v-lists :as kvlists]))
+            [kotws.components.v-bullet :as kvbullet]
+            [kotws.components.v-table :as kvtable]))
 
 (def dic
   {:about-title {:en "About", :fr "A propos"},
@@ -29,29 +29,32 @@
 
 (def tr (partial klang/tr dic))
 
-(def inspiration-sources-data
-  {:w3-template {}, :reitit {}, :re-frame {}, :ring {}})
+(def items {:w3-template {}, :reitit {}, :re-frame {}, :ring {}})
 
-(def inspiration-sources
-  (-> inspiration-sources-data
-      klang/default-name
-      (klang/urls [:href] klinks/external-links)
-      (klang/translate-langs [:desc] klang/possible-langs tr)))
+(def id-items
+  {:SIREN {:cells ["905156402"]}, :SIRET {:cells ["90515640200018"]}})
 
-(def ids
-  (-> {:SIREN {:cells ["905156402"]}, :SIRET {:cells ["90515640200018"]}}
-      klang/default-name))
+(comment
+  (klinks/external-link :w3-template)
+  ;
+)
+
+(defn defaulting
+  [items]
+  (kvbullet/defaulting items tr klinks/external-link klang/possible-langs))
 
 (defn v-about
   [l]
-  (let [tr (partial tr l)]
+  (let [current-tr (partial tr l)
+        ids (kvtable/defaulting id-items tr klang/possible-langs)
+        inspiration-sources (defaulting items)]
     [:<> [:h1.text "SASU CAUMOND"]
-     [:div.text (tr :introduce-sasu)
+     [:div.text (current-tr :introduce-sasu)
       [:a {:href (:url (klinks/external-link :sasu-societe))}
-       "SASU CAUMOND (cf. societe.com)"]
-      ;
-      [kvtable/simple ids]] [:hr] [:p.text (tr :intro-sources)]
-     [kvlists/bullet (get inspiration-sources l)]
-     [:a {:href (:url (klinks/external-link :flaticon))} [:p (tr :icons)]]
+       "SASU CAUMOND (cf. societe.com)"] [kvtable/simple (get ids l)]] [:hr]
+     [:p.text (current-tr :intro-sources)]
+     [kvbullet/bullet (get inspiration-sources l)]
+     [:a {:href (:url (klinks/external-link :flaticon))}
+      [:p (current-tr :icons)]]
      [:a {:href (:url (klinks/external-link :fontawesome))}
-      [:p (tr :font-awesome)]]]))
+      [:p (current-tr :font-awesome)]]]))

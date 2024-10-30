@@ -1,7 +1,7 @@
 (ns kotws.pages.v-home
   (:require [kotws.lang :as klang]
             [kotws.links :as klinks]
-            [kotws.components.items :as kcitems]
+            [kotws.components.v-images :as kvimages]
             [kotws.components.v-lang :as kvlang]
             [kotws.components.v-labelled-image :as vclabelled-image]))
 
@@ -37,46 +37,23 @@
 (def tr (partial klang/tr dic))
 
 (defn defaulting
-  [items tr]
+  [items _tr]
   (-> items
       (update :skills
-              #(-> %
-                   kcitems/default-name
-                   (kcitems/default-with-kws [[:href :name ""]
-                                              [:img-link :name ""]])
-                   (kcitems/apply-dic [:href] klinks/route-links)
-                   (kcitems/apply-dic [:img-link] klinks/image-links)))
-      (update :docs
-              #(update-vals
-                 %
-                 (fn [doc]
-                   (-> doc
-                       (kcitems/apply-dic [:img-link] klinks/image-links)
-                       (kcitems/apply-dic [:href-link] klinks/doc-links)))))))
-
-;;TODO ADd memoize
-(comment
-  (defaulting items tr)
-  ;
-)
+              #(kvimages/defaulting % klinks/route-links klinks/image-link))
+      (update :docs #(kvlang/defaulting % klinks/image-links klinks/doc-link))))
 
 (defn v-home
   [l]
-  (let [{:keys [resumes skills founding]} (defaulting items tr)
+  (let [{:keys [docs skills founding]} (defaulting items tr)
         current-tr (partial tr l)
         w :small]
     [:div [:h1.text (current-tr :home-msg)]
      [:p.text (current-tr :resume-download)] [:hr]
-     [kvlang/vclabelled-image l (:caumond-resume resumes)]
+     [kvlang/vclabelled-image l (:caumond-resume docs)]
      [:p.text (current-tr :home-intro)] [:hr]
-     (-> [:div.w3-cell-row]
-         (concat (->> skills
-                      vals
-                      (mapv (fn [{:keys [img-link name href]}]
-                              [:div.w3-cell.w3-mobile
-                               [vclabelled-image/labelled-image img-link href
-                                (current-tr name) w]]))))
-         vec) [:hr] [:div.text (current-tr :next)]
+     [kvimages/image-cells skills current-tr :small] [:hr]
+     [:div.text (current-tr :next)]
      [:div.w3-center
       [vclabelled-image/labelled-image (klinks/image-link (:img-link founding))
        (klinks/route-link :founder) (current-tr :founder) w]] [:hr]]))

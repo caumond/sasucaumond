@@ -57,7 +57,10 @@
                                 (let [kw-val (get item kw)]
                                   (cond-> item
                                     (keyword? kw-val) (assoc kw
-                                                        (dic kw-val)))))))
+                                                        (if (or (map? dic)
+                                                                (fn? dic))
+                                                          (dic kw-val)
+                                                          kw-val)))))))
          items)))
 
 (defn translate

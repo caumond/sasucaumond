@@ -1,6 +1,5 @@
 (ns kotws.pages.v-it
   (:require [kotws.lang :as klang]
-            [kotws.components.items :as kcitems]
             [kotws.links :as klinks]
             [kotws.components.v-headered-list :as kvheadered-list]))
 
@@ -140,8 +139,7 @@
         "I've learned these languages by myself. It was a time with no Internet, few books, and few software libraries. I had, for instance, to rediscover how to draw lines with registry shifts."}})
 
 (def items
-  [[:hephaistox {:href :hephaistox-gh}] [:storrito {}]
-   [:plm {:href "https://en.wikipedia.org/wiki/Configuration_management"}]
+  [[:hephaistox {:href :hephaistox-gh}] [:storrito {}] [:plm {}]
    [:event-stock {:img-url :kafka, :href :seb}] [:archi {:href :togaf}]
    [:make-or-buy-optimization {}] [:distribution-network {}]
    [:dss {:img-url :optimization}] [:bcoo {}]
@@ -151,25 +149,13 @@
 
 (def tr (partial klang/tr dic))
 
-(defn defaulting
-  [items]
-  (-> items
-      kcitems/default-name
-      (kcitems/default-with-kws [:desc :long-desc [:img-url :name ""] :href
-                                 [:label :name ""]])
-      (kcitems/apply-dic [:img-url] klinks/image-links)
-      (kcitems/apply-dic [:href] klinks/external-links)
-      (kcitems/translate [:desc :long-desc :label] klang/possible-langs tr)))
-
-(comment
-  (defaulting items)
-  ;
-)
-
 (defn v-it
   [l]
-  (let [tr (partial klang/tr dic l)
-        cv-items (defaulting items)]
-    [:<> [:h1.text (tr :computer-science)] [:div.text (tr :intro)] [:hr]
-     (-> (get cv-items l)
-         kvheadered-list/detailed-list) [:hr]]))
+  (let [current-tr (partial tr l)
+        cv-items (kvheadered-list/defaulting items
+                                             tr
+                                             klinks/image-link
+                                             klinks/external-link)]
+    [:<> [:h1.text (current-tr :computer-science)]
+     [:div.text (current-tr :intro)] [:hr]
+     [kvheadered-list/detailed-list (get cv-items l) :small] [:hr]]))

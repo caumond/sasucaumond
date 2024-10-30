@@ -8,5 +8,5 @@
   "The `port` environment variable is could be used to change the port."
   [& _]
   (let [port (Integer/parseInt (or (System/getenv "port") "8080"))]
-    (println "start webserver on port:" port)
+    (println "start HTTP webserver on port:" port)
     (run-jetty #'handler {:port port, :join? false})))

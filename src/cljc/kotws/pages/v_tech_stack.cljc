@@ -58,24 +58,25 @@
       :fr
         "D'abord pour stocker les repositories de code, interagir avec les autres développeurs, publier les open sources, et automatiser la CICD."}})
 
-(def tech-stack
-  (-> {:clojure {},
-       :clojurescript {},
-       :babashka {},
-       :doom-emacs {:name "Doom emacs"},
-       :re-frame {},
-       :clever-cloud {:name "Clever cloud"},
-       :git-hub {}}
-      klang/default-name
-      (klang/urls [:img-url :href] klinks/image-links)
-      (klang/translate-langs [:desc :name]
-                             klang/possible-langs
-                             (partial klang/tr dic))))
+(def tr (partial klang/tr dic))
+
+(def items
+  {:clojure {},
+   :clojurescript {},
+   :babashka {},
+   :doom-emacs {:label "Doom emacs"},
+   :re-frame {},
+   :clever-cloud {:label "Clever cloud"},
+   :git-hub {}})
 
 (defn c-tech-stack
   [l]
-  (let [tr (partial klang/tr dic l)
+  (let [current-tr (partial tr l)
+        tech-stack (kvheadered-list/defaulting items
+                                               tr
+                                               klinks/image-link
+                                               klinks/external-link)
         ts (get tech-stack l)]
-    [:<> [:h1.text (tr :title)] [:p.text (tr :sub-title)]
-     [kvheadered-list/header ts] [:hr] [:h1.text (tr :details)]
-     [kvheadered-list/detailed-list ts]]))
+    [:<> [:h1.text (current-tr :title)] [:p.text (current-tr :sub-title)]
+     [kvheadered-list/header ts] [:hr] [:h1.text (current-tr :details)]
+     [kvheadered-list/detailed-list ts :small]]))

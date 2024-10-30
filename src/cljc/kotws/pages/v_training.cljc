@@ -8,4 +8,3 @@
         "Temporary trainer in Master I and Master II in logistics and Supply Chain."},
    :trainer-long-desc {:fr "", :en ""}})
 
-;;TODO Ajouter aussi mes missions SASU

@@ -1,6 +1,5 @@
 (ns kotws.pages.v-sc
   (:require [kotws.lang :as klang]
-            [kotws.components.items :as kcitems]
             [kotws.links :as klinks]
             [kotws.components.v-headered-list :as kvheadered-list]))
 
@@ -143,21 +142,13 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
    [:market-knowledge {}] [:software-purchasing {}] [:apics {}]
    [:upstream-ope {}] [:pp {}] [:drp {}] [:jewelry-ecommerce {}] [:isima {}]])
 
-(defn defaulting
-  [items]
-  (-> items
-      kcitems/default-name
-      (kcitems/default-with-kws [:desc :long-desc [:img-url :name ""] :href
-                                 [:label :name ""]])
-      (kcitems/apply-dic [:img-url] klinks/image-links)
-      (kcitems/apply-dic [:href] klinks/external-links)
-      (kcitems/translate [:desc :long-desc :label] klang/possible-langs tr)))
-
 (defn v-sc
   [l]
   (let [current-tr (partial tr l)
-        sc-steps (defaulting items)]
+        sc-steps (kvheadered-list/defaulting items
+                                             tr
+                                             klinks/image-link
+                                             klinks/external-link)]
     [:<> [:h1.text (current-tr :sc-title)] [:div.text (current-tr :intro)]
      [:p ""] [:div.text (current-tr :intro-2)]
-     (-> (get sc-steps l)
-         kvheadered-list/detailed-list) [:hr]]))
+     [kvheadered-list/detailed-list (get sc-steps l) :small] [:hr]]))

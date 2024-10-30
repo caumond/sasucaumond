@@ -10,9 +10,11 @@
    :see-on-gh {:en "See on Github", :fr "Voir sur Github"},
    :rights-assertion {:en "All rights reserved", :fr "Tous droits réservés"}})
 
+(def tr (partial klang/tr dic))
+
 (defn v-footer
   [l year]
-  (let [tr (partial klang/tr dic l)]
+  (let [tr (partial tr l)]
     [:<>
      [:div.secondary-bg.w3-display-container.secondary-text
       {:style {:height (ksizes/predefined-size :small)}}
@@ -21,6 +23,6 @@
         (klinks/external-link :sasu-caumond) (tr :see-on-gh) :tiny]]
       [:div.w3-display-bottommiddle.w3-padding-32.w3-center
        [:div (tr :copyright) (str " © " year " Caumond - ")
-        (tr :rights-assertion)] [:hr]
+        (tr :rights-assertion)] [:div " "]
        [:div (tr :powered-by) " "
         [:a {:href (:w3-css klinks/external-links)} "w3.css"]]]]]))

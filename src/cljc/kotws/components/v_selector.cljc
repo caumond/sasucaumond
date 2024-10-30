@@ -1,10 +1,19 @@
 (ns kotws.components.v-selector)
 
-(defn clamp
+(defn- clamp
   [v min max]
   (cond (< v min) min
         (> v max) max
         :else v))
+
+(defn relative-jump
+  "Current element `v` is move to `val` page forward (if positive, backward if negative).
+
+  The resulting value is clamped between `0` and `n`"
+  [n val v]
+  (-> v
+      (+ val)
+      (clamp 0 n)))
 
 (defn v-selector
   "Selector to get one of the `n` element in the list.

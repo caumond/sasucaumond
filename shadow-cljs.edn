@@ -1,4 +1,3 @@
-;; shadow-cljs configuration
 {:builds
    {:app
       {:asset-path "/js/compiled",

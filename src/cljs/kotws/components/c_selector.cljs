@@ -12,10 +12,7 @@
       :abs (assoc-in db [:selected-idx sel-kw] (kvselector/clamp val 0 n))
       :rel (update-in db
                       [:selected-idx sel-kw]
-                      (fn [v]
-                        (-> v
-                            (+ val)
-                            (kvselector/clamp 0 n)))))))
+                      (partial kvselector/relative-jump n val)))))
 
 (defn selected
   "Returns the selected element for selector called `sel-kw`"

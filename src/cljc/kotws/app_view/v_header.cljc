@@ -1,8 +1,8 @@
 (ns kotws.app-view.v-header
+  "Display the header reused for all pages."
   (:require [kotws.lang :as klang]
-            [kotws.components.v-lang :as kvlang]))
+            [kotws.components.v-langs :as kvlangs]))
 
 (defn v-header
-  "Display the header reused for all pages."
   [current-language switch-lang]
-  [:<> [kvlang/lang-bar klang/possible-langs current-language switch-lang]])
+  [:<> [kvlangs/lang-bar klang/possible-langs current-language switch-lang]])

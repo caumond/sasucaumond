@@ -66,6 +66,7 @@
    :bcoo {:filename "bcoo.png"},
    :caumond-resume {:filename "caumond_resume.jpg"},
    :caumond-cv {:filename "caumond_cv.jpg"},
+   :clean-archi {:filename "Clean architecture.jpg"},
    :clever-cloud {:filename "clever-cloud.svg"},
    :clojure {:filename "clojure.png"},
    :clojurescript {:filename "clojurescript.png"},
@@ -112,11 +113,17 @@
 (def external-links
   (-> (map (fn [[link-name external-link]] [link-name
                                             {:url external-link,
+                                             :target "blank",
                                              :type :external-url}])
            external-links-data)
       (ksubmap/add-key :name)))
 
-(defn external-link [kw] (get external-links kw))
+(defn to-meta
+  [links]
+  (when (map? links)
+    (let [{:keys [url target]} links] {:href url, :target target})))
+
+(defn external-link [kw] (if (keyword? kw) (external-links kw) kw))
 
 (def image-links
   (-> image-links-data
@@ -126,7 +133,10 @@
                       :url (str site-url "images/" filename),
                       :filename filename}))))
 
-(defn image-link "The image `url` matching `kw`" [kw] (get image-links kw))
+(defn image-link
+  "The image `url` matching `kw`"
+  [kw]
+  (if (keyword? kw) (image-links kw) kw))
 
 (def doc-links
   (-> doc-links-data
@@ -136,24 +146,11 @@
                        :type :doc-link
                        :url (str "docs/" filename))))))
 
-(defn doc-link [kw] (get doc-links kw))
+(defn doc-link [kw] (if (keyword? kw) (get doc-links kw) kw))
 
 (def route-links kpages/pages)
 
-(defn route-link "The route `url` matching `kw`" [kw] (get route-links kw))
-
-(def ^:deprecated all-urls
-  (->> (concat (->> external-links
-                    (mapv
-                      (fn [[name url]]
-                        [name {:type :external-url, :url url, :name name}])))
-               (->> image-links-data
-                    (mapv (fn [[name url]] [name
-                                            {:type :image-link,
-                                             :url (str site-url "images/" url),
-                                             :name name}])))
-               kpages/pages)
-       (into {})))
-
-
-(defn ^:deprecated get-url [kw] (get-in all-urls [kw :url]))
+(defn route-link
+  "The route `url` matching `kw`"
+  [kw]
+  (if (keyword? kw) (get route-links kw) kw))

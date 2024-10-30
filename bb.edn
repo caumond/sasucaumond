@@ -4,44 +4,46 @@
     :init (def dir "target/production"),
     build-uberjar
       {:doc "Build an uberjar",
-       :task
-         (do
-           (println "Print production uberjar")
-           (shell "clj -T:uberjar")
-           (shell "git init -b master" {:dir dir})
-           (shell
-             "git remote add clever git+ssh://git@push-n3-par-clevercloud-customers.services.clever-cloud.com/app_de90b017-993e-4788-8d7f-1cdd0496dc10.git"
-             {:dir dir})
-           (shell "git add ." {:dir dir})
-           (shell "git commit -m \"auto\"" {:dir dir}))},
+       :task (do (println "Print production uberjar")
+                 (shell "clj -T:uberjar")
+                 (shell "git init -b master" {:dir dir})
+                 (shell (str "git remote add clever $SASU_CAUMOND_PROD_REPO"
+                             (System/getenv "SASU_CAUMOND_PROD_REPO"))
+                        {:dir dir})
+                 (shell "git add ." {:dir dir})
+                 (shell "git commit -m \"auto\"" {:dir dir}))},
     deploy {:depends [build-uberjar],
             :doc "Build and deploy",
             :task (shell "git push --force -u clever master" {:dir dir})},
-    deps {:doc "Update deps", :task (shell "clj -M:antq")},
+    deps {:doc "Update deps",
+          :task (do (shell "clj -M:antq") (shell "npm upgrade"))},
     doctor
       {:doc "Doctor checks the project pre requisites",
        :requires ([babashka.http-client :as http]
                   [clojure.string :as str]
                   [kotws.links :as klinks]),
-       :task (let [r (->> klinks/full-urls
-                          (mapv (fn [{:keys [url], :as tested-url}]
-                                  (print "testing " (pr-str (:url tested-url)))
-                                  (try (let [content (http/get url)
-                                             valid? (= 200 (:status content))]
-                                         (if valid?
-                                           (println " -> ok")
-                                           (println " -> ko"))
-                                         (merge tested-url
-                                                (dissoc content :uri)
-                                                {:valid? valid?}))
-                                       (catch Exception e
-                                         (println " -> ko")
-                                         (assoc tested-url :exception url))))))]
-               (println "Errors: " (mapv :name (remove :valid? r))))},
-    env-dev {:task (run '-env-dev {:parallel true}),
-             ;;TODO Check why small screens are bad
-             ;;TODO Ends resume
-             :doc "Prepare dev environment (both repls and css)."},
+       :task
+         (let [r (->> klinks/full-urls
+                      (mapv (fn [{:keys [url], :as tested-url}]
+                              (print "testing " (pr-str (:url tested-url)))
+                              (try (let [content (http/get url)
+                                         valid? (= 200 (:status content))]
+                                     (if valid?
+                                       (println " -> ok")
+                                       (println " -> ko"))
+                                     (merge tested-url
+                                            (dissoc content :uri)
+                                            {:valid? valid?}))
+                                   (catch Exception e
+                                     (println " -> ko")
+                                     (assoc tested-url :exception url))))))]
+           (println "Errors: " (mapv :name (remove :valid? r)))
+           (if (nil? (System/getenv "SASU_CAUMOND_PROD_REPO"))
+             (println
+               "Setup this environment variable SASU_CAUMOND_PROD_REPO to be able to push to production")
+             (println "Ready to push to production")))},
+    env-dev {:doc "Prepare dev environment (both repls and css).",
+             :task (run '-env-dev {:parallel true})},
     env-prod
       {:doc "Compile frontend and backend in production mode and start it",
        :task (do (shell "npx shadow-cljs release app") (shell "clj -X:prod"))},
