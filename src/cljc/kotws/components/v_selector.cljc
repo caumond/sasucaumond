@@ -27,8 +27,9 @@
                        (conj hiccup-item
                              ^{:key page}
                              [:span.w3-button.w3-small
-                              (cond-> {:class (when (= (dec page) selected)
-                                                "w3-disabled")}
+                              (cond-> (when (= (dec page) selected)
+                                        {:class "w3-disabled",
+                                         :style {:cursor :default}})
                                 (fn? go-to) (merge (go-to (dec page)))) page]))
                [:div
                 [:i.w3-button.fa.fa-angle-left

@@ -9,9 +9,9 @@
   {:home-msg {:en "Resume", :fr "Curriculum vitae"},
    :home-intro
      {:en
-        "I have developed three major skills. Although I am a computer scientist, the supply chain and industry are exceptional playgrounds. Operational research is an obvious complement to help with decision-making.",
+        "I have developed three main skills: First and foremost, I am a computer scientist, but I have invested myself in an exceptional application area: the industry and its supply chain. As supply chain softwares are very focused on decision-making, operational research is a useful complement and a major competitive advantage.",
       :fr
-        "J'ai développé trois compétences principales: Je suis informaticien, mais la chaîne logistique et l'industrie sont des terrains de jeux exceptionnels. La recherche opérationnelle un complément évident pour aider à la prise de décision."},
+        "J'ai développé trois compétences principales: Avant tout, je suis informaticien, mais je me suis investi dans un domaine d'application exceptionnel: la chaîne logistique et l'industrie. Comme les logiciels de chaîne logistique sont très centré sur la prise de décision, la recherche opérationnelle est un complément utile et un avantage compétitif majeur."},
    :next
      {:en
         "View my resume below, or choose one of the more detailed forms from one of the four images below.",
@@ -40,12 +40,14 @@
   [items _tr]
   (-> items
       (update :skills
-              #(kvimages/defaulting % klinks/route-links klinks/image-link))
-      (update :docs #(kvlang/defaulting % klinks/image-links klinks/doc-link))))
+              #(kvimages/defaulting % klinks/route-link klinks/image-link))
+      (update :docs #(kvlang/defaulting % klinks/image-link klinks/doc-link))))
+
+(def defaulting* (memoize defaulting))
 
 (defn v-home
   [l]
-  (let [{:keys [docs skills founding]} (defaulting items tr)
+  (let [{:keys [docs skills founding]} (defaulting* items tr)
         current-tr (partial tr l)
         w :small]
     [:div [:h1.text (current-tr :home-msg)]

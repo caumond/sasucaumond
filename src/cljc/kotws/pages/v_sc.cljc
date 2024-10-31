@@ -145,10 +145,10 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
 (defn v-sc
   [l]
   (let [current-tr (partial tr l)
-        sc-steps (kvheadered-list/defaulting items
-                                             tr
-                                             klinks/image-link
-                                             klinks/external-link)]
+        sc-steps (kvheadered-list/defaulting* items
+                                              tr
+                                              klinks/image-link
+                                              klinks/external-link)]
     [:<> [:h1.text (current-tr :sc-title)] [:div.text (current-tr :intro)]
      [:p ""] [:div.text (current-tr :intro-2)]
      [kvheadered-list/detailed-list (get sc-steps l) :small] [:hr]]))

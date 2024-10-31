@@ -39,10 +39,10 @@
 
 (defn v-founder
   [l]
-  (let [founder-steps (kvheadered-list/defaulting items
-                                                  tr
-                                                  klinks/image-link
-                                                  klinks/external-link)
+  (let [founder-steps (kvheadered-list/defaulting* items
+                                                   tr
+                                                   klinks/image-link
+                                                   klinks/external-link)
         current-tr (partial tr l)]
     [:<> [:h1.text (current-tr :founder)] [:div.text (current-tr :intro)]
      [kvheadered-list/detailed-list (get founder-steps l) :small] [:hr]]))

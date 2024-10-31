@@ -25,7 +25,8 @@
   (let [uber-file (format "%s/%s-%s.jar" production-dir lib-name major-version)
         basis (basis)]
     (clean root-dir)
-    (b/copy-dir {:src-dirs (-> edn-content
+    (b/copy-dir {:src-dirs (-> deps-file
+                               edn-content
                                :paths),
                  :target-dir class-dir})
     (b/compile-clj

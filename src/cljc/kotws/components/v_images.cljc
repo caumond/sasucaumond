@@ -18,6 +18,8 @@
       (kcitems/apply-dic [:href] href-dic)
       (kcitems/apply-dic [:img-link] image-dic)))
 
+(def defaulting* (memoize defaulting))
+
 (defn image-cells
   [items tr w]
   (reduce (fn [hiccup {:keys [img-link name href]}]

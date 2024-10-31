@@ -11,6 +11,8 @@
       (kcitems/apply-dic [:href] href-dic)
       (kcitems/translate [:label] langs tr)))
 
+(def defaulting* (memoize defaulting))
+
 (defn one-per-row
   "List of elements to display, one per row.
 

@@ -11,6 +11,8 @@
       (kcitems/apply-dic [:href] href-dic)
       (kcitems/translate [:desc :label] langs tr)))
 
+(def defaulting* (memoize defaulting))
+
 (defn bullet
   "Simple bullet list
 

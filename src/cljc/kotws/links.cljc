@@ -66,15 +66,18 @@
    :bcoo {:filename "bcoo.png"},
    :caumond-resume {:filename "caumond_resume.jpg"},
    :caumond-cv {:filename "caumond_cv.jpg"},
+   :clean-code {:filename "Clean code.jpg"},
    :clean-archi {:filename "Clean architecture.jpg"},
    :clever-cloud {:filename "clever-cloud.svg"},
    :clojure {:filename "clojure.png"},
+   :clojure-programming {:filename "Clojure programming.jpg"},
    :clojurescript {:filename "clojurescript.png"},
    :cor-time-lag {:filename "cor_time_lag.png"},
    :distribution-network {:filename "distribution_network.png"},
    :demo-making {:filename "demo_making.png"},
    :doom-emacs {:filename "doom.png"},
    :downstream-ope {:filename "framing.png"},
+   :ddd {:filename "DDD.jpg"},
    :drp {:filename "drp.png"},
    :ejor-transport {:filename "ejor_transport.png"},
    :falsestart {:filename "false_start.png"},
@@ -92,6 +95,7 @@
    :no-image {:filename "no_image.png"},
    :optimization {:filename "optimization.png"},
    :phd {:filename "graduation_cap.png"},
+   :platform-revolution {:filename "platform.jpg"},
    :plm-start {:filename "fill_the_gap.png"},
    :plm {:filename "plm.png"},
    :pp {:filename "pp.png"},
@@ -107,7 +111,8 @@
    :z80 {:filename "Z80.png"}})
 
 (def ^:private doc-links-data
-  {:caumond-resume {:filename "caumond_resume.pdf"},
+  {:caumond-resume {:filename "caumond_resume.pdf"}, ;; Coming from
+                                                     ;; https://www.canva.com/design/DAGUsL58eT4/GAwxzsYMR4jqdIo1mRJEaA/edit?utm_content=DAGUsL58eT4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
    :caumond-cv {:filename "caumond_cv.pdf"}})
 
 (def external-links
@@ -154,3 +159,8 @@
   "The route `url` matching `kw`"
   [kw]
   (if (keyword? kw) (get route-links kw) kw))
+
+(def all-links
+  (->> [route-links image-links external-links]
+       (mapcat vals)
+       vec))

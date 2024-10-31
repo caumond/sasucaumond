@@ -9,6 +9,8 @@
       (kcitems/default-with-kws [[:label :name ""]])
       (kcitems/translate [:label] langs tr)))
 
+(def defaulting* (memoize defaulting))
+
 (defn simple
   "Simple stripped and bordered table for elements in `name` `cells`."
   [items]

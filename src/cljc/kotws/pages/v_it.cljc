@@ -37,13 +37,15 @@
         "Un PLM sert à gérer les différentes version de tous les produits d'une industrie et surtout animer la compatibilité et le cycle de vie des produits à travers tous les métiers de l'industrie: la qualité, l'obtention, le planning, la fabrication, le stockage, la livraison client, ... En m'inspirant de la gestion de configuration de git, j'ai fortement contribué à la création de cette conception et à sa diffusion.",
       :en
         "A PLM is a product lifecycle management, for the industry this is software that stores the different versions of a product but also the compatibility of them. It concerns all the production-oriented departments of an industry: design, quality, obtention, planning, manufacturing, storage, and customer delivery ... Based on git public knowledge of configuration management, I was one of the main contributors to this design and its diffusion."},
-   :event-stock {:fr "Les flux d'événements pour gérer le stock", :en "TODO"},
+   :event-stock {:fr "Les flux d'événements pour gérer le stock",
+                 :en "Event flows to manage inventory"},
    :event-stock-desc {:fr "Décaler la qualité de la connaissance du stock",
-                      :en "TODO"},
+                      :en "Shifting the quality of stock knowledge"},
    :event-stock-long-desc
      {:fr
-        "La connaissance du stock est un problème récurrent dans l'industrie, de l'extérieur on ne soupçonne pas à quel point il y a des imprécisions. Bien sûr il y a des industries meilleures que d'autres, mais toutes ont fortement intérêt à s'améliorer sur le sujet. L'idée est de créer une image résiliente du stock à partir des mouvements de stock. On construit un état de stock à partir des événements de stocks tout en ajoutant la contrainte: un élément de stock n'est qu'à un seul endroit, dans un seul état. Autant il est facile d'accumuler les erreurs quand on compte combien de produits entrent et sortent, autant quand on un individu est muni d'un code barre, on peut beaucoup moins se tromper. Soit le produit n'est pas à l'endroit que l'on croit car on a râté un événement (mais le prochain mouvement rattrapera cette erreur), soit le produit est définitivement sorti et le délai de vieillissement, le prochain inventaire corrigeront cette erreur. Bien sûr que l'image ne sera pas parfaite, mais elle sera beaucoup plus résiliente.",
-      :en "TODO"},
+        "La connaissance du stock est un problème récurrent dans l'industrie, de l'extérieur on ne soupçonne pas à quel point il y a des imprécisions. Bien sûr il y a des industries meilleures que d'autres, mais toutes ont fortement intérêt à s'améliorer sur le sujet. L'idée est de créer une image résiliente du stock à partir des mouvements de stock. On construit un état de stock à partir des événements de stocks tout en ajoutant la contrainte: un élément de stock n'est qu'à un seul endroit, dans un seul état. Autant il est facile d'accumuler les erreurs quand on compte combien de produits entrent et sortent, autant quand un individu est muni d'un code barre, on peut beaucoup moins se tromper. Soit le produit n'est pas à l'endroit que l'on croit car on a râté un événement (mais le prochain mouvement rattrapera cette erreur), soit le produit est définitivement sorti et le délai de vieillissement, le prochain inventaire corrigeront cette erreur. Bien sûr que l'image ne sera pas parfaite, mais elle sera beaucoup plus résiliente.",
+      :en
+        "Knowledge of stock is a recurring problem in the industry, from the outside we do not suspect to what extent there are inaccuracies. Of course there are industries better than others, but all have a strong interest in improving on the subject. The idea is to create a resilient image of stock from stock movements. We build a stock status from stock events while adding the constraint: a stock item is only in one place, in one state. As much as it is easy to accumulate errors when we count how many products come in and go out, when an individual is equipped with a bar code, we can be much less mistaken. Either the product is not in the place we think because we missed an event (but the next movement will catch up on this error), or the product is definitely out and the aging period, the next inventory will correct this error. Of course the image will not be perfect, but it will be much more resilient."},
    :archi {:en "Architecture", :fr "Architecture"},
    :archi-desc
      {:en "Solution architect and Supply Chain Entreprise Architect (EA)",
@@ -115,14 +117,16 @@
         "ADA, Assembly, C, Fortran, LISP, data structure, matlab, algorithmic, java, numerical programming, prolog. Two stages and two internships of six months long."},
    :jewelry {:en "Jewelry stock management",
              :fr "Gestion de stock d'une bijouterie"},
-   :jewelry-desc {:fr "", :en ""},
+   :jewelry-desc {:fr "Un logiciel utilisé quotidiennement",
+                  :en "A daily used software"},
    :jewelry-long-desc
      {:fr
-        "2006 - A une époque où les logiciels de gestion professionnels étaient rares, j'ai construit le logiciel de gestion de stock de la bijouterie familiale en Gfa Basic.",
+        "A une époque où les logiciels de gestion professionnels étaient rares, j'ai construit le logiciel de gestion de stock de la bijouterie familiale en Gfa Basic.",
       :en
         "At a time when professional software was quite scarce, I built in GFA Basic the stock management tool for the family jewelry."},
    :demo-making {:fr "Démo et jeux", :en "Demo making and games"},
-   :demo-making-desc {:fr "", :en ""},
+   :demo-making-desc {:fr "Se faire plaisir en apprenant",
+                      :en "Have, fun while, learning"},
    :demo-making-long-desc
      {:en
         "I discovered development with game creation. Games were in text mode or graphical mode. But I spent a lot of time developing demos: vector balls, rasters, overscan, 3D wireframe.",
@@ -152,10 +156,10 @@
 (defn v-it
   [l]
   (let [current-tr (partial tr l)
-        cv-items (kvheadered-list/defaulting items
-                                             tr
-                                             klinks/image-link
-                                             klinks/external-link)]
+        cv-items (kvheadered-list/defaulting* items
+                                              tr
+                                              klinks/image-link
+                                              klinks/external-link)]
     [:<> [:h1.text (current-tr :computer-science)]
      [:div.text (current-tr :intro)] [:hr]
      [kvheadered-list/detailed-list (get cv-items l) :small] [:hr]]))

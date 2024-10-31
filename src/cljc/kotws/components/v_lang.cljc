@@ -12,6 +12,8 @@
                      (kcitems/apply-dic [:img-link] image-dic)
                      (kcitems/apply-dic [:href-link] doc-dic)))))
 
+(def defaulting* (memoize defaulting))
+
 (defn vclabelled-image
   "Show an image based on a language.
 

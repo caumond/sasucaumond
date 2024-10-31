@@ -37,6 +37,8 @@
     (-> (or selected-lang "fr")
         index
         rr/response
+        (rr/update-header "cache-control"
+                          (fn [_] "max-age=0, private, must-revalidate"))
         (rr/content-type "text/html"))))
 
 (def handler

@@ -2,16 +2,16 @@
  :tasks
    {-env-dev {:depends [repl-clj repl-cljs]},
     :init (def dir "target/production"),
-    build-uberjar
-      {:doc "Build an uberjar",
-       :task (do (println "Print production uberjar")
-                 (shell "clj -T:uberjar")
-                 (shell "git init -b master" {:dir dir})
-                 (shell (str "git remote add clever $SASU_CAUMOND_PROD_REPO"
-                             (System/getenv "SASU_CAUMOND_PROD_REPO"))
-                        {:dir dir})
-                 (shell "git add ." {:dir dir})
-                 (shell "git commit -m \"auto\"" {:dir dir}))},
+    build-uberjar {:doc "Build an uberjar",
+                   :task (do (println "Build production uberjar")
+                             (shell "clj -T:uberjar")
+                             (shell "git init -b master" {:dir dir})
+                             (shell (str "git remote add clever "
+                                         (System/getenv
+                                           "SASU_CAUMOND_PROD_REPO"))
+                                    {:dir dir})
+                             (shell "git add ." {:dir dir})
+                             (shell "git commit -m \"auto\"" {:dir dir}))},
     deploy {:depends [build-uberjar],
             :doc "Build and deploy",
             :task (shell "git push --force -u clever master" {:dir dir})},
@@ -23,7 +23,7 @@
                   [clojure.string :as str]
                   [kotws.links :as klinks]),
        :task
-         (let [r (->> klinks/full-urls
+         (let [r (->> klinks/all-links
                       (mapv (fn [{:keys [url], :as tested-url}]
                               (print "testing " (pr-str (:url tested-url)))
                               (try (let [content (http/get url)

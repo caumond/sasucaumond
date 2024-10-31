@@ -10,11 +10,13 @@
   [items tr image-dic href-dic]
   (-> items
       kcitems/default-name
-      (kcitems/default-with-kws [[:img-url :name ""] :href [:label :name ""]
-                                 :desc :long-desc])
+      (kcitems/default-with-kws [[:img-url :name ""] [:href :name ""]
+                                 [:label :name ""] :desc :long-desc])
       (kcitems/apply-dic [:img-url] image-dic)
       (kcitems/apply-dic [:href] href-dic)
       (kcitems/translate [:label :desc :long-desc] klang/possible-langs tr)))
+
+(def defaulting* (memoize defaulting))
 
 (defn header
   "Show the header of the items.

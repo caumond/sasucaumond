@@ -17,17 +17,17 @@
         "Une référence dans le monde du DDD, ce livre est plein de recettes et d'exemples pratiques. L'idée abordée dans clean code à travers le nommage des variables passe à un niveau supérieur. Ce livre énonce un aspect sociologique que j'ai ressenti dans l'industrie: Une application est un microcosme, avec son vocabulaire. Et bien sûr des éléments méthodologiques et des outils pour gérer la complexité.",
       :en
         "This book is a reference book in the DDD world, full of recipes and practical examples. The idea behind variable naming in clean code is going to the next level here. This book raises a sociological aspect I felt in the industry: An application is a microcosm, with vocabularies. And of course, the book gives methodology and tools to tackle that complexity."},
-   :ddd-detailed-desc
+   :ddd-details
      {:fr
         "Dans l'industrie, j'ai ressenti deux choses que le DDD vient tacler. D'abord une application n'ést pas qu'un objet technique, mais aussi social: celui des ingénieurs qui conçoivent les processus, ceux des analystes qui conçoivent l'application, ceux des développeurs qui la font, du support et des utilisateurs qui travailleront avec l'application pendant des dizaines d'années. Dans les expériences que j'ai vécu, chacun des groupes précédemment cités ajoute leur couche de complexité en créant son propre vocabulaire, et la conception qui va avec. De plus, il ne faut pas imaginer cette diversité à un instant, mais dans le temps, avec des groupes de personnes qui évoluent dans le temps, qui ont même tendance à se démarquer de leur propre prédécesseur. Le DDD énonce ceci, et explique le principe du langage ubiquite. Je ne crois pas que la mesure de ce principe ait été prise dans l'industrie, et surtout du coût que représente sa non application.",
       :en
         "In the industry, I discovered two phenomenons that DDD is dealing with. First, an application is not only a technical object but also a social object: engineers who design processes, analysts who design apps, developers who code, but also support analysts and users who will work with the app for decades. In my experience, each group adds some complexity and has its own vocabulary, and the design coming with it. The worst is that the picture is evolving with time, and each group replacing its predecessor introduces also a shift in the vocabulary. The DDD states that in detail, and tells us about the ubiquitous language. I don't believe the industry realizes how much this principle is important, nor the cost spent because it is, most of the time, not."},
-   :clojure-desc
+   :clojure-programming-desc
      {:fr
         "Ce livre a longtemps été mon livre de chevet, après avoir appris par ailleurs les bases de clojure, il permet de bien en appréhender les détails, l'esprit du langage. La première lecture ne m'a pas suffi, il faut y revenir régulièrement pour bien intégrer les éléments.",
       :en
         "This book has been my bedside book for a while. After I learned Clojure elsewhere, this book gave me more details and a deeper understanding of available mechanisms and opinions behind the language's choice. The first reading of it is not sufficient, ingesting all its content needs many scans."},
-   :platform-desc
+   :platform-revolution-desc
      {:fr
         "Ce livre m'a surtout donné une meilleure compréhension des plateformes, que je connaissais sans en comprendre les mécanismes. Cela m'a par exemple permis de mieux comprendre l'histoire de Microsoft ou des réseaux sociaux. Même si je ne construis pas de plateformes pour l'instant, ces principes sont très éclairants et peuvent être pris en compte dans n'importe quel contexte.",
       :en
@@ -48,29 +48,26 @@
                  :sub-title
                    "A Cratsman's guide to software structure and design"},
    :clean-code {:title "Clean Code",
-                :sub-title "A Handbook of Agile Software Craftsmanship",
-                :img "images/Clean code.jpg"},
+                :sub-title "A Handbook of Agile Software Craftsmanship"},
    :ddd {:title "Domain-Driven Design",
-         :sub-title "Tackling Complexity in the Heart of Software",
-         :img "images/DDD.jpg"},
+         :sub-title "Tackling Complexity in the Heart of Software"},
    :clojure-programming {:title "Clojure programming",
-                         :img "images/Clojure programming.jpg"},
+                         :sub-title "Practical LISP for the java world"},
    :platform-revolution
      {:title "Platform revolution",
       :sub-title
-        "How networked markets are transforming the economy and how to make them work for you",
-      :img "images/platform.jpg"}})
+        "How networked markets are transforming the economy and how to make them work for you"}})
 
 (def tr (partial klang/tr dic))
 
 (defn v-biblio
   [l selected opts-go-to opts-go-rel]
   (let [tr (partial klang/tr dic l)
-        books (kvslider/defaulting items
-                                   tr
-                                   klinks/image-links
-                                   klinks/external-links
-                                   klang/possible-langs)]
+        books (kvslider/defaulting* items
+                                    tr
+                                    klinks/image-link
+                                    klinks/external-link
+                                    klang/possible-langs)]
     [:<> [:h1.text (tr :biblio-title)] [:p.text (tr :biblio-intro)]
      (kvslider/subtitle-img-long-desc tr
                                       (get books l)

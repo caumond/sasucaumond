@@ -15,6 +15,6 @@
 (defn tr
   "Translate the key `k` based on `dic` entries and langauge `l`.
 
-  The `default` is used if not found, otherwise the key itself is shown (translated to string if is a keyword)."
-  ([dic l k] (tr dic l k (if (keyword? k) (name k) k)))
+  The `default` is used if not found, otherwise nil is returned."
+  ([dic l k] (tr dic l k nil))
   ([dic l k default] (get-in dic [k l] default)))

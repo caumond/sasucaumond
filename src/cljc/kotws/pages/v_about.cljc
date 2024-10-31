@@ -16,14 +16,20 @@
         "A css library for building simple, reactive sites (i.e. compatible with computer, pads or phone screen size).",
       :fr
         "Une bibliothèque css pour construire des sites simples, et `reactive` (i.e. compatible avec les écrans d'ordinateurs, téléphones ou tablettes ...)."},
+   :ring {:fr "ring", :en "ring"},
+   :reitit {:fr "reitit", :en "reitit"},
+   :re-frame {:fr "re-frame", :en "re-frame"},
    :reitit-desc {:fr "Gestion des routes backend et frontend.",
                  :en "Backend and frontend routes"},
-   :reframe-desc {:fr "React en Clojure", :en "React in Clojure"},
+   :re-frame-desc {:fr "React en Clojure", :en "React in Clojure"},
    :ring-desc {:fr "Serveur http", :en "Http server"},
+   :w3-template {:fr "w3-template", :en "w3-template"},
    :introduce-sasu {:fr "Ces activités sont réalisées par la ",
                     :en "These activities are carried over by "},
    :icons {:fr "Icones créées avec Freepik - Flaticon",
            :en "Icons created by Freepik - Flaticon"},
+   :siren {:fr "SIREN", :en "SIREN"},
+   :siret {:fr "SIRET", :en "SIRET"},
    :font-awesome {:fr "Icones créées avec Fontawesome",
                   :en "Icons created by fontawesome"}})
 
@@ -32,7 +38,7 @@
 (def items {:w3-template {}, :reitit {}, :re-frame {}, :ring {}})
 
 (def id-items
-  {:SIREN {:cells ["905156402"]}, :SIRET {:cells ["90515640200018"]}})
+  {:siren {:cells ["905156402"]}, :siret {:cells ["90515640200018"]}})
 
 (comment
   (klinks/external-link :w3-template)
@@ -43,11 +49,13 @@
   [items]
   (kvbullet/defaulting items tr klinks/external-link klang/possible-langs))
 
+(def defaulting* (memoize defaulting))
+
 (defn v-about
   [l]
   (let [current-tr (partial tr l)
         ids (kvtable/defaulting id-items tr klang/possible-langs)
-        inspiration-sources (defaulting items)]
+        inspiration-sources (defaulting* items)]
     [:<> [:h1.text "SASU CAUMOND"]
      [:div.text (current-tr :introduce-sasu)
       [:a {:href (:url (klinks/external-link :sasu-societe))}

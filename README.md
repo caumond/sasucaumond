@@ -104,8 +104,6 @@ Check regularly and manually w3.css for [updates](https://www.w3schools.com/w3cs
 The next features missing are:
 
 * Check how the website present on wide screens
-* Add memoization on the defaulting functions
-* Enrich documentation for defaulting,
 * Add top anchor
 * Add npm, git, clj presence in the doctor
 * Add training I was teacher of
