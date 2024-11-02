@@ -43,20 +43,21 @@
 
 (defn defaulting
   [items tr]
-  (->
-    items
-    (update :bottom-line
-            #(kvlists/defaulting % tr klinks/route-links klang/possible-langs))
-    (update :contacts
-            #(kvlists/defaulting % tr klinks/route-links klang/possible-langs))
-    (update :contacts-header ksingle/translate klang/possible-langs tr)
-    (update :left-menu-header ksingle/translate klang/possible-langs tr)
-    (update
-      :left-menu
-      (fn [{:keys [marked], :or {marked :left-menu?}}]
-        (-> (filterv (comp marked second) kpages/pages)
-            (kvlists/defaulting tr klinks/route-links klang/possible-langs))))
-    (update :header-image klinks/image-link)))
+  (-> items
+      (update
+        :bottom-line
+        #(kvlists/defaulting % tr klinks/route-links klang/possible-langs))
+      (update
+        :contacts
+        #(kvlists/defaulting % tr klinks/external-links klang/possible-langs))
+      (update :contacts-header ksingle/translate klang/possible-langs tr)
+      (update :left-menu-header ksingle/translate klang/possible-langs tr)
+      (update
+        :left-menu
+        (fn [{:keys [marked], :or {marked :left-menu?}}]
+          (-> (filterv (comp marked second) kpages/pages)
+              (kvlists/defaulting tr klinks/route-links klang/possible-langs))))
+      (update :header-image klinks/image-link)))
 
 (def defaulting* (memoize defaulting))
 
