@@ -59,7 +59,7 @@
     [:<> [:h1.text "SASU CAUMOND"]
      [:div.text (current-tr :introduce-sasu)
       [:a {:href (:url (klinks/external-link :sasu-societe))}
-       "SASU CAUMOND (cf. societe.com)"] [kvtable/simple (get ids l)]] [:hr]
+       "SASU CAUMOND (cf. societe.com)"] [kvtable/simple (get ids l)]] [:p ""]
      [:p.text (current-tr :intro-sources)]
      [kvbullet/bullet (get inspiration-sources l)]
      [:a {:href (:url (klinks/external-link :flaticon))}

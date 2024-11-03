@@ -95,11 +95,11 @@
         "Tout mon savoir-faire en recherche opérationnelle pour l'industrie que j'ai acquis en thèse a été inclus dans cette bibliothèque. L'objectif était de capitaliser et d'accélérer le développement des projets ultérieurs. Cet objectif a été atteint car il a été le support des articles de recherches, mais aussi de la plupart des applications industrielles.",
       :en
         "All my know-how in operational research for industry that I acquired in my thesis was included in this library. The objective was to capitalize and accelerate the development of subsequent projects. This objective was achieved because it was the support for research articles, but also for most industrial applications."},
-   :jewerly-website {:en "Jewelry e-commerce",
+   :jewelry-website {:en "Jewelry e-commerce",
                      :fr "Site e-ecommerce de bijouterie"},
-   :jewerly-website-desc {:en "Php5 - mysql paradox db - Borland C++",
+   :jewelry-website-desc {:en "Php5 - mysql paradox db - Borland C++",
                           :fr "Php5 - mysql paradox db - Borland C++"},
-   :jewerly-website-long-desc
+   :jewelry-website-long-desc
      {:en
         "The website was operational and worked for roughly three years. The website's objective was to create an extra activity for the family jewelry. A backend in Borland C++ was developed to manage and upload product catalogs. The website contains some e-payments and CMS to delegate some site updates.",
       :fr
@@ -115,11 +115,11 @@
         "ADA, Assembleur, C, fortran, LISP, structure de données, matlab, algorithmique, java, programmation numérique, prolog. Ces cours sont assortis de deux projets et de deux stages de 6 mois",
       :en
         "ADA, Assembly, C, Fortran, LISP, data structure, matlab, algorithmic, java, numerical programming, prolog. Two stages and two internships of six months long."},
-   :jewelry {:en "Jewelry stock management",
-             :fr "Gestion de stock d'une bijouterie"},
-   :jewelry-desc {:fr "Un logiciel utilisé quotidiennement",
-                  :en "A daily used software"},
-   :jewelry-long-desc
+   :jewelry-ecommerce {:en "Jewelry stock management",
+                       :fr "Gestion de stock d'une bijouterie"},
+   :jewelry-ecommerce-desc {:fr "Un logiciel utilisé quotidiennement",
+                            :en "A daily used software"},
+   :jewelry-ecommerce-long-desc
      {:fr
         "A une époque où les logiciels de gestion professionnels étaient rares, j'ai construit le logiciel de gestion de stock de la bijouterie familiale en Gfa Basic.",
       :en
@@ -147,8 +147,8 @@
    [:event-stock {:img-url :kafka, :href :seb}] [:archi {:href :togaf}]
    [:make-or-buy-optimization {}] [:distribution-network {}]
    [:dss {:img-url :optimization}] [:bcoo {}]
-   [:jewerly-website {:img-url :web-caumond, :href :web-caumond-archive}]
-   [:isima {}] [:jewelry {}] [:demo-making {}]
+   [:jewelry-website {:img-url :web-caumond, :href :web-caumond-archive}]
+   [:isima {}] [:jewelry-ecommerce {}] [:demo-making {}]
    [:coding-for-fun {:img-url :z80, :href :z80}]])
 
 (def tr (partial klang/tr dic))
@@ -161,5 +161,5 @@
                                               klinks/image-link
                                               klinks/external-link)]
     [:<> [:h1.text (current-tr :computer-science)]
-     [:div.text (current-tr :intro)] [:hr]
-     [kvheadered-list/detailed-list (get cv-items l) :small] [:hr]]))
+     [:div.text (current-tr :intro)] [:p ""]
+     [kvheadered-list/detailed-list (get cv-items l) :small] [:p ""]]))

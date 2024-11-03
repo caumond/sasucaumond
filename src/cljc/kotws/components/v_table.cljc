@@ -14,7 +14,7 @@
 (defn simple
   "Simple stripped and bordered table for elements in `name` `cells`."
   [items]
-  [:table.w3-table.w3-striped.w3-bordered
+  [:table.w3-table.w3-bordered
    (->> items
         (reduce (fn [hiccup-item [_ {:keys [label cells]}]]
                   (conj hiccup-item

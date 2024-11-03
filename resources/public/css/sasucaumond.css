@@ -2,41 +2,31 @@ html,body,h1,h2,h3,h4,h5,h6 {
  font-family: Roboto, sans-serif;
 }
 
-h1,h2,h3,h4,h5,h6,p,div {
+h1,h2,h3,h4,h5,h6,p,div,li,ul{
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
 }
 
-h1,h2,h3,h4,h5,h6 {
-  color: #757575!important;
-}
-
-a:link {
-  text-decoration: none;
-}
-
-a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-a:active {
-  text-decoration: none;
-}
-
-.primary-bg {background-color: #f1f1f1!important;}
-.secondary-bg {background-color: #616161!important;}
-.light-bg {background-color: #f8f8f8!important;}
-
-.secondary-text{color: #FFF}
-.primary-text{color: #000}
-
-.text{
+.text, .detailed-list li, .detailed-list p{
   -webkit-user-select: text; /* Safari */
   -ms-user-select: text; /* IE 10 and IE 11 */
   user-select: text; /* Standard syntax */
 }
+
+a:link, a:visited, a:hover, a:active {text-decoration: none;}
+
+h1,h2,h3,h4,h5,h6 {color: #757575!important;}
+.primary-bg {background-color: #f1f1f1!important;}
+.secondary-bg {background-color: #616161!important;}
+.light-bg {background-color: #f8f8f8!important;}
+.secondary-text{color: #FFF}
+.primary-text{color: #000}
+
+@media (prefers-color-scheme: dark) {
+h1,h2,h3,h4,h5,h6.adaptative {color: #888!important;}
+.primary-bg.adaptative {background-color: #292929!important;}
+.secondary-bg.adaptative {background-color: #616161!important;}
+.light-bg.adaptative {background-color: #888!important;}
+.secondary-text.adaptative{color: #FFF}
+.primary-text.adaptative{color: #FFF}}

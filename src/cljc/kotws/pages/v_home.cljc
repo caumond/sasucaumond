@@ -51,11 +51,11 @@
         current-tr (partial tr l)
         w :small]
     [:div [:h1.text (current-tr :home-msg)]
-     [:p.text (current-tr :resume-download)] [:hr]
+     [:p.text (current-tr :resume-download)] [:p ""]
      [kvlang/vclabelled-image l (:caumond-resume docs)]
-     [:p.text (current-tr :home-intro)] [:hr]
-     [kvimages/image-cells skills current-tr :small] [:hr]
+     [:p.text (current-tr :home-intro)] [:p ""]
+     [kvimages/image-cells skills current-tr :small] [:p ""]
      [:div.text (current-tr :next)]
      [:div.w3-center
       [vclabelled-image/labelled-image (klinks/image-link (:img-link founding))
-       (klinks/route-link :founder) (current-tr :founder) w]] [:hr]]))
+       (klinks/route-link :founder) (current-tr :founder) w]] [:p ""]]))

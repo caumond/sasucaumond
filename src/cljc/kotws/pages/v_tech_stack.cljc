@@ -88,5 +88,5 @@
                                                 klinks/external-link)
         ts (get tech-stack l)]
     [:<> [:h1.text (current-tr :title)] [:p.text (current-tr :sub-title)]
-     [kvheadered-list/header ts] [:hr] [:h1.text (current-tr :details)]
+     [kvheadered-list/header ts] [:p ""] [:h1.text (current-tr :details)]
      [kvheadered-list/detailed-list ts :small]]))

@@ -45,4 +45,4 @@
                                                    klinks/external-link)
         current-tr (partial tr l)]
     [:<> [:h1.text (current-tr :founder)] [:div.text (current-tr :intro)]
-     [kvheadered-list/detailed-list (get founder-steps l) :small] [:hr]]))
+     [kvheadered-list/detailed-list (get founder-steps l) :small] [:p ""]]))

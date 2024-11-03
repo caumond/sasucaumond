@@ -151,4 +151,4 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
                                               klinks/external-link)]
     [:<> [:h1.text (current-tr :sc-title)] [:div.text (current-tr :intro)]
      [:p ""] [:div.text (current-tr :intro-2)]
-     [kvheadered-list/detailed-list (get sc-steps l) :small] [:hr]]))
+     [kvheadered-list/detailed-list (get sc-steps l) :small] [:p ""]]))
