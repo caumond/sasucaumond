@@ -4,6 +4,7 @@
     :init (def dir "target/production"),
     build-uberjar {:doc "Build an uberjar",
                    :task (do (println "Build production uberjar")
+                             (shell "npx shadow-cljs release app")
                              (shell "clj -T:uberjar")
                              (shell "git init -b master" {:dir dir})
                              (shell (str "git remote add clever "
