@@ -128,5 +128,5 @@
                                                    klinks/image-link
                                                    klinks/external-link)]
     [:<> [:h1.text (current-tr :founder)] [:div.text (current-tr :intro)]
-     [:p ""] [:div.text (current-tr :intro-2)] [:hr]
-     [kvheadered-list/detailed-list (get founder-steps l) :small] [:hr]]))
+     [:p ""] [:div.text (current-tr :intro-2)] [:p ""]
+     [kvheadered-list/detailed-list (get founder-steps l) :small] [:p ""]]))

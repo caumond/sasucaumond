@@ -16,7 +16,7 @@
   [l year]
   (let [tr (partial tr l)]
     [:<>
-     [:div.secondary-bg.w3-display-container.secondary-text
+     [:div.secondary-bg.w3-display-container.secondary-text.adaptative
       {:style {:height (ksizes/predefined-size :small)}}
       [:div.w3-right
        [kvlabelled-image/raw-image (klinks/image-link :git-hub)

@@ -43,7 +43,7 @@
   All that box is linked into `href` link."
   [items image-width-kw]
   (let [actual-size (ksizes/predefined-size image-width-kw)]
-    [:table.w3-table
+    [:table.w3-table.detailed-list
      (->>
        items
        (reduce (fn [hiccup-item [_ {:keys [img-url href label desc long-desc]}]]
@@ -60,6 +60,6 @@
                           (when img-url
                             [kvlabelled-image/labelled-image img-url href ""
                              image-width-kw])]
-                         [:p.w3-panel.w3-leftbar.text.light-bg desc]
+                         [:p.w3-panel.w3-leftbar.text.light-bg.adaptative desc]
                          (when long-desc [:p.text long-desc])]]))
          [:tbody]))]))
