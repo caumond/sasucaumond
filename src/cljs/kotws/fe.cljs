@@ -26,7 +26,7 @@
 
 (defn- update-page [] (routes/setup!) (dev-warning) (mount-root))
 
-(defn refresh-page [] (println "Shadow refresh") (update-page))
+(defn refresh-page [] (js/console.log "Shadow refresh") (update-page))
 
 (defn init
   []
