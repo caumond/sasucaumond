@@ -17,5 +17,5 @@
       [:div.w3-col.w3-hide-small.w3-hide-medium {:style {:width "4vw"}}
        [:p " "]]
       [:div.w3-rest.printable-content.w3-card.w3-container
-       (kws-page-place-holder/page active-panel)]] [kvspace/vertical-spacing]
-     [c-footer "15vh"]]))
+       (kws-page-place-holder/page active-panel) [kvspace/vertical-spacing]]]
+     [kvspace/vertical-spacing] [c-footer "15vh"]]))

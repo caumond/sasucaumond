@@ -1,7 +1,8 @@
 (ns kotws.pages.v-it
   (:require [kotws.lang :as klang]
             [kotws.links :as klinks]
-            [kotws.components.v-headered-list :as kvheadered-list]))
+            [kotws.components.v-headered-list :as kvheadered-list]
+            [kotws.components.v-space :as kvspace]))
 
 (def dic
   {:computer-science {:fr "Informatique", :en "Computer science"},
@@ -161,5 +162,5 @@
                                               klinks/image-link
                                               klinks/external-link)]
     [:<> [:h1.text (current-tr :computer-science)]
-     [:div.text (current-tr :intro)] [:p ""]
-     [kvheadered-list/detailed-list (get cv-items l) :small] [:p ""]]))
+     [:div.text (current-tr :intro)] [kvspace/vertical-spacing]
+     [kvheadered-list/detailed-list (get cv-items l) :small]]))

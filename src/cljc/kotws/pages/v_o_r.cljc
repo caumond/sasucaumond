@@ -1,7 +1,8 @@
 (ns kotws.pages.v-o-r
   (:require [kotws.lang :as klang]
             [kotws.links :as klinks]
-            [kotws.components.v-headered-list :as kvheadered-list]))
+            [kotws.components.v-headered-list :as kvheadered-list]
+            [kotws.components.v-space :as kvspace]))
 
 (def dic
   {:founder {:fr "Recherche opérationnelle", :en "Operations Research"},
@@ -132,5 +133,5 @@
                                                    klinks/image-link
                                                    klinks/external-link)]
     [:<> [:h1.text (current-tr :founder)] [:div.text (current-tr :intro)]
-     [:p ""] [:div.text (current-tr :intro-2)] [:p ""]
-     [kvheadered-list/detailed-list (get founder-steps l) :small] [:p ""]]))
+     [:div.text (current-tr :intro-2)] [kvspace/vertical-spacing]
+     [kvheadered-list/detailed-list (get founder-steps l) :small]]))

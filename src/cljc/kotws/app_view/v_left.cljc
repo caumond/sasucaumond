@@ -3,6 +3,7 @@
   (:require [kotws.lang :as klang]
             [kotws.components.v-labelled-image :as kvlabelled-image]
             [kotws.components.single :as ksingle]
+            [kotws.components.v-space :as kvspace]
             [kotws.links :as klinks]
             [kotws.pages :as kpages]
             [kotws.components.v-lists :as kvlists]))
@@ -73,4 +74,4 @@
       [kvlists/one-per-row bottom-line-header (get bottom-line l)]
       [kvlists/small-buttons (get contacts-header l) (get contacts l)]
       [kvlists/one-per-row (get left-menu-header l) (get left-menu l)]
-      [:p ""]]]))
+      [kvspace/vertical-spacing]]]))

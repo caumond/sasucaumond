@@ -2,7 +2,8 @@
   "A slider shows a list of items, with a navigator to crawl them."
   (:require [kotws.components.items :as kcitems]
             [kotws.components.v-selector :as kvselector]
-            [kotws.components.v-labelled-image :as kvlabelled-image]))
+            [kotws.components.v-labelled-image :as kvlabelled-image]
+            [kotws.components.v-space :as kvspace]))
 
 (defn defaulting
   "The slider shows a list of items.
@@ -31,11 +32,12 @@
        (partial opts-go-rel nbooks)]] (when (some? title) [:h2.text title])
      (when (some? sub-title) [:h3.text sub-title])
      [:div.w3-row [:p.w3-third]
-      [kvlabelled-image/raw-image img-link href nil :medium]] [:p ""]
+      [kvlabelled-image/raw-image img-link href nil :medium]]
+     [kvspace/vertical-spacing]
      [:div.w3-container.w3-card-4 [:h3 (tr :desc-title) ": "]
-      [:p.text (tr desc)]]
+      [:p.text (tr desc)]] [kvspace/vertical-spacing]
      (when-not (keyword? details) [:p (tr :desc-detailed-title) ": "])
-     (when-not (keyword? details) [:p.text details]) [:p ""]
+     (when-not (keyword? details) [:p.text details]) [kvspace/vertical-spacing]
      [:div.w3-center
       [kvselector/v-selector nbooks selected (partial opts-go-to nbooks)
-       (partial opts-go-rel nbooks)]] [:p ""]]))
+       (partial opts-go-rel nbooks)]]]))

@@ -2,7 +2,8 @@
   (:require [kotws.lang :as klang]
             [kotws.links :as klinks]
             [kotws.components.v-bullet :as kvbullet]
-            [kotws.components.v-table :as kvtable]))
+            [kotws.components.v-table :as kvtable]
+            [kotws.components.v-space :as kvspace]))
 
 (def dic
   {:about-title {:en "About", :fr "A propos"},
@@ -61,7 +62,7 @@
       (klinks/a klinks/external-links
                 :sasu-societe
                 "SASU CAUMOND (cf. societe.com)") [kvtable/simple (get ids l)]]
-     [:p ""] [:p.text (current-tr :intro-sources)]
+     [kvspace/vertical-spacing] [:p.text (current-tr :intro-sources)]
      [kvbullet/bullet (get inspiration-sources l)]
      (klinks/a klinks/external-links :flaticon [:p (current-tr :icons)])
      (klinks/a klinks/external-links
