@@ -114,7 +114,8 @@
 l'intégration de la sous traitance dans les sociétés du group en prenant en compte la stratégie du groupe, la fiscalité et la logistique. L'intégration d'activités post manufacturing dans le réseau de distribution. L'intégration des contraintes des fabricants des équipements d'origine (OEM qui représente un tiers du chiffre d'affaire du groupe en Europe)."},
    :ea {:fr "Architecte Entreprise (EA) de la chaîne logistique",
         :en "Supply chain entreprise Architect (EA)"},
-   :ea-desc {},
+   :ea-desc {:fr "Responsable groupe de l'architecture de la chaîne logistique",
+             :en "Group Manager of Supply Chain Architecture"},
    :ea-long-desc
      {:fr
         [:<>
@@ -125,12 +126,12 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
            "Animer l’achat de progiciels, point focal pour les achats majeurs de licence logicielle: rédaction des documents en lien avec le fournisseur (Request for Information, Request for Quotation, Request for Proposal), `RFI/RFQ/RFP`, aligner les acteurs pour la prise de décision."
            [:ul
             [:li
-             "Un projet sur un ERP spécialisé dans l'automobile pour intégration avec les clients automobiles et leurs spécificité"]
+             "Un projet sur un ERP spécialisé dans l'automobile pour intégration avec les clients automobiles et leurs spécificités"]
             [:li
              "Un module de JDA pour le processus Sales & Operation du groupe,"]
             [:li "Un outil de chaîne logistique intégré pour une filiale"]]]
           [:li
-           "Étude de cadrage pour le programme de transformation OPE aval (un programme à plusieurs dizaines de millions) la petite équipe d'architecture du programme OPE, nous avions en charge de trouver des solutions (métiers et informatiques) quand elles font évoluer plusieurs métiers et équipes. Les missions: cadrer les interactions entre les métiers, superviser l'exécution des projets. Quelques études illustrant les activités:"
+           "Étude de cadrage pour le programme de transformation OPE aval (un programme à plusieurs dizaines de millions). J'étais intégré dans la petite équipe d'architecture du programme OPE pour définir les solutions inter-applications et inter-métiers. Quelques études illustrant les activités:"
            [:ul
             [:li
              "L'intégration de la sous traitance dans les sociétés du group en prenant en compte la stratégie du groupe, la fiscalité et la logistique."]
@@ -157,7 +158,7 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
             [:li "A JDA module for the group's Sales & Operation process,"]
             [:li "An integrated supply chain tool for a subsidiary"]]]
           [:li
-           "Scoping study for the downstream OPE transformation program (a program worth several tens of millions) the small architecture team of the OPE program, we were in charge of finding solutions (business and IT) when they make several businesses and teams evolve. The missions: framing the interactions between the businesses, supervising the execution of the projects. Some studies illustrating the activities:"
+           "Scoping study for the downstream OPE transformation program (a program worth several tens of millions). I was integrated into the small OPE program architecture team to define inter-application and inter-business solutions. Some studies illustrating the activities:"
            [:ul
             [:li
              "The integration of subcontracting in the group companies by taking into account the group's strategy, taxation and logistics."]
@@ -298,7 +299,8 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
         "In the early days of e-commerce, I built solely a jewelery e-commerce site with its order taking process (order to cash). In particular, the cost of the average basket required spectial attention to the customer and resistance to scammers."},
    :phd {:fr "Doctorat en recherche opérationnelle",
          :en "PhD in operation research"},
-   :phd-desc {:fr "", :en ""},
+   :phd-desc {:fr "Découvrir l'industrie à travers la recherche opérationnelle",
+              :en "Discovering the industry through operational research"},
    :phd-long-desc
      {:fr
         [:p
@@ -310,7 +312,18 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
            "MICHELIN : Planification automatisée des ateliers de manufacture pneumatiques (déployé sur 20 sites)."]
           [:li "MICHELIN : Planification des pistes de tests."]]
          [:p
-          "Ces cas pratiques m'ont permis de découvrir ces industries, d'étudier leurs contraintes afin de proposer des solutions réalistes."]]}})
+          "Ces cas pratiques m'ont permis de découvrir ces industries, d'étudier leurs contraintes afin de proposer des solutions réalistes."]],
+      :en
+        [:p
+         "Thanks to a ministerial scholarship (MENRT) obtained on merit during the DEA, I had the ideal conditions to navigate between theory and practice with various industries:"
+         [:ul [:li "PSA: Balancing of automobile assembly lines."]
+          [:li "PSA: Scheduling of multipurpose ironwork sites."]
+          [:li "ERAMET: Scheduling of hot forging workshops."]
+          [:li
+           "MICHELIN: Automated planning of tire manufacturing workshops (deployed on 20 sites)."]
+          [:li "MICHELIN: Planning of test tracks."]]
+         [:p
+          "These practical cases allowed me to discover these industries, to study their constraints in order to propose realistic solutions."]]}})
 
 (def tr (partial klang/tr dic))
 
