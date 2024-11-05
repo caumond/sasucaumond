@@ -261,7 +261,7 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
           "En parallèle de mes postes, j’ai développé deux outils d’optimisation utilisés en production sur plus de dix ans :"]
          [:ul
           [:li
-           "Outil d’optimisation du réseau de distribution (Busaker & Gowen). Cet outil calcule hebdomadairement, depuis plus de 10 ans, pour des dizaines de milliers de références, centre de distribution est alimenté de quelle usine."]
+           "Outil d’optimisation du réseau de distribution (Busaker & Gowen). Toutes les semaines depuis plus de 10 ans, cet outil calcule le réseau de distribution pour des dizaines de milliers de références. Ainsi, il est défini quel centre de distribution est alimenté par quel autre, jusqu'à remonter à l'usine qui produit l'articles."]
           [:li
            "Outil d’optimisation pour décider quoi acheter et quoi fabriquer (Make or buy) sur les fibres textiles, en fonction de l'évolution du besoin, du réalisé, et des contrats."]]],
       :en
@@ -381,3 +381,7 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
     [:<> [:h1.text (current-tr :sc-title)] [:div.text (current-tr :intro)]
      [kvspace/vertical-spacing]
      [kvheadered-list/detailed-list (get sc-steps l) :small] [:p ""]]))
+
+;;TODO Mettre la photo sur malt, et sur le CV
+;;TODO Envoyer les mails
+;;TODO Post sur linkedin
