@@ -52,20 +52,17 @@
   (reduce (fn [hiccup {:keys [fa-icon href label image], :as item}]
             (conj hiccup
                   (when (seq item)
-                    [:a
-                     (cond-> {}
-                       href (merge (assoc (klinks/link-meta href)
-                                     :class "w3-hover-opacity")))
-                     [:div.w3-tooltip.w3-button {:style {:overflow "visible"}}
-                      (if fa-icon
-                        [:p.fa
-                         (cond-> {:class fa-icon}
-                           href (update :class #(str "w3-hover-opacity " %)))]
-                        [kvlabelled-image/icon-image image href])
-                      [:div.w3-text.w3-tag
-                       {:style
-                          {:bottom "-1em", :left "-1em", :position "absolute"}}
-                       label]]])))
+                    [:div.w3-tooltip.w3-button.w3-hover-opacity
+                     {:style {:overflow "visible"}}
+                     (if fa-icon
+                       [:p.fa
+                        (cond-> {:class fa-icon}
+                          href (update :class #(str "w3-hover-opacity " %)))]
+                       [kvlabelled-image/icon-image image href])
+                     [:div.w3-text.w3-tag
+                      {:style
+                         {:bottom "-1em", :left "-1em", :position "absolute"}}
+                      label]])))
     [:div.w3-container (when (string? title) [:h4 [:b title]])]
     (vals items)))
 

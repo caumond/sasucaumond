@@ -33,7 +33,7 @@
    :contacts-header :contact,
    :contacts {:linkedin {:fa-icon "fa-linkedin", :label "Linkedin"},
               :mail {:fa-icon "fa-envelope-open",
-                     :href "mailto:anthony@caumond.com",
+                     :href {:url "mailto:anthony@caumond.com"},
                      :label "Mail"},
               :slack {:fa-icon "fa-slack", :label "Slack"},
               :malt {:label "Malt"},

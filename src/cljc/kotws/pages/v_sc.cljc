@@ -119,9 +119,9 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
    :ea-long-desc
      {:fr
         [:<>
-         [:p
+         [:div
           "L’architecture entreprise (EA) est le poste que j’ai visé en démarrant ma carrière chez Michelin car il permet d’avoir une vision d’ensemble des logiciels de la chaîne logistique du groupe Michelin, et d’animer, d’influencer leurs décisions structurantes."]
-         [:lu [:li "Études niveau exécutifs,"]
+         [:ul [:li "Études niveau exécutifs,"]
           [:li
            "Animer l’achat de progiciels, point focal pour les achats majeurs de licence logicielle: rédaction des documents en lien avec le fournisseur (Request for Information, Request for Quotation, Request for Proposal), `RFI/RFQ/RFP`, aligner les acteurs pour la prise de décision."
            [:ul
@@ -147,9 +147,9 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
            "Faire et entretenir son réseau parmi les vendeurs de logiciels de chaîne logistique: OMP, JDA, ORACLE, INFOR, ..."]]],
       :en
         [:<>
-         [:p
+         [:div
           "Enterprise Architecture (EA) is the position I aimed for when I started my career at Michelin because it allows me to have an overview of the software in the Michelin group's Supply Chain, and to lead and influence their structuring decisions."]
-         [:lu [:li "Executive level studies,"]
+         [:ul [:li "Executive level studies,"]
           [:li
            "Lead the purchase of software packages, focal point for major software license purchases: drafting documents in connection with the supplier (Request for Information, Request for Quotation, Request for Proposal), `RFI/RFQ/RFP`, aligning stakeholders for decision-making."
            [:ul
@@ -303,7 +303,7 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
               :en "Discovering the industry through operational research"},
    :phd-long-desc
      {:fr
-        [:p
+        [:div
          "Grâce à une bourse ministérielle (MENRT) obtenue au mérite pendant le DEA, j'ai eu les conditions idéales pour naviguer entre la théorie et la pratique avec des industries variées:"
          [:ul [:li "PSA : Équilibrage des lignes d'assemblage automobiles."]
           [:li "PSA : Ordonnancement des chantiers polyvalents de ferrage."]
@@ -314,7 +314,7 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
          [:p
           "Ces cas pratiques m'ont permis de découvrir ces industries, d'étudier leurs contraintes afin de proposer des solutions réalistes."]],
       :en
-        [:p
+        [:div
          "Thanks to a ministerial scholarship (MENRT) obtained on merit during the DEA, I had the ideal conditions to navigate between theory and practice with various industries:"
          [:ul [:li "PSA: Balancing of automobile assembly lines."]
           [:li "PSA: Scheduling of multipurpose ironwork sites."]
