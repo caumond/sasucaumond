@@ -29,7 +29,7 @@
             (conj hiccup
                   ^{:key name}
                   [:li.text [:i.fa.w3-margin-right {:class fa-icon}]
-                   [:b.text.w3-margin-right
-                    [:a (klinks/to-meta href) label ":"]] desc]))
+                   [:b.text.w3-margin-right (klinks/a href (str label ":"))]
+                   desc]))
     [:ul.w3-ul]
     (vals items)))

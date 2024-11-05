@@ -1,6 +1,7 @@
 (ns kotws.components.v-lists
   "Component to list values."
-  (:require [kotws.components.items :as kcitems]))
+  (:require [kotws.components.items :as kcitems]
+            [kotws.links :as klinks]))
 
 (defn defaulting
   "Add default values for `href` and the `label`"
@@ -28,9 +29,8 @@
                    (when (seq item)
                      [:a
                       (cond-> {}
-                        href (assoc :href
-                               (:url href) :class
-                               "w3-hover-opacity"))
+                        href (merge (assoc (klinks/link-meta href)
+                                      :class "w3-hover-opacity")))
                       [:div.w3-block.w3-left-align
                        {:class [(if href
                                   "w3-button w3-hover-opacity"
@@ -51,16 +51,15 @@
                   (when (seq item)
                     [:a
                      (cond-> {}
-                       href (assoc :href
-                              (:url href) :class
-                              "w3-hover-opacity"))
+                       href (merge (assoc (klinks/link-meta href)
+                                     :class "w3-hover-opacity")))
                      [:div.w3-tooltip.w3-button {:style {:overflow "visible"}}
                       [:p.fa
                        (cond-> {:class fa-icon}
                          href (update :class #(str "w3-hover-opacity " %)))]
                       [:div.w3-text.w3-tag
                        {:style
-                          {:bottom "4em", :left "-1em", :position "absolute"}}
+                          {:bottom "-1em", :left "-1em", :position "absolute"}}
                        label]]])))
     [:div.w3-container (when (string? title) [:h4 [:b title]])]
     (vals items)))

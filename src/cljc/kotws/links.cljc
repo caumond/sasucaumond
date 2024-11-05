@@ -13,9 +13,17 @@
    :clever-cloud "https://www.clever-cloud.com/en/",
    :clojure "https://clojure.org",
    :clojurescript "https://clojurescript.org/",
+   :clojure-programming
+     "https://www.oreilly.com/library/view/clojure-programming/9781449310387/",
+   :clean-archi
+     "https://www.oreilly.com/library/view/clean-architecture-a/9780134494272/",
+   :clean-code
+     "https://www.oreilly.com/library/view/clean-code-a/9780136083238/",
    :cor-time-lag
      "https://www.sciencedirect.com/science/article/pii/S0305054806002930",
    :demo-making "https://en.wikipedia.org/wiki/Demoscene",
+   :ddd
+     "https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/",
    :distribution-network
      "https://fr.wikipedia.org/wiki/Algorithme_de_Busacker_et_Gowen",
    :doom-emacs "https://github.com/doomemacs/doomemacs",
@@ -37,6 +45,7 @@
    :make-or-buy-optimization
      "https://www.investopedia.com/terms/m/make-or-buy-decision.asp",
    :phd "https://tel.archives-ouvertes.fr/tel-00713587/document",
+   :platform-revolution "https://wwnorton.com/books/Platform-Revolution",
    :plm "https://fr.wikipedia.org/wiki/Gestion_du_cycle_de_vie_(produit)",
    :re-frame "https://github.com/day8/re-frame",
    :reitit "https://github.com/metosin/reitit",
@@ -123,20 +132,37 @@
            external-links-data)
       (ksubmap/add-key :name)))
 
-(defn to-meta
-  [links]
-  (when (map? links)
-    (let [{:keys [url target]} links] {:href url, :target target})))
+(defn img-meta
+  [link]
+  (when (map? link)
+    (let [{:keys [url target alt name], :or {url "images/no_image.png"}} link]
+      {:src url, :target target, "linkname" name, :alt alt})))
+
+(defn link-meta
+  [link]
+  (when (map? link)
+    (let [{:keys [url target alt name]} link]
+      {:href url, :target target, "link-name" name, :alt alt})))
 
 (defn external-link [kw] (if (keyword? kw) (external-links kw) kw))
+
+(defn a
+  ([link content]
+   [:a
+    (-> link
+        link-meta) content])
+  ([links kw content]
+   [:a
+    (-> (get links kw)
+        link-meta) content]))
 
 (def image-links
   (-> image-links-data
       (ksubmap/add-key :name)
-      (update-vals (fn [{:keys [filename]}]
-                     {:type :image-link,
-                      :url (str site-url "images/" filename),
-                      :filename filename}))))
+      (update-vals (fn [{:keys [filename], :as image-link}]
+                     (assoc image-link
+                       :type :image-link
+                       :url (str site-url "images/" filename))))))
 
 (defn image-link
   "The image `url` matching `kw`"

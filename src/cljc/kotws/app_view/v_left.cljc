@@ -71,5 +71,6 @@
       (klinks/route-link header-link) nil :full]
      [:div.w3-left-align
       [kvlists/one-per-row bottom-line-header (get bottom-line l)]
-      (kvlists/small-buttons (get contacts-header l) (get contacts l))
-      [kvlists/one-per-row (get left-menu-header l) (get left-menu l)] [:p ""]]]))
+      [kvlists/small-buttons (get contacts-header l) (get contacts l)]
+      [kvlists/one-per-row (get left-menu-header l) (get left-menu l)]
+      [:p ""]]]))

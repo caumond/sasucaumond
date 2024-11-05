@@ -58,11 +58,12 @@
         inspiration-sources (defaulting* items)]
     [:<> [:h1.text "SASU CAUMOND"]
      [:div.text (current-tr :introduce-sasu)
-      [:a {:href (:url (klinks/external-link :sasu-societe))}
-       "SASU CAUMOND (cf. societe.com)"] [kvtable/simple (get ids l)]] [:p ""]
-     [:p.text (current-tr :intro-sources)]
+      (klinks/a klinks/external-links
+                :sasu-societe
+                "SASU CAUMOND (cf. societe.com)") [kvtable/simple (get ids l)]]
+     [:p ""] [:p.text (current-tr :intro-sources)]
      [kvbullet/bullet (get inspiration-sources l)]
-     [:a {:href (:url (klinks/external-link :flaticon))}
-      [:p (current-tr :icons)]]
-     [:a {:href (:url (klinks/external-link :fontawesome))}
-      [:p (current-tr :font-awesome)]]]))
+     (klinks/a klinks/external-links :flaticon [:p (current-tr :icons)])
+     (klinks/a klinks/external-links
+               :fontawesome
+               [:p (current-tr :font-awesome)])]))
