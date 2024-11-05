@@ -36,6 +36,7 @@
                      :href "mailto:anthony@caumond.com",
                      :label "Mail"},
               :slack {:fa-icon "fa-slack", :label "Slack"},
+              :malt {:label "Malt"},
               :git-hub {:fa-icon "fa-github", :label "Github"}},
    :left-menu-header :content-title,
    :left-menu {:marked :menu?}})

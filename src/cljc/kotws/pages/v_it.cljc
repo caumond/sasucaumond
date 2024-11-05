@@ -149,7 +149,8 @@
    [:make-or-buy-optimization {}] [:distribution-network {}]
    [:dss {:img-url :optimization}] [:bcoo {}]
    [:jewelry-website {:img-url :web-caumond, :href :web-caumond-archive}]
-   [:isima {}] [:jewelry-ecommerce {}] [:demo-making {}]
+   [:isima {:start "01/09/1998", :end "01/09/2001", :company "ISIMA"}]
+   [:jewelry-ecommerce {}] [:demo-making {}]
    [:coding-for-fun {:img-url :z80, :href :z80}]])
 
 (def tr (partial klang/tr dic))

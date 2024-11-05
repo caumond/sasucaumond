@@ -53,3 +53,20 @@
   * `width-kw` width of the picture"
   [img-link href-link label width-kw]
   (v-labelled-image img-link href-link label width-kw "w3-container"))
+
+(defn icon-image
+  "Display an image to match other icons"
+  [img-link href-link]
+  (let [href-link (if (map? href-link) href-link {})
+        width (ksizes/predefined-size :icon)]
+    [klinks/a href-link
+     [:img.w3-image
+      (assoc (klinks/img-meta img-link)
+        :style {:max-width width,
+                :width width,
+                :min-width width,
+                :margin-block-start "1em",
+                :margin-block-end "1em",
+                :margin-inline-start "0px",
+                :margin-inline-end "0px",
+                :unicode-bidi "isolate"})]]))

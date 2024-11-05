@@ -44,6 +44,7 @@
    :linkedin "https://www.linkedin.com/in/anthony-caumond-a365b15/",
    :make-or-buy-optimization
      "https://www.investopedia.com/terms/m/make-or-buy-decision.asp",
+   :malt "https://www.malt.fr/profile/anthonycaumond?overview",
    :phd "https://tel.archives-ouvertes.fr/tel-00713587/document",
    :platform-revolution "https://wwnorton.com/books/Platform-Revolution",
    :plm "https://fr.wikipedia.org/wiki/Gestion_du_cycle_de_vie_(produit)",
@@ -99,6 +100,7 @@
    :jewelry-ecommerce {:filename "jewelry.png"},
    :kafka {:filename "kafka.png"},
    :make-or-buy-optimization {:filename "make_or_buy.png"},
+   :malt {:filename "malt.png"},
    :market-knowledge {:filename "people_network.png"},
    :math {:filename "math.png"},
    :no-image {:filename "no_image.png"},

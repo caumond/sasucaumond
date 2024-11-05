@@ -11,11 +11,11 @@
 (defn c-panel-el
   []
   (let [active-panel @(rf/subscribe [::subs/active-panel])]
-    [:<> [c-header "5vh"]
-     [:div.w3-row {:style {:max-width "1600px", :min-height "80vh"}}
+    [:<> [c-header "7vh"]
+     [:div.w3-row {:style {:max-width "1600px", :min-height "76vh"}}
       [:div.w3-container.w3-quarter.left-menu [:div.w3-card [c-left]]]
       [:div.w3-col.w3-hide-small.w3-hide-medium {:style {:width "4vw"}}
        [:p " "]]
       [:div.w3-rest.printable-content.w3-card.w3-container
        (kws-page-place-holder/page active-panel) [kvspace/vertical-spacing]]]
-     [kvspace/vertical-spacing] [c-footer "15vh"]]))
+     [kvspace/vh-spacing] [c-footer "15vh"]]))

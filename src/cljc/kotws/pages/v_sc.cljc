@@ -75,29 +75,36 @@
           [:li "optimization, a mathematical method to find a good solution,"]
           [:li
            "simulation to confront hypotheses with their internal plausibility and with respect to experts."]]]},
-   :plm {:en "Product owner of an in-house PLM",
-         :fr "Cycle de vie produit (PLM)"},
-   :plm-desc {:fr "Construction d'un PLM (Product Lifecycle Management)",
-              :en "Building an in-house PLM"},
+   :plm {:en "Product manager of an in-house PLM",
+         :fr "Chef projet de l'outil de cycle de vie produit (PLM)"},
+   :plm-desc
+     {:fr
+        "Un PLM est un outil de gestion du cycle de vie du produit, permettant de créer un référentiel de produits, gammes et nomenclatures et de gérer les évolutions de chacun et leurs éventuels impacts sur le reste de la chaîne de production.",
+      :en
+        "A PLM is a product lifecycle management tool, allowing you to create a repository of products, ranges and nomenclatures and to manage the developments of each and their possible impacts on the rest of the production chain."},
    :plm-long-desc
      {:fr
-        "Une fois la vision connue et partagée, la première étape a été de lever les 30 millions d'Euros nécessaires, identifier la première marche à gravir (think big, start small, roll out fast), trouver des clients intéressés et monter l'équipe. A l'époque constituée d'une petite dizaine de personnes, construire l'équipe a été une gageure tant le sujet est difficile à faire émerger.",
+        [:<>
+         [:p
+          "Suite à mon expérience d'architecte métier sur le programme OPE amont, j'ai acquis une vision précise de ce que devait être les références produits pour les usines de produits finis. Les deux programmes auquel j'ai participé ont géré leur nomenclature, il restait les 60 usines de fabrication de pneus, le coeur de la valeur ajoutée de Michelin."]
+         [:ul
+          [:li
+           "Chef de projet: j'ai trouvé un premier client, un périmètre raisonnable, construit une équipe métier et informatique,"]
+          [:li
+           "Responsable produit: construire la vision technico-fonctionnelle du nouveau processus et son outillage"]]
+         [:p
+          "Sur un sujet tellement technique, c'était une gageure de partager une vision, avec les décideurs, les clients et les équipes internes."]],
       :en
-        "Once the vision was known and shared, the first step was to raise the 30 million Euros needed, identify the first step to take (think big, start small, roll out fast), find interested customers, and build the team. At the time made up of about ten people, building the team was a challenge as the subject was difficult to bring out."},
-   :plm-start {:fr "Un PLM de l'amont et l'aval",
-               :en "Creation, selling, and materialization of the vision"},
-   :plm-start-desc {:fr "Orienter le groupe dans son prochain grand programme",
-                    :en "Guiding the group in its next major program"},
-   :plm-start-long-desc
-     {:en
-        "A PLM is a product lifecycle management tool, that allows you to create a repository of products, ranges, and bills of materials and to manage the changes of each and their possible impacts on the rest of the production chain. The two programs I participated in dealt with their bill of materials, leaving untouched the 60 tire manufacturing plants - the heart of Michelin's added value. In a team of three people, I was an important, committed, and exposed collaborator in building this vision, presenting it, taking the comments and bringing out a consensual but meaningful synthesis.",
-      :fr
-        "Un PLM est un outil de gestion du cycle de vie du produit, permettant de créer un référentiel de produits, gammes et nomenclatures et de gérer les évolutions de chacun et leurs éventuels impacts sur le reste de la chaîne de production. Les deux programmes auquel j'ai participé traiter de leur nomenclature, il restait les 60 usines de construction de pneus, le coeur de la valeur ajoutée de Michelin. Dans une équipe de trois personnes, j'ai été un collaborateur important, engagé et exposé pour construire cette vision, l'exposer, prendre les remarques et faire émerge une synthèse consensuelle mais pleine de sens."},
-   :downstream-ope {:fr "Etudes cadres d'un programme de transformation majeur",
-                    :en "Framework studies for a major transformation program"},
-   :downstream-ope-desc
-     {:en "Framing another program worth several tens of millions of euros",
-      :fr "Cadrage d'un autre programme de plusieurs dizaines de millions d'€"},
+        [:<>
+         [:p
+          "Following my experience as a business architect on the upstream OPE program, I acquired a precise vision of what the product references should be for the finished product factories. The two programs I participated in managed their nomenclature, all that remained were the 60 tire manufacturing plants, the heart of Michelin's added value."]
+         [:ul
+          [:li
+           "Project manager: I found a first customer, a reasonable scope, built a business and IT team,"]
+          [:li
+           "Product manager: build the technical-functional vision of the new process and its tools"]]
+         [:p
+          "On such a technical subject, it was a challenge to share a vision with decision-makers, customers and internal teams."]]},
    :downstream-ope-long-desc
      {:en
         "As a team member of the architecture team of the OPE program (cf. the hyperlink), we were in charge of finding business, and I.T. solutions when they concerned many teams and metiers. The missions are: to define interactions between metiers and supervise project execution.
@@ -105,61 +112,134 @@
       :fr
         "Participant à l'équipe d'architecture du programme OPE (cf. le lien), nous avions en charge de trouver des solutions (métiers et informatiques) quand elles font évoluer plusieurs métiers et équipes. Les missions: cadrer les interactions entre les métiers, superviser l'exécution des projets. Quelques études illustrant les activités:
 l'intégration de la sous traitance dans les sociétés du group en prenant en compte la stratégie du groupe, la fiscalité et la logistique. L'intégration d'activités post manufacturing dans le réseau de distribution. L'intégration des contraintes des fabricants des équipements d'origine (OEM qui représente un tiers du chiffre d'affaire du groupe en Europe)."},
-   :market-knowledge
-     {:en "Knowledge of the main Supply Chain software package",
-      :fr "Connaissance des principaux progiciels de la chaîne logistique"},
-   :market-knowledge-long-desc
+   :ea {:fr "Architecte Entreprise (EA) de la chaîne logistique",
+        :en "Supply chain entreprise Architect (EA)"},
+   :ea-desc {},
+   :ea-long-desc
      {:fr
-        "Ce poste a été l'occasion de rencontrer régulièrement les principaux vendeurs de logiciels de chaîne logistique: OMP, JDA, ORACLE, INFOR et d'approfondir leurs offres.",
+        [:<>
+         [:p
+          "L’architecture entreprise (EA) est le poste que j’ai visé en démarrant ma carrière chez Michelin car il permet d’avoir une vision d’ensemble des logiciels de la chaîne logistique du groupe Michelin, et d’animer, d’influencer leurs décisions structurantes."]
+         [:lu [:li "Études niveau exécutifs,"]
+          [:li
+           "Animer l’achat de progiciels, point focal pour les achats majeurs de licence logicielle: rédaction des documents en lien avec le fournisseur (Request for Information, Request for Quotation, Request for Proposal), `RFI/RFQ/RFP`, aligner les acteurs pour la prise de décision."
+           [:ul
+            [:li
+             "Un projet sur un ERP spécialisé dans l'automobile pour intégration avec les clients automobiles et leurs spécificité"]
+            [:li
+             "Un module de JDA pour le processus Sales & Operation du groupe,"]
+            [:li "Un outil de chaîne logistique intégré pour une filiale"]]]
+          [:li
+           "Étude de cadrage pour le programme de transformation OPE aval (un programme à plusieurs dizaines de millions) la petite équipe d'architecture du programme OPE, nous avions en charge de trouver des solutions (métiers et informatiques) quand elles font évoluer plusieurs métiers et équipes. Les missions: cadrer les interactions entre les métiers, superviser l'exécution des projets. Quelques études illustrant les activités:"
+           [:ul
+            [:li
+             "L'intégration de la sous traitance dans les sociétés du group en prenant en compte la stratégie du groupe, la fiscalité et la logistique."]
+            [:li
+             "L'intégration d'activités post manufacturing dans le réseau de distribution."]
+            [:li
+             "L'intégration des contraintes des fabricants des équipements d'origine (OEM qui représente un tiers du chiffre d'affaire du groupe en Europe)"]]]
+          [:li
+           "Cadrage de l’outil de planification des ventes et des opérations (S&OP)"]
+          [:li
+           "Intelligence Artificielle pour la chaîne logistique: contrairement à l'avis initial du management, faire comprendre l'intérêt économique et compétitif de préférer créer une équipe interne que d’acheter du logiciel"]
+          [:li
+           "Faire et entretenir son réseau parmi les vendeurs de logiciels de chaîne logistique: OMP, JDA, ORACLE, INFOR, ..."]]],
       :en
-        "That position was an opportunity to meet the main Supply Chain software vendors: OMP, JDA, ORACLE, and INFOR, but also to understand their offers."},
-   :market-knowledge-desc
-     {:en "Supply Chain Professionals Network",
-      :fr "Réseau des professionnels de la chaîne logistique"},
-   :software-purchasing {:fr "Achat de logiciel de chaîne logistique",
-                         :en "Supply Chain software package purchasing"},
-   :software-purchasing-desc {:fr "Négocier du logiciel",
-                              :en "Software trading"},
-   :software-purchasing-long-desc
-     {:en
-        "As an enterprise architect, I was the focal point for major software license purchases in the supply chain domain. A JDA S&OP module (see article in the link), a project on an ERP specialized in the automotive industry for integration with automotive customers and their specificities. An integrated supply chain tool for a subsidiary. This consists of writing documents related to the supplier (Request for Information, Request for Quotation, Request for Proposal), `RFI/RFQ/RFP`, aligning actors for decision-making, and software purchase.",
-      :fr
-        "En tant qu'architecte entreprise, j'étais le point focal pour les achats majeurs de licence logicielle en chaîne logistique. Un module S&OP de JDA (cf. article dans le lien), un projet sur un ERP spécialisé dans l'automobile pour intégration avec les clients automobiles et leurs spécificités. Un outil de chaîne logistique intégré pour une filiale. Cela consiste dans la rédaction des documents en lien avec le fournisseur (Request for Information, Request for Quotation, Request for Proposal), `RFI/RFQ/RFP`, aligner les acteurs pour la prise de décision, l'achat du logiciel."},
+        [:<>
+         [:p
+          "Enterprise Architecture (EA) is the position I aimed for when I started my career at Michelin because it allows me to have an overview of the software in the Michelin group's Supply Chain, and to lead and influence their structuring decisions."]
+         [:lu [:li "Executive level studies,"]
+          [:li
+           "Lead the purchase of software packages, focal point for major software license purchases: drafting documents in connection with the supplier (Request for Information, Request for Quotation, Request for Proposal), `RFI/RFQ/RFP`, aligning stakeholders for decision-making."
+           [:ul
+            [:li
+             "A project on an ERP specialized in the automobile industry for integration with automobile customers and their specificities"]
+            [:li "A JDA module for the group's Sales & Operation process,"]
+            [:li "An integrated supply chain tool for a subsidiary"]]]
+          [:li
+           "Scoping study for the downstream OPE transformation program (a program worth several tens of millions) the small architecture team of the OPE program, we were in charge of finding solutions (business and IT) when they make several businesses and teams evolve. The missions: framing the interactions between the businesses, supervising the execution of the projects. Some studies illustrating the activities:"
+           [:ul
+            [:li
+             "The integration of subcontracting in the group companies by taking into account the group's strategy, taxation and logistics."]
+            [:li
+             "The integration of post-manufacturing activities in the distribution network."]
+            [:li
+             "The integration of the constraints of the original equipment manufacturers (OEM which represents a third of the group's turnover in Europe)"]]]
+          [:li "Scoping of the sales and operations planning tool (S&OP)"]
+          [:li
+           "Artificial Intelligence for the supply chain: contrary to the initial opinion of management, make people understand the economic and competitive interest of preferring to create an internal team rather than buying software"]
+          [:li
+           "Build and maintain your network among supply chain software vendors: OMP, JDA, ORACLE, and INFOR"]]]},
    :apics {:fr "Certification BASICS à l'APICS",
            :en "Certification for BASICS - APICS"},
    :apics-desc {:fr "BASICS acquis, niveau CPIM",
                 :en "BASICS acquired, CPIM level"},
    :apics-long-desc
      {:en
-        "I was certified with MGCM with a BASICS level of APICS. Supply chain oriented, dealing with methods and tools, this training gives a comprehensive panorama of the supply chain. I followed and learned the main part of the CPIM but had to stop to focus on the upstream program which was running in parallel.",
+        "I was certified with MGCM with a BASICS level of APICS (certification not renewed). Supply chain oriented, dealing with methods and tools, this training gives a comprehensive panorama of the supply chain. I followed and learned the main part of the CPIM but had to stop to focus on the upstream program which was running in parallel.",
       :fr
-        "J'ai été certifié par MGCM pour le niveau BASICS de l'APICS. Orientée chaîne logistique, outils et méthodes, cette formation fournit un panorama complet du sujet. J'ai travaillé une bonne partie du CPIM mais eu dû arrêter pour privilégier le programme amont qui se déroulait en parallèle."},
-   :upstream-ope {:fr "Transformation métier", :en "Business transformation"},
-   :upstream-ope-desc
+        "J'ai été certifié par MGCM pour le niveau BASICS de l'APICS (certification non renouvelée). Orientée chaîne logistique, outils et méthodes, cette formation fournit un panorama complet du sujet. J'ai travaillé une bonne partie du CPIM mais eu dû arrêter pour privilégier le programme amont qui se déroulait en parallèle."},
+   :business-archi-upstream-ope {:fr "Architecte métier",
+                                 :en "Business transformation"},
+   :business-archi-upstream-ope-desc
      {:fr "Dans l'équipe coeur d'un programme de 60 millions d'Euros",
       :en "In the core team of a 60 million Euro program"},
-   :upstream-ope-long-desc
+   :business-archi-upstream-ope-long-desc
      {:fr
-        "Au démarrage du programme OPE, les 60 sites de production de semi-finis sont gérés complétement localement. Ma contribution consiste à concevoir les processus de la chaîne logistique, construire le modèle de planification dans un PLM, intégrer la planification avec l'ERP et l'outil de gestion de magasin (WMS). Dans une position très exigeante, j'ai dû aligner avec des équipes engagées, souvent tendues et être un acteur majeur de l'arrêt du programme tel qu'il était et de son redémarrage dans une nouvelle forme.",
+        [:<>
+         "Un architecte métier construit les processus d'une transformation, il imagine les processus qui savent tirer partie de l'informatique."
+         [:ul
+          [:li
+           "Au démarrage du programme OPE, les 60 sites de production de semi-finis sont gérés complètement localement. La surcapacité et la flexibilité de cette industrie fait qu'elle s'adapte. Mais les à-coups du marché et les contraintes de matières premières amènent de nouveaux changements. Ma contribution consiste à concevoir les processus de la chaîne logistique, construire le modèle de planification dans un PLM, intégrer la planification avec l'ERP et l'outil de gestion de magasin (WMS). Dans une position très exigeante, j'ai dû aligner avec des équipes engagées, souvent tendues et être un acteur majeur de l'arrêt du programme tel qu'il était et de son redémarrage dans une nouvelle forme : "]
+          [:li
+           "Architecture Business, construction du modèle de données de planification"]
+          [:li "Process leader pour le planning de production "]]
+         [:p
+          "Le modèle de planification est un élément majeur de transformation du programme, car les références produit étaient fortement empruntes de connaissances non formelles, foncièrement inadaptées aux solutions informatiques. J'ai fait émergé ces concepts et réconcilié des visions très différentes. D'un point de vue technique industrielle, on ne sait pas homologuer et qualifier un produit à l'avance pour tous ses usages. Ce qui rends la notion de référence produit très particulière."]],
       :en
-        "At the start of the OPE program, the 60 semi-finished production sites are managed entirely locally. My contribution consists of designing the supply chain processes, building the planning model in a PLM, and integrating planning with the ERP and the warehouse management tool (WMS). In a very demanding position, I had to align with committed, often tense teams and be a major player in stopping the program as it was and restarting it in a new form."},
-   :pp {:fr "Expert planning de production",
-        :en "Production and distribution planning"},
-   :pp-desc
+        [:<>
+         "A business architect builds the processes of a transformation, he imagines the processes that know how to take advantage of IT."
+         [:ul
+          [:li
+           "At the start of the OPE program, the 60 semi-finished production sites are managed entirely locally. The overcapacity and flexibility of this industry allow it to adapt. But market fluctuations and raw material constraints bring new changes. My contribution consists of designing the supply chain processes, building the planning model in a PLM, integrating planning with the ERP and the warehouse management tool (WMS). In a very demanding position, I had to align with committed, often tense teams and be a major player in stopping the program as it was and restarting it in a new form: "]
+          [:li "Business Architecture, construction of the planning data model"]
+          [:li "Process leader for production planning "]]
+         [:p
+          "The planning model is a major element in the transformation of the program, because the product references were heavily borrowed from non-formal knowledge, fundamentally unsuited to IT solutions. I brought out these concepts and reconciled very different visions. From an industrial technical point of view, we do not know how to approve and qualify a product in advance for all its uses. Which makes the notion of product reference very particular."]]},
+   :pp-consultant {:fr "Expert et architecte planification de production",
+                   :en "Production Planning Expert and Architect"},
+   :pp-consultant-desc
+     {:fr "Expert (solution consultant) d'une application de master planning",
+      :en "Expert (solution consultant) of a master planning application"},
+   :pp-consultant-long-desc
      {:fr
-        "Expert (solution consultant) d'une application de master planning des usines produits finis",
+        [:<>
+         [:p
+          "SMPP était l'outil automatisé de planification de production des manufactures de produits finis de Michelin. Comme premier poste avec un contrat Michelin, il était donc naturel de devenir le consultant interne référent sur la planification de production. A ce poste, j'ai donc réalisé les missions suivantes :"]
+         [:ul
+          [:li
+           "Formation métier à la planification de production et à l'outil,"]
+          [:li
+           "Déploiement sur deux usines asiatiques et une d'Amérique du sud."]
+          [:li
+           "Modifier l'outil SMPP pour assister le démarrage de l'usine prévue pour le marché d'Amérique du sud,"]
+          [:li
+           "Puis cadrer le démarrage d'un outil de planification sur les 60 usines de semi-finis."]]],
       :en
-        "Expert (solution consultant) of a master planning application for finished product factories"},
-   :pp-long-desc
-     {:fr
-        "Déploiement sur des usines d'Asie et d'Amérique du sud. Construction et déploiement d'une solution de planification de production automatique, accompagnement d'une usine en construction dans la fabrication de planning robuste pour son démarrage.",
-      :en
-        "Deployment in factories in Asia and South America. Construction and deployment of an automatic production planning solution, and support for a factory under construction in the production of robust planning for its start-up."},
-   :drp {:fr "Expert planning de distribution - DRP",
-         :en "Distribution Resource Planning expert - DRP"},
-   :drp-desc {:fr "Expert du progiciel de Manugistics",
-              :en "Manugistics software package expert"},
-   :drp-long-desc
+        [:<>
+         [:p
+          "SMPP was the automated production planning tool for Michelin's finished product factories. As my first position with a Michelin contract, it was therefore natural to become the internal consultant responsible for production planning. In this position, I therefore carried out the following missions:"]
+         [:ul [:li "Training in production planning and the tool,"]
+          [:li "Deployment on two Asian factories and one in South America."]
+          [:li
+           "Modify the SMPP tool to support the start-up of the factory planned for the South American market,"]
+          [:li
+           "Then assist the start-up of a planning tool on the 60 semi-finished factories."]]]},
+   :deployment-consultant {:fr "Expert planning de distribution - DRP",
+                           :en "Distribution Resource Planning expert - DRP"},
+   :deployment-consultant-desc {:fr "Expert du progiciel de Manugistics",
+                                :en "Manugistics software package expert"},
+   :deployment-consultant-long-desc
      {:fr
         [:<>
          "J’ai commencé ma carrière dans le privé en devenant expert en planification de la distribution. La planification de distribution gére:"
@@ -213,36 +293,70 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
       :en "One of the first French jewelry websites - 2006"},
    :jewelry-ecommerce-long-desc
      {:fr
-        "Aux débuts du e-commerce, j'ai construit seul un site de e-commerce en bijouterie. Peu de sites e-commerces comparables existaient, il fallait donc tout inventer. En particulier, le coût du panier moyen nécessitait une attention particulière au client et une résistance aux escrocs.",
+        "Aux débuts du e-commerce, j'ai construit seul un site de e-commerce en bijouterie avec son processus de prise de commande (order to cash). Peu de sites e-commerces comparables existaient, il fallait donc tout inventer. En particulier, le coût du panier moyen nécessitait une attention particulière au client et une résistance aux escrocs.",
       :en
-        "In the early days of e-commerce, I built a jewelry e-commerce site on my own. Few comparable e-commerce sites existed, so we had to invent everything. In particular, the cost of the average basket required special attention to the customer and resistance to scammers."},
-   :isima {:fr "Ecole d'ingénieur", :en "Engineering school"},
-   :isima-desc
+        "In the early days of e-commerce, I built solely a jewelery e-commerce site with its order taking process (order to cash). In particular, the cost of the average basket required spectial attention to the customer and resistance to scammers."},
+   :phd {:fr "Doctorat en recherche opérationnelle",
+         :en "PhD in operation research"},
+   :phd-desc {:fr "", :en ""},
+   :phd-long-desc
      {:fr
-        "ISIMA - Filière simulation, modélisation et optimisation des systèmes industriels.",
-      :en
-        "ISIMA - Simulation, modeling, and optimization of industrial systems"},
-   :isima-long-desc
-     {:en
-        "At school, I've learned the basics of modeling, complex system simulation, production systems, and operational research: Markov chain, constraint and linear programming, heuristics, and metaheuristics.",
-      :fr
-        "A l'école, j'ai appris les rudiments de la modélisation, de la simulation des systèmes complexes, des systèmes de production et de recherche opérationnelle: les chaînes de Markov, programmation par contraintes, programmation linéaire,  heuristiques et métaheuristiques."}})
+        [:p
+         "Grâce à une bourse ministérielle (MENRT) obtenue au mérite pendant le DEA, j'ai eu les conditions idéales pour naviguer entre la théorie et la pratique avec des industries variées:"
+         [:ul [:li "PSA : Équilibrage des lignes d'assemblage automobiles."]
+          [:li "PSA : Ordonnancement des chantiers polyvalents de ferrage."]
+          [:li "ERAMET : Ordonnancement des ateliers de forge à chaud."]
+          [:li
+           "MICHELIN : Planification automatisée des ateliers de manufacture pneumatiques (déployé sur 20 sites)."]
+          [:li "MICHELIN : Planification des pistes de tests."]]
+         [:p
+          "Ces cas pratiques m'ont permis de découvrir ces industries, d'étudier leurs contraintes afin de proposer des solutions réalistes."]]}})
 
 (def tr (partial klang/tr dic))
 
 (def items
-  [[:hephaistox {:company "SASU Caumond", :start ""}]
-   [:plm {:company "Michelin", :start "", :end "31/10/2021"}]
-   [:ea {:company "Michelin", :start "", :end ""}]
-   [:downstream-ope {:company "Michelin", :start "", :end ""}]
-   [:market-knowledge {:company "Michelin", :start "", :end ""}]
-   [:software-purchasing {:company "Michelin", :start "", :end ""}]
-   [:apics {:company "Michelin", :start "", :end ""}]
-   [:upstream-ope {:start "01/07/2008", :end "01/04/2013", :company "Michelin"}]
-   [:pp {:start "01/07/2008", :end "01/04/2013", :company "Michelin"}]
-   [:drp {:start "01/06/2006", :end "01/07/2008", :company "Unilog"}]
-   [:jewelry-ecommerce {:start "01/05/2005", :end "01/07/2007"}]
-   [:isima {:start "01/09/1998", :end "01/09/2001", :company "ISIMA"}]])
+  [[:hephaistox {:company :sasu-caumond, :start "31/10/2021"}]
+   [:plm
+    {:company :michelin,
+     :start "01/01/2019",
+     :end "31/10/2021",
+     :skills [:technical-vulgarisation :plm :project-management
+              :executive-coaching]}]
+   [:ea
+    {:company :michelin,
+     :start "01/01/2016",
+     :end "01/01/2019",
+     :img-url :archi,
+     :skills [:ea :software-purchasing :executive-coaching :erp :ia]}]
+   [:apics {:company :mgcm, :start "", :end ""}]
+   [:business-archi-upstream-ope
+    {:start "01/04/2013",
+     :end "01/01/2016",
+     :company :michelin,
+     :skills [:plm :process-modelling :data-modelling :pp],
+     :img-url :upstream-ope}]
+   [:pp-consultant
+    {:img-url :pp,
+     :start "01/07/2008",
+     :end "01/04/2013",
+     :company :michelin,
+     :skills [:pp :consulting :architecture]}]
+   [:deployment-consultant
+    {:img-url :drp,
+     :href :drp,
+     :start "01/06/2006",
+     :end "01/07/2008",
+     :company :unilog,
+     :skills [:drp :stock-norms :make-or-buy :consulting]}]
+   [:jewelry-ecommerce
+    {:start "01/05/2005",
+     :end "01/07/2007",
+     :skills [:o2c :ecommerce :web-development]}]
+   [:phd
+    {:start "2001",
+     :end "2006",
+     :company :blaise-pascal-university,
+     :skills [:or :scheduling :pp]}]])
 
 (defn v-sc
   [l]
