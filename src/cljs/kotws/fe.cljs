@@ -9,7 +9,7 @@
 (defn- dev-warning
   "Warn in console if the dev mode setup?"
   []
-  (when config/debug? (println "dev mode")))
+  (when config/debug? (js/console.log "dev mode")))
 
 (defn mount-root
   []
@@ -30,7 +30,7 @@
 
 (defn init
   []
-  (println "Init frontend")
+  (js/console.log "Init frontend")
   ;; DB initialization should be done before `routes/setup!` so current
   ;; `url` can be turned into current route.
   (rf/dispatch-sync [::events/initialize-db])

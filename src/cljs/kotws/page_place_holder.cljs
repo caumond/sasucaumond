@@ -28,7 +28,7 @@
     (when-not (= defined-routes defined-pages)
       (let [page-wo-route (set/difference defined-pages defined-routes)
             route-wo-page (set/difference defined-routes defined-pages)]
-        (js/console.log "Error: route  is not ok")
+        (js/console.log "Error: routes are ko, see errors below:")
         (when-not (empty? page-wo-route)
           (js/console.log "Page without route" (pr-str page-wo-route)))
         (when-not (empty? route-wo-page)
