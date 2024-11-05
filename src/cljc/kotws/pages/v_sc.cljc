@@ -8,22 +8,72 @@
               :en "Supply Chain and industry"},
    :intro
      {:en
-        "I discovered the supply chain and its issues with my first engineering school internship. The supply chain is a story of people who have to work together. When I have to intervene, it is because there are decisions that can be improved and most of the time, this is because the decision-making process lacks information (scope or freshness). I.T. is king for transmitting information quickly. When the information is correct and the decisions can be improved, it is most of the time the decision is too complex to be made by a human brain, so we make the problem accessible by simplifying it. Operational research is the ideal tool to help with this decision-making use case.",
+        [:<>
+         [:p
+          "I see the Supply Chain as a story of people whose collaboration we want to improve, in the interest of the Company. The main tool for this is to have the right data in the right place and at the right time. This is why I have cultivated my skills in IT and mathematical optimization. As a consultant, I consider that my job is:"]
+         [:ul
+          [:li
+           "To choose the tools and methods adapted to your problem, whether in terms of cost, burden on people, available data and their quality."]
+          [:li
+           "To implement these tools and methods, with a high degree of requirement in the management of change and the ergonomics of the tools."]]
+         [:p
+          "Through my experience in various contexts (individual company, small workshops, industrial group, research team), and in different industries (automobile, jewelry, metallurgy, ...), I feel ready to take on all challenges, from the simplest problem to complex problems, even very complex."]
+         [:p
+          "I am able to work in the field, with managers and senior executives on objectives and framing, and to ensure the link between the two. Direct by nature, I prefer to \"agree on our disagreements\" than to remain silent. Indeed, the supply chain must make communications fluid, I try to do the same. Pragmatic, I would still do with the reality on the ground."]],
       :fr
-        "J'ai découvert la chaîne logistique et ses problématiques avec mon premier stage d'école d'ingénieur. La chaîne logistique, c'est une histoire d'hommes qui doivent travailler ensemble. Lorsque j'ai à intervenir c'est qu'il y a des décisions qui peuvent être améliorées et la plupart du temps, cela vient du fait que la prise de décisions manquaient d'informations (périmètre ou fraicheur). L'informatique est reine pour faire transiter les informations rapidement. Quand les informations sont correctes et les décisions perfectibles, c'est la plupart du temps que la décision est trop complexe pour être prise par un cerveau humain, on rend donc le problème accessible en le simplifiant. La recherche opérationnelle est l'outil idéal pour aider ces prises de décision."},
-   :intro-2
-     {:en
-        "The last possible case is that supply chain methods advance the company, most of the time by creating new processes. Of course, there are overlaps with operational research or computer science.",
-      :fr
-        "Le dernier cas possible, c'est que des méthodes de chaîne logistique font progresser l'entreprise, en créant de nouveaux processus la plupart du temps. Bien sûr il y a des adhérences avec la recherche opérationnelle ou l'informatique."},
+        [:<>
+         [:p
+          "Je vois la chaîne logistique comme une histoire d'Hommes dont on veut améliorer la collaboration, dans l'intérêt de l'Entreprise. L'outil majeur pour cela est d'avoir la bonne donnée au bon endroit et au bon moment. C'est pourquoi j'ai cultivé mes compétences en informatique et optimisation mathématique. En tant que consultant, je considère que mon métier est :"]
+         [:ul
+          [:li
+           "De choisir les outils et méthodes adaptés à votre problématique, que ce soit en termes de coût, de charge sur les personnes, de données disponibles et de leur qualité."]
+          [:li
+           "De mettre en place ces outils et méthodes, avec un haut degré d'exigence dans la conduite du changement et l'ergonomie des outils."]]
+         [:p
+          "Par mon expérience dans des contextes variés (entreprise individuelle, petits ateliers, groupe industriel, équipe de recherche), et dans différentes industries (automobile, bijouterie, métallurgie, ...), je me sens prêt à relever tous les défis, du problème le plus simple aux problèmes complexes, voire très complexes."]
+         [:p
+          "Je suis capable de travailler sur le terrain, avec des dirigeants et hauts dirigeants sur les objectifs et cadrage, et de m'assurer du lien entre les deux. De nature directe, je préfère \"être d'accord sur nos désaccords\" que de taire. En effet, la chaîne logistique doit rendre fluide les communications, j'essaie de faire même. Pragmatique, je ferais quand même avec la réalité du terrain."]]},
    :hephaistox {:fr "Hephaistox", :en "Hephaistox"},
    :hephaistox-desc {:fr "Mon offre chaîne logistique pour les PMIs",
                      :en "My SC offer for small and medium-sized enterprises"},
    :hephaistox-long-desc
      {:fr
-        "Je vends mes conseils en chaîne logistique avec Hephaistox. C'est une occasion pour moi de continuer à rester en connexion avec l'industrie, à en découvrir d'autres.",
+        [:<>
+         [:p
+          "Hephaistox est une offre en cours de préparation. Dans laquelle, j'ai appris la création d'entreprise, la prospection et l'élaboration d'une solution cloud."]
+         [:p
+          "Co-fondé avec mati, développeur de haut niveau, Hephaistox complète le \"conseil\" par une offre logicielle et méthodologique pour conforter les industriels dans leur prise de décision, afin d'aligner les équipes sur un même scénario."]
+         [:p "Les projets peuvent être:"]
+         [:ul [:li "Achat de machine,"]
+          [:li "Installation d'une nouvelle gamme de produits,"]
+          [:li "La reconfiguration d'un atelier,"]
+          [:li "La signature de contrat d'achat cadre."]]
+         [:p "Les méthodes sont:"]
+         [:ul
+          [:li
+           "la modélisation, une méthode scientifique pour limiter l'effort à ce qui est important,"]
+          [:li
+           "l'optimisation, une méthode mathématique pour chercher une bonne solution,"]
+          [:li
+           "la simulation pour confronter les hypothèses à leur vraissamblance interne et vis-à-vis des experts."]]],
       :en
-        "I am selling my supply chain consulting with Hephaistox. It is an opportunity for me to continue to stay connected with the industry, and to discover others."},
+        [:<>
+         [:p
+          "Hephaistox is an offer currently being prepared in which I learned about business creation, prospecting and the development of a cloud solution."]
+         [:p
+          "Co-founded with mati, a high-level developer, Hephaistox completes the \"consulting\" with a software and methodological offer to support manufacturers in their decision-making, in order to align teams on the same scenario."]
+         [:p "Projects can be:"]
+         [:ul [:li "Purchase of machine,"]
+          [:li "Installation of a new range of products,"]
+          [:li "Reconfiguration of a workshop,"]
+          [:li "Signing a framework purchase contract."]]
+         [:p "The methods are:"]
+         [:ul
+          [:li
+           "modeling, a scientific method to limit the effort to what is important,"]
+          [:li "optimization, a mathematical method to find a good solution,"]
+          [:li
+           "simulation to confront hypotheses with their internal plausibility and with respect to experts."]]]},
    :plm {:en "Product owner of an in-house PLM",
          :fr "Cycle de vie produit (PLM)"},
    :plm-desc {:fr "Construction d'un PLM (Product Lifecycle Management)",
@@ -110,9 +160,51 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
               :en "Manugistics software package expert"},
    :drp-long-desc
      {:fr
-        "En tant que consultant du progiciel qui délocalise les produits dans le réseau de distribution et par là-même gère les pénuries, j'ai participé au déploiement de ces nouvelles méthodes, paramétrer et accompagner le changement. Le déploiement s'est fait sur plusieurs années et a concerné 90% des ventes de pneumatiques du groupe Michelin.",
+        [:<>
+         "J’ai commencé ma carrière dans le privé en devenant expert en planification de la distribution. La planification de distribution gére:"
+         [:ul
+          [:li
+           "la demande à chaque point de vente / référence par comparaison entre les prévisions de vente et ce qui a été réellement vendu,"]
+          [:li
+           "la couverture des aléas par les \"normes de stock\". La remontée du besoin en prenant en compte les temps de transports, et des stocks déjà disponibles dans le réseau de distribution,"]
+          [:li
+           "ce qui est réellement disponible en démarrant par ce qui est promis par l'industrie (c'est à dire le besoin remonté contraint par les capacités industrielles),"]
+          [:li
+           " la gestion des pénuries et donc comment un manque de stock est priorisé entre deux destinations (en fonction des clients, des niveaux de stocks, …)."]]
+         [:p ""]
+         [:p
+          "En tant qu'expert, j'étais la personne qui assurait que les besoins étaient pris en compte correctement par l'outil et en même temps faire évoluer cette demande pour mieux prendre en compte les nouvelles possibilités de l'outil. Ce déploiement a été réalisé sur environ 90% de la valeur de la production Michelin."]
+         [:p ""]
+         [:p
+          "En parallèle de mes postes, j’ai développé deux outils d’optimisation utilisés en production sur plus de dix ans :"]
+         [:ul
+          [:li
+           "Outil d’optimisation du réseau de distribution (Busaker & Gowen). Cet outil calcule hebdomadairement, depuis plus de 10 ans, pour des dizaines de milliers de références, centre de distribution est alimenté de quelle usine."]
+          [:li
+           "Outil d’optimisation pour décider quoi acheter et quoi fabriquer (Make or buy) sur les fibres textiles, en fonction de l'évolution du besoin, du réalisé, et des contrats."]]],
       :en
-        "As a consultant for the software package that relocates products in the distribution network and thus manages shortages, I participated in the deployment of these new methods, and did setup and change management. The deployment took place over several years and concerned 90% of the Michelin group's tire sales."},
+        [:<>
+         "I started my career in the private sector by becoming an expert in distribution planning. Distribution planning manages:"
+         [:ul
+          [:li
+           "demand at each point of sale / reference by comparing sales forecasts and what was actually sold,"]
+          [:li
+           "covering unexpected events by \"stock norms\". Calculating the need by taking into account transport times and stocks already available in the distribution network,"]
+          [:li
+           "what is actually available by starting with what is promised by the industry (i.e. the need constrained by industrial capacities),"]
+          [:li
+           "shortage management and therefore how a lack of stock is prioritized between two destinations (depending on customers, stock levels, etc.)."]]
+         [:p ""]
+         [:p
+          "As an expert, I was the person who ensured that needs were taken into account correctly by the tool and at the same time develop this demand to better take into account the new possibilities of the tool. This deployment was carried out on approximately 90% of the value of Michelin production."]
+         [:p ""]
+         [:p
+          "In parallel with my positions, I developed two optimization tools used in production for more than ten years:"]
+         [:ul
+          [:li
+           "Distribution network optimization tool (Busaker & Gowen). This tool has been calculating weekly, for more than 10 years, for tens of thousands of references, which distribution center is supplied from which factory."]
+          [:li
+           "Optimization tool to decide what to buy and what to manufacture (Make or buy) on textile fibers, according to the evolution of the need, the realized, and the contracts."]]]},
    :jewelry-ecommerce {:fr "Processus de prise de commande",
                        :en "Practical order to cash knowledge"},
    :jewelry-ecommerce-desc
@@ -120,9 +212,9 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
       :en "One of the first French jewelry websites - 2006"},
    :jewelry-ecommerce-long-desc
      {:fr
-        "J'ai construit un processus de prise de commande intégrant les contraintes de la bijouterie aux débuts du e-commerce. Peu de sites e-commerces comparables existaient, et le coût du panier moyen nécessitait une attention particulière au client et une résistance aux escrocs.",
+        "Aux débuts du e-commerce, j'ai construit seul un site de e-commerce en bijouterie. Peu de sites e-commerces comparables existaient, il fallait donc tout inventer. En particulier, le coût du panier moyen nécessitait une attention particulière au client et une résistance aux escrocs.",
       :en
-        "I built an order-to-cash process that incorporated the constraints of jewelry in the early days of e-commerce. Few comparable e-commerce sites existed, and the cost of the average basket required special attention to the customer and resistance to scammers."},
+        "In the early days of e-commerce, I built a jewelry e-commerce site on my own. Few comparable e-commerce sites existed, so we had to invent everything. In particular, the cost of the average basket required special attention to the customer and resistance to scammers."},
    :isima {:fr "Ecole d'ingénieur", :en "Engineering school"},
    :isima-desc
      {:fr
@@ -138,9 +230,18 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
 (def tr (partial klang/tr dic))
 
 (def items
-  [[:hephaistox {}] [:plm {}] [:plm-start {}] [:downstream-ope {}]
-   [:market-knowledge {}] [:software-purchasing {}] [:apics {}]
-   [:upstream-ope {}] [:pp {}] [:drp {}] [:jewelry-ecommerce {}] [:isima {}]])
+  [[:hephaistox {:company "SASU Caumond", :start ""}]
+   [:plm {:company "Michelin", :start "", :end "31/10/2021"}]
+   [:ea {:company "Michelin", :start "", :end ""}]
+   [:downstream-ope {:company "Michelin", :start "", :end ""}]
+   [:market-knowledge {:company "Michelin", :start "", :end ""}]
+   [:software-purchasing {:company "Michelin", :start "", :end ""}]
+   [:apics {:company "Michelin", :start "", :end ""}]
+   [:upstream-ope {:start "01/07/2008", :end "01/04/2013", :company "Michelin"}]
+   [:pp {:start "01/07/2008", :end "01/04/2013", :company "Michelin"}]
+   [:drp {:start "01/06/2006", :end "01/07/2008", :company "Unilog"}]
+   [:jewelry-ecommerce {:start "01/05/2005", :end "01/07/2007"}]
+   [:isima {:start "01/09/1998", :end "01/09/2001", :company "ISIMA"}]])
 
 (defn v-sc
   [l]

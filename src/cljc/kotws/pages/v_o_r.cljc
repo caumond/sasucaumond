@@ -115,8 +115,12 @@
 
 (def items
   [[:hephaistox {}] [:tissue-tactical-planning {}] [:drp {}] [:cor-time-lag {}]
-   [:ejor-transport {}] [:phd {}] [:smpp {:img-url :tire}] [:forge-workshop {}]
-   [:cpferv {:img-url :psa}] [:isima {}]])
+   [:ejor-transport {}]
+   [:phd
+    {:start-date "01/09/2001",
+     :end-date "01/09/2006",
+     :company "Université Blaise Pascale"}] [:smpp {:img-url :tire}]
+   [:forge-workshop {}] [:cpferv {:img-url :psa}] [:isima {}]])
 
 (def tr (partial klang/tr dic))
 
