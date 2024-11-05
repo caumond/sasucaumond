@@ -3,6 +3,7 @@
             [kotws.links :as klinks]
             [kotws.components.v-images :as kvimages]
             [kotws.components.v-lang :as kvlang]
+            [kotws.components.v-space :as kvspace]
             [kotws.components.v-labelled-image :as vclabelled-image]))
 
 (def dic
@@ -50,12 +51,13 @@
   (let [{:keys [docs skills founding]} (defaulting* items tr)
         current-tr (partial tr l)
         w :small]
-    [:div [:h1.text (current-tr :home-msg)]
-     [:p.text (current-tr :resume-download)] [:p ""]
+    [:<> [:h1.text (current-tr :home-msg)]
+     [:p.text (current-tr :resume-download)] [kvspace/vertical-spacing]
      [kvlang/vclabelled-image l (:caumond-resume docs)]
-     [:p.text (current-tr :home-intro)] [:p ""]
-     [kvimages/image-cells skills current-tr :small] [:p ""]
+     [:p.text (current-tr :home-intro)] [kvspace/vertical-spacing]
+     [kvimages/image-cells skills current-tr :small] [kvspace/vertical-spacing]
      [:div.text (current-tr :next)]
      [:div.w3-center
       [vclabelled-image/labelled-image (klinks/image-link (:img-link founding))
-       (klinks/route-link :founder) (current-tr :founder) w]] [:p ""]]))
+       (klinks/route-link :founder) (current-tr :founder) w]]
+     [kvspace/vertical-spacing]]))

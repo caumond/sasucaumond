@@ -3,6 +3,7 @@
   (:require [kotws.components.v-labelled-image :as kvlabelled-image]
             [kotws.lang :as klang]
             [kotws.components.items :as kcitems]
+            [kotws.components.v-space :as kv-space]
             [kotws.components.sizes :as ksizes]))
 
 (defn defaulting
@@ -60,6 +61,9 @@
                           (when img-url
                             [kvlabelled-image/labelled-image img-url href ""
                              image-width-kw])]
-                         [:p.w3-panel.w3-leftbar.text.light-bg.adaptative desc]
-                         (when long-desc [:p.text long-desc])]]))
+                         [:div.w3-row-padding
+                          [:div.w3-panel.w3-leftbar.text.light-bg.adaptative
+                           desc] [:div (:start items)]]
+                         (when long-desc [:div.text long-desc])
+                         [kv-space/vertical-spacing]]]))
          [:tbody]))]))

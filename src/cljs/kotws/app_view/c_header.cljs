@@ -5,5 +5,5 @@
 
 (defn c-header
   "Component displaying the header."
-  []
-  (kheader/v-header (kfe-lang/current-language) kfe-lang/set-language))
+  [size]
+  (kheader/v-header (kfe-lang/current-language) kfe-lang/set-language size))

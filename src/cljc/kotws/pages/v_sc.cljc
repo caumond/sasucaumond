@@ -1,6 +1,7 @@
 (ns kotws.pages.v-sc
   (:require [kotws.lang :as klang]
             [kotws.links :as klinks]
+            [kotws.components.v-space :as kvspace]
             [kotws.components.v-headered-list :as kvheadered-list]))
 
 (def dic
@@ -251,5 +252,5 @@ l'intégration de la sous traitance dans les sociétés du group en prenant en c
                                               klinks/image-link
                                               klinks/external-link)]
     [:<> [:h1.text (current-tr :sc-title)] [:div.text (current-tr :intro)]
-     [:p ""] [:div.text (current-tr :intro-2)]
+     [kvspace/vertical-spacing]
      [kvheadered-list/detailed-list (get sc-steps l) :small] [:p ""]]))

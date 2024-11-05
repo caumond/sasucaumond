@@ -4,7 +4,8 @@
             [kotws.fe-language :as kfe-lang]))
 
 (defn c-footer
-  []
+  [size]
   (kfooter/v-footer (kfe-lang/current-language)
                     (-> (js/Date.)
-                        .getFullYear)))
+                        .getFullYear)
+                    size))

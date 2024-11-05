@@ -8,10 +8,15 @@ h1,h2,h3,h4,h5,h6,p,div,li,ul{
   user-select: none; /* Standard syntax */
 }
 
-.text, .detailed-list li, .detailed-list p{
+.text *, .text, .detailed-list li, .detailed-list p{
   -webkit-user-select: text; /* Safari */
   -ms-user-select: text; /* IE 10 and IE 11 */
   user-select: text; /* Standard syntax */
+}
+
+body
+{
+  min-height: 100vh;
 }
 
 a:link, a:visited, a:hover, a:active {text-decoration: none;}
