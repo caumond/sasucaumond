@@ -16,9 +16,10 @@
         width (ksizes/predefined-size width-kw)
         min-width (ksizes/min-size width-kw)]
     [klinks/a href-link
-     [:div.w3-center (when class {:class class})
+     [:div.w3-center
       [:img.w3-image
        (assoc (klinks/img-meta img-link)
+         :class class
          :style (assoc (if (and (some? width-kw) (not= width-kw :full))
                          {:max-width width, :width "80%", :min-width min-width}
                          {:width "100%"})
@@ -33,6 +34,17 @@
   * `width-kw` width of the picture"
   [img-link href-link label width-kw]
   (v-labelled-image img-link href-link label width-kw ""))
+
+(defn labelled-image-circle
+  "Display an image with a label.
+
+  * `img-link` is where the image is stored
+  * `href-link` where click will lead to, could be nil
+  * `label` text to display below the image.
+  * `width-kw` width of the picture"
+  [img-link href-link label width-kw]
+  (v-labelled-image img-link href-link label width-kw "w3-circle"))
+
 
 (defn card-image
   "Display an image with a label, rounded with a card.

@@ -25,6 +25,8 @@
 (def items
   {:header-image {:fr {:img-link :anthony, :href-link :home},
                   :en {:img-link :sasu-caumond, :href-link :home}},
+   :header-image-dark {:fr {:img-link :anthony, :href-link :home},
+                       :en {:img-link :sasu-caumond-dark, :href-link :home}},
    :bottom-line-header "Anthony CAUMOND",
    :bottom-line {:founder {:fa-icon "fa-diamond"},
                  :it {:fa-icon "fa-code"},
@@ -36,7 +38,6 @@
                      :href {:url "mailto:anthony@caumond.com"},
                      :label "Mail"},
               :slack {:fa-icon "fa-slack", :label "Slack"},
-              :malt {:label "Malt"},
               :git-hub {:fa-icon "fa-github", :label "Github"}},
    :left-menu-header :content-title,
    :left-menu {:marked :menu?}})
@@ -59,6 +60,12 @@
         (fn [{:keys [marked], :or {marked :left-menu?}}]
           (-> (filterv (comp marked second) kpages/pages)
               (kvlists/defaulting tr klinks/route-links klang/possible-langs))))
+      (update :header-image-dark
+              (fn [link]
+                (update-vals link
+                             #(-> %
+                                  (update :img-link klinks/image-link)
+                                  (update :href-link klinks/route-links)))))
       (update :header-image
               (fn [link]
                 (update-vals link
@@ -70,10 +77,14 @@
 
 (defn v-left
   [l]
-  (let [{:keys [bottom-line contacts left-menu header-image left-menu-header
-                contacts-header bottom-line-header]}
+  (let [{:keys [bottom-line contacts left-menu header-image header-image-dark
+                left-menu-header contacts-header bottom-line-header]}
           (defaulting items tr)]
-    [:<> [kvlang/vclabelled-image l header-image]
+    [:<>
+     [:span.adaptative.hidden-dark
+      [kvlang/vclabelled-rounded-image l header-image nil :full]]
+     [:span.adaptative.hidden-light
+      [kvlang/vclabelled-rounded-image l header-image-dark nil :full]]
      [:div.w3-left-align
       [kvlists/one-per-row bottom-line-header (get bottom-line l)]
       [kvlists/small-buttons (get contacts-header l) (get contacts l)]

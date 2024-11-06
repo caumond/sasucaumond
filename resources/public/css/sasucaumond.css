@@ -27,8 +27,12 @@ h1,h2,h3,h4,h5,h6 {color: #757575!important;}
 .light-bg {background-color: #f8f8f8!important;}
 .secondary-text{color: #FFF}
 .primary-text{color: #000}
+.hidden-light{display: none;}
+.hidden-dark{display: block;}
 
 @media (prefers-color-scheme: dark) {
+.hidden-light{display: block;}
+.hidden-dark{display: none;}
 h1,h2,h3,h4,h5,h6.adaptative {color: #888!important;}
 .primary-bg.adaptative {background-color: #292929!important;}
 .secondary-bg.adaptative {background-color: #616161!important;}

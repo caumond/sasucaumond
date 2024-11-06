@@ -26,3 +26,16 @@
   ([l doc-links label size]
    (let [{:keys [img-link href-link]} (get doc-links l)]
      [vclabelled-image/labelled-image img-link href-link label size])))
+
+(defn vclabelled-rounded-image
+  "Show an image based on a language.
+
+  * `l` is the language to display
+  * ` doc-links` contains two keys
+     * `img-link` what is shown
+     * `href-link` destination link when actioned"
+  ([l doc-links] (vclabelled-image l doc-links nil))
+  ([l doc-links label] (vclabelled-image l doc-links label :medium))
+  ([l doc-links label size]
+   (let [{:keys [img-link href-link]} (get doc-links l)]
+     [vclabelled-image/labelled-image-circle img-link href-link label size])))

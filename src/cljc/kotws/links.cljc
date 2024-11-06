@@ -71,7 +71,7 @@
 (def ^:private image-links-data
   {:apics {:filename "cpim.png"},
    :archi {:filename "archi.png"},
-   :anthony {:filename "anthonycaumond_nobg.png", :alt "Anthony's picture"},
+   :anthony {:filename "anthonycaumond.jpg", :alt "Anthony's picture"},
    :babashka {:filename "babashka.png"},
    :bcoo {:filename "bcoo.png"},
    :caumond-resume {:filename "caumond_resume.png"},
@@ -113,6 +113,7 @@
    :psa {:filename "psa.png"},
    :re-frame {:filename "re_frame.png"},
    :sasu-caumond {:filename "sasu_caumond.png"},
+   :sasu-caumond-dark {:filename "sasu_caumond_dark.png"},
    :sc {:filename "sc.png"},
    :storrito {:filename "storrito.png"},
    :software-purchasing {:filename "software_purchasing.png"},
