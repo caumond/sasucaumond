@@ -18,3 +18,11 @@
   The `default` is used if not found, otherwise nil is returned."
   ([dic l k] (tr dic l k nil))
   ([dic l k default] (get-in dic [k l] default)))
+
+(defn is-complete?
+  "Check if all elements have both all languages"
+  [dic langs]
+  (let [langs (set langs)]
+    (->> dic
+         (filter (fn [[_k dic-entry]] (not= langs (set (keys dic-entry)))))
+         (into {}))))

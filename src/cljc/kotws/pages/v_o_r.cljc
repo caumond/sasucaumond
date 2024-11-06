@@ -1,7 +1,8 @@
 (ns kotws.pages.v-o-r
   (:require [kotws.lang :as klang]
             [kotws.links :as klinks]
-            [kotws.components.v-headered-list :as kvheadered-list]))
+            [kotws.components.v-headered-list :as kvheadered-list]
+            [kotws.components.v-space :as kvspace]))
 
 (def dic
   {:founder {:fr "Recherche opérationnelle", :en "Operations Research"},
@@ -115,8 +116,12 @@
 
 (def items
   [[:hephaistox {}] [:tissue-tactical-planning {}] [:drp {}] [:cor-time-lag {}]
-   [:ejor-transport {}] [:phd {}] [:smpp {:img-url :tire}] [:forge-workshop {}]
-   [:cpferv {:img-url :psa}] [:isima {}]])
+   [:ejor-transport {}]
+   [:phd
+    {:start-date "01/09/2001",
+     :end-date "01/09/2006",
+     :company "Université Blaise Pascale"}] [:smpp {:img-url :tire}]
+   [:forge-workshop {}] [:cpferv {:img-url :psa}] [:isima {}]])
 
 (def tr (partial klang/tr dic))
 
@@ -128,5 +133,5 @@
                                                    klinks/image-link
                                                    klinks/external-link)]
     [:<> [:h1.text (current-tr :founder)] [:div.text (current-tr :intro)]
-     [:p ""] [:div.text (current-tr :intro-2)] [:p ""]
-     [kvheadered-list/detailed-list (get founder-steps l) :small] [:p ""]]))
+     [:div.text (current-tr :intro-2)] [kvspace/vertical-spacing]
+     [kvheadered-list/detailed-list (get founder-steps l) :small]]))

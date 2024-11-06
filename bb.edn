@@ -2,7 +2,8 @@
  :tasks
    {-env-dev {:depends [repl-clj repl-cljs]},
     :init (def dir "target/production"),
-    build-uberjar {:doc "Build an uberjar",
+    build-uberjar {:depends [clean],
+                   :doc "Build an uberjar",
                    :task (do (println "Build production uberjar")
                              (shell "npx shadow-cljs release app")
                              (shell "clj -T:uberjar")
@@ -13,6 +14,11 @@
                                     {:dir dir})
                              (shell "git add ." {:dir dir})
                              (shell "git commit -m \"auto\"" {:dir dir}))},
+    clean {:doc "Remove temporary build files",
+           :task (do (println "Temporary build files in progress")
+                     (shell "rm -fr target")
+                     (shell "rm -f .DS_Store")
+                     (shell "rm -fr resources/public/js/compiled"))},
     deploy {:depends [build-uberjar],
             :doc "Build and deploy",
             :task (shell "git push --force -u clever master" {:dir dir})},
@@ -43,10 +49,12 @@
              (println
                "Setup this environment variable SASU_CAUMOND_PROD_REPO to be able to push to production")
              (println "Ready to push to production")))},
-    env-dev {:doc "Prepare dev environment (both repls and css).",
+    env-dev {:depends [clean],
+             :doc "Prepare dev environment (both repls and css).",
              :task (run '-env-dev {:parallel true})},
     env-prod
-      {:doc "Compile frontend and backend in production mode and start it",
+      {:depends [clean],
+       :doc "Compile frontend and backend in production mode and start it",
        :task (do (shell "npx shadow-cljs release app") (shell "clj -X:prod"))},
     repl-clj {:doc "Start REPL", :task (shell "clj -X:repl")},
     repl-cljs {:doc "Starts cljs REPL",

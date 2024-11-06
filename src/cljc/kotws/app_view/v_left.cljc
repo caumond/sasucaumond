@@ -3,6 +3,7 @@
   (:require [kotws.lang :as klang]
             [kotws.components.v-labelled-image :as kvlabelled-image]
             [kotws.components.single :as ksingle]
+            [kotws.components.v-space :as kvspace]
             [kotws.links :as klinks]
             [kotws.pages :as kpages]
             [kotws.components.v-lists :as kvlists]))
@@ -32,9 +33,10 @@
    :contacts-header :contact,
    :contacts {:linkedin {:fa-icon "fa-linkedin", :label "Linkedin"},
               :mail {:fa-icon "fa-envelope-open",
-                     :href "mailto:anthony@caumond.com",
+                     :href {:url "mailto:anthony@caumond.com"},
                      :label "Mail"},
               :slack {:fa-icon "fa-slack", :label "Slack"},
+              :malt {:label "Malt"},
               :git-hub {:fa-icon "fa-github", :label "Github"}},
    :left-menu-header :content-title,
    :left-menu {:marked :menu?}})
@@ -71,5 +73,6 @@
       (klinks/route-link header-link) nil :full]
      [:div.w3-left-align
       [kvlists/one-per-row bottom-line-header (get bottom-line l)]
-      (kvlists/small-buttons (get contacts-header l) (get contacts l))
-      [kvlists/one-per-row (get left-menu-header l) (get left-menu l)] [:p ""]]]))
+      [kvlists/small-buttons (get contacts-header l) (get contacts l)]
+      [kvlists/one-per-row (get left-menu-header l) (get left-menu l)]
+      [kvspace/vertical-spacing]]]))

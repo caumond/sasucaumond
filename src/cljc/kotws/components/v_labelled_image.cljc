@@ -1,6 +1,7 @@
 (ns kotws.components.v-labelled-image
   "Display an image with predefined images and optional label."
-  (:require [kotws.components.sizes :as ksizes]))
+  (:require [kotws.components.sizes :as ksizes]
+            [kotws.links :as klinks]))
 
 (defn- v-labelled-image
   "Display an image with a label.
@@ -13,18 +14,15 @@
   [img-link href-link label width-kw class]
   (let [href-link (if (map? href-link) href-link {})
         width (ksizes/predefined-size width-kw)
-        min-width (ksizes/min-size width-kw)
-        {src :url, alt :alt, :or {src "images/no_image.png"}} img-link
-        {href :url} href-link]
-    [:a {:href href}
+        min-width (ksizes/min-size width-kw)]
+    [klinks/a href-link
      [:div.w3-center (when class {:class class})
       [:img.w3-image
-       {:src src,
-        :alt alt,
-        :style (assoc (if (and (some? width-kw) (not= width-kw :full))
-                        {:max-width width, :width "80%", :min-width min-width}
-                        {:width "100%"})
-                 :pointer-events "none")}] (when label [:p.w3-small label])]]))
+       (assoc (klinks/img-meta img-link)
+         :style (assoc (if (and (some? width-kw) (not= width-kw :full))
+                         {:max-width width, :width "80%", :min-width min-width}
+                         {:width "100%"})
+                  :pointer-events "none"))] (when label [:p.w3-small label])]]))
 
 (defn labelled-image
   "Display an image with a label.
@@ -55,3 +53,20 @@
   * `width-kw` width of the picture"
   [img-link href-link label width-kw]
   (v-labelled-image img-link href-link label width-kw "w3-container"))
+
+(defn icon-image
+  "Display an image to match other icons"
+  [img-link href-link]
+  (let [href-link (if (map? href-link) href-link {})
+        width (ksizes/predefined-size :icon)]
+    [klinks/a href-link
+     [:img.w3-image
+      (assoc (klinks/img-meta img-link)
+        :style {:max-width width,
+                :width width,
+                :min-width width,
+                :margin-block-start "1em",
+                :margin-block-end "1em",
+                :margin-inline-start "0px",
+                :margin-inline-end "0px",
+                :unicode-bidi "isolate"})]]))

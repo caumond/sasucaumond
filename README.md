@@ -103,10 +103,8 @@ Check regularly and manually w3.css for [updates](https://www.w3schools.com/w3cs
 
 The next features missing are:
 
-* Check how the website present on wide screens
 * Add top anchor
 * Add npm, git, clj presence in the doctor
 * Add training I was teacher of
 * Add blogs
 * Add SASU mission
-* Language should be stored in the uri when language is clicked.

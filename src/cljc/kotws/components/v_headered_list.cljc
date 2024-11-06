@@ -3,7 +3,10 @@
   (:require [kotws.components.v-labelled-image :as kvlabelled-image]
             [kotws.lang :as klang]
             [kotws.components.items :as kcitems]
-            [kotws.components.sizes :as ksizes]))
+            [kotws.components.v-space :as kv-space]
+            [kotws.components.sizes :as ksizes]
+            [kotws.links :as klinks]
+            [clojure.string :as str]))
 
 (defn defaulting
   "Default items with `img-url`, `href`, `label` `desc`, `long-desc`"
@@ -54,12 +57,16 @@
                          (when img-url
                            [kvlabelled-image/labelled-image img-url href ""
                             image-width-kw])] [:td]
-                        [:td [:a {:href (:url href)} [:h1.text label]]
+                        [:td (klinks/a href [:h1.text label])
                          [:div.w3-centered.w3-hide-large
                           {:style {:max-width actual-size, :width actual-size}}
                           (when img-url
                             [kvlabelled-image/labelled-image img-url href ""
                              image-width-kw])]
-                         [:p.w3-panel.w3-leftbar.text.light-bg.adaptative desc]
-                         (when long-desc [:p.text long-desc])]]))
+                         (when-not (str/blank? desc)
+                           [:div.w3-row-padding
+                            [:div.w3-panel.w3-leftbar.text.light-bg.adaptative
+                             desc]])
+                         (when-not (str/blank? long-desc) [:div.text long-desc])
+                         [kv-space/vertical-spacing]]]))
          [:tbody]))]))

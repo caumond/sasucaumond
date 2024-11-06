@@ -1,6 +1,7 @@
 (ns kotws.fe-language
   "Frontend language."
   (:require [kotws.subs :as subs]
+            [kotws.local-storage :as klocal-storage]
             [kotws.events :as events]
             [re-frame.core :as rf]))
 
@@ -9,7 +10,10 @@
   []
   @(rf/subscribe [::subs/language]))
 
-(defn set-language [l] (rf/dispatch [::events/change-language l]))
+(defn set-language
+  [l]
+  (klocal-storage/set-item! :lang (name l))
+  (rf/dispatch [::events/change-language l]))
 
 (defn tr
   "Translate the key `k` based on `dic` entries.

@@ -5,11 +5,10 @@
   [langs current-lang switch-lang]
   (reduce (fn [hiccup lang]
             (conj hiccup
-                  [:a.w3-right
+                  [:button.w3-button.w3-right
                    (cond-> {}
                      (= current-lang lang) (assoc :class
                                              "secondary-bg secondary-text")
-                     switch-lang (assoc :on-click #(switch-lang lang)))
-                   [:button.w3-button lang]]))
-    [:div.w3-bar]
+                     switch-lang (assoc :on-click #(switch-lang lang))) lang]))
+    [:<>]
     langs))
