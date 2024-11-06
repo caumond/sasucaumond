@@ -22,6 +22,7 @@
      * `img-link` what is shown
      * `href-link` destination link when actioned"
   ([l doc-links] (vclabelled-image l doc-links nil))
-  ([l doc-links label]
+  ([l doc-links label] (vclabelled-image l doc-links label :medium))
+  ([l doc-links label size]
    (let [{:keys [img-link href-link]} (get doc-links l)]
-     [vclabelled-image/labelled-image img-link href-link label :medium])))
+     [vclabelled-image/labelled-image img-link href-link label size])))

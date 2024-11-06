@@ -1,8 +1,8 @@
 (ns kotws.app-view.v-left
   "Left panel presents the menu, a picture of me when on wide screen mode, and the social links, with the source code link."
   (:require [kotws.lang :as klang]
-            [kotws.components.v-labelled-image :as kvlabelled-image]
             [kotws.components.single :as ksingle]
+            [kotws.components.v-lang :as kvlang]
             [kotws.components.v-space :as kvspace]
             [kotws.links :as klinks]
             [kotws.pages :as kpages]
@@ -23,8 +23,8 @@
    :tech-stack-label {:en "Tech stack", :fr "Stack technique"}})
 
 (def items
-  {:header-image :anthony,
-   :header-link :home,
+  {:header-image {:fr {:img-link :anthony, :href-link :home},
+                  :en {:img-link :sasu-caumond, :href-link :home}},
    :bottom-line-header "Anthony CAUMOND",
    :bottom-line {:founder {:fa-icon "fa-diamond"},
                  :it {:fa-icon "fa-code"},
@@ -59,18 +59,21 @@
         (fn [{:keys [marked], :or {marked :left-menu?}}]
           (-> (filterv (comp marked second) kpages/pages)
               (kvlists/defaulting tr klinks/route-links klang/possible-langs))))
-      (update :header-image klinks/image-link)))
+      (update :header-image
+              (fn [link]
+                (update-vals link
+                             #(-> %
+                                  (update :img-link klinks/image-link)
+                                  (update :href-link klinks/route-links)))))))
 
 (def defaulting* (memoize defaulting))
 
 (defn v-left
   [l]
-  (let [{:keys [bottom-line contacts left-menu header-image header-link
-                left-menu-header contacts-header bottom-line-header]}
-          (defaulting* items tr)]
-    [:<>
-     [kvlabelled-image/labelled-image header-image
-      (klinks/route-link header-link) nil :full]
+  (let [{:keys [bottom-line contacts left-menu header-image left-menu-header
+                contacts-header bottom-line-header]}
+          (defaulting items tr)]
+    [:<> [kvlang/vclabelled-image l header-image]
      [:div.w3-left-align
       [kvlists/one-per-row bottom-line-header (get bottom-line l)]
       [kvlists/small-buttons (get contacts-header l) (get contacts l)]
