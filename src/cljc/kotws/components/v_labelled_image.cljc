@@ -43,7 +43,7 @@
   * `label` text to display below the image.
   * `width-kw` width of the picture"
   [img-link href-link label width-kw]
-  (v-labelled-image img-link href-link label width-kw "w3-circle"))
+  (v-labelled-image img-link href-link label width-kw "w3-round-xxlarge"))
 
 
 (defn card-image
