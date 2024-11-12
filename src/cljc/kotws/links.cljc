@@ -7,6 +7,8 @@
 
 (def site-url "" #_"https://caumond.fr/")
 
+(defn add-site [url] (str "https://caumond.fr/" url))
+
 (def ^:private external-links-data
   {:apics "https://www.afrscm.fr/762_p_44059/cpim.html",
    :babashka "https://github.com/babashka/babashka#installation",
@@ -41,10 +43,10 @@
      "https://www.isima.fr/formations/formation-ingenieur/f3-systemes-dinformation-et-aide-a-la-decision/",
    :jewelry-ecommerce
      "https://web.archive.org/web/20060614232036/http:/www.bijouteriecaumond.fr/",
-   :linkedin "https://www.linkedin.com/in/anthony-caumond-a365b15/",
+   :linkedin "http://www.linkedin.com/in/anthony-caumond-a365b15/",
    :make-or-buy-optimization
      "https://www.investopedia.com/terms/m/make-or-buy-decision.asp",
-   :malt "https://www.malt.fr/profile/anthonycaumond?overview",
+   :malt "http://www.malt.fr/profile/anthonycaumond?overview",
    :phd "https://tel.archives-ouvertes.fr/tel-00713587/document",
    :platform-revolution "https://wwnorton.com/books/Platform-Revolution",
    :plm "https://fr.wikipedia.org/wiki/Gestion_du_cycle_de_vie_(produit)",
@@ -57,7 +59,7 @@
    :seb "https://videos.confluent.io/watch/Uny8xop6vWZut5Hb5CaNpA?",
    :software-purchasing
      "https://www.strategieslogistique.com/Michelin-ameliore-son-S-OP-avec",
-   :storrito "http://www.storrito.com",
+   :storrito "http://storrito.com",
    :upstream-ope
      "https://www.usinenouvelle.com/article/michelin-veut-reduire-ses-frais-generaux-de-500-millions-d-euros-d-ici-2020.N396442",
    :w3-css "https://www.w3schools.com/w3css/default.asp",
@@ -65,7 +67,7 @@
      "https://www.w3schools.com/w3css/tryw3css_templates_portfolio.htm",
    :web-caumond-archive
      "https://web.archive.org/web/20060614232036/http:/www.bijouteriecaumond.fr/",
-   :togaf "docs/togaf.pdf",
+   :togaf "http://caumond.com/docs/togaf.pdf",
    :z80 "https://en.wikipedia.org/wiki/Zilog_Z80"})
 
 (def ^:private image-links-data
@@ -131,6 +133,7 @@
 (def external-links
   (-> (map (fn [[link-name external-link]] [link-name
                                             {:url external-link,
+                                             :absolute-url external-link,
                                              :target "blank",
                                              :type :external-url}])
            external-links-data)
@@ -164,9 +167,11 @@
   (-> image-links-data
       (ksubmap/add-key :name)
       (update-vals (fn [{:keys [filename], :as image-link}]
-                     (assoc image-link
-                       :type :image-link
-                       :url (str site-url "images/" filename))))))
+                     (let [url (str site-url "images/" filename)]
+                       (assoc image-link
+                         :absolute-url (add-site url)
+                         :type :image-link
+                         :url url))))))
 
 (defn image-link
   "The image `url` matching `kw`"
@@ -177,13 +182,19 @@
   (-> doc-links-data
       (ksubmap/add-key :name)
       (update-vals (fn [{:keys [filename], :as doc-link}]
-                     (assoc doc-link
-                       :type :doc-link
-                       :url (str "docs/" filename))))))
+                     (let [url (str "docs/" filename)]
+                       (assoc doc-link
+                         :type :doc-link
+                         :absolute-url (add-site url)
+                         :url url))))))
 
 (defn doc-link [kw] (if (keyword? kw) (get doc-links kw) kw))
 
-(def route-links kpages/pages)
+(def route-links
+  (-> kpages/pages
+      (update-vals (fn [{:keys [url], :as route-link}]
+                     (-> route-link
+                         (assoc :absolute-url (add-site url)))))))
 
 (defn route-link
   "The route `url` matching `kw`"

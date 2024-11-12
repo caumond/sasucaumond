@@ -30,25 +30,48 @@
                   [clojure.string :as str]
                   [kotws.links :as klinks]),
        :task
-         (let [r (->> klinks/all-links
-                      (mapv (fn [{:keys [url], :as tested-url}]
-                              (print "testing " (pr-str (:url tested-url)))
-                              (try (let [content (http/get url)
-                                         valid? (= 200 (:status content))]
+         (do
+           (println "Testing:")
+           (let [r (->> klinks/all-links
+                        (pmap
+                          (fn [{:keys [absolute-url name], :as tested-url}]
+                            (let [s (pr-str name)]
+                              (try (let [content (http/get absolute-url)
+                                         valid? (contains? #{301 200}
+                                                           (:status content))]
                                      (if valid?
-                                       (println " -> ok")
-                                       (println " -> ko"))
+                                       (print (str s ", "))
+                                       (print (str
+                                                "\u001b[41m"
+                                                s
+                                                "\u001b[0m"
+                                                ", found= "
+                                                (subs (:status content) 1 10))))
                                      (merge tested-url
                                             (dissoc content :uri)
                                             {:valid? valid?}))
                                    (catch Exception e
-                                     (println " -> ko")
-                                     (assoc tested-url :exception url))))))]
-           (println "Errors: " (mapv :name (remove :valid? r)))
-           (if (nil? (System/getenv "SASU_CAUMOND_PROD_REPO"))
+                                     (println (str "\u001b[41m" s "\u001b[0m")
+                                              " -> exception")
+                                     (assoc tested-url
+                                       :exception e
+                                       :url absolute-url))))))
+                        vec)]
+             (println)
              (println
-               "Setup this environment variable SASU_CAUMOND_PROD_REPO to be able to push to production")
-             (println "Ready to push to production")))},
+               "********************************************************************************")
+             (println "As a synthesis, failed to load :")
+             (doseq [link r]
+               (when-not (:valid? link)
+                 (println "* "
+                          (:absolute-url link)
+                          ", found "
+                          (:status link)
+                          (keys link))))
+             (if (nil? (System/getenv "SASU_CAUMOND_PROD_REPO"))
+               (println
+                 "Setup this environment variable SASU_CAUMOND_PROD_REPO to be able to push to production")
+               (println "Ready to push to production"))))},
     env-dev {:depends [clean],
              :doc "Prepare dev environment (both repls and css).",
              :task (run '-env-dev {:parallel true})},
