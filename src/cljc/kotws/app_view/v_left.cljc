@@ -19,6 +19,7 @@
    :sc-label {:en "Industry / Supply Chain",
               :fr "Industrie / Chaîne logistique"},
    :content-title {:en "Contents", :fr "Contenus"},
+   :teaching-label {:en "Teaching", :fr "Enseignement"},
    :home-label {:en "Home", :fr "Accueil"},
    :tech-stack-label {:en "Tech stack", :fr "Stack technique"}})
 

@@ -3,6 +3,7 @@
             [kotws.pages.c-about :refer [about]]
             [kotws.pages.c-biblio :refer [biblio]]
             [kotws.pages.c-it :refer [it]]
+            [kotws.pages.c-teaching :refer [teaching]]
             [kotws.pages.c-o-r :refer [o-r]]
             [kotws.pages :as kpages]
             [kotws.pages.c-sc :refer [sc]]
@@ -18,6 +19,7 @@
    :home [home],
    :or [o-r],
    :sc [sc],
+   :teaching [teaching],
    :tech-stack [tech-stack]})
 
 (defn check-route
@@ -28,7 +30,7 @@
     (when-not (= defined-routes defined-pages)
       (let [page-wo-route (set/difference defined-pages defined-routes)
             route-wo-page (set/difference defined-routes defined-pages)]
-        (js/console.log "Error: routes are ko, see errors below:")
+        (js/console.error "Error: routes are ko, see errors below:")
         (when-not (empty? page-wo-route)
           (js/console.log "Page without route" (pr-str page-wo-route)))
         (when-not (empty? route-wo-page)
