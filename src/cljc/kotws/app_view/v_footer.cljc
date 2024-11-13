@@ -18,7 +18,7 @@
      {:style {:height size}}
      [:div.w3-right
       [kvlabelled-image/raw-image (klinks/image-link :git-hub)
-       (klinks/external-link :sasu-caumond) (tr :see-on-gh) :tiny]]
+       (klinks/external-link :sasu-caumond) (tr :see-on-gh) :small]]
      [:div.w3-display-bottommiddle
       [:div (tr :copyright) (str " © " year " Caumond - ")
        (tr :rights-assertion)] [:div " "]

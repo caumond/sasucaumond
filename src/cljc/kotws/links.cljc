@@ -121,6 +121,7 @@
    :software-purchasing {:filename "software_purchasing.png"},
    :tire {:filename "tires.png"},
    :tissue-tactical-planning {:filename "graduation_cap.png"},
+   :teaching {:filename "graduation_cap.png"},
    :upstream-ope {:filename "ope_upstream.jpg"},
    :web-caumond {:filename "web_caumond.png"},
    :z80 {:filename "z80_chipset.png"}})

@@ -9,9 +9,9 @@
      {:fr
         [:div [:h2 "500 heures+"]
          [:p
-          "J'ai commencé 'enseignement comme un complément naturel à la recherche, et je me suis pris au jeu et apprécier: expliquer, coacher, faire du mentoring, j'ai eu plusieurs occasions de développer ces compétences et j'en ai tiré plus de plaisir que ce à quoi je m'attendais."]
+          "J'ai commencé 'enseignement comme un complément naturel à la recherche, et je me suis pris au jeu et j'ai apprécié: expliquer, coacher, faire du mentoring, j'ai eu plusieurs occasions de développer ces compétences et j'en ai tiré plus de plaisir que ce à quoi je m'attendais."]
          [:p
-          "La plupart de ces expériences ont été complétées avec des encadrements de projets, stages, examens, orientations, recommendations, ... (NB 2001 signifie septembre 2001 - Juin 2002.). Les heures de cours sont exprimées en équivalent TD."]],
+          "La plupart de ces expériences ont été complétées avec des encadrements de projets, stages, examens, orientations, recommandations, ... (NB 2001 signifie septembre 2001 - Juin 2002.). Les heures de cours sont exprimées en équivalent TD."]],
       :en
         [:div [:h2 "500+ hours"]
          [:p
@@ -19,7 +19,7 @@
          [:p
           "Most of these experiences were completed with project supervision, internships, exams, orientations, recommendations, ... (NB 2001 means September 2001 - June 2002.). The course hours are expressed in TD equivalent."]]},
    :vacataire-2001 {:fr "Vacataire pendant le DEA",
-                    :en "Temporary Worker during master's degree in reasearch"},
+                    :en "Temporary Worker during master's degree in research"},
    :vacataire-2001-desc
      {:fr "2001-2002, Université Blaise Pascal et Université d'Auvergne",
       :en "2001-2002, Blaise Pascal University and University of Auvergne"},
@@ -58,7 +58,7 @@
           [:li
            "48 heures d'ADA - langage fort types utilisés par `DOD - Department Of Defense` - deux années - Licence MIAS"]
           [:li
-           "13 heures de processus stochastiques (modélisation avec QNAP de files d'attentes, de chaînes de markov, de modèles de simulations, ...) - Maitrîse MIAS"]
+           "13 heures de processus stochastiques (modélisation avec QNAP de files d'attentes, de chaînes de markov, de modèles de simulations, ...) - Maîtrise MIAS"]
           [:li "46 heures - C++ et programmation objets - Licence MIAS"]
           [:li
            "5 heures - Simulation à événements discrets - deux années - Maîtrise MIAS"]]],
@@ -69,10 +69,10 @@
           [:li
            "48 hours of ADA - strong language types used by `DOD - Department Of Defense` - two years - MIAS License"]
           [:li
-           "13 hours of stochastic processes (modeling with QNAP of queues, markov chains, simulation models, ...) - MIAS Mastery"]
+           "13 hours of stochastic processes (modeling with QNAP of queues, markov chains, simulation models, ...) - MIAS Master"]
           [:li "46 hours - C++ and object programming - MIAS License"]
           [:li
-           "5 hours - Discrete event simulation - two years - MIAS Mastery"]]]},
+           "5 hours - Discrete event simulation - two years - MIAS Master"]]]},
    :ater {:fr "Attaché temporaire enseignement et recherche",
           :en "`ATER` - 1 year temporary position"},
    :ater-desc {:fr "2005 - 2006 - Université Blaise Pascal",
@@ -84,7 +84,7 @@
           "L'ATER est un poste temporaire, comme un CDD pour un enseignant chercheur."]
          [:ul
           [:li
-           "13 heures de processus stochastiques (modélisation avec QNAP de files d'attentes, de chaînes de markov, de modèles de simulations, ...) - Maitrîse MIAS"]
+           "13 heures de processus stochastiques (modélisation avec QNAP de files d'attentes, de chaînes de markov, de modèles de simulations, ...) - Maîtrise MIAS"]
           [:li "61 heures - C++ et programmation objets - Licence MIAS"]
           [:li "7 heures - Probabilité et statistiques - Licence MIAS"]
           [:li "16 heures - Programmation avancée - Licence MIAS"]
@@ -95,11 +95,11 @@
           "The ATER is a temporary position, like a fixed-term contract for a teacher-researcher."]
          [:ul
           [:li
-           "13 hours of stochastic processes (modeling with QNAP of queues, Markov chains, simulation models, etc.) - MIAS Mastery"]
+           "13 hours of stochastic processes (modeling with QNAP of queues, Markov chains, simulation models, etc.) - MIAS Master"]
           [:li "61 hours - C++ and object programming - MIAS Degree"]
           [:li "7 hours - Probability and statistics - MIAS Degree"]
           [:li "16 hours - Advanced programming - MIAS Degree"]
-          [:li "6 hours - Resolution tools and methods - MIAS Mastery"]]]},
+          [:li "6 hours - Resolution tools and methods - MIAS Master"]]]},
    :pp-training {:fr "Formation en planification de production",
                  :en "Training in production planning"},
    :pp-training-desc {:fr "2007 - Michelin", :en "2007 - Michelin"},
@@ -133,7 +133,7 @@
           [:li
            "30 hours - Understanding IT jobs. Overview of possible jobs and preparation for deciphering ads."]
           [:li
-           "40 hours - Understanding big data/nosql databases, their differences with relational databases. Theory on relational, graph-oriented, column-oriented databases. Practical case, two practical exercises per technology: Mongo, Neo4j, Redis, Oracle NoSQL"]]]}})
+           "40 hours - Understanding big data/nosql databases, their differences with relational databases. Theory on relational, graph-oriented, column-oriented databases. Some pratical work in two session for each technology: Mongo, Neo4j, Redis, Oracle NoSQL"]]]}})
 
 (def items
   [[:vacataire-2001] [:moniteur] [:ater] [:pp-training] [:vacataire-sc]
