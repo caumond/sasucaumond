@@ -18,6 +18,7 @@
    :or-label {:en "Operations Research", :fr "Recherche opérationnelle"},
    :sc-label {:en "Industry / Supply Chain",
               :fr "Industrie / Chaîne logistique"},
+   :this-website-label {:en "This website", :fr "Ce site"},
    :content-title {:en "Contents", :fr "Contenus"},
    :teaching-label {:en "Teaching", :fr "Enseignement"},
    :home-label {:en "Home", :fr "Accueil"},

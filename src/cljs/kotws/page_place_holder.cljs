@@ -6,6 +6,7 @@
             [kotws.pages.c-teaching :refer [teaching]]
             [kotws.pages.c-o-r :refer [o-r]]
             [kotws.pages :as kpages]
+            [kotws.blogs.c-this-website :refer [this-website]]
             [kotws.pages.c-sc :refer [sc]]
             [kotws.pages.c-tech-stack :refer [tech-stack]]
             [kotws.pages.c-founder :refer [founder]]
@@ -19,6 +20,7 @@
    :home [home],
    :or [o-r],
    :sc [sc],
+   :this-website [this-website],
    :teaching [teaching],
    :tech-stack [tech-stack]})
 

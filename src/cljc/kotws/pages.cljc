@@ -13,6 +13,7 @@
        :or {:uri "/or"},
        :sc {:uri "/sc"},
        :teaching {:uri "/teaching", :menu? true, :fa-icon "fa-university"},
+       :this-website {:uri "/this-website", :menu? true, :fa-icon "fa-globe"},
        :about {:fa-icon "fa-user", :uri "/about", :menu? true}}
       (ksubmap/add-key :name)
       (update-vals add-url)))
