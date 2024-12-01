@@ -54,7 +54,7 @@
         #(kvlists/defaulting % tr klinks/route-links klang/possible-langs))
       (update
         :contacts
-        #(kvlists/defaulting % tr klinks/external-links klang/possible-langs))
+        #(kvlists/defaulting % tr klinks/external-link klang/possible-langs))
       (update :contacts-header ksingle/translate klang/possible-langs tr)
       (update :left-menu-header ksingle/translate klang/possible-langs tr)
       (update

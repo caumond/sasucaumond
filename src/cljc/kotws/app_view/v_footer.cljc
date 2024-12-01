@@ -15,7 +15,7 @@
   [l year size]
   (let [tr (partial tr l)]
     [:footer.w3-row.secondary-bg.w3-display-container.secondary-text.adaptative.w3-center
-     {:style {:height size}}
+     {:style {:height size, :min-height "10em"}}
      [:div.w3-right
       [kvlabelled-image/raw-image (klinks/image-link :git-hub)
        (klinks/external-link :sasu-caumond) (tr :see-on-gh) :small]]

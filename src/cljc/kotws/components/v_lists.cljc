@@ -50,14 +50,16 @@
   * `items` ordered list of maps (fa-icon label and href)."
   [title items]
   (reduce (fn [hiccup {:keys [fa-icon href label image], :as item}]
+            (println "href:" href "-" fa-icon)
             (conj hiccup
                   (when (seq item)
                     [:div.w3-tooltip.w3-button.w3-hover-opacity
                      {:style {:overflow "visible"}}
                      (if fa-icon
-                       [:p.fa
-                        (cond-> {:class fa-icon}
-                          href (update :class #(str "w3-hover-opacity " %)))]
+                       [klinks/a href
+                        [:p.fa
+                         (cond-> {:class fa-icon}
+                           href (update :class #(str "w3-hover-opacity " %)))]]
                        [kvlabelled-image/icon-image image href])
                      [:div.w3-text.w3-tag
                       {:style
